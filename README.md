@@ -13,10 +13,10 @@
 * **Code:** https://github.com/tgstation/tgstation
 * **Wiki:** https://tgstation13.org/wiki/Main_Page
 * **Codedocs:** https://skyrat-ss13.github.io/Skyrat-tg/
-* **Skyrat 13 Discord:** https://discord.com/invite/hGpZ4Z3
+* **Towelstation 13 Discord:** https://discord.gg/GpvRamEghk
 * **Coderbus Discord:** https://discord.gg/Vh8TJp9
 
-This is Skyrat's downstream fork of /tg/station created in byond.
+This is Towelstation's downstream fork of Skyrat created in byond.
 
 **Please note that this repository contains sexually explicit content and is not suitable for those under the age of 18.**
 
