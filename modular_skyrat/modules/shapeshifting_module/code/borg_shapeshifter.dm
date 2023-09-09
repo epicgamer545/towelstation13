@@ -23,7 +23,7 @@
 	var/disguise_icon_override
 	var/disguise_pixel_offset = 0
 	var/disguise_hat_offset = 0
-	/// Traits unique to this model (deadsprite, wide/dogborginess, etc.). Mirrors the definition in modular_skyrat\modules\altborgs\code\modules\mob\living\silicon\robot\robot_model.dm
+	/// Traits unique to this model (deadsprite, wideborginess, etc.). Mirrors the definition in modular_skyrat\modules\altborgs\code\modules\mob\living\silicon\robot\robot_model.dm
 	var/list/disguise_model_features = list()
 	var/disguise_special_light_key
 	var/mob/listeningTo
@@ -211,7 +211,6 @@
 	user.bubble_icon = "robot"
 	active = TRUE
 	user.update_icons()
-	user.model.update_dogborg()
 	user.model.update_tallborg()
 
 	if(listeningTo == user)
@@ -236,7 +235,6 @@
 	user.bubble_icon = saved_bubble_icon
 	active = FALSE
 	user.update_icons()
-	user.model.update_dogborg()
 	user.model.update_tallborg()
 
 /obj/item/borg_shapeshifter/proc/disrupt(mob/living/silicon/robot/user)

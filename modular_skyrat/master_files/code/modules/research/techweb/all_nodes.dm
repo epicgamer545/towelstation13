@@ -24,12 +24,6 @@
 		"vox_gas_filter",
 	)
 
-/datum/techweb_node/cyborg/New()
-	. = ..()
-	design_ids += list(
-		"affection_module",
-	)
-
 /datum/techweb_node/basic_tools/New()
 	. = ..()
 	design_ids += list(
