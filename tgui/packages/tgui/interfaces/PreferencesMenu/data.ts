@@ -50,8 +50,6 @@ export type Species = {
 
   enabled_features: string[];
 
-  veteran_only: boolean; // SKYRAT EDIT - Veteran quirks
-
   perks: {
     positive: Perk[];
     negative: Perk[];
@@ -89,7 +87,6 @@ export type Quirk = {
   icon: string;
   name: string;
   value: number;
-  veteran_only: boolean; // SKYRAT EDIT - Veteran quirks
 };
 
 // SKYRAT EDIT START

@@ -38,7 +38,6 @@
 			"icon" = initial(quirk.icon),
 			"name" = quirk_name,
 			"value" = initial(quirk.value),
-			"veteran_only" = initial(quirk.veteran_only), // SKYRAT EDIT - Veteran quirks
 		)
 
 	return list(
