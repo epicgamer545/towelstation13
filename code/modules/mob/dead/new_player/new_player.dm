@@ -164,7 +164,7 @@
 	if(!job.has_required_languages(client.prefs))
 		return JOB_UNAVAILABLE_LANGUAGE
 	if(job.has_banned_quirk(client.prefs))
-		return JOB_UNAVAILABLE_QUIRKss
+		return JOB_UNAVAILABLE_QUIRK
 	if(job.has_banned_species(client.prefs))
 		return JOB_UNAVAILABLE_SPECIES
 	//SKYRAT EDIT END
