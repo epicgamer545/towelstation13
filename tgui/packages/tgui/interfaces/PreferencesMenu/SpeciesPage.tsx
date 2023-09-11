@@ -1,3 +1,4 @@
+import { classes } from 'common/react';
 import { useBackend } from '../../backend';
 import { BlockQuote, Box, Button, Divider, Icon, Section, Stack, Tooltip } from '../../components';
 import { CharacterPreview } from '../common/CharacterPreview';
