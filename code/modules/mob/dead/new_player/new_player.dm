@@ -122,8 +122,6 @@
 		if(JOB_UNAVAILABLE_SLOTFULL)
 			return "[jobtitle] is already filled to capacity."
 		//SKYRAT EDIT ADDITION
-		if(JOB_NOT_VETERAN)
-			return "You need to be veteran to join as [jobtitle]."
 		if(JOB_UNAVAILABLE_QUIRK)
 			return "[jobtitle] is restricted from your quirks."
 		if(JOB_UNAVAILABLE_LANGUAGE)
