@@ -253,7 +253,29 @@ const SpeciesPageInner = (
         <Stack fill>
           <Stack.Item>
             <Box height="calc(100vh - 170px)" overflowY="auto" pr={3}>
-              {species.map(([speciesKey, species]) => {})}
+              {species.map(([speciesKey, species]) => {
+                // SKYRAT EDIT START - Veteran-only species
+                let speciesPage = (
+                  <Button
+                    key={speciesKey}
+                    selected={
+                      data.character_preferences.misc.species === speciesKey
+                    }
+                    tooltip={species.name}
+                    style={{
+                      display: 'block',
+                      height: '64px',
+                      width: '64px',
+                    }}>
+                    <Box
+                      className={classes(['species64x64', species.icon])}
+                      ml={-1}
+                    />
+                  </Button>
+                );
+                return speciesPage;
+                // SKYRAT EDIT END
+              })}
             </Box>
           </Stack.Item>
 
