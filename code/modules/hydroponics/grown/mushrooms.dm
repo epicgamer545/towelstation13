@@ -28,7 +28,6 @@
 	genes = list(/datum/plant_gene/trait/plant_type/fungal_metabolism)
 	growing_icon = 'icons/obj/service/hydroponics/growing_mushrooms.dmi'
 	reagents_add = list(/datum/reagent/medicine/morphine = 0.35, /datum/reagent/medicine/c2/multiver = 0.35, /datum/reagent/consumable/nutriment = 0)
-	graft_gene = /datum/plant_gene/trait/plant_type/fungal_metabolism
 
 /obj/item/food/grown/mushroom/reishi
 	seed = /obj/item/seeds/reishi
@@ -55,7 +54,6 @@
 	growing_icon = 'icons/obj/service/hydroponics/growing_mushrooms.dmi'
 	mutatelist = list(/obj/item/seeds/angel)
 	reagents_add = list(/datum/reagent/drug/mushroomhallucinogen = 0.04, /datum/reagent/toxin/amatoxin = 0.35, /datum/reagent/consumable/nutriment = 0, /datum/reagent/growthserum = 0.1)
-	graft_gene = /datum/plant_gene/trait/plant_type/fungal_metabolism
 
 /obj/item/food/grown/mushroom/amanita
 	seed = /obj/item/seeds/amanita
@@ -82,7 +80,6 @@
 	growing_icon = 'icons/obj/service/hydroponics/growing_mushrooms.dmi'
 	reagents_add = list(/datum/reagent/drug/mushroomhallucinogen = 0.04, /datum/reagent/toxin/amatoxin = 0.1, /datum/reagent/consumable/nutriment = 0, /datum/reagent/toxin/amanitin = 0.2)
 	rarity = 30
-	graft_gene = /datum/plant_gene/trait/plant_type/fungal_metabolism
 
 /obj/item/food/grown/mushroom/angel
 	seed = /obj/item/seeds/angel
@@ -108,7 +105,6 @@
 	genes = list(/datum/plant_gene/trait/plant_type/fungal_metabolism)
 	growing_icon = 'icons/obj/service/hydroponics/growing_mushrooms.dmi'
 	reagents_add = list(/datum/reagent/drug/mushroomhallucinogen = 0.25, /datum/reagent/consumable/nutriment = 0.02)
-	graft_gene = /datum/plant_gene/trait/plant_type/fungal_metabolism
 
 /obj/item/food/grown/mushroom/libertycap
 	seed = /obj/item/seeds/liberty
@@ -134,7 +130,6 @@
 	growing_icon = 'icons/obj/service/hydroponics/growing_mushrooms.dmi'
 	mutatelist = list(/obj/item/seeds/plump/walkingmushroom)
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
-	graft_gene = /datum/plant_gene/trait/plant_type/fungal_metabolism
 
 /obj/item/food/grown/mushroom/plumphelmet
 	seed = /obj/item/seeds/plump
@@ -160,7 +155,6 @@
 	mutatelist = null
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.05, /datum/reagent/consumable/nutriment = 0.15)
 	rarity = 30
-	graft_gene = /datum/plant_gene/trait/eyes
 
 /obj/item/food/grown/mushroom/walkingmushroom
 	seed = /obj/item/seeds/plump/walkingmushroom
@@ -189,7 +183,6 @@
 	growing_icon = 'icons/obj/service/hydroponics/growing_mushrooms.dmi'
 	reagents_add = list(/datum/reagent/consumable/nutriment = 0.1)
 	mutatelist = list(/obj/item/seeds/chanter/jupitercup)
-	graft_gene = /datum/plant_gene/trait/plant_type/fungal_metabolism
 
 /obj/item/food/grown/mushroom/chanterelle
 	seed = /obj/item/seeds/chanter
@@ -214,7 +207,6 @@
 	growing_icon = 'icons/obj/service/hydroponics/growing_mushrooms.dmi'
 	reagents_add = list(/datum/reagent/consumable/nutriment = 0.1)
 	mutatelist = null
-	graft_gene = /datum/plant_gene/trait/carnivory
 
 /obj/item/food/grown/mushroom/jupitercup
 	seed = /obj/item/seeds/chanter/jupitercup
@@ -243,7 +235,6 @@
 	growing_icon = 'icons/obj/service/hydroponics/growing_mushrooms.dmi'
 	mutatelist = list(/obj/item/seeds/glowshroom/glowcap, /obj/item/seeds/glowshroom/shadowshroom)
 	reagents_add = list(/datum/reagent/uranium/radium = 0.1, /datum/reagent/phosphorus = 0.1, /datum/reagent/consumable/nutriment = 0.04)
-	graft_gene = /datum/plant_gene/trait/glow
 
 /obj/item/food/grown/mushroom/glowshroom
 	seed = /obj/item/seeds/glowshroom
@@ -290,7 +281,6 @@
 	mutatelist = null
 	reagents_add = list(/datum/reagent/teslium = 0.1, /datum/reagent/consumable/nutriment = 0.04)
 	rarity = 30
-	graft_gene = /datum/plant_gene/trait/cell_charge
 
 /obj/item/food/grown/mushroom/glowshroom/glowcap
 	seed = /obj/item/seeds/glowshroom/glowcap
@@ -315,7 +305,6 @@
 	mutatelist = null
 	reagents_add = list(/datum/reagent/uranium/radium = 0.2, /datum/reagent/consumable/nutriment = 0.04)
 	rarity = 30
-	graft_gene = /datum/plant_gene/trait/glow/shadow
 
 /obj/item/food/grown/mushroom/glowshroom/shadowshroom
 	seed = /obj/item/seeds/glowshroom/shadowshroom
@@ -350,7 +339,6 @@
 	genes = list(/datum/plant_gene/trait/smoke, /datum/plant_gene/trait/plant_type/fungal_metabolism, /datum/plant_gene/trait/squash)
 	reagents_add = list(/datum/reagent/toxin/spore = 0.2, /datum/reagent/consumable/nutriment = 0.04)
 	rarity = 35
-	graft_gene = /datum/plant_gene/trait/smoke
 
 /obj/item/food/grown/mushroom/odious_puffball
 	seed = /obj/item/seeds/odious_puffball

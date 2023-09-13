@@ -242,7 +242,6 @@
 		"rwd",
 		"razor",
 		"screwdriver",
-		"secateurs",
 		"shovel",
 		"spade",
 		"spraycan",
@@ -1476,6 +1475,7 @@
 	description = "Botanical tools"
 	prereq_ids = list("biotech")
 	design_ids = list(
+		"diskplantgene",
 		"biogenerator",
 		"flora_gun",
 		"gene_shears",

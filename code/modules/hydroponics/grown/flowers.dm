@@ -74,7 +74,6 @@
 	genes = list(/datum/plant_gene/reagent/preset/polypyr, /datum/plant_gene/trait/preserved)
 	reagents_add = list(/datum/reagent/consumable/nutriment = 0.05)
 	rarity = 30
-	graft_gene = /datum/plant_gene/reagent/preset/polypyr
 
 /obj/item/food/grown/trumpet
 	seed = /obj/item/seeds/poppy/lily/trumpet
@@ -115,7 +114,6 @@
 	mutatelist = null
 	rarity = 15
 	reagents_add = list(/datum/reagent/consumable/nutriment = 0.05, /datum/reagent/fuel/oil = 0.05)
-	graft_gene = /datum/plant_gene/trait/preserved
 
 ///Fraxinella Flowers.
 /obj/item/food/grown/poppy/geranium/fraxinella
@@ -148,7 +146,6 @@
 	genes = list(/datum/plant_gene/trait/plant_type/weed_hardy, /datum/plant_gene/trait/preserved)
 	growing_icon = 'icons/obj/service/hydroponics/growing_flowers.dmi'
 	reagents_add = list(/datum/reagent/consumable/nutriment = 0.04)
-	graft_gene = /datum/plant_gene/trait/plant_type/weed_hardy
 
 /obj/item/food/grown/harebell
 	seed = /obj/item/seeds/harebell
@@ -217,7 +214,6 @@
 	mutatelist = null
 	reagents_add = list(/datum/reagent/consumable/ethanol/moonshine = 0.2, /datum/reagent/consumable/nutriment/vitamin = 0.02, /datum/reagent/consumable/nutriment = 0.02)
 	rarity = 15
-	graft_gene = /datum/plant_gene/trait/glow/purple
 
 /obj/item/food/grown/moonflower
 	seed = /obj/item/seeds/sunflower/moonflower
@@ -328,7 +324,6 @@
 	icon_dead = "carbonrose-dead"
 	reagents_add = list(/datum/reagent/plastic_polymers = 0.05)
 	rarity = 10
-	graft_gene = /datum/plant_gene/reagent/preset/carbon
 
 /obj/item/grown/carbon_rose
 	seed = /obj/item/seeds/carbon_rose

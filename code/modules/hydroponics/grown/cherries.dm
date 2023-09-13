@@ -67,7 +67,6 @@
 	mutatelist = null
 	reagents_add = list(/datum/reagent/consumable/nutriment = 0.07, /datum/reagent/consumable/sugar = 0.07)
 	rarity = 10
-	graft_gene = /datum/plant_gene/trait/glow/pink
 
 /obj/item/food/grown/cherrybulbs
 	seed = /obj/item/seeds/cherry/bulb

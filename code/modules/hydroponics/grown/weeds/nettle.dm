@@ -14,7 +14,6 @@
 	genes = list(/datum/plant_gene/trait/repeated_harvest, /datum/plant_gene/trait/plant_type/weed_hardy, /datum/plant_gene/trait/attack/nettle_attack, /datum/plant_gene/trait/backfire/nettle_burn)
 	mutatelist = list(/obj/item/seeds/nettle/death)
 	reagents_add = list(/datum/reagent/toxin/acid = 0.5)
-	graft_gene = /datum/plant_gene/trait/plant_type/weed_hardy
 
 /obj/item/seeds/nettle/death
 	name = "pack of death-nettle seeds"
@@ -30,7 +29,6 @@
 	mutatelist = null
 	reagents_add = list(/datum/reagent/toxin/acid/fluacid = 0.5, /datum/reagent/toxin/acid = 0.5)
 	rarity = 20
-	graft_gene = /datum/plant_gene/trait/stinging
 
 /obj/item/food/grown/nettle // "snack"
 	seed = /obj/item/seeds/nettle

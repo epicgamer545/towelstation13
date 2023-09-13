@@ -68,7 +68,6 @@
 	genes = list(/datum/plant_gene/trait/never_mutate, /datum/plant_gene/trait/repeated_harvest)
 	mutatelist = list(/obj/item/seeds/greenbean/jump)
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/medicine/c2/multiver = 0.04) //They're good for you!
-	graft_gene = /datum/plant_gene/trait/never_mutate
 
 /obj/item/food/grown/greenbeans
 	seed = /obj/item/seeds/greenbean
@@ -95,7 +94,6 @@
 	genes = list(/datum/plant_gene/trait/stable_stats, /datum/plant_gene/trait/repeated_harvest)
 	mutatelist = null
 	reagents_add = list(/datum/reagent/consumable/nutriment = 0.05, /datum/reagent/ants = 0.1) //IRL jumping beans contain insect larve, hence the ants
-	graft_gene = /datum/plant_gene/trait/stable_stats
 	rarity = 20
 
 /obj/item/food/grown/jumpingbeans

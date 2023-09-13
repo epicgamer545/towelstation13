@@ -20,7 +20,6 @@
 	icon_dead = "wallmushroom-dead"
 	reagents_add = list(/datum/reagent/drug/mushroomhallucinogen = 0.04, /datum/reagent/toxin/amatoxin = 0.1, /datum/reagent/consumable/nutriment = 0.1)
 	rarity = 30
-	graft_gene = /datum/plant_gene/trait/plant_type/fungal_metabolism
 
 /obj/item/food/grown/mushroom/wall
 	seed = /obj/item/seeds/wall_mushroom

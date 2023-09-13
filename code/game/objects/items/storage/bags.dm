@@ -238,6 +238,7 @@
 		/obj/item/grown,
 		/obj/item/food/honeycomb,
 		/obj/item/seeds,
+		/obj/item/disk/plantgene,
 		))
 ////////
 

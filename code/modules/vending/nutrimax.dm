@@ -15,7 +15,6 @@
 		/obj/item/reagent_containers/cup/bottle/nutrient/rh = 10,
 		/obj/item/reagent_containers/spray/pestspray = 20,
 		/obj/item/reagent_containers/syringe = 5,
-		/obj/item/secateurs = 3,
 		/obj/item/shovel/spade = 3,
 		/obj/item/storage/bag/plants = 5,
 	)
