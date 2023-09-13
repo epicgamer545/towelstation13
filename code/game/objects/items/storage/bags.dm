@@ -234,11 +234,9 @@
 	atom_storage.max_slots = 100
 	atom_storage.set_holdable(list(
 		/obj/item/food/grown,
-		/obj/item/graft,
 		/obj/item/grown,
 		/obj/item/food/honeycomb,
 		/obj/item/seeds,
-		/obj/item/disk/plantgene,
 		))
 ////////
 

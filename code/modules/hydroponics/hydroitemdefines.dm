@@ -80,9 +80,6 @@
 		var/obj/structure/glowshroom/shroom_plant = scan_target
 		to_chat(user, examine_block(scan_plant_stats(shroom_plant.myseed)))
 		return TRUE
-	if(istype(scan_target, /obj/item/graft))
-		to_chat(user, examine_block(get_graft_text(scan_target)))
-		return TRUE
 	if(isitem(scan_target))
 		var/obj/item/scanned_object = scan_target
 		if(scanned_object.get_plant_seed() || istype(scanned_object, /obj/item/seeds))
@@ -112,9 +109,6 @@
 	if(istype(scan_target, /obj/structure/glowshroom))
 		var/obj/structure/glowshroom/shroom_plant = scan_target
 		to_chat(user, examine_block(scan_plant_chems(shroom_plant.myseed)))
-		return TRUE
-	if(istype(scan_target, /obj/item/graft))
-		to_chat(user, examine_block(get_graft_text(scan_target)))
 		return TRUE
 	if(isitem(scan_target))
 		var/obj/item/scanned_object = scan_target
@@ -354,28 +348,6 @@
 		text += "\n[span_danger("Reagent Traits Over 100% Production")]"
 
 	return text
-
-/**
- * This proc is formats the scan of a graft of a seed into a message.
- *
- * - scanned_graft - the graft for what we are scanning.
- *
- * Returns the formatted output as text.
- */
-/obj/item/plant_analyzer/proc/get_graft_text(obj/item/graft/scanned_graft)
-	var/text = "Plant Graft"
-	if(scanned_graft.parent_name)
-		text += "\nParent Plant: [span_notice("[scanned_graft.parent_name]")]"
-	if(scanned_graft.stored_trait)
-		text += "\nGraftable Traits: [span_notice("[scanned_graft.stored_trait.get_name()]")]"
-	text += "\nYield: [span_notice("[scanned_graft.yield]")]"
-	text += "\nProduction speed: [span_notice("[scanned_graft.production]")]"
-	text += "\nEndurance: [span_notice("[scanned_graft.endurance]")]"
-	text += "\nLifespan: [span_notice("[scanned_graft.lifespan]")]"
-	text += "\nWeed Growth Rate: [span_notice("[scanned_graft.weed_rate]")]"
-	text += "\nWeed Vulnerability: [span_notice("[scanned_graft.weed_chance]")]"
-	return span_info(text)
-
 
 // *************************************
 // Hydroponics Tools

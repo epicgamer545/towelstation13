@@ -543,62 +543,6 @@
 		var/datum/reagent/chemical = pick(reagents_add)
 		qdel(chemical)
 
-/**
- * Creates a graft from this plant.
- *
- * Creates a new graft from this plant.
- * Sets the grafts trait to this plants graftable trait.
- * Gives the graft a reference to this plant.
- * Copies all the relevant stats from this plant to the graft.
- * Returns the created graft.
- */
-/obj/item/seeds/proc/create_graft()
-	var/obj/item/graft/snip = new(loc, graft_gene)
-	snip.parent_name = plantname
-	snip.name += " ([plantname])"
-
-	// Copy over stats so the graft can outlive its parent.
-	snip.lifespan = lifespan
-	snip.endurance = endurance
-	snip.production = production
-	snip.weed_rate = weed_rate
-	snip.weed_chance = weed_chance
-	snip.yield = yield
-
-	return snip
-
-/**
- * Applies a graft to this plant.
- *
- * Adds the graft trait to this plant if possible.
- * Increases plant stats by 2/3 of the grafts stats to a maximum of 100 (10 for yield).
- * Returns TRUE if the graft could apply its trait successfully, FALSE if it fails to apply the trait.
- * NOTE even if the graft fails to apply the trait it still adjusts the plant's stats and reagents.
- *
- * Arguments:
- * - [snip][/obj/item/graft]: The graft being used applied to this plant.
- */
-/obj/item/seeds/proc/apply_graft(obj/item/graft/snip)
-	. = TRUE
-	var/datum/plant_gene/new_trait = snip.stored_trait
-	if(new_trait?.can_add(src))
-		genes += new_trait.Copy()
-	else
-		. = FALSE
-
-	// Adjust stats based on graft stats
-	set_lifespan(round(max(lifespan, (lifespan + (2/3)*(snip.lifespan - lifespan)))))
-	set_endurance(round(max(endurance, (endurance + (2/3)*(snip.endurance - endurance)))))
-	set_production(round(max(production, (production + (2/3)*(snip.production - production)))))
-	set_weed_rate(round(max(weed_rate, (weed_rate + (2/3)*(snip.weed_rate - weed_rate)))))
-	set_weed_chance(round(max(weed_chance, (weed_chance+ (2/3)*(snip.weed_chance - weed_chance)))))
-	set_yield(round(max(yield, (yield + (2/3)*(snip.yield - yield)))))
-
-	// Add in any reagents, too.
-	reagents_from_genes()
-
-	return
-
 /*
  * Both `/item/food/grown` and `/item/grown` implement a seed variable which tracks
  * plant statistics, genes, traits, etc. This proc gets the seed for either grown food or

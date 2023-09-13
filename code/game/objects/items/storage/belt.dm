@@ -874,8 +874,6 @@
 	atom_storage.max_specific_storage = WEIGHT_CLASS_NORMAL
 	atom_storage.set_holdable(list(
 		/obj/item/cultivator,
-		/obj/item/geneshears,
-		/obj/item/graft,
 		/obj/item/gun/energy/floragun,
 		/obj/item/hatchet,
 		/obj/item/plant_analyzer,
@@ -884,7 +882,6 @@
 		/obj/item/reagent_containers/cup/tube,
 		/obj/item/reagent_containers/spray/pestspray,
 		/obj/item/reagent_containers/spray/plantbgone,
-		/obj/item/secateurs,
 		/obj/item/seeds,
 		/obj/item/shovel/spade,
 	))

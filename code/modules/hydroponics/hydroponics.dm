@@ -15,7 +15,7 @@
 	///The maximum amount of water in the tray
 	var/maxwater = 100
 	///How many units of nutrients will be drained in the tray.
-	var/nutridrain = 1
+	var/nutridrain = 0.3
 	///The maximum nutrient reagent container size of the tray.
 	var/maxnutri = 20
 	///The amount of pests in the tray (max 10)
@@ -52,9 +52,9 @@
 	var/datum/weakref/lastuser
 	///If the tray generates nutrients and water on its own
 	var/self_sustaining = FALSE
-	///The icon state for the overlay used to represent that this tray is self-sustaining.
+	///The icon state for the overlay used to represent that this tray is has been gaia'd.
 	var/self_sustaining_overlay_icon_state = "gaia_blessing"
-
+	var/self_sustainingprog = 0
 /obj/machinery/hydroponics/Initialize(mapload)
 	//ALRIGHT YOU DEGENERATES. YOU HAD REAGENT HOLDERS FOR AT LEAST 4 YEARS AND NONE OF YOU MADE HYDROPONICS TRAYS HOLD NUTRIENT CHEMS INSTEAD OF USING "Points".
 	//SO HERE LIES THE "nutrilevel" VAR. IT'S DEAD AND I PUT IT OUT OF IT'S MISERY. USE "reagents" INSTEAD. ~ArcaneMusic, accept no substitutes.
@@ -116,19 +116,9 @@
 
 		return NONE
 
-	// If the plant is harvestable, we can graft it with secateurs or harvest it with a plant bag.
-	if(plant_status == HYDROTRAY_PLANT_HARVESTABLE)
-		if(istype(held_item, /obj/item/secateurs))
-			context[SCREENTIP_CONTEXT_LMB] = "Graft plant"
-			return CONTEXTUAL_SCREENTIP_SET
-
-		if(istype(held_item, /obj/item/storage/bag/plants))
-			context[SCREENTIP_CONTEXT_LMB] = "Harvest plant"
-			return CONTEXTUAL_SCREENTIP_SET
-
-	// If the plant's in good health, we can shear it.
-	if(istype(held_item, /obj/item/geneshears) && plant_health > GENE_SHEAR_MIN_HEALTH)
-		context[SCREENTIP_CONTEXT_LMB] = "Remove plant gene"
+	// If the plant is harvestable, we can harvest it with a plant bag.
+	if(istype(held_item, /obj/item/storage/bag/plants))
+		context[SCREENTIP_CONTEXT_LMB] = "Harvest plant"
 		return CONTEXTUAL_SCREENTIP_SET
 
 	// If we've got a charged somatoray, we can mutation lock it.
@@ -160,7 +150,6 @@
 	. = ..()
 	AddComponent(/datum/component/simple_rotation)
 	AddComponent(/datum/component/plumbing/hydroponics)
-	AddComponent(/datum/component/usb_port, list(/obj/item/circuit_component/hydroponics))
 
 /obj/machinery/hydroponics/constructable/RefreshParts()
 	. = ..()
@@ -176,21 +165,9 @@
 
 /obj/machinery/hydroponics/constructable/examine(mob/user)
 	. = ..()
-	. += span_notice("Use <b>Ctrl-Click</b> to activate autogrow. <b>RMB</b> to empty the tray's nutrients.")
+	. += span_notice("Use <b>RMB</b> to empty the tray's nutrients.")
 	if(in_range(user, src) || isobserver(user))
 		. += span_notice("The status display reads: Tray efficiency at <b>[rating*100]%</b>.")
-
-/obj/machinery/hydroponics/constructable/add_context(
-	atom/source,
-	list/context,
-	obj/item/held_item,
-	mob/living/user,
-)
-
-	// Constructible trays will always show that you can activate auto-grow with ctrl+click
-	. = ..()
-	context[SCREENTIP_CONTEXT_CTRL_LMB] = "Activate auto-grow"
-	return CONTEXTUAL_SCREENTIP_SET
 
 /obj/machinery/hydroponics/Destroy()
 	if(myseed)
@@ -297,22 +274,16 @@
 	else
 		return ..()
 
-/obj/machinery/hydroponics/power_change()
-	. = ..()
-	if((machine_stat & NOPOWER) && self_sustaining)
-		set_self_sustaining(FALSE)
-
 /obj/machinery/hydroponics/process(seconds_per_tick)
 	var/needs_update = FALSE // Checks if the icon needs updating so we don't redraw empty trays every time
 
-	if(self_sustaining)
-		if(powered())
-			adjust_waterlevel(rand(1,2) * seconds_per_tick * 0.5)
-			adjust_weedlevel(-0.5 * seconds_per_tick)
-			adjust_pestlevel(-0.5 * seconds_per_tick)
-		else
-			set_self_sustaining(FALSE)
-			visible_message(span_warning("[name]'s auto-grow functionality shuts off!"))
+	if(myseed && (myseed.loc != src))
+		myseed.forceMove(src)
+
+	else if(self_sustaining)
+		adjust_waterlevel(rand(1,2) * seconds_per_tick * 0.5)
+		adjust_weedlevel(-0.5 * seconds_per_tick)
+		adjust_pestlevel(-0.5 * seconds_per_tick)
 
 	if(world.time > (lastcycle + cycledelay))
 		lastcycle = world.time
@@ -329,7 +300,7 @@
 			// Nutrients deplete at a constant rate, since new nutrients can boost stats far easier.
 			apply_chemicals(lastuser?.resolve())
 			if(self_sustaining)
-				reagents.remove_any(min(0.5, nutridrain))
+				//reagents.remove_any(min(0.3, nutridrain))
 			else
 				reagents.remove_any(nutridrain)
 
@@ -414,7 +385,7 @@
 				var/mutation_chance = myseed.instability - 75
 				mutate(0, 0, 0, 0, 0, 0, 0, mutation_chance, 0) //Scaling odds of a random trait or chemical
 			if(myseed.instability >= 60)
-				if(prob((myseed.instability)/2) && !self_sustaining && LAZYLEN(myseed.mutatelist) && !myseed.get_gene(/datum/plant_gene/trait/never_mutate)) //Minimum 30%, Maximum 50% chance of mutating every age tick when not on autogrow or having Prosophobic Inclination trait.
+				if(prob((myseed.instability)/2) && !self_sustaining && LAZYLEN(myseed.mutatelist) && !myseed.get_gene(/datum/plant_gene/trait/never_mutate)) //Minimum 30%, Maximum 50% chance of mutating every age tick when not having the Prosophobic Inclination trait.
 					mutatespecie()
 					myseed.set_instability(myseed.instability/2)
 			if(myseed.instability >= 40)
@@ -466,6 +437,10 @@
 /obj/machinery/hydroponics/update_appearance(updates)
 	. = ..()
 	if(self_sustaining)
+		if(istype(src, /obj/machinery/hydroponics/soil))
+			add_atom_colour(rgb(255, 175, 0), FIXED_COLOUR_PRIORITY)
+		else
+			add_overlay(mutable_appearance('icons/obj/service/hydroponics/equipment.dmi', "gaia_blessing"))
 		set_light(3)
 		return
 	if(myseed?.get_gene(/datum/plant_gene/trait/glow)) // Hydroponics needs a refactor, badly.
@@ -481,14 +456,14 @@
 	else
 		name = initial(name)
 
-/obj/machinery/hydroponics/update_overlays()
-	. = ..()
-	if(myseed)
-		. += update_plant_overlay()
-		. += update_status_light_overlays()
+	if(!self_sustaining)
+		if(myseed && myseed.get_gene(/datum/plant_gene/trait/glow))
+			var/datum/plant_gene/trait/glow/G = myseed.get_gene(/datum/plant_gene/trait/glow)
+			set_light(G.glow_range(myseed), G.glow_power(myseed), G.glow_color)
+		else
+			set_light(0)
 
-	if(self_sustaining && self_sustaining_overlay_icon_state)
-		. += mutable_appearance(icon, self_sustaining_overlay_icon_state)
+	return
 
 /obj/machinery/hydroponics/proc/update_plant_overlay()
 	var/mutable_appearance/plant_overlay = mutable_appearance(myseed.growing_icon, layer = OBJ_LAYER + 0.01)
@@ -532,23 +507,6 @@
 	update_appearance()
 	if(isnull(myseed))
 		particles = null
-
-/*
- * Setter proc to set a tray to a new self_sustaining state and update all values associated with it.
- *
- * new_value - true / false value that self_sustaining is being set to
- */
-/obj/machinery/hydroponics/proc/set_self_sustaining(new_value)
-	if(self_sustaining == new_value)
-		return
-
-	self_sustaining = new_value
-
-	update_use_power(self_sustaining ? ACTIVE_POWER_USE : NO_POWER_USE)
-	update_appearance()
-
-	SEND_SIGNAL(src, COMSIG_HYDROTRAY_SET_SELFSUSTAINING, new_value)
-
 /obj/machinery/hydroponics/proc/set_weedlevel(new_weedlevel, update_icon = TRUE)
 	if(weedlevel == new_weedlevel)
 		return
@@ -660,8 +618,6 @@
 
 	. += span_info("Water: [waterlevel]/[maxwater].")
 	. += span_info("Nutrient: [reagents.total_volume]/[maxnutri].")
-	if(self_sustaining)
-		. += span_info("The tray's autogrow is active, protecting it from species mutations, weeds, and pests.")
 
 	if(weedlevel >= 5)
 		. += span_warning("It's filled with weeds!")
@@ -704,13 +660,14 @@
 	set_pestlevel(0) // Reset
 	visible_message(span_warning("The [oldPlantName] is overtaken by some [myseed.plantname]!"))
 
-/obj/machinery/hydroponics/proc/mutate(lifemut = 2, endmut = 5, productmut = 1, yieldmut = 2, potmut = 25, wrmut = 2, wcmut = 5, traitmut = 0, stabmut = 3) // Mutates the current seed
+/obj/machinery/hydroponics/proc/mutate(lifemut = 2, endmut = 5, productmut = 1, yieldmut = 2, potmut = 25, wrmut = 2, wcmut = 5, traitmut = 0) // Mutates the current seed
 	if(!myseed)
 		return
-	myseed.mutate(lifemut, endmut, productmut, yieldmut, potmut, wrmut, wcmut, traitmut, stabmut)
+	myseed.mutate(lifemut, endmut, productmut, yieldmut, potmut, wrmut, wcmut, traitmut)
 
-/obj/machinery/hydroponics/proc/hardmutate(lifemut = 4, endmut = 10, productmut = 2, yieldmut = 4, potmut = 50, wrmut = 4, wcmut = 10, traitmut = 0, stabmut = 4)
-	mutate(lifemut, endmut, productmut, yieldmut, potmut, wrmut, wcmut, traitmut, stabmut)
+/obj/machinery/hydroponics/proc/hardmutate()
+	mutate(4, 10, 2, 4, 50, 4, 10, 3)
+
 
 /obj/machinery/hydroponics/proc/mutatespecie() // Mutagent produced a new plant!
 	if(!myseed || plant_status == HYDROTRAY_PLANT_DEAD || !LAZYLEN(myseed.mutatelist))
@@ -743,7 +700,7 @@
 	lastcycle = world.time
 	set_weedlevel(0, update_icon = FALSE)
 
-	var/message = span_warning("[oldPlantName] suddenly polymorphs into [myseed.plantname]!")
+	var/message = span_warning("[oldPlantName] suddenly mutates into [myseed.plantname]!")
 	addtimer(CALLBACK(src, PROC_REF(after_mutation), message), 0.5 SECONDS)
 
 /obj/machinery/hydroponics/proc/mutateweed() // If the weeds gets the mutagent instead. Mind you, this pretty much destroys the old plant
@@ -845,6 +802,14 @@
 /obj/machinery/hydroponics/attackby(obj/item/O, mob/user, params)
 	//Called when mob user "attacks" it with object O
 	if(IS_EDIBLE(O) || is_reagent_container(O))  // Syringe stuff (and other reagent containers now too)
+	if(istype(O, /obj/item/food/grown/ambrosia/gaia))
+		if(!self_sustaining)
+			adjustSelfSuff(1)
+			to_chat(user, "You spread the gaia through the soil. ([self_sustainingprog] out of 7)")
+			qdel(O)
+			return
+		else
+			. = ..()
 		var/obj/item/reagent_containers/reagent_source = O
 
 		if(!reagent_source.reagents.total_volume)
@@ -872,9 +837,6 @@
 			// Beakers, bottles, buckets, etc.
 			if(reagent_source.is_drainable())
 				playsound(loc, 'sound/effects/slosh.ogg', 25, TRUE)
-				var/mutable_appearance/splash_animation = mutable_appearance('icons/effects/effects.dmi', "splash_hydroponics")
-				splash_animation.color = mix_color_from_reagents(reagent_source.reagents.reagent_list)
-				flick_overlay_view(splash_animation, 1.1 SECONDS)
 
 		if(visi_msg)
 			visible_message(span_notice("[visi_msg]."))
@@ -928,75 +890,6 @@
 		else
 			to_chat(user, span_warning("This plot is completely devoid of weeds! It doesn't need uprooting."))
 			return
-
-	else if(istype(O, /obj/item/secateurs))
-		if(!myseed)
-			to_chat(user, span_notice("This plot is empty."))
-			return
-		else if(plant_status != HYDROTRAY_PLANT_HARVESTABLE)
-			to_chat(user, span_notice("This plant must be harvestable in order to be grafted."))
-			return
-		else if(myseed.grafted)
-			to_chat(user, span_notice("This plant has already been grafted."))
-			return
-		else
-			user.visible_message(span_notice("[user] grafts off a limb from [src]."), span_notice("You carefully graft off a portion of [src]."))
-			var/obj/item/graft/snip = myseed.create_graft()
-			if(!snip)
-				return // The plant did not return a graft.
-
-			snip.forceMove(drop_location())
-			myseed.grafted = TRUE
-			adjust_plant_health(-5)
-			return
-
-	else if(istype(O, /obj/item/geneshears))
-		if(!myseed)
-			to_chat(user, span_notice("The tray is empty."))
-			return
-		if(plant_health <= GENE_SHEAR_MIN_HEALTH)
-			to_chat(user, span_notice("This plant looks too unhealty to be sheared right now."))
-			return
-
-		var/list/current_traits = list()
-		for(var/datum/plant_gene/gene in myseed.genes)
-			if(islist(gene))
-				continue
-			if(!(gene.mutability_flags & PLANT_GENE_REMOVABLE))
-				continue // Don't show genes that can't be removed.
-			current_traits[gene.name] = gene
-		var/removed_trait = tgui_input_list(user, "Trait to remove from the [myseed.plantname]", "Plant Trait Removal", sort_list(current_traits))
-		if(isnull(removed_trait))
-			return
-		if(!user.can_perform_action(src))
-			return
-		if(!myseed)
-			return
-		if(plant_health <= GENE_SHEAR_MIN_HEALTH) //Check health again to make sure they're not keeping inputs open to get free shears.
-			return
-		for(var/datum/plant_gene/gene in myseed.genes)
-			if(gene.name == removed_trait)
-				if(myseed.genes.Remove(gene))
-					gene.on_removed(myseed)
-					qdel(gene)
-					break
-		myseed.reagents_from_genes()
-		adjust_plant_health(-15)
-		to_chat(user, span_notice("You carefully shear the genes off of the [myseed.plantname], leaving the plant looking weaker."))
-		update_appearance()
-		return
-
-	else if(istype(O, /obj/item/graft))
-		var/obj/item/graft/snip = O
-		if(!myseed)
-			to_chat(user, span_notice("The tray is empty."))
-			return
-		if(myseed.apply_graft(snip))
-			to_chat(user, "<span class='notice'>You carefully integrate the grafted plant limb onto [myseed.plantname], granting it [snip.stored_trait.get_name()].</span>")
-		else
-			to_chat(user, "<span class='warning'>You integrate the grafted plant limb onto [myseed.plantname], but it does not accept the [snip.stored_trait.get_name()] trait from the [snip].</span>")
-		qdel(snip)
-		return
 
 	else if(istype(O, /obj/item/storage/bag/plants))
 		if(plant_status == HYDROTRAY_PLANT_HARVESTABLE)
@@ -1088,7 +981,7 @@
 	else
 		if(user)
 			user.examinate(src)
-
+/*
 /obj/machinery/hydroponics/CtrlClick(mob/user)
 	. = ..()
 	if(!user.can_perform_action(src, FORBID_TELEKINESIS_REACH))
@@ -1101,7 +994,7 @@
 		return
 	set_self_sustaining(!self_sustaining)
 	to_chat(user, span_notice("You [self_sustaining ? "activate" : "deactivated"] [src]'s autogrow function[self_sustaining ? ", maintaining the tray's health while using high amounts of power" : ""]."))
-
+*/
 /obj/machinery/hydroponics/AltClick(mob/user)
 	return ..() // This hotkey is BLACKLISTED since it's used by /datum/component/simple_rotation
 
@@ -1135,12 +1028,16 @@
 		to_chat(user, span_notice("You harvest [product_count] items from the [myseed.plantname]."))
 	if(!myseed.get_gene(/datum/plant_gene/trait/repeated_harvest))
 		set_seed(null)
-		if(self_sustaining) //No reason to pay for an empty tray.
-			set_self_sustaining(FALSE)
+
+/// Tray Setters - The following procs adjust the tray or plants variables, and make sure that the stat doesn't go out of bounds.///
+/obj/machinery/hydroponics/proc/adjustWater(adjustamt)
+	waterlevel = clamp(waterlevel + adjustamt, 0, maxwater)
+/// For adding gaia to a tray to make it glow
+/obj/machinery/hydroponics/proc/adjustSelfSuff(adjustamt)
+	if(self_sustainingprog>=6)
+		become_self_sufficient()
 	else
-		set_plant_status(HYDROTRAY_PLANT_GROWING)
-	update_appearance()
-	SEND_SIGNAL(src, COMSIG_HYDROTRAY_ON_HARVEST, user, product_count)
+		self_sustainingprog += adjustamt
 
 /**
  * Spawn Plant.
@@ -1164,13 +1061,12 @@
 	use_power = NO_POWER_USE
 	flags_1 = NODECONSTRUCT_1
 	unwrenchable = FALSE
-	self_sustaining_overlay_icon_state = null
 	maxnutri = 15
 
-/obj/machinery/hydroponics/soil/update_icon(updates=ALL)
-	. = ..()
-	if(self_sustaining)
-		add_atom_colour(rgb(255, 175, 0), FIXED_COLOUR_PRIORITY)
+/obj/machinery/hydroponics/soil/pot //Not actually hydroponics at all! Honk!
+	name = "Growing pot"
+	desc = "A growing pot. <b>Alt-Click</b> to empty the pot's nutrients."
+	icon_state = "plantpot"
 
 /obj/machinery/hydroponics/soil/update_status_light_overlays()
 	return // Has no lights
@@ -1191,139 +1087,17 @@
 	new /obj/item/stack/ore/glass(drop_location(), 3)
 	return ..()
 
-///The usb port circuit
+/obj/machinery/hydroponics/soil/crafted
+	waterlevel = 0
+//	nutrilevel = 0
 
-/obj/item/circuit_component/hydroponics
-	display_name = "Hydropnics Tray"
-	desc = "Automate the means of botanical production. Trigger to toggle auto-grow."
-	circuit_flags = CIRCUIT_FLAG_INPUT_SIGNAL
-
-	var/obj/machinery/hydroponics/attached_tray
-	///If self-sustaining (also called auto-grow) should be turned on or off when the trigger is triggered.
-	var/datum/port/input/selfsustaining_setting
-	///Whether the plant in the tray is harvestable, alive, missing or dead.
-	var/datum/port/output/plant_status
-	///Whether the self sustaining mode is on
-	var/datum/port/output/is_self_sustaining
-	///Triggered when the plant is harvested
-	var/datum/port/output/plant_harvested
-	///The product amount of the last harvest
-	var/datum/port/output/last_harvest
-	///Triggered when the plant dies
-	var/datum/port/output/plant_died
-	///Triggered when a seed is either planted by someone or takes over the tray.
-	var/datum/port/output/seeds_planted
-	///The amount of water in the tray.
-	var/datum/port/output/water_level
-	///The amount of toxins in the tray.
-	var/datum/port/output/toxic_level
-	///The amount of pests in the tray.
-	var/datum/port/output/pests_level
-	///The amount of weeds in the tray.
-	var/datum/port/output/weeds_level
-	///The health of the plant in the tray.
-	var/datum/port/output/plant_health
-	///The amount of reagents in the tray
-	var/datum/port/output/reagents_level
-
-/obj/item/circuit_component/hydroponics/populate_ports()
-	selfsustaining_setting = add_input_port("Auto-Grow Setting", PORT_TYPE_NUMBER)
-
-	plant_status = add_output_port("Plant Status", PORT_TYPE_NUMBER)
-	is_self_sustaining = add_output_port("Auto-Grow Status", PORT_TYPE_NUMBER)
-	plant_harvested = add_output_port("Plant Harvested", PORT_TYPE_SIGNAL)
-	last_harvest = add_output_port("Last Harvest Amount", PORT_TYPE_NUMBER)
-	plant_died = add_output_port("Plant Died", PORT_TYPE_SIGNAL)
-	seeds_planted = add_output_port("Seeds Planted", PORT_TYPE_SIGNAL)
-	water_level = add_output_port("Water Level", PORT_TYPE_NUMBER)
-	toxic_level = add_output_port("Toxins Level", PORT_TYPE_NUMBER)
-	pests_level = add_output_port("Pests Level", PORT_TYPE_NUMBER)
-	weeds_level = add_output_port("Weeds Level", PORT_TYPE_NUMBER)
-	plant_health = add_output_port("Plant Health", PORT_TYPE_NUMBER)
-	reagents_level = add_output_port("Reagents Level", PORT_TYPE_NUMBER)
-
-/obj/item/circuit_component/hydroponics/register_usb_parent(atom/movable/parent)
+/obj/machinery/hydroponics/soil/examine(mob/user)
 	. = ..()
-	if(istype(parent, /obj/machinery/hydroponics))
-		attached_tray = parent
-		RegisterSignal(attached_tray, COMSIG_HYDROTRAY_SET_SEED, PROC_REF(on_set_seed))
-		RegisterSignal(attached_tray, COMSIG_HYDROTRAY_SET_SELFSUSTAINING, PROC_REF(on_set_selfsustaining))
-		RegisterSignal(attached_tray, COMSIG_HYDROTRAY_SET_WEEDLEVEL, PROC_REF(on_set_weedlevel))
-		RegisterSignal(attached_tray, COMSIG_HYDROTRAY_SET_PESTLEVEL, PROC_REF(on_set_pestlevel))
-		RegisterSignal(attached_tray, COMSIG_HYDROTRAY_SET_WATERLEVEL, PROC_REF(on_set_waterlevel))
-		RegisterSignal(attached_tray, COMSIG_HYDROTRAY_SET_PLANT_HEALTH, PROC_REF(on_set_plant_health))
-		RegisterSignal(attached_tray, COMSIG_HYDROTRAY_SET_TOXIC, PROC_REF(on_set_toxic_level))
-		RegisterSignal(attached_tray, COMSIG_HYDROTRAY_SET_PLANT_STATUS, PROC_REF(on_set_plant_status))
-		RegisterSignal(attached_tray, COMSIG_HYDROTRAY_ON_HARVEST, PROC_REF(on_harvest))
-		RegisterSignal(attached_tray, COMSIG_HYDROTRAY_PLANT_DEATH, PROC_REF(on_plant_death))
-		var/list/reagents_holder_signals = list(
-			COMSIG_REAGENTS_ADD_REAGENT,
-			COMSIG_REAGENTS_REM_REAGENT,
-			COMSIG_REAGENTS_NEW_REAGENT,
-			COMSIG_REAGENTS_DEL_REAGENT,
-		)
-		RegisterSignal(attached_tray, reagents_holder_signals, PROC_REF(update_reagents_level))
+	. += "<span class='notice'><b>Alt-Click</b> to empty the tray's nutrients.</span>"
+	if(in_range(user, src) || isobserver(user))
+		. += "<span class='notice'>You might be able to discern a plant's harvest by examining it <b>closer</b>.</span>"
 
-/obj/item/circuit_component/hydroponics/unregister_usb_parent(atom/movable/parent)
-	attached_tray = null
-	UnregisterSignal(parent, list(COMSIG_HYDROTRAY_SET_SEED, COMSIG_HYDROTRAY_SET_SELFSUSTAINING,
-		COMSIG_HYDROTRAY_SET_WEEDLEVEL, COMSIG_HYDROTRAY_SET_PESTLEVEL, COMSIG_HYDROTRAY_SET_WATERLEVEL,
-		COMSIG_HYDROTRAY_SET_PLANT_HEALTH, COMSIG_HYDROTRAY_SET_TOXIC, COMSIG_HYDROTRAY_SET_PLANT_STATUS,
-		COMSIG_HYDROTRAY_ON_HARVEST, COMSIG_HYDROTRAY_PLANT_DEATH))
-	if(parent.reagents)
-		UnregisterSignal(parent.reagents, list(COMSIG_REAGENTS_ADD_REAGENT, COMSIG_REAGENTS_REM_REAGENT,
-			COMSIG_REAGENTS_NEW_REAGENT, COMSIG_REAGENTS_DEL_REAGENT))
-	return ..()
-
-/obj/item/circuit_component/hydroponics/get_ui_notices()
-	. = ..()
-	. += create_ui_notice("Plant Status Index: \"[HYDROTRAY_NO_PLANT]\", \"[HYDROTRAY_PLANT_GROWING]\", \"[HYDROTRAY_PLANT_DEAD]\", \"[HYDROTRAY_PLANT_HARVESTABLE]\"", "orange", "info")
-
-/obj/item/circuit_component/hydroponics/proc/on_set_seed(datum/source, obj/item/seeds/new_seed)
-	SIGNAL_HANDLER
-	seeds_planted.set_output(COMPONENT_SIGNAL)
-
-/obj/item/circuit_component/hydroponics/proc/on_set_selfsustaining(datum/source, new_value)
-	SIGNAL_HANDLER
-	is_self_sustaining.set_output(new_value)
-
-/obj/item/circuit_component/hydroponics/proc/on_set_weedlevel(datum/source, new_value)
-	SIGNAL_HANDLER
-	weeds_level.set_output(new_value)
-
-/obj/item/circuit_component/hydroponics/proc/on_set_pestlevel(datum/source, new_value)
-	SIGNAL_HANDLER
-	pests_level.set_output(new_value)
-
-/obj/item/circuit_component/hydroponics/proc/on_set_waterlevel(datum/source, new_value)
-	SIGNAL_HANDLER
-	water_level.set_output(new_value)
-
-/obj/item/circuit_component/hydroponics/proc/on_set_plant_health(datum/source, new_value)
-	SIGNAL_HANDLER
-	plant_health.set_output(new_value)
-
-/obj/item/circuit_component/hydroponics/proc/on_set_toxic_level(datum/source, new_value)
-	SIGNAL_HANDLER
-	toxic_level.set_output(new_value)
-
-/obj/item/circuit_component/hydroponics/proc/on_set_plant_status(datum/source, new_value)
-	SIGNAL_HANDLER
-	plant_status.set_output(new_value)
-
-/obj/item/circuit_component/hydroponics/proc/on_harvest(datum/source, product_amount)
-	SIGNAL_HANDLER
-	last_harvest.set_output(product_amount)
-	plant_harvested.set_output(COMPONENT_SIGNAL)
-
-/obj/item/circuit_component/hydroponics/proc/on_plant_death(datum/source)
-	SIGNAL_HANDLER
-	plant_died.set_output(COMPONENT_SIGNAL)
-
-/obj/item/circuit_component/hydroponics/proc/update_reagents_level(datum/source)
-	SIGNAL_HANDLER
-	reagents_level.set_output(attached_tray.reagents.total_volume)
-
-/obj/item/circuit_component/hydroponics/input_received(datum/port/input/port)
-	if(attached_tray.anchored && attached_tray.powered())
-		attached_tray.set_self_sustaining(!!selfsustaining_setting.value)
+/obj/machinery/hydroponics/proc/become_self_sufficient() // Ambrosia Gaia effect
+	visible_message("<span class='boldnotice'>[src] begins to glow with a beautiful light!</span>")
+	self_sustaining = TRUE
+	update_icon()

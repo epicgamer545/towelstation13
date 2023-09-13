@@ -14,8 +14,6 @@
 	body_parts_covered = CHEST|GROIN
 	allowed = list(
 		/obj/item/cultivator,
-		/obj/item/geneshears,
-		/obj/item/graft,
 		/obj/item/hatchet,
 		/obj/item/plant_analyzer,
 		/obj/item/reagent_containers/cup/beaker,
@@ -23,7 +21,6 @@
 		/obj/item/reagent_containers/cup/tube,
 		/obj/item/reagent_containers/spray/pestspray,
 		/obj/item/reagent_containers/spray/plantbgone,
-		/obj/item/secateurs,
 		/obj/item/seeds,
 		/obj/item/storage/bag/plants,
 	)
