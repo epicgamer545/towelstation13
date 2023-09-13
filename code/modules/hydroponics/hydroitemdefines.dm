@@ -540,6 +540,7 @@
 	return TRUE
 */
 
+/* Towelstation edit start - Returns old botany
 /obj/item/secateurs
 	name = "secateurs"
 	desc = "It's a tool for cutting grafts off plants or changing podperson looks."
@@ -589,6 +590,7 @@
 	attack_verb_continuous = list("slashes", "slices", "cuts")
 	attack_verb_simple = list("slash", "slice", "cut")
 	hitsound = 'sound/weapons/bladeslice.ogg'
+*/
 
 // *************************************
 // Nutrient defines for hydroponics

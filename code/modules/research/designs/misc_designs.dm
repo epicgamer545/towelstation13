@@ -330,6 +330,21 @@
 		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_CHEMISTRY
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE | DEPARTMENT_BITFLAG_MEDICAL
+///Towelstation Edit - Re-adds old botany
+/datum/design/diskplantgene
+	name = "Plant Data Disk"
+	desc = "A disk for storing plant genetic data."
+	id = "diskplantgene"
+	build_type = PROTOLATHE
+	materials = list(
+		/datum/material/iron=200,
+		/datum/material/glass = 100
+	)
+	build_path = /obj/item/disk/plantgene
+	category = list(
+		"Electronics"
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SERVICE
 
 /datum/design/roastingstick
 	name = "Advanced Roasting Stick"

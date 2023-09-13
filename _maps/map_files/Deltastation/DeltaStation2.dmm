@@ -33933,10 +33933,6 @@
 /turf/open/floor/circuit/red,
 /area/station/ai_monitored/turret_protected/ai_upload)
 "iuI" = (
-/obj/item/book/manual/hydroponics_pod_people,
-/obj/item/paper/guides/jobs/hydroponics,
-/obj/item/clothing/accessory/armband/hydro,
-/obj/item/toy/figure/botanist,
 /obj/structure/table/glass,
 /obj/effect/turf_decal/tile/green{
 	dir = 8
@@ -76663,14 +76659,10 @@
 /turf/open/floor/plating,
 /area/station/service/abandoned_gambling_den)
 "tkk" = (
-/obj/item/stack/package_wrap,
-/obj/item/stack/package_wrap,
-/obj/item/hand_labeler,
 /obj/machinery/requests_console/directional/south{
 	department = "Hydroponics";
 	name = "Hydroponics Requests Console"
 	},
-/obj/effect/mapping_helpers/requests_console/supplies,
 /obj/structure/table/glass,
 /obj/effect/turf_decal/tile/blue/opposingcorners,
 /obj/effect/turf_decal/tile/green{
@@ -79363,11 +79355,6 @@
 /turf/open/floor/iron,
 /area/station/engineering/storage/tech)
 "tRt" = (
-/obj/item/secateurs{
-	desc = "It look like a pair of botanical secateurs, but there's a crudely applied label on its handle that denotes them as 'scissors'.";
-	name = "scissors";
-	pixel_y = 1
-	},
 /obj/item/reagent_containers/cup/rag{
 	pixel_y = 4
 	},
