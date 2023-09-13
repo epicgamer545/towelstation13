@@ -1,3 +1,5 @@
+//THIS FILE HAS BEEN EDITED BY TOWEL EDIT
+
 /// Cost of the crate. DO NOT GO ANY LOWER THAN X1.4 the "CARGO_CRATE_VALUE" value if using regular crates, or infinite profit will be possible!
 
 /*
@@ -167,14 +169,20 @@
 	crate_name = "helmet crate"
 
 /datum/supply_pack/security/deployablebarricades
-	name = "C.U.C.K.S Deployable Barricades"
+	//TOWEL EDIT CHANGE BEGIN - BARRICADE_RENAME
+	//name = "C.U.C.K.S Deployable Barricades" //TOWEL EDIT ORIGINAL
+	name = "C.O.P.E Deployable Barricades"
+	//TOWEL EDIT CHANGE END
 	desc = "Two cases of deployable barricades, for all your fortification needs."
 	cost = CARGO_CRATE_VALUE * 4
 	contains = list(
 		/obj/item/storage/barricade,
 		/obj/item/storage/barricade,
 	)
-	crate_name = "C.U.C.K.S Crate"
+	//TOWEL EDIT CHANGE BEGIN - BARRICADE_RENAME
+	//crate_name = "C.U.C.K.S Crate" //TOWEL EDIT ORIGINAL
+	crate_name = "C.O.P.E Crate"
+	//TOWEL EDIT CHANGE END - BARRICADE_RENAME
 
 /*
 *	ENGINEERING
