@@ -73,6 +73,32 @@
 
 // Saltwater fish below
 
+///Towelstation Edit - EELS
+/obj/item/fish/eel
+	name = "electric eel"
+	desc = "When you're down by the sea and an eel bites your knee, that's a moray."
+	icon_state = "electric_eel"
+	inhand_icon_state = "electric_eel"
+	dedicated_in_aquarium_icon_state = "electric_eel_small"
+	sprite_width = 8
+	sprite_height = 3
+	required_fluid_type = AQUARIUM_FLUID_SALTWATER
+	stable_population = 2
+	average_size = 180 //Eels are LONG
+	average_weight = 20000 //The average electric eel can weight up to 45 lbs
+	required_temperature_min = MIN_AQUARIUM_TEMP+20
+	required_temperature_max = MIN_AQUARIUM_TEMP+30
+	var/delay_shock = 0
+
+/obj/item/fish/eel/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
+	. = ..()
+	if(delay_shock > world.time)
+		return
+	delay_shock = world.time + 1 MINUTES
+	if(istype(target, /mob/living))
+		var/mob/living/livingTarget = target
+		livingTarget.electrocute_act(35, src, 1, flags = SHOCK_NOGLOVES|SHOCK_ILLUSION)
+
 /obj/item/fish/clownfish
 	name = "clownfish"
 	desc = "Clownfish catch prey by swimming onto the reef, attracting larger fish, and luring them back to the anemone. The anemone will sting and eat the larger fish, leaving the remains for the clownfish."
