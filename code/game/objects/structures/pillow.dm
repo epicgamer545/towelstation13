@@ -7,13 +7,12 @@
 /obj/item/fancy_pillow
 	name = "pillow"
 	desc = "A big, soft pillow."
-	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_items.dmi'
-	lefthand_file = 'modular_skyrat/modules/modular_items/lewd_items/icons/mob/lewd_inhands/lewd_inhand_left.dmi'
-	righthand_file = 'modular_skyrat/modules/modular_items/lewd_items/icons/mob/lewd_inhands/lewd_inhand_right.dmi'
+	icon = 'icons/obj/pillows.dmi'
+	lefthand_file = 'icons/mob/inhands/items_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/items_righthand.dmi'
 	icon_state = "pillow_pink_round"
 	base_icon_state = "pillow"
 	inhand_icon_state = "pillow_pink_round"
-	var/datum/effect_system/feathers/pillow_feathers
 	var/current_color = "pink"
 	var/current_form = "round"
 	var/color_changed = FALSE
@@ -78,10 +77,6 @@
 		populate_pillow_colors()
 	if(!length(pillow_forms))
 		populate_pillow_forms()
-	//part of code for feathers spawn on hit
-	pillow_feathers = new
-	pillow_feathers.set_up(2, 0, src)
-	pillow_feathers.attach(src)
 
 /obj/item/fancy_pillow/update_icon_state()
 	. = ..()
@@ -89,32 +84,14 @@
 	inhand_icon_state = "[base_icon_state]_[current_color]_[current_form]"
 
 /obj/item/fancy_pillow/Destroy()
-	if(pillow_feathers)
-		qdel(pillow_feathers)
-		pillow_feathers = null
 	return ..()
-
-//feathers effect on hit
-
-/obj/effect/temp_visual/feathers
-	name = "feathers"
-	icon_state = "feathers"
-	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_decals/lewd_decals.dmi'
-	duration = 14
-
-/datum/effect_system/feathers
-	effect_type = /obj/effect/temp_visual/feathers
 
 /obj/item/fancy_pillow/attack(mob/living/carbon/human/affected_mob, mob/living/carbon/human/user)
 	. = ..()
 	if(!istype(affected_mob, /mob/living/carbon/human))
 		return
 
-	if(prob(1.5)) // 1.5% chance of special tickling feather spawning. No idea why, i was thinking that this is funny idea. Do not erase it plz
-		new /obj/item/tickle_feather(loc)
-
 //and there is code for successful check, so we are hitting someone with a pillow
-	pillow_feathers.start()
 	switch(user.zone_selected) //to let code know what part of body we gonna hit
 
 		if(BODY_ZONE_HEAD)
@@ -123,7 +100,7 @@
 			if(prob(30))
 				affected_mob.emote(pick("laugh", "giggle"))
 			user.visible_message(span_notice("[user] [message]!"))
-			playsound(loc, 'modular_skyrat/modules/modular_items/lewd_items/sounds/hug.ogg', 50, 1, -1)
+			playsound(loc, 'sound/items/pillow_hit.ogg', 50, 1, -1)
 
 		if(BODY_ZONE_CHEST)
 			var/message = ""
@@ -131,7 +108,7 @@
 			if(prob(30))
 				affected_mob.emote(pick("laugh", "giggle"))
 			user.visible_message(span_notice("[user] [message]!"))
-			playsound(loc, 'modular_skyrat/modules/modular_items/lewd_items/sounds/hug.ogg', 50, 1, -1)
+			playsound(loc, 'sound/items/pillow_hit.ogg', 50, 1, -1)
 
 		else
 			var/message = ""
@@ -139,7 +116,7 @@
 			if(prob(30))
 				affected_mob.emote(pick("laugh", "giggle"))
 			user.visible_message(span_notice("[user] [message]!"))
-			playsound(loc, 'modular_skyrat/modules/modular_items/lewd_items/sounds/hug.ogg', 50, 1, -1)
+			playsound(loc, 'sound/items/pillow_hit.ogg', 50, 1, -1)
 
 //spawning pillow on the ground when clicking on pillow	by LBM
 
@@ -163,7 +140,7 @@
 /obj/structure/bed/pillow_tiny
 	name = "pillow"
 	desc = "A tiny pillow, for tiny heads."
-	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_structures/pillows.dmi'
+	icon = 'icons/obj/pillows.dmi'
 	icon_state = "pillow_pink_round"
 	base_icon_state = "pillow"
 	var/current_color = "pink"
@@ -249,10 +226,9 @@
 /obj/structure/chair/pillow_small
 	name = "small pillow pile"
 	desc = "A small pile of pillows. A comfortable seat, especially for taurs or nagas."
-	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_structures/pillows.dmi'
+	icon = 'icons/obj/pillows.dmi'
 	icon_state = "pillowpile_small_pink"
 	base_icon_state = "pillowpile_small"
-	pseudo_z_axis = 4
 	var/current_color = "pink"
 	var/mutable_appearance/armrest
 
@@ -277,9 +253,9 @@
 
 /obj/structure/chair/pillow_small/proc/GetArmrest()
 	if(current_color == "pink")
-		return mutable_appearance('modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_structures/pillows.dmi', "pillowpile_small_pink_overlay")
+		return mutable_appearance('icons/obj/pillows.dmi', "pillowpile_small_pink_overlay")
 	if(current_color == "teal")
-		return mutable_appearance('modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_structures/pillows.dmi', "pillowpile_small_teal_overlay")
+		return mutable_appearance('icons/obj/pillows.dmi', "pillowpile_small_teal_overlay")
 
 /obj/structure/chair/pillow_small/Destroy()
 	QDEL_NULL(armrest)
@@ -295,7 +271,7 @@
 /obj/structure/chair/pillow_small/update_overlays()
 	. = ..()
 	if(has_buckled_mobs())
-		. += mutable_appearance('modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_structures/pillows.dmi', "pillowpile_small_[current_color]_overlay", layer = ABOVE_MOB_LAYER + 0.2)
+		. += mutable_appearance('icons/obj/pillows.dmi', "pillowpile_small_[current_color]_overlay", layer = ABOVE_MOB_LAYER + 0.2)
 
 /obj/structure/chair/pillow_small/post_unbuckle_mob(mob/living/affected_mob)
 	. = ..()
@@ -375,10 +351,9 @@
 /obj/structure/bed/pillow_large
 	name = "large pillow pile"
 	desc = "A large pile of pillows. Jump on it!"
-	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_structures/pillows.dmi'
+	icon = 'icons/obj/pillows.dmi'
 	icon_state = "pillowpile_large_pink"
 	base_icon_state = "pillowpile_large"
-	pseudo_z_axis = 4
 	var/current_color = "pink"
 	var/mutable_appearance/armrest
 	//Containing pillows that we have here
@@ -406,9 +381,9 @@
 
 /obj/structure/bed/pillow_large/proc/GetArmrest()
 	if(current_color == "pink")
-		return mutable_appearance('modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_structures/pillows.dmi', "pillowpile_large_pink_overlay")
+		return mutable_appearance('icons/obj/pillows.dmi', "pillowpile_large_pink_overlay")
 	if(current_color == "teal")
-		return mutable_appearance('modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_structures/pillows.dmi', "pillowpile_large_teal_overlay")
+		return mutable_appearance('icons/obj/pillows.dmi', "pillowpile_large_teal_overlay")
 
 /obj/structure/bed/pillow_large/Destroy()
 	QDEL_NULL(armrest)
@@ -424,7 +399,7 @@
 /obj/structure/bed/pillow_large/update_overlays()
 	. = ..()
 	if(has_buckled_mobs())
-		. += mutable_appearance('modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_structures/pillows.dmi', "pillowpile_large_[current_color]_overlay", layer = ABOVE_MOB_LAYER + 0.2)
+		. += mutable_appearance('icons/obj/pillows.dmi', "pillowpile_large_[current_color]_overlay", layer = ABOVE_MOB_LAYER + 0.2)
 
 /obj/structure/bed/pillow_large/post_unbuckle_mob(mob/living/affected_mob)
 	. = ..()
