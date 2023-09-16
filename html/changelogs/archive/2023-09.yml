@@ -336,3 +336,7 @@
   tf-4:
   - rscadd: You can now craft ammo pouches from four leather.
   - spellcheck: Fixed typo in cocaine snorting message.
+2023-09-16:
+  xPokee:
+  - spellcheck: Gave lore to podpeople
+  - rscdel: Removed all of the ERP features from the code.
