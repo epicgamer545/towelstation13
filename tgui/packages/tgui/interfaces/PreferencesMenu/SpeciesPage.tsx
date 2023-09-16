@@ -259,6 +259,9 @@ const SpeciesPageInner = (
                 let speciesPage = (
                   <Button
                     key={speciesKey}
+                    onClick={() => {
+                      setSpecies(speciesKey);
+                    }}
                     selected={
                       data.character_preferences.misc.species === speciesKey
                     }
