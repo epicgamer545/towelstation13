@@ -669,10 +669,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/structure/railing{
-	dir = 4
-	},
-/turf/open/floor/mineral/plastitanium,
+/turf/open/floor/plating/elevatorshaft,
 /area/space)
 "byb" = (
 /obj/effect/decal/cleanable/dirt{
@@ -1064,12 +1061,6 @@
 /mob/living/simple_animal/hostile/mutantliz,
 /turf/open/floor/plating/cobblestone/dungeon,
 /area/space)
-"clt" = (
-/obj/structure/railing{
-	dir = 1
-	},
-/turf/open/floor/mineral/plastitanium,
-/area/space)
 "clz" = (
 /obj/structure/sign/poster/contraband/punch_shit{
 	pixel_y = 32
@@ -1226,7 +1217,7 @@
 	roundstart_template = /datum/map_template/shuttle/enclave_elevator;
 	width = 3
 	},
-/turf/open/floor/mineral/plastitanium,
+/turf/open/floor/plating/elevatorshaft,
 /area/space)
 "cJH" = (
 /turf/closed/indestructible/reinforced,
@@ -3564,12 +3555,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating/rust,
 /area/space)
-"hqZ" = (
-/obj/structure/railing{
-	dir = 8
-	},
-/turf/open/floor/mineral/plastitanium,
-/area/space)
 "hri" = (
 /obj/structure/sign/plaques/kiddie/library{
 	desc = "Once you're done with your garbage you can toss it in this machine to keep the world a cleaner place.";
@@ -4656,12 +4641,6 @@
 "jQS" = (
 /obj/machinery/telecomms/bus/preset_four,
 /turf/open/floor/iron/dark/telecomms,
-/area/space)
-"jRt" = (
-/obj/structure/railing{
-	dir = 5
-	},
-/turf/open/floor/mineral/plastitanium,
 /area/space)
 "jRx" = (
 /obj/structure/lattice{
@@ -5835,7 +5814,7 @@
 /turf/open/floor/plating/rust,
 /area/space)
 "mvg" = (
-/turf/open/floor/mineral/plastitanium,
+/turf/open/floor/plating/elevatorshaft,
 /area/space)
 "mvA" = (
 /obj/structure/table/wood,
@@ -6044,13 +6023,6 @@
 /obj/structure/curtain{
 	color = "#808080"
 	})
-"naY" = (
-/obj/structure/railing{
-	dir = 10;
-	layer = 4.1
-	},
-/turf/open/floor/mineral/plastitanium,
-/area/space)
 "nbd" = (
 /obj/structure/table,
 /obj/item/flashlight{
@@ -8841,13 +8813,6 @@
 /obj/structure/showcase/horrific_experiment{
 	icon_state = "pod_1"
 	})
-"tfG" = (
-/obj/structure/railing{
-	dir = 6;
-	layer = 4.1
-	},
-/turf/open/floor/mineral/plastitanium,
-/area/space)
 "tfL" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -9618,13 +9583,6 @@
 	desc = "A stand with an empty old combat suit bolted to it. It represents the brotherhood who took part in the Republic-Enclave war back west. We had honor back then.";
 	name = "brotherhood victory exhibit"
 	})
-"uVA" = (
-/obj/structure/railing{
-	dir = 9;
-	layer = 4.1
-	},
-/turf/open/floor/mineral/plastitanium,
-/area/space)
 "uWA" = (
 /obj/structure/bed,
 /obj/item/bedsheet/blue)
@@ -19874,9 +19832,9 @@ nCF
 ddv
 tfL
 qzI
-uVA
-hqZ
-naY
+mvg
+mvg
+mvg
 iUU
 trL
 trL
@@ -20131,7 +20089,7 @@ trL
 ddv
 vbc
 qzI
-clt
+mvg
 mvg
 cIV
 trL
@@ -20388,9 +20346,9 @@ nCF
 ddv
 vbc
 qzI
-jRt
+mvg
 bxJ
-tfG
+mvg
 gYq
 gJF
 trL
