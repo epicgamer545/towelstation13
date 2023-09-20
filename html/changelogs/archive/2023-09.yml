@@ -349,3 +349,6 @@
   - bugfix: fixes a runtime I accidentally caused
   - rscdel: Removes sex
   - qol: Everyone can use the headshot feature now.
+2023-09-20:
+  xPokee:
+  - rscdel: Removes taurs
