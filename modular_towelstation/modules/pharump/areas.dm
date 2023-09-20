@@ -12,7 +12,7 @@
 	name = "error"
 	icon_state = "error"
 	has_gravity = 1
-//	requires_power = 0
+	requires_power = 0
 
 //Wasteland generic areas
 
