@@ -4,11 +4,7 @@
 	dir = 10;
 	layer = 4.1
 	},
-/obj/structure/chair/f13foldupchair{
-	dir = 4
-	},
-/turf/open/floor/mineral/plastitanium,
-/area/shuttle/enclave_elevator)
+/turf/open/floor/mineral/plastitanium)
 "b" = (
 /obj/structure/railing{
 	dir = 9;
@@ -18,15 +14,12 @@
 	dir = 8;
 	light_color = "red"
 	},
-/turf/open/floor/mineral/plastitanium,
-/area/shuttle/enclave_elevator)
+/turf/open/floor/mineral/plastitanium)
 "e" = (
 /obj/structure/railing{
 	dir = 1
 	},
-/obj/machinery/computer/shuttle/enclaveelevator,
-/turf/open/floor/mineral/plastitanium,
-/area/shuttle/enclave_elevator)
+/turf/open/floor/mineral/plastitanium)
 "h" = (
 /obj/machinery/door/window/brigdoor{
 	dir = 0;
@@ -39,8 +32,7 @@
 	name = "Enclave Elevator";
 	width = 3
 	},
-/turf/open/floor/mineral/plastitanium,
-/area/shuttle/enclave_elevator)
+/turf/open/floor/mineral/plastitanium)
 "p" = (
 /obj/structure/railing{
 	dir = 5;
@@ -49,39 +41,25 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/turf/open/floor/mineral/plastitanium,
-/area/shuttle/enclave_elevator)
+/turf/open/floor/mineral/plastitanium)
 "t" = (
 /obj/structure/railing{
 	dir = 6;
 	layer = 4.1
 	},
-/obj/structure/chair/f13foldupchair{
-	dir = 8
-	},
-/turf/open/floor/mineral/plastitanium,
-/area/shuttle/enclave_elevator)
+/turf/open/floor/mineral/plastitanium)
 "z" = (
 /obj/structure/railing{
 	dir = 4
 	},
-/obj/structure/chair/f13foldupchair{
-	dir = 8
-	},
-/turf/open/floor/mineral/plastitanium,
-/area/shuttle/enclave_elevator)
+/turf/open/floor/mineral/plastitanium)
 "C" = (
-/turf/open/floor/mineral/plastitanium,
-/area/shuttle/enclave_elevator)
+/turf/open/floor/mineral/plastitanium)
 "Y" = (
 /obj/structure/railing{
 	dir = 8
 	},
-/obj/structure/chair/f13foldupchair{
-	dir = 4
-	},
-/turf/open/floor/mineral/plastitanium,
-/area/shuttle/enclave_elevator)
+/turf/open/floor/mineral/plastitanium)
 
 (1,1,1) = {"
 b
