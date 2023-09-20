@@ -8,7 +8,7 @@
 	var/environment = -1
 	var/grow_chance = 100
 
-/area/pahrump
+/area/misc
 	name = "error"
 	icon_state = "error"
 	has_gravity = 1
@@ -18,7 +18,7 @@
 
 //Ambigen sound tips for ambientsounds: 1 - 2 : outside the ruined buildings, 3 - 9 : inside the wasteland buildings, 10 - 14 : vaults and bunkers specific, 15-19 : caves
 
-/area/pahrump/wasteland
+/area/misc/wasteland
 	name = "Wasteland"
 	icon_state = "wasteland"
 //	ambience_area =  list('sound/f13ambience/wasteland.ogg')
@@ -31,10 +31,10 @@
 	environment = 19
 	grow_chance = 45
 
-/area/pahrump/wasteland/event
+/area/misc/wasteland/event
 	name = "Wasteland (Event)"
 
-/area/pahrump/forest
+/area/misc/forest
 	name = "Forest"
 	icon_state = "forest"
 //	ambience_area =  list('sound/f13ambience/wasteland.ogg')
@@ -47,7 +47,7 @@
 	environment = 15
 	grow_chance = 75
 
-/area/pahrump/ruins
+/area/misc/ruins
 	name = "Ruins"
 	icon_state = "ruins"
 //	ambience_area =  list('sound/f13ambience/wasteland.ogg')
@@ -60,7 +60,7 @@
 	environment = 5
 	grow_chance = 5
 
-/area/pahrump/shack
+/area/misc/shack
 	name = "Shack"
 	icon_state = "shack"
 //	ambience_area =  list('sound/f13ambience/shack.ogg')
@@ -70,7 +70,7 @@
 	environment = 2
 	grow_chance = 5
 
-/area/pahrump/building
+/area/misc/building
 	name = "Building"
 	icon_state = "building"
 //	ambience_area =  list('sound/f13ambience/building.ogg')
@@ -80,7 +80,7 @@
 	environment = 2
 	grow_chance = 5
 
-/area/pahrump/farm
+/area/misc/farm
 	name = "Farm"
 	icon_state = "farm"
 //	ambience_area =  list('sound/f13ambience/wasteland.ogg')
@@ -93,7 +93,7 @@
 	environment = 15
 	grow_chance = 50
 
-/area/pahrump/tribe
+/area/misc/tribe
 	name = "Tribe"
 	icon_state = "tribe"
 //	ambience_area =  list('sound/f13ambience/wasteland.ogg')
@@ -106,7 +106,7 @@
 	environment = 15
 	grow_chance = 5
 
-/area/pahrump/village
+/area/misc/village
 	name = "Village"
 	icon_state = "village"
 //	ambience_area =  list('sound/f13ambience/wasteland.ogg')
@@ -117,7 +117,7 @@
 	environment = 15
 	grow_chance = 5
 
-/area/pahrump/outpost
+/area/misc/outpost
 	name = "Outpost"
 	icon_state = "outpost"
 //	ambience_area =  list('sound/f13ambience/wasteland.ogg')
@@ -128,7 +128,7 @@
 	environment = 16
 	grow_chance = 5
 
-/area/pahrump/hub
+/area/misc/hub
 	name = "Hub"
 	icon_state = "hub"
 //	ambience_area =  list('sound/f13ambience/wasteland.ogg')
@@ -141,7 +141,7 @@
 	environment = 16
 	grow_chance = 5
 
-/area/pahrump/city
+/area/misc/city
 	name = "City"
 	icon_state = "city"
 //	ambience_area =  list('sound/f13ambience/wasteland.ogg')
@@ -154,11 +154,11 @@
 	environment = 16
 	grow_chance = 5
 
-/area/pahrump/city/museum
+/area/misc/city/museum
 	name = "Museum"
 	outdoors = FALSE
 
-/area/pahrump/citycaves
+/area/misc/citycaves
 	name = "City Caves"
 	icon_state = "citycaves"
 //	ambience_area =  list('sound/f13ambience/cave.ogg')
@@ -167,7 +167,7 @@
 	environment = 8
 	grow_chance = 25
 
-/area/pahrump/chapel
+/area/misc/chapel
 	name = "Chapel"
 	icon_state = "chapel"
 //	ambience_area =  list('sound/f13ambience/building.ogg')
@@ -176,7 +176,7 @@
 	environment = 5
 	grow_chance = 5
 
-/area/pahrump/bar
+/area/misc/bar
 	name = "Bar"
 	icon_state = "bar"
 //	ambience_area =  list('sound/f13ambience/building.ogg')
@@ -184,7 +184,7 @@
 	environment = 2
 	grow_chance = 5
 
-/area/pahrump/casino
+/area/misc/casino
 	name = "Casino"
 	icon_state = "casino"
 //	ambience_area =  list('sound/f13ambience/warehouse.ogg')
@@ -194,7 +194,7 @@
 	environment = 6
 	grow_chance = 5
 
-/area/pahrump/clinic
+/area/misc/clinic
 	name = "Clinic"
 	icon_state = "clinic"
 //	ambience_area =  list('sound/f13ambience/warehouse.ogg')
@@ -204,7 +204,7 @@
 	environment = 6
 	grow_chance = 5
 
-/area/pahrump/office
+/area/misc/office
 	name = "Office"
 	icon_state = "office"
 //	ambience_area =  list('sound/f13ambience/warehouse.ogg')
@@ -214,7 +214,7 @@
 	environment = 2
 	grow_chance = 5
 
-/area/pahrump/store
+/area/misc/store
 	name = "Store"
 	icon_state = "store"
 //	ambience_area =  list('sound/f13ambience/building.ogg')
@@ -224,7 +224,7 @@
 	environment = 4
 	grow_chance = 5
 
-/area/pahrump/bunker
+/area/misc/bunker
 	name = "Bunker"
 	icon_state = "bunker"
 //	ambience_area =  list('sound/f13ambience/building.ogg')
@@ -234,13 +234,13 @@
 	environment = 11
 	grow_chance = 5
 
-/area/pahrump/bunker/bunkertwo
+/area/misc/bunker/bunkertwo
 	name = "Bunker Two"
 
-/area/pahrump/bunker/museum
+/area/misc/bunker/museum
 	name = "Bunker Museum"
 
-/area/pahrump/tunnel
+/area/misc/tunnel
 	name = "Tunnel"
 	icon_state = "tunnel"
 //	ambience_area =  list('sound/f13ambience/cave.ogg')
@@ -249,7 +249,7 @@
 	environment = 21
 	grow_chance = 25
 
-/area/pahrump/trainstation
+/area/misc/trainstation
 	name = "Tunnel"
 	icon_state = "tunnel"
 //	ambience_area =  list('sound/f13ambience/cave.ogg')
@@ -258,7 +258,7 @@
 	environment = 21
 	grow_chance = 25
 
-/area/pahrump/sewer
+/area/misc/sewer
 	name = "Sewer"
 	icon_state = "sewer"
 //	ambience_area =  list('sound/f13ambience/sewer.ogg')
@@ -267,7 +267,7 @@
 	environment = 21
 	grow_chance = 50
 
-/area/pahrump/caves
+/area/misc/caves
 	name = "Caves"
 	icon_state = "caves"
 //	ambience_area =  list('sound/f13ambience/cave.ogg')
@@ -276,7 +276,7 @@
 	environment = 8
 	grow_chance = 75
 
-/area/pahrump/subway
+/area/misc/subway
 	name = "Subway"
 	icon_state = "subway"
 //	ambience_area =  list('sound/f13ambience/cave.ogg')
@@ -285,7 +285,7 @@
 	environment = 21
 	grow_chance = 25
 
-/area/pahrump/secret
+/area/misc/secret
 	name = "Secret"
 	icon_state = "secret"
 //	ambience_area =  list('sound/f13ambience/building.ogg')
@@ -295,7 +295,7 @@
 	environment = 11
 	grow_chance = 0
 
-/area/pahrump/radiation
+/area/misc/radiation
 	name = "Radiation"
 	icon_state = "radiation"
 //	ambience_area =  list('sound/f13ambience/wasteland.ogg')
@@ -306,7 +306,7 @@
 
 //Faction related areas
 
-/area/pahrump/raiders
+/area/misc/raiders
 	name = "Raiders"
 	icon_state = "raiders"
 //	ambience_area =  list('sound/f13ambience/wasteland.ogg')
@@ -319,7 +319,7 @@
 	environment = 6
 	grow_chance = 5
 
-/area/pahrump/vault
+/area/misc/vault
 	name = "Vault"
 	icon_state = "vaulttec"
 //	ambience_area =  list('sound/f13ambience/vaulttec_vault.ogg')
@@ -330,103 +330,103 @@
 	environment = 6
 	grow_chance = 5
 
-/area/pahrump/vault/reactor
+/area/misc/vault/reactor
 	name = "Reactor"
 	icon_state = "engine"
 
-/area/pahrump/vault/storage
+/area/misc/vault/storage
 	name = "Storage"
 	icon_state = "storage"
 
-/area/pahrump/vault/storageoffice
+/area/misc/vault/storageoffice
 	name = "Storage Office"
 	icon_state = "storage_wing"
 
-/area/pahrump/vault/overseer
+/area/misc/vault/overseer
 	name = "Overseer"
 	icon_state = "overseer_office"
 
-/area/pahrump/vault/chiefoffice
+/area/misc/vault/chiefoffice
 	name = "Chief Office"
 	icon_state = "sec_hos"
 
-/area/pahrump/vault/idcontrol
+/area/misc/vault/idcontrol
 	name = "ID Control Office"
 	icon_state = "hop_office"
 
-/area/pahrump/vault/vents
+/area/misc/vault/vents
 	name = "Vents"
 	icon_state = "red"
 
-/area/pahrump/vault/botcontrol
+/area/misc/vault/botcontrol
 	name = "Bot Control"
 	icon_state = "mechbay"
 
-/area/pahrump/vault/atrium
+/area/misc/vault/atrium
 	name = "Vault Atrium"
 	icon_state = "vault_atrium_upper"
 
-/area/pahrump/vault/security
+/area/misc/vault/security
 	name = "Brig"
 	icon_state = "brig"
 
-/area/pahrump/vault/security/checkpoint
+/area/misc/vault/security/checkpoint
 	name = "Security Checkpoint"
 	icon_state = "checkpoint1"
 
-/area/pahrump/vault/security/armory
+/area/misc/vault/security/armory
 	name = "Armory"
 	icon_state = "armory"
 
-/area/pahrump/vault/medical
+/area/misc/vault/medical
 	name = "Medical Center"
 	icon_state = "medbay"
 
-/area/pahrump/vault/medical/surgery
+/area/misc/vault/medical/surgery
 	name = "Surgery"
 	icon_state = "surgery"
 
-/area/pahrump/vault/medical/breakroom
+/area/misc/vault/medical/breakroom
 	name = "Break Room"
 	icon_state = "medbay2"
 
-/area/pahrump/vault/medical/morgue
+/area/misc/vault/medical/morgue
 	name = "Morgue"
 	icon_state = "morgue"
 
-/area/pahrump/vault/medical/chemistry
+/area/misc/vault/medical/chemistry
 	name = "Chemistry"
 	icon_state = "chem"
 
-/area/pahrump/vault/science
+/area/misc/vault/science
 	name = "Science"
 	icon_state = "purple"
 
-/area/pahrump/vault/science/biology
+/area/misc/vault/science/biology
 	name = "Biology"
 	icon_state = "purple"
 
-/area/pahrump/vault/garden
+/area/misc/vault/garden
 	name = "Garden"
 	icon_state = "garden"
 
-/area/pahrump/vault/diner
+/area/misc/vault/diner
 	name = "Dining Hall"
 	icon_state = "cafeteria"
 
-/area/pahrump/vault/custodial
+/area/misc/vault/custodial
 	name = "Custodial Closet"
 	icon_state = "auxstorage"
 
-/area/pahrump/vault/dormitory
+/area/misc/vault/dormitory
 	name = "Dormitory"
 	icon_state = "crew_quarters"
 
-/area/pahrump/vault/lavatory
+/area/misc/vault/lavatory
 	name = "Lavatory"
 	icon_state = "restrooms"
 
-/area/pahrump/brotherhood
+/area/misc/brotherhood
 	name = "Brotherhood of Steel"//Brother Hood
 	icon_state = "brotherhood"
 //	ambience_area =  list('sound/f13ambience/enclave_vault.ogg')
@@ -437,63 +437,63 @@
 	environment = 6
 	grow_chance = 5
 
-/area/pahrump/brotherhood/rnd
+/area/misc/brotherhood/rnd
 	name = "Brotherhood of Steel RnD Department"//Brother Hood
 	icon_state = "brotherhoodrnddepartment"
 
-/area/pahrump/brotherhood/offices1st
+/area/misc/brotherhood/offices1st
 	name = "Brotherhood of Steel 1st Floor Offices"//Brother Hood
 	icon_state = "brotherhoodoffices1st"
 
-/area/pahrump/brotherhood/offices2nd
+/area/misc/brotherhood/offices2nd
 	name = "Brotherhood of Steel 1st Floor Offices"//Brother Hood
 	icon_state = "brotherhoodoffices2nd"
 
-/area/pahrump/brotherhood/surface
+/area/misc/brotherhood/surface
 	name = "Brotherhood of Steel Surface Outpost"//Brother Hood
 	icon_state = "brotherhood"
 
-/area/pahrump/brotherhood/medical
+/area/misc/brotherhood/medical
 	name = "Brotherhood of Steel Medbay"//Brother Hood
 	icon_state = "brotherhoodmedbay"
 
-/area/pahrump/brotherhood/operating
+/area/misc/brotherhood/operating
 	name = "Brotherhood of Steel Operating Room"//Brother Hood
 	icon_state = "brotherhoodoperating"
 
-/area/pahrump/brotherhood/chemistry
+/area/misc/brotherhood/chemistry
 	name = "Brotherhood of Steel Chemistry Lab"//Brother Hood
 	icon_state = "brotherhoodchemistry"
 
-/area/pahrump/brotherhood/dorms
+/area/misc/brotherhood/dorms
 	name = "Brotherhood of Steel Dormitories"//Brother Hood
 	icon_state = "brotherhooddorms"
 
-/area/pahrump/brotherhood/armory
+/area/misc/brotherhood/armory
 	name = "Brotherhood of Steel Armory"//Brother Hood
 	icon_state = "brotherhoodarmory"
 
-/area/pahrump/brotherhood/archives
+/area/misc/brotherhood/archives
 	name = "Brotherhood of Steel Archives"//Brother Hood
 	icon_state = "brotherhoodarchives"
 
-/area/pahrump/brotherhood/operations
+/area/misc/brotherhood/operations
 	name = "Brotherhood of Steel Operations Department"//Brother Hood
 	icon_state = "brotherhoodoperationsdepartment"
 
-/area/pahrump/brotherhood/leisure
+/area/misc/brotherhood/leisure
 	name = "Brotherhood of Steel Leisure Areas"//Brother Hood
 	icon_state = "brotherhoodleisure"
 
-/area/pahrump/brotherhood/reactor
+/area/misc/brotherhood/reactor
 	name = "Brotherhood of Steel Reactor"//Brother Hood
 	icon_state = "brotherhoodreactor"
 
-/area/pahrump/brotherhood/mining
+/area/misc/brotherhood/mining
 	name = "Brotherhood of Steel Mining"//Brother Hood
 	icon_state = "brotherhoodmining"
 
-/area/pahrump/enclave
+/area/misc/enclave
 	name = "Enclave"
 	icon_state = "enclave"
 //	ambience_area =  list('sound/f13ambience/enclave_vault.ogg')
@@ -504,7 +504,7 @@
 	environment = 6
 	grow_chance = 5
 
-/area/pahrump/ahs
+/area/misc/ahs
 	name = "Adepts of Hubology Studies"
 	icon_state = "ahs"
 //	ambience_area =  list('sound/f13ambience/enclave_vault.ogg')
@@ -515,7 +515,7 @@
 	environment = 5
 	grow_chance = 5
 
-/area/pahrump/ncr
+/area/misc/ncr
 	name = "NCR"
 	icon_state = "ncr"
 //	ambience_area =  list('sound/f13ambience/warehouse.ogg')
@@ -527,7 +527,7 @@
 	grow_chance = 5
 	requires_power = FALSE
 
-/area/pahrump/legion
+/area/misc/legion
 	name = "Legion"
 	icon_state = "legion"
 //	ambience_area =  list('sound/f13ambience/building.ogg')
@@ -537,7 +537,7 @@
 	environment = 4
 	grow_chance = 5
 
-/area/pahrump/followers
+/area/misc/followers
 	name = "Followers of the Apocalypse"
 	icon_state = "followers"
 //	ambience_area =  list('sound/f13ambience/warehouse.ogg')
