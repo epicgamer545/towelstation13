@@ -1,6 +1,6 @@
 {
 	"map_name": "Yuma",
-	"map_path": "map_files/Pahrump",
+	"map_path": "modular_towelstation/modules/pahrump/_maps/map_files",
 	"map_file": [
 		"Dungeons.dmm",
 		"Pahrump-Underground-1.dmm",
