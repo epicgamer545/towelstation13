@@ -6,7 +6,8 @@
 /turf/closed/wall/mineral/titanium,
 /area/shuttle/transport)
 "c" = (
-/obj/effect/spawner/structure/window/shuttle,
+/obj/effect/spawner/structure/window/reinforced/shuttle,
+/obj/structure/grille,
 /turf/open/floor/plating,
 /area/shuttle/transport)
 "d" = (
@@ -15,16 +16,16 @@
 /turf/open/floor/pod/dark,
 /area/shuttle/transport)
 "e" = (
-/obj/structure/shuttle/engine/propulsion/left{
+/obj/machinery/power/shuttle_engine/propulsion/right{
 	dir = 8
 	},
 /turf/open/floor/plating/airless,
 /area/shuttle/transport)
 "f" = (
-/obj/structure/shuttle/engine/heater{
+/obj/structure/window/reinforced,
+/obj/machinery/power/shuttle_engine/heater{
 	dir = 8
 	},
-/obj/structure/window/reinforced,
 /turf/open/floor/plating/airless,
 /area/shuttle/transport)
 "g" = (
@@ -41,11 +42,11 @@
 /turf/open/floor/pod/light,
 /area/shuttle/transport)
 "j" = (
-/obj/structure/shuttle/engine/heater{
-	dir = 8
-	},
 /obj/structure/window/reinforced{
 	dir = 4
+	},
+/obj/machinery/power/shuttle_engine/heater{
+	dir = 8
 	},
 /turf/open/floor/plating/airless,
 /area/shuttle/transport)
@@ -79,12 +80,12 @@
 /turf/open/floor/pod/light,
 /area/shuttle/transport)
 "o" = (
-/obj/structure/shuttle/engine/heater{
-	dir = 8
-	},
 /obj/structure/window/reinforced{
 	dir = 1;
 	pixel_y = 1
+	},
+/obj/machinery/power/shuttle_engine/heater{
+	dir = 8
 	},
 /turf/open/floor/plating/airless,
 /area/shuttle/transport)
@@ -103,17 +104,29 @@
 /obj/structure/fans/tiny,
 /turf/open/floor/pod/light,
 /area/shuttle/transport)
+"D" = (
+/obj/machinery/power/shuttle_engine/propulsion/left{
+	dir = 8
+	},
+/turf/open/floor/plating/airless,
+/area/shuttle/transport)
+"W" = (
+/obj/machinery/power/shuttle_engine/propulsion{
+	dir = 8
+	},
+/turf/open/floor/plating/airless,
+/area/shuttle/transport)
 
 (1,1,1) = {"
 a
 a
-e
+W
 a
 a
 "}
 (2,1,1) = {"
 a
-e
+D
 j
 e
 a

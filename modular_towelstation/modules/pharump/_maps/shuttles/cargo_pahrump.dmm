@@ -1,25 +1,26 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
-/turf/closed/wall/r_wall/f13/vault,
+/turf/closed/indestructible/reinforced,
 /area/shuttle/supply)
 "b" = (
-/turf/open/floor/plasteel/floorgrime,
+/turf/open/floor/iron/shuttle/exploration/blanktile,
 /area/shuttle/supply)
 "c" = (
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/open/floor/plasteel/floorgrime,
+/turf/open/floor/iron/shuttle/exploration/blanktile,
 /area/shuttle/supply)
 "d" = (
-/obj/structure/simple_door/bunker,
-/turf/open/floor/plating,
+/obj/machinery/door/airlock/grunge,
+/obj/effect/mapping_helpers/airlock/access/all/supply/general,
+/turf/open/floor/iron/shuttle/exploration/blanktile,
 /area/shuttle/supply)
 "e" = (
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/open/floor/plasteel/floorgrime,
+/turf/open/floor/iron/shuttle/exploration/blanktile,
 /area/shuttle/supply)
 "f" = (
 /obj/machinery/conveyor{
@@ -49,11 +50,11 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/open/floor/plasteel/floorgrime,
+/turf/open/floor/iron/shuttle/exploration/blanktile,
 /area/shuttle/supply)
 "i" = (
 /obj/machinery/light,
-/turf/open/floor/plasteel/floorgrime,
+/turf/open/floor/iron/shuttle/exploration/blanktile,
 /area/shuttle/supply)
 "j" = (
 /obj/machinery/conveyor{
@@ -71,8 +72,9 @@
 	dwidth = 5;
 	width = 12
 	},
-/obj/structure/simple_door/bunker,
-/turf/open/floor/plating,
+/obj/machinery/door/airlock/grunge,
+/obj/effect/mapping_helpers/airlock/access/all/supply/general,
+/turf/open/floor/iron/shuttle/exploration/blanktile,
 /area/shuttle/supply)
 
 (1,1,1) = {"
