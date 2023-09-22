@@ -1,31 +1,71 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
-)
+/turf/closed/wall/mineral/snow,
+/area/misc/survivalpod)
 "c" = (
-/turf/open/floor/carpet/black)
+/turf/open/floor/carpet/black,
+/area/misc/survivalpod)
 "g" = (
 /obj/item/bedsheet,
 /obj/structure/bed,
-/turf/open/floor/carpet/black)
+/turf/open/floor/carpet/black,
+/area/misc/survivalpod)
 "h" = (
 /obj/item/flashlight/lantern,
-/turf/open/floor/carpet/black)
+/obj/structure/table/wood,
+/turf/open/floor/carpet/black,
+/area/misc/survivalpod)
 "m" = (
 /obj/item/storage/fancy/candle_box,
 /obj/item/lighter/greyscale,
-/turf/open/floor/carpet/black)
+/obj/structure/table/wood,
+/obj/item/food/loaded_baked_potato,
+/turf/open/floor/carpet/black,
+/area/misc/survivalpod)
 "n" = (
 /obj/item/storage/backpack/duffelbag,
 /obj/item/binoculars,
 /obj/item/binoculars,
-/turf/open/floor/carpet/black)
+/obj/structure/table/wood,
+/turf/open/floor/carpet/black,
+/area/misc/survivalpod)
 "p" = (
-/obj/item/cardboard_cutout{
-	desc = "Your best friend in the wastes.";
-	icon_state = "cutout_ian";
-	name = "Conga the Corgi"
+/obj/structure/chair/wood,
+/mob/living/basic/pet/dog/corgi{
+	name = "Conga the Corgi";
+	desc = "Your best friend in the wastes."
 	},
-/turf/open/floor/carpet/black)
+/turf/open/floor/carpet/black,
+/area/misc/survivalpod)
+"r" = (
+/obj/structure/table/wood,
+/turf/open/floor/carpet/black,
+/area/misc/survivalpod)
+"w" = (
+/obj/structure/chair/wood{
+	dir = 1
+	},
+/turf/open/floor/carpet/black,
+/area/misc/survivalpod)
+"G" = (
+/obj/structure/table/wood,
+/obj/item/food/vendor_tray_meal/side/roasted_seeds,
+/turf/open/floor/carpet/black,
+/area/misc/survivalpod)
+"T" = (
+/obj/structure/chair/wood,
+/turf/open/floor/carpet/black,
+/area/misc/survivalpod)
+"Y" = (
+/obj/item/food/grown/grapes,
+/obj/item/food/grown/grapes,
+/obj/item/food/grown/tomato,
+/obj/item/food/grown/tomato,
+/obj/item/food/grown/potato,
+/obj/item/food/grown/potato,
+/obj/structure/closet/crate/wooden,
+/turf/open/floor/carpet/black,
+/area/misc/survivalpod)
 
 (1,1,1) = {"
 a
@@ -38,7 +78,7 @@ a
 "}
 (2,1,1) = {"
 a
-c
+Y
 c
 h
 n
@@ -47,7 +87,7 @@ a
 "}
 (3,1,1) = {"
 a
-c
+G
 c
 c
 c
@@ -67,9 +107,9 @@ c
 a
 c
 c
-c
-c
-c
+T
+r
+w
 a
 "}
 (6,1,1) = {"
@@ -78,7 +118,7 @@ g
 c
 p
 m
-c
+w
 a
 "}
 (7,1,1) = {"
