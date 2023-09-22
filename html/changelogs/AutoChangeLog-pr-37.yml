@@ -1,0 +1,4 @@
+author: "xPokee"
+delete-after: True
+changes:
+  - balance: "Bluespace compression kits now require telecrystals to be recharged and have three max charges instead of five."
