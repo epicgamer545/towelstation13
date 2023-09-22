@@ -7406,5 +7406,4 @@
 #include "modular_towelstation\modules\pahrump\_maps\shuttles\pahrump_train.dmm"
 #include "modular_towelstation\modules\pahrump\_maps\shuttles\vault113_elevator.dmm"
 #include "modular_towelstation\modules\pahrump\_maps\shuttles\vault_elevator.dmm"
-#include "modular_towelstation\modules\pharump\areas.dm"
 // END_INCLUDE

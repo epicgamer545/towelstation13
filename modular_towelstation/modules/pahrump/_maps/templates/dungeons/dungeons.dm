@@ -39,7 +39,7 @@
 	mappath = "_maps/map_files/templates/dungeons/north_bunker_1.dmm"
 
 /datum/map_template/fallout/dungeons/northbunker2
-	name = "North Bunker 2" 
+	name = "North Bunker 2"
 	id = "north_bunker_2"
 	mappath = "_maps/map_files/templates/dungeons/north_bunker_2.dmm"
 
