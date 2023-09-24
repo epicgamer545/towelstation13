@@ -357,3 +357,6 @@
   - balance: Bluespace compression kits now require telecrystals to be recharged and
       have three max charges instead of five.
   - rscdel: Removes the server swap button
+2023-09-24:
+  xPokee:
+  - bugfix: fixes the body size slider
