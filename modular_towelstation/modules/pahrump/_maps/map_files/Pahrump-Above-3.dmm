@@ -24,7 +24,6 @@
 /obj/machinery/light/floor{
 	color = "#FF7F7F";
 	critical_machine = 1;
-	flicker_chance = 0;
 	light_color = "#FF7F7F";
 	nightshift_light_color = "#660000"
 	},
@@ -585,7 +584,6 @@
 /obj/machinery/light/floor{
 	color = "#FF7F7F";
 	critical_machine = 1;
-	flicker_chance = 0;
 	light_color = "#FF7F7F";
 	nightshift_light_color = "#660000"
 	},

@@ -1122,7 +1122,6 @@
 /obj/machinery/door/airlock/security/glass{
 	max_integrity = 9999;
 	name = "NCR No Mans Land Entrance";
-	req_access_txt = "121"
 	},
 /turf/open/floor/wood,
 /area/f13/ncr)
@@ -1233,7 +1232,6 @@
 /area/f13/ncr)
 "eIe" = (
 /obj/machinery/door/airlock/hatch{
-	req_access_txt = "120"
 	},
 /turf/open/floor/iron,
 /area/f13/caves)
@@ -1641,7 +1639,6 @@
 /obj/structure/window/reinforced,
 /obj/machinery/door/window/brigdoor{
 	dir = 8;
-	req_access_txt = "1"
 	},
 /obj/structure/rack,
 /obj/effect/decal/cleanable/dirt,
@@ -1673,7 +1670,6 @@
 /obj/item/grenade/chem_grenade/teargas,
 /obj/machinery/door/window/brigdoor{
 	dir = 8;
-	req_access_txt = "1"
 	},
 /obj/item/grenade/flashbang,
 /obj/effect/decal/cleanable/dirt,
@@ -3684,7 +3680,6 @@
 /area/space)
 "mNp" = (
 /obj/machinery/door/airlock/hatch{
-	req_access_txt = "120"
 	},
 /turf/open/misc/dirt/jungle/wasteland,
 /area/space)
@@ -4895,8 +4890,7 @@
 "qFe" = (
 /obj/machinery/door/airlock/security/glass{
 	name = "NCR No Mans Land Entrance";
-	req_access = null;
-	req_access_txt = "121"
+	req_access = null
 	},
 /turf/open/floor/iron/smooth,
 /area/f13/ncr)
@@ -6358,8 +6352,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/door/airlock/vault{
-	locked = 1;
-	req_access_txt = "1"
+	locked = 1
 	},
 /obj/effect/mapping_helpers/airlock/locked,
 /turf/open/floor/plating/rust,
