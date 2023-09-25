@@ -399,7 +399,7 @@
 /obj/effect/turf_decal/bot,
 /obj/structure/window/reinforced,
 /obj/machinery/door/window/brigdoor{
-	dir = 8;
+	dir = 8
 	},
 /obj/effect/decal/remains/human{
 	layer = 5
@@ -430,12 +430,8 @@
 /obj/machinery/porta_turret/syndicate/vehicle_turret{
 	desc = "An improvised ballistic turret - it looks exceptionally shoddy, yet stil functional. Safe to assume it's a repaired security system from whatever this place once was";
 	faction = list("raider");
-	lethal_projectile = /obj/projectile/bullet/a762x39/ap;
-	lethal_projectile_sound = 'sound/weapons/gun/smg/shot.ogg';
 	name = "Repaired Turret";
 	scan_range = 9;
-	stun_projectile = /obj/projectile/bullet/a762x39/ap;
-	stun_projectile_sound = 'sound/weapons/gun/smg/shot.ogg';
 	throw_range = 9
 	},
 /obj/effect/turf_decal/tile/red/real_red/full,
@@ -791,12 +787,8 @@
 /obj/machinery/porta_turret/syndicate/vehicle_turret{
 	desc = "An improvised ballistic turret - it looks exceptionally shoddy, yet stil functional. Safe to assume it's a repaired security system from whatever this place once was";
 	faction = list("raider");
-	lethal_projectile = /obj/projectile/bullet/a762x39/ap;
-	lethal_projectile_sound = 'sound/weapons/gun/smg/shot.ogg';
 	name = "Repaired Turret";
 	scan_range = 9;
-	stun_projectile = /obj/projectile/bullet/a762x39/ap;
-	stun_projectile_sound = 'sound/weapons/gun/smg/shot.ogg';
 	throw_range = 9
 	},
 /obj/effect/decal/cleanable/cobweb,
@@ -998,12 +990,9 @@
 "dSx" = (
 /obj/machinery/porta_turret/syndicate/vehicle_turret{
 	desc = "An improvised ballistic turret - it looks exceptionally shoddy, yet stil functional. Safe to assume it's a repaired security system from whatever this place once was";
-	faction = list("supermutant");
-	lethal_projectile = /obj/projectile/bullet/a762x39/ap;
 	lethal_projectile_sound = 'sound/weapons/gun/smg/shot.ogg';
 	name = "Repaired Turret";
 	scan_range = 9;
-	stun_projectile = /obj/projectile/bullet/a762x39/ap;
 	stun_projectile_sound = 'sound/weapons/gun/smg/shot.ogg';
 	throw_range = 9
 	},
@@ -1883,12 +1872,8 @@
 /obj/machinery/porta_turret/syndicate/vehicle_turret{
 	desc = "An improvised ballistic turret - it looks exceptionally shoddy, yet stil functional. Safe to assume it's a repaired security system from whatever this place once was";
 	faction = list("raider");
-	lethal_projectile = /obj/projectile/bullet/a762x39/ap;
-	lethal_projectile_sound = 'sound/weapons/gun/smg/shot.ogg';
 	name = "Repaired Turret";
 	scan_range = 9;
-	stun_projectile = /obj/projectile/bullet/a762x39/ap;
-	stun_projectile_sound = 'sound/weapons/gun/smg/shot.ogg';
 	throw_range = 9
 	},
 /obj/effect/turf_decal/tile/red/real_red/full,
@@ -2021,12 +2006,8 @@
 /obj/machinery/porta_turret/syndicate/vehicle_turret{
 	desc = "An improvised ballistic turret - it looks exceptionally shoddy, yet stil functional. Safe to assume it's a repaired security system from whatever this place once was";
 	faction = list("raider");
-	lethal_projectile = /obj/projectile/bullet/a762x39/ap;
-	lethal_projectile_sound = 'sound/weapons/gun/smg/shot.ogg';
 	name = "Repaired Turret";
 	scan_range = 9;
-	stun_projectile = /obj/projectile/bullet/a762x39/ap;
-	stun_projectile_sound = 'sound/weapons/gun/smg/shot.ogg';
 	throw_range = 9
 	},
 /turf/open/floor/iron/smooth,
@@ -3744,12 +3725,8 @@
 /obj/machinery/porta_turret/syndicate/vehicle_turret{
 	desc = "An improvised ballistic turret - it looks exceptionally shoddy, yet stil functional. Safe to assume it's a repaired security system from whatever this place once was";
 	faction = list("raider");
-	lethal_projectile = /obj/projectile/bullet/a762x39/ap;
-	lethal_projectile_sound = 'sound/weapons/gun/smg/shot.ogg';
 	name = "Repaired Turret";
 	scan_range = 9;
-	stun_projectile = /obj/projectile/bullet/a762x39/ap;
-	stun_projectile_sound = 'sound/weapons/gun/smg/shot.ogg';
 	throw_range = 9
 	},
 /turf/open/floor/iron/smooth,
@@ -27977,7 +27954,7 @@ aSw
 lpX
 dSx
 wRr
-tAS
+dRq
 mxp
 gER
 sOt
