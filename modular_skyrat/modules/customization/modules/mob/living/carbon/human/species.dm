@@ -3,8 +3,6 @@ GLOBAL_LIST_EMPTY(customizable_races)
 /datum/species
 	mutant_bodyparts = list()
 	digitigrade_customization = DIGITIGRADE_OPTIONAL // Doing this so that the legs preference actually works for everyone.
-	///Self explanatory
-	var/can_have_genitals = TRUE
 	///A list of actual body markings on the owner of the species. Associative lists with keys named by limbs defines, pointing to a list with names and colors for the marking to be rendered. This is also stored in the DNA
 	var/list/list/body_markings = list()
 	///Override of the eyes icon file, used for Vox and maybe more in the future - The future is now, with Teshari using it too
@@ -52,12 +50,10 @@ GLOBAL_LIST_EMPTY(customizable_races)
 
 /datum/species/plasmaman
 	mutant_bodyparts = list()
-	can_have_genitals = FALSE
 	can_augment = FALSE
 
 /datum/species/ethereal
 	mutant_bodyparts = list()
-	can_have_genitals = FALSE
 	can_augment = FALSE
 
 /datum/species/pod
@@ -132,7 +128,7 @@ GLOBAL_LIST_EMPTY(customizable_races)
 					undershirt_overlay.color = species_human.undershirt_color
 				standing += undershirt_overlay
 
-		if(species_human.socks && species_human.num_legs >= 2 && !(mutant_bodyparts["taur"]) && !(species_human.underwear_visibility & UNDERWEAR_HIDE_SOCKS))
+		if(species_human.socks && species_human.num_legs >= 2 && !(species_human.underwear_visibility & UNDERWEAR_HIDE_SOCKS))
 			var/datum/sprite_accessory/socks/socks = GLOB.socks_list[species_human.socks]
 			if(socks)
 				var/mutable_appearance/socks_overlay
