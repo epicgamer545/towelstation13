@@ -901,7 +901,7 @@
 /obj/structure/table,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/paper/crumpled/bloody/ruins/thederelict/unfinished{
-	info = "Why's the [ILLEGIBLE] Here?? They're screaming something about [ILLEGIBLE]... No.. this can't be.."
+	info = "Why's the (ILLEGIBLE) here?? They're screaming something about (ILLEGIBLE)... No.. This can't be.."
 	},
 /obj/structure/window{
 	dir = 1
