@@ -852,7 +852,6 @@
 /turf/open/floor/iron,
 /area/f13/bunker)
 "brZ" = (
-,
 /turf/open/space/basic,
 /area/f13/ncr)
 "bsk" = (
@@ -954,7 +953,6 @@
 /turf/open/space/basic,
 /area/f13/wasteland)
 "bCP" = (
-,
 /turf/open/space/basic,
 /area/f13/followers)
 "bDe" = (
@@ -1757,7 +1755,6 @@
 /turf/open/space/basic,
 /area/f13/wasteland)
 "cYz" = (
-,
 /turf/open/space/basic,
 /area/f13/city/museum)
 "cYR" = (
@@ -4747,7 +4744,6 @@
 /turf/open/floor/carpet,
 /area/f13/wasteland)
 "hgS" = (
-,
 /turf/open/space/basic,
 /area/f13/caves)
 "hgX" = (
