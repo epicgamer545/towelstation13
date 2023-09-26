@@ -365,3 +365,9 @@
   - balance: rebalanced F13 mobs to be stronger.
   - image: modified F13 mob icons to match the new ones.
   - spellcheck: Changed F13 mob descriptions to match those from F13.
+2023-09-26:
+  xPokee:
+  - spellcheck: Wrote up lore for more species that lacked it.
+  - bugfix: fixed the s'more icons
+  xPokee, CoiledLamb:
+  - rscadd: Added s'mores and graham crackers
