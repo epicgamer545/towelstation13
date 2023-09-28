@@ -568,7 +568,7 @@
 //	ambience_area =  list('modular_towelstation/modules/pahrump/sound/f13ambience/enclave_vault.ogg')
 //	ambientmusic = list('modular_towelstation/modules/pahrump/sound/f13music/fo2_vats.ogg','modular_towelstation/modules/pahrump/sound/f13music/fo2_outpost.ogg','modular_towelstation/modules/pahrump/sound/misc/null.ogg')
 	ambientsounds = list('modular_towelstation/modules/pahrump/sound/f13ambience/ambigen_10.ogg','modular_towelstation/modules/pahrump/sound/f13ambience/ambigen_11.ogg','modular_towelstation/modules/pahrump/sound/f13ambience/ambigen_12.ogg', \
-	'modular_towelstation/modules/pahrump/sound/f13ambience/ambigen_13.ogg','modular_towelstation/modules/pahrump/sound/ambience/signal.ogg')
+	'modular_towelstation/modules/pahrump/sound/f13ambience/ambigen_13.ogg','sound/ambience/signal.ogg')
 	environment = 5
 	grow_chance = 5
 
@@ -602,6 +602,6 @@
 //	ambience_area =  list('modular_towelstation/modules/pahrump/sound/f13ambience/warehouse.ogg')
 //	ambientmusic = list('modular_towelstation/modules/pahrump/sound/f13music/fo2_vats.ogg','modular_towelstation/modules/pahrump/sound/f13music/fo2_outpost.ogg','modular_towelstation/modules/pahrump/sound/misc/null.ogg')
 	ambientsounds = list('modular_towelstation/modules/pahrump/sound/f13ambience/ambigen_10.ogg','modular_towelstation/modules/pahrump/sound/f13ambience/ambigen_11.ogg','modular_towelstation/modules/pahrump/sound/f13ambience/ambigen_12.ogg', \
-	'modular_towelstation/modules/pahrump/sound/f13ambience/ambigen_13.ogg','modular_towelstation/modules/pahrump/sound/ambience/signal.ogg')
+	'modular_towelstation/modules/pahrump/sound/f13ambience/ambigen_13.ogg','sound/ambience/signal.ogg')
 	environment = 5
 	grow_chance = 5
