@@ -5,9 +5,7 @@
 /area/f13/caves)
 "af" = (
 /obj/structure/table,
-/obj/machinery/computer/terminal{
-	termtag = "Business"
-	},
+/obj/machinery/computer/terminal,
 /obj/machinery/light/small{
 	dir = 1
 	},
