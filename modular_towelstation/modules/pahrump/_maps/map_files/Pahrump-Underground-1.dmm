@@ -550,7 +550,7 @@
 	code = 2;
 	frequency = 1453
 	},
-/turf/open/space/basic,
+/turf/open/floor/plating/cobblestone/dungeon,
 /area/f13/sewer)
 "aYG" = (
 /obj/machinery/vending/wardrobe/cargo_wardrobe,
@@ -812,7 +812,7 @@
 /obj/item/clothing/mask/gas/glass,
 /obj/item/storage/box/teargas,
 /obj/item/storage/box/flashbangs,
-/turf/open/space/basic,
+/turf/open/floor/iron/dark/smooth_large/airless,
 /area/f13/sewer)
 "buE" = (
 /obj/structure/table,
@@ -823,7 +823,19 @@
 /obj/item/clothing/shoes/combat/swat,
 /obj/item/clothing/shoes/combat/swat,
 /obj/item/clothing/shoes/combat/swat,
-/turf/open/space/basic,
+/obj/item/clothing/gloves/military,
+/obj/item/clothing/gloves/military,
+/obj/item/clothing/gloves/military,
+/obj/item/clothing/gloves/military,
+/obj/item/clothing/head/hats/warden/police,
+/obj/item/clothing/head/hats/warden/police,
+/obj/item/clothing/head/hats/warden/police,
+/obj/item/clothing/head/hats/warden/police,
+/obj/item/clothing/under/rank/security/officer/beatcop,
+/obj/item/clothing/under/rank/security/officer/beatcop,
+/obj/item/clothing/under/rank/security/officer/beatcop,
+/obj/item/clothing/under/rank/security/officer/beatcop,
+/turf/open/floor/iron/dark/smooth_large/airless,
 /area/f13/sewer)
 "bvs" = (
 /obj/structure/table,
@@ -844,7 +856,9 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/open/space/basic,
+/obj/item/stock_parts/cell/upgraded/plus,
+/obj/item/stock_parts/cell/upgraded/plus,
+/turf/open/floor/iron/dark/smooth_large/airless,
 /area/f13/sewer)
 "bwt" = (
 /obj/machinery/mech_bay_recharge_port{
@@ -1088,7 +1102,7 @@
 /obj/item/clothing/suit/armor/vest,
 /obj/item/clothing/suit/armor/vest,
 /obj/item/clothing/suit/armor/vest,
-/turf/open/space/basic,
+/turf/open/floor/iron/dark/smooth_large/airless,
 /area/f13/sewer)
 "bOu" = (
 /obj/item/crowbar/red,
@@ -1143,7 +1157,7 @@
 /obj/item/key/collar,
 /obj/item/key/collar,
 /obj/item/key/collar,
-/turf/open/space/basic,
+/turf/open/floor/iron/dark/smooth_large/airless,
 /area/f13/sewer)
 "bPI" = (
 /obj/machinery/light/small)
@@ -1222,7 +1236,8 @@
 /obj/structure/rack,
 /obj/item/clothing/head/helmet/blueshirt,
 /obj/item/clothing/under/rank/security/officer/blueshirt,
-/turf/open/space/basic,
+/obj/item/clothing/suit/armor/vest/blueshirt,
+/turf/open/floor/iron/dark/smooth_large/airless,
 /area/f13/sewer)
 "bXM" = (
 /obj/structure/table/wood,
@@ -1273,7 +1288,11 @@
 "cbu" = (
 /obj/structure/guncase,
 /obj/machinery/light/small,
-/turf/open/space/basic,
+/obj/item/gun/ballistic/revolver/ocelot,
+/obj/item/gun/ballistic/revolver/ocelot,
+/obj/item/gun/ballistic/revolver/ocelot,
+/obj/item/gun/ballistic/revolver/ocelot,
+/turf/open/floor/iron/dark/smooth_large/airless,
 /area/f13/sewer)
 "cbB" = (
 /obj/structure/grille,
@@ -1282,7 +1301,12 @@
 /area/f13/brotherhood)
 "cbH" = (
 /obj/structure/guncase,
-/turf/open/space/basic,
+/obj/item/gun/ballistic/shotgun/automatic/combat,
+/obj/item/gun/ballistic/shotgun/automatic/combat/compact,
+/obj/item/gun/ballistic/shotgun/automatic/combat/compact,
+/obj/item/gun/ballistic/rifle,
+/obj/item/gun/ballistic/rifle,
+/turf/open/floor/iron/dark/smooth_large/airless,
 /area/f13/sewer)
 "cbI" = (
 /obj/effect/decal/cleanable/blood{
@@ -1528,6 +1552,10 @@
 	height = 1;
 	id = "S4"
 	})
+"cvK" = (
+/obj/effect/decal/remains/human,
+/turf/open/floor/plating/cobblestone/dungeon,
+/area/f13/sewer)
 "cvN" = (
 /obj/effect/decal/cleanable/blood/old{
 	icon_state = "gibbearcore"
@@ -1802,6 +1830,11 @@
 "cXr" = (
 /turf/open/floor/plating/rust,
 /area/f13/sewer)
+"cXI" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/plating/cobblestone/dungeon,
+/area/f13/sewer)
 "cXQ" = (
 /obj/item/stack/sheet/mineral/sandbags{
 	amount = 50
@@ -1810,6 +1843,10 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/dark/smooth_large,
 /area/f13/enclave)
+"cYS" = (
+/obj/structure/bed/maint,
+/turf/open/floor/plating/cobblestone/dungeon,
+/area/f13/sewer)
 "daD" = (
 /obj/machinery/light/floor{
 	pixel_y = 32
@@ -2291,7 +2328,12 @@
 /obj/item/reagent_containers/spray/pepper,
 /obj/item/reagent_containers/spray/pepper,
 /obj/machinery/light/small,
-/turf/open/space/basic,
+/obj/item/melee/baton,
+/obj/item/melee/baton,
+/obj/item/melee/baton,
+/obj/item/melee/baton/security/cattleprod,
+/obj/item/melee/baton/security/cattleprod,
+/turf/open/floor/iron/dark/smooth_large/airless,
 /area/f13/sewer)
 "dZR" = (
 /obj/effect/decal/cleanable/dirt,
@@ -3180,6 +3222,10 @@
 	})
 "fjJ" = (
 /obj/effect/turf_decal/loading_area,
+/turf/open/floor/iron/dark/smooth_large/airless,
+/area/f13/sewer)
+"fjK" = (
+/obj/structure/rack,
 /turf/open/floor/iron/dark/smooth_large/airless,
 /area/f13/sewer)
 "flb" = (
@@ -4142,7 +4188,7 @@
 /obj/item/ammo_box/a357,
 /obj/item/ammo_box/a357,
 /obj/item/ammo_box/a357,
-/turf/open/space/basic,
+/turf/open/floor/iron/dark/smooth_large/airless,
 /area/f13/sewer)
 "gyK" = (
 /turf/closed/mineral/random/low_chance,
@@ -4715,6 +4761,12 @@
 /obj/structure/reagent_crafting_bench,
 /turf/open/space/basic,
 /area/f13/sewer)
+"hyY" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/open/floor/plating/cobblestone/dungeon,
+/area/f13/sewer)
 "hzp" = (
 /obj/structure/spider/stickyweb,
 /obj/effect/decal/cleanable/dirt,
@@ -4843,6 +4895,10 @@
 "hNc" = (
 /obj/machinery/light,
 /turf/open/floor/plating/cobblestone/dungeon,
+/area/f13/sewer)
+"hOi" = (
+/obj/structure/mineral_door/wood,
+/turf/open/floor/wood,
 /area/f13/sewer)
 "hOl" = (
 /obj/structure/cable{
@@ -5375,6 +5431,13 @@
 /obj/structure/statue/uranium/nuke,
 /turf/open/floor/iron/dark/smooth_large,
 /area/space)
+"iGs" = (
+/obj/structure/fence{
+	color = "#5e5747";
+	dir = 4
+	},
+/turf/open/floor/plating/cobblestone/dungeon,
+/area/f13/sewer)
 "iGB" = (
 /obj/structure/table{
 	color = "#c1b6a5"
@@ -5910,6 +5973,10 @@
 "jAw" = (
 /turf/closed/indestructible/rock,
 /area/f13/caves)
+"jAS" = (
+/obj/machinery/rnd/production/protolathe/department/security,
+/turf/open/floor/iron/dark/smooth_large/airless,
+/area/f13/sewer)
 "jBi" = (
 /obj/machinery/power/apc{
 	dir = 8;
@@ -6713,6 +6780,10 @@
 /obj/effect/decal/cleanable/blood/innards,
 /turf/open/floor/wood,
 /area/f13/sewer)
+"kLI" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/plating/cobblestone/dungeon,
+/area/f13/sewer)
 "kLU" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/railing/corner{
@@ -7360,6 +7431,11 @@
 /obj/machinery/light,
 /turf/open/floor/circuit/telecomms/mainframe,
 /area/station/comms)
+"lRC" = (
+/obj/effect/decal/cleanable/cobweb,
+/obj/item/electropack,
+/turf/open/floor/plating/cobblestone/dungeon,
+/area/f13/sewer)
 "lSH" = (
 /obj/structure/curtain{
 	color = "#808080"
@@ -7763,6 +7839,10 @@
 /obj/machinery/light/floor,
 /turf/open/floor/iron/dark/smooth_large,
 /area/f13/brotherhood)
+"mMq" = (
+/obj/effect/decal/cleanable/oil,
+/turf/open/floor/plating/rust,
+/area/f13/sewer)
 "mNe" = (
 /obj/effect/decal/cleanable/blood/footprints,
 /obj/effect/decal/cleanable/blood/footprints,
@@ -7901,7 +7981,7 @@
 /obj/item/flashlight{
 	pixel_y = 8
 	},
-/turf/open/space/basic,
+/turf/open/floor/iron/dark/smooth_large/airless,
 /area/f13/sewer)
 "nbm" = (
 /obj/item/bedsheet/hos,
@@ -8664,6 +8744,10 @@
 /obj/machinery/light,
 /turf/open/space/basic,
 /area/f13/brotherhood/leisure)
+"opK" = (
+/obj/item/reagent_containers/cup/bucket/wooden,
+/turf/open/floor/plating/cobblestone/dungeon,
+/area/f13/sewer)
 "otW" = (
 /obj/item/clothing/shoes/laceup{
 	pixel_y = 10
@@ -12323,6 +12407,19 @@
 /obj/machinery/light/floor,
 /turf/open/space/basic,
 /area/f13/brotherhood/leisure)
+"uxx" = (
+/obj/structure/rack,
+/obj/item/radio/headset/headset_sec/alt,
+/obj/item/radio/headset/headset_sec/alt,
+/obj/item/radio/headset/headset_sec/alt,
+/obj/item/radio/headset/headset_sec/alt,
+/obj/item/radio/headset/headset_sec/alt,
+/obj/item/radio/headset/headset_sec/alt,
+/obj/item/radio/headset/headset_sec/alt,
+/obj/item/radio/headset/headset_sec/alt,
+/obj/item/radio/headset/headset_sec/alt,
+/turf/open/floor/iron/dark/smooth_large/airless,
+/area/f13/sewer)
 "uxz" = (
 /obj/structure/bed/dogbed,
 /obj/effect/decal/cleanable/dirt,
@@ -12500,6 +12597,16 @@
 	},
 /turf/open/space/basic,
 /area/f13/brotherhood/leisure)
+"uPJ" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/obj/machinery/ammo_workbench/unlocked,
+/obj/item/disk/ammo_workbench/advanced,
+/obj/item/disk/ammo_workbench,
+/obj/item/stack/sheet/iron/twenty,
+/turf/open/floor/iron/dark/smooth_large/airless,
+/area/f13/sewer)
 "uQl" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light/small{
@@ -13972,6 +14079,12 @@
 	dir = 4;
 	light_color = "#c1caff"
 	})
+"xoj" = (
+/obj/structure/fence/door{
+	color = "#5e5747"
+	},
+/turf/open/floor/plating/cobblestone/dungeon,
+/area/f13/sewer)
 "xqB" = (
 /obj/structure/railing{
 	dir = 6
@@ -14180,6 +14293,10 @@
 /obj/item/reagent_containers/spray/pepper,
 /turf/open/space/basic,
 /area/f13/enclave)
+"xGp" = (
+/obj/effect/decal/cleanable/oil,
+/turf/open/floor/plating/cobblestone/dungeon,
+/area/f13/sewer)
 "xGx" = (
 /obj/structure/spacevine{
 	name = "vines"
@@ -44699,7 +44816,7 @@ pYv
 pYv
 pYv
 pYv
-qIf
+hOi
 pYv
 pYv
 ccw
@@ -44955,10 +45072,10 @@ qIf
 pYv
 pYv
 pYv
-qIf
-qIf
-qIf
-hbQ
+jAS
+wxI
+wxI
+fjK
 pYv
 flC
 qIf
@@ -45212,9 +45329,9 @@ aEg
 pYv
 pYv
 pYv
-hkq
-qIf
-qIf
+uPJ
+vRg
+vRg
 dZO
 pYv
 pLI
@@ -45469,9 +45586,9 @@ qIf
 pYv
 pYv
 pYv
-eZm
-qIf
-qIf
+jNt
+vRg
+vRg
 bNV
 pYv
 qIf
@@ -45698,8 +45815,8 @@ deK
 deK
 deK
 deK
-qIf
-qIf
+iGs
+iGs
 deK
 deK
 deK
@@ -45727,8 +45844,8 @@ pYv
 pYv
 pYv
 gyu
-qIf
-qIf
+vRg
+vRg
 bPA
 pYv
 pYv
@@ -45955,8 +46072,8 @@ deK
 deK
 deK
 deK
-qIf
-qIf
+ckD
+ckD
 deK
 deK
 deK
@@ -45966,7 +46083,7 @@ deK
 deK
 deK
 deK
-qIf
+rUO
 deK
 deK
 deK
@@ -45984,9 +46101,9 @@ pYv
 pYv
 pYv
 bup
-qIf
-qIf
-hbQ
+vRg
+vRg
+uxx
 pYv
 pYv
 pYv
@@ -46212,8 +46329,8 @@ deK
 deK
 deK
 deK
-qIf
-map
+ckD
+cXI
 deK
 deK
 deK
@@ -46223,7 +46340,7 @@ deK
 deK
 deK
 deK
-qIf
+cXr
 deK
 deK
 deK
@@ -46241,8 +46358,8 @@ pYv
 pYv
 pYv
 bve
-qIf
-qIf
+vRg
+vRg
 bXn
 pYv
 pYv
@@ -46469,8 +46586,8 @@ deK
 deK
 deK
 deK
-qIf
-pLI
+ckD
+kLI
 deK
 deK
 deK
@@ -46480,7 +46597,7 @@ deK
 deK
 deK
 deK
-qIf
+cXr
 deK
 deK
 deK
@@ -46498,8 +46615,8 @@ pYv
 pYv
 pYv
 bvs
-qIf
-qIf
+vRg
+vRg
 cbu
 pYv
 pYv
@@ -46726,22 +46843,22 @@ deK
 deK
 deK
 deK
-qIf
-pLI
-qIf
-qIf
-qIf
-qIf
-qIf
-qIf
-qIf
-qIf
-pLI
-pLI
-pLI
-qIf
-qIf
-qIf
+ckD
+kLI
+rUO
+cXr
+cXr
+cXr
+cXr
+cXr
+cXr
+cXr
+vPr
+vPr
+vPr
+cXr
+cXr
+rUO
 cfL
 hbQ
 hbQ
@@ -46755,8 +46872,8 @@ pYv
 pYv
 pYv
 nbd
-qIf
-qIf
+wxI
+wxI
 cbH
 pYv
 pYv
@@ -46983,11 +47100,11 @@ deK
 deK
 deK
 deK
-pLI
-qIf
+kLI
+ckD
 deK
 deK
-qIf
+cXr
 deK
 deK
 deK
@@ -46995,7 +47112,7 @@ deK
 deK
 umD
 deK
-qIf
+cXr
 deK
 deK
 deK
@@ -47235,16 +47352,16 @@ deK
 qIf
 mTL
 mTL
-qIf
-qIf
-pLI
-qIf
-qIf
-pLI
-pLI
+iGs
+ckD
+kLI
+ckD
+ckD
+kLI
+kLI
 deK
 deK
-qIf
+cXr
 deK
 deK
 deK
@@ -47252,7 +47369,7 @@ deK
 deK
 deK
 umD
-qIf
+cXr
 deK
 deK
 deK
@@ -47492,24 +47609,24 @@ deK
 qIf
 mTL
 mTL
-qIf
-pLI
-qIf
-qIf
-qIf
-pLI
-pLI
+xoj
+kLI
+ckD
+ckD
+ckD
+kLI
+kLI
 deK
 deK
-pLI
-deK
-deK
-deK
+vPr
 deK
 deK
 deK
 deK
-qIf
+deK
+deK
+deK
+cXr
 deK
 deK
 deK
@@ -47754,19 +47871,19 @@ deK
 deK
 deK
 deK
-pLI
-pLI
+kLI
+kLI
 deK
 deK
-pLI
-deK
-deK
-deK
+vPr
 deK
 deK
 deK
 deK
-aEg
+deK
+deK
+deK
+mMq
 deK
 deK
 deK
@@ -48011,19 +48128,19 @@ deK
 deK
 deK
 deK
-qIf
-qIf
+ckD
+ckD
 deK
 deK
-qIf
-deK
-deK
-deK
+cXr
 deK
 deK
 deK
 deK
-pLI
+deK
+deK
+deK
+vPr
 deK
 deK
 deK
@@ -48268,19 +48385,19 @@ deK
 deK
 deK
 deK
-qIf
-qIf
+ckD
+ckD
 deK
 deK
-qIf
-deK
-deK
-deK
+cXr
 deK
 deK
 deK
 deK
-qIf
+deK
+deK
+deK
+cXr
 deK
 deK
 deK
@@ -48525,19 +48642,19 @@ deK
 deK
 deK
 deK
-qIf
-qIf
+ckD
+ckD
 deK
 deK
-pLI
-deK
-deK
-deK
+vPr
 deK
 deK
 deK
 deK
-qIf
+deK
+deK
+deK
+rUO
 deK
 deK
 deK
@@ -48782,17 +48899,17 @@ deK
 deK
 deK
 deK
-hkq
-pLI
+hyY
+kLI
 deK
 deK
-pLI
+vPr
 deK
 deK
 deK
-mFI
-qIf
-qIf
+lRC
+ckD
+iGs
 qIf
 qIf
 qIf
@@ -49039,17 +49156,17 @@ deK
 deK
 deK
 deK
-qIf
-pLI
+ckD
+kLI
 deK
 deK
-map
+kgW
 deK
 deK
 deK
 aXw
-qIf
-qIf
+ckD
+xoj
 qIf
 pLI
 pLI
@@ -49296,17 +49413,17 @@ deK
 deK
 deK
 deK
-qIf
-qIf
+ckD
+ckD
 deK
 deK
-pLI
+vPr
 deK
 deK
 deK
-qIf
-qIf
-qIf
+ckD
+ckD
+iGs
 qIf
 qIf
 qIf
@@ -49553,16 +49670,16 @@ deK
 deK
 deK
 deK
-pLI
-qIf
+kLI
+ckD
 deK
 deK
-qIf
+cXr
 deK
 deK
 deK
-qIf
-qIf
+opK
+cYS
 deK
 deK
 deK
@@ -49810,11 +49927,11 @@ deK
 deK
 deK
 deK
-pLI
-qIf
+kLI
+ckD
 deK
 deK
-qIf
+cXr
 deK
 deK
 deK
@@ -50067,11 +50184,11 @@ deK
 deK
 deK
 deK
-qIf
-aEg
+ckD
+xGp
 deK
 deK
-qIf
+cXr
 deK
 deK
 deK
@@ -50324,11 +50441,11 @@ deK
 deK
 deK
 deK
-qIf
-qIf
+ckD
+ckD
 deK
 deK
-qIf
+cXr
 deK
 deK
 hbQ
@@ -50581,11 +50698,11 @@ deK
 deK
 deK
 deK
-qIf
-qIf
+ckD
+ckD
 deK
 deK
-qIf
+cXr
 deK
 deK
 rZd
@@ -50838,11 +50955,11 @@ deK
 deK
 deK
 deK
-qIf
-qIf
+ckD
+ckD
 deK
 deK
-qIf
+cXr
 deK
 deK
 eZm
@@ -51095,11 +51212,11 @@ deK
 deK
 deK
 deK
-qIf
-qIf
+ckD
+ckD
 deK
 deK
-qIf
+cXr
 deK
 deK
 deK
@@ -51352,11 +51469,11 @@ deK
 deK
 deK
 deK
-qIf
-jHm
+ckD
+cvK
 deK
 deK
-qIf
+cXr
 deK
 deK
 deK
@@ -51609,11 +51726,11 @@ deK
 deK
 deK
 deK
-qIf
-pLI
+ckD
+kLI
 deK
 deK
-qIf
+rUO
 deK
 deK
 deK
@@ -51861,22 +51978,22 @@ deK
 qIf
 mTL
 mTL
-qIf
-loO
-qIf
-qIf
-qIf
-qIf
-qIf
-qIf
-qIf
-qIf
-qIf
-qIf
-qIf
-qIf
-loO
-qIf
+ckD
+ccO
+ckD
+ckD
+ckD
+ckD
+ckD
+ckD
+ckD
+ckD
+ckD
+ckD
+ckD
+ckD
+ccO
+ckD
 qIf
 qIf
 qIf
