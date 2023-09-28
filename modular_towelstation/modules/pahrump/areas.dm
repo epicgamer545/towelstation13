@@ -557,7 +557,7 @@
 //	ambience_area =  list('modular_towelstation/modules/pahrump/sound/f13ambience/enclave_vault.ogg')
 //	ambientmusic = list('modular_towelstation/modules/pahrump/sound/f13music/fo2_vats.ogg','modular_towelstation/modules/pahrump/sound/f13music/fo2_outpost.ogg','sound/misc/null.ogg')
 	ambientsounds = list('modular_towelstation/modules/pahrump/sound/f13ambience/ambigen_10.ogg','modular_towelstation/modules/pahrump/sound/f13ambience/ambigen_11.ogg','modular_towelstation/modules/pahrump/sound/f13ambience/ambigen_12.ogg', \
-	'modular_towelstation/modules/pahrump/sound/f13ambience/ambigen_13.ogg','modular_towelstation/modules/pahrump/sound/f13ambience/ambigen_14.ogg','	sound/ambience/signal.ogg','modular_towelstation/modules/pahrump/sound/f13ambience/enclave_vault.ogg')
+	'modular_towelstation/modules/pahrump/sound/f13ambience/ambigen_13.ogg','modular_towelstation/modules/pahrump/sound/f13ambience/ambigen_14.ogg','sound/ambience/signal.ogg','modular_towelstation/modules/pahrump/sound/f13ambience/enclave_vault.ogg')
 	environment = 6
 	grow_chance = 5
 
