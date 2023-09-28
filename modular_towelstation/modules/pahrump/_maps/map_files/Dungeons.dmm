@@ -3167,6 +3167,12 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/cafeteria,
 /area/f13/bunker)
+"jzN" = (
+/obj/structure/rack,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/gun/energy/pulse/pistol/m1911,
+/turf/open/floor/pod/dark,
+/area/f13/casino)
 "jAb" = (
 /obj/structure/rack,
 /obj/item/storage/box/donkpockets,
@@ -6116,6 +6122,8 @@
 /area/f13/bunker)
 "rdM" = (
 /obj/structure/rack,
+/obj/item/clothing/suit/space/hev_suit/nri/captain,
+/obj/item/clothing/head/helmet/space/hev_suit/nri/captain,
 /turf/open/floor/pod/dark,
 /area/f13/casino)
 "rfq" = (
@@ -7090,15 +7098,16 @@
 /obj/structure/rack,
 /obj/item/clothing/under/syndicate/combat,
 /obj/item/clothing/gloves/combat,
+/obj/item/clothing/shoes/combat/rax,
 /turf/open/floor/pod/dark,
 /area/f13/casino)
 "tJb" = (
 /obj/structure/rack,
-/obj/item/paper/crumpled/bloody
-	default_raw_text = {"
-	<li>If you've found this, congratulations. You, or the group of people you're with, are now the proud owners of the riot gear in this very vault. Marcus sealed me in, this might just be the last thing I ever write, but god willing, at least you've succeeded where we failed. The gear here is the best you'll ever find short of the power armor those snobs in the northwest are sporting- we saw to it, before we all either split or died. Between Marcus's sniping gear, Damien's CQB armor, and my elite suit, I'm sure they'll serve you far better than they did us. Good luck, waster.
-	"},
-/turf/open/floor/pod/dark,
+/obj/item/paper/crumpled/bloody/fluff{
+	default_raw_text = "If you've found this, congratulations. You, or the group of people you're with, are now the proud owners of the riot gear in this very vault. Marcus sealed me in, this might just be the last thing I ever write, but god willing, at least you've succeeded where we failed. The gear here is the best you'll ever find short of the power armor those snobs in the northwest are sporting- we saw to it, before we all either split or died. Between Marcus's sniping gear, Damien's CQB armor, and my elite suit, I'm sure they'll serve you far better than they did us. Good luck, waster.";
+	name = "note"
+	},
+/turf/open/floor/pod,
 /area/f13/casino)
 "tJL" = (
 /obj/effect/decal/cleanable/dirt,
@@ -7117,6 +7126,7 @@
 /obj/effect/decal/cleanable/blood/old{
 	icon_state = "floor2"
 	},
+/obj/effect/mob_spawn/corpse/human,
 /turf/open/floor/pod/dark,
 /area/f13/casino)
 "tLd" = (
@@ -7130,6 +7140,7 @@
 /obj/item/clothing/under/syndicate/combat,
 /obj/item/clothing/gloves/combat,
 /obj/effect/decal/cleanable/dirt,
+/obj/item/clothing/shoes/combat/rax,
 /turf/open/floor/pod/dark,
 /area/f13/casino)
 "tMa" = (
@@ -7321,6 +7332,8 @@
 "ujb" = (
 /obj/structure/table/reinforced,
 /obj/effect/decal/cleanable/dirt,
+/obj/item/gun/ballistic/revolver/grenadelauncher/unrestricted,
+/obj/item/ammo_box/a40mm,
 /turf/open/floor/pod/light,
 /area/f13/casino)
 "ujp" = (
@@ -7489,6 +7502,7 @@
 "uIv" = (
 /obj/structure/rack,
 /obj/item/clothing/glasses/night,
+/obj/item/clothing/shoes/combat/rax,
 /turf/open/floor/pod/dark,
 /area/f13/casino)
 "uJq" = (
@@ -7875,6 +7889,7 @@
 /obj/structure/rack,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/clothing/glasses/night,
+/obj/item/clothing/shoes/combat/rax,
 /turf/open/floor/pod/dark,
 /area/f13/casino)
 "vJT" = (
@@ -8113,6 +8128,8 @@
 "wCI" = (
 /obj/structure/rack,
 /obj/effect/decal/cleanable/dirt,
+/obj/item/ammo_box/magazine/uzim9mm,
+/obj/item/gun/ballistic/automatic/mini_uzi,
 /turf/open/floor/pod/dark,
 /area/f13/casino)
 "wEb" = (
@@ -43661,7 +43678,7 @@ tIn
 tID
 uIv
 lJB
-wCI
+jzN
 vgK
 tIn
 sbC
