@@ -178,7 +178,7 @@
 	icon_state = "chapel"
 	ambience_area =  list('modular_towelstation/modules/pahrump/sound/f13ambience/building.ogg')
 //	ambientmusic = list('modular_towelstation/modules/pahrump/sound/f13music/fo2_chapel.ogg','modular_towelstation/modules/pahrump/sound/misc/null.ogg')
-	ambientsounds = list('modular_towelstation/modules/pahrump/sound/ambience/ambicha1.ogg','modular_towelstation/modules/pahrump/sound/ambience/ambicha2.ogg','modular_towelstation/modules/pahrump/sound/ambience/ambicha3.ogg','modular_towelstation/modules/pahrump/sound/ambience/ambicha4.ogg')
+	ambientsounds = list('sound/ambience/ambicha1.ogg','sound/ambience/ambicha2.ogg','sound/ambience/ambicha3.ogg','sound/ambience/ambicha4.ogg')
 	environment = 5
 	grow_chance = 5
 
@@ -308,7 +308,7 @@
 	icon_state = "secret"
 //	ambience_area =  list('modular_towelstation/modules/pahrump/sound/f13ambience/building.ogg')
 //	ambientmusic = list('modular_towelstation/modules/pahrump/sound/f13music/fo2_chapel.ogg','modular_towelstation/modules/pahrump/sound/f13music/fo2_city.ogg','modular_towelstation/modules/pahrump/sound/f13music/fo2_outpost.ogg','modular_towelstation/modules/pahrump/sound/misc/null.ogg')
-	ambientsounds = list('modular_towelstation/modules/pahrump/sound/ambience/signal.ogg','modular_towelstation/modules/pahrump/sound/f13ambience/ambigen_10.ogg','modular_towelstation/modules/pahrump/sound/f13ambience/ambigen_11.ogg', \
+	ambientsounds = list('sound/ambience/signal.ogg','modular_towelstation/modules/pahrump/sound/f13ambience/ambigen_10.ogg','modular_towelstation/modules/pahrump/sound/f13ambience/ambigen_11.ogg', \
 	'modular_towelstation/modules/pahrump/sound/f13ambience/ambigen_12.ogg','modular_towelstation/modules/pahrump/sound/f13ambience/ambigen_13.ogg')
 	environment = 11
 	grow_chance = 0
