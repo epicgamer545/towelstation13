@@ -1,164 +1,237 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "b" = (
-)
+/turf/open/space/basic,
+/area/space)
 "c" = (
 /obj/structure/table/wood/fancy/black,
 /obj/machinery/light/floor,
 /obj/machinery/chem_dispenser/drinks/beer,
-/turf/open/floor/carpet/black)
+/turf/open/floor/carpet/black,
+/area/misc/survivalpod)
 "e" = (
-/obj/machinery/vending/coffee)
+/obj/machinery/vending/coffee,
+/turf/open/floor/wood,
+/area/misc/survivalpod)
 "g" = (
 /obj/item/bedsheet/black,
-/obj/structure/bed)
+/obj/structure/bed,
+/turf/open/floor/wood,
+/area/misc/survivalpod)
 "h" = (
-/turf/open/floor/carpet/black)
+/turf/open/floor/carpet/black,
+/area/misc/survivalpod)
 "j" = (
 /obj/structure/rack,
 /obj/item/stack/sheet/mineral/wood/fifty,
-/obj/item/stack/sheet/mineral/wood/fifty)
+/obj/item/stack/sheet/mineral/wood/fifty,
+/turf/open/floor/wood,
+/area/misc/survivalpod)
+"l" = (
+/obj/machinery/primitive_stove,
+/turf/open/floor/wood,
+/area/misc/survivalpod)
 "n" = (
-/obj/machinery/vending/snack)
+/obj/machinery/vending/snack,
+/turf/open/floor/wood,
+/area/misc/survivalpod)
 "o" = (
-/obj/machinery/light/floor)
+/obj/machinery/light/floor,
+/obj/item/kirbyplants/organic/plant22,
+/turf/open/floor/wood,
+/area/misc/survivalpod)
+"p" = (
+/obj/effect/decal/cleanable/oil{
+	icon_state = "floor2"
+	},
+/turf/open/floor/wood,
+/area/misc/survivalpod)
 "t" = (
 /obj/machinery/light/floor,
-/turf/open/floor/carpet/black)
+/obj/item/kirbyplants/organic/plant22,
+/turf/open/floor/carpet/black,
+/area/misc/survivalpod)
+"v" = (
+/obj/structure/mineral_door/silver,
+/turf/open/floor/wood,
+/area/misc/survivalpod)
 "x" = (
 /obj/structure/table/wood/fancy/black,
 /obj/machinery/chem_dispenser/drinks,
-/turf/open/floor/carpet/black)
+/turf/open/floor/carpet/black,
+/area/misc/survivalpod)
 "z" = (
 /obj/structure/bed,
-/obj/item/bedsheet/black)
+/obj/item/bedsheet/black,
+/turf/open/floor/wood,
+/area/misc/survivalpod)
 "A" = (
-/obj/structure/dresser)
+/obj/structure/dresser,
+/turf/open/floor/wood,
+/area/misc/survivalpod)
+"B" = (
+/obj/effect/decal/cleanable/oil,
+/turf/open/floor/wood,
+/area/misc/survivalpod)
 "D" = (
-/obj/machinery/vending/cigarette)
+/obj/machinery/vending/cigarette,
+/turf/open/floor/wood,
+/area/misc/survivalpod)
 "E" = (
 /obj/structure/chair/wood{
-	dir = 1;
-	icon_state = "wooden_chair_settler"
+	dir = 1
 	},
-/turf/open/floor/carpet/black)
+/turf/open/floor/carpet/black,
+/area/misc/survivalpod)
+"F" = (
+/turf/open/floor/wood,
+/area/misc/survivalpod)
+"H" = (
+/obj/machinery/autolathe/hacked,
+/turf/open/floor/wood,
+/area/misc/survivalpod)
 "J" = (
 /obj/structure/table/wood/fancy/black,
 /obj/item/storage/box/ingredients/american,
 /obj/item/storage/box/ingredients/american,
 /obj/structure/table/wood/fancy/black,
-/turf/open/floor/carpet/black)
+/turf/open/floor/carpet/black,
+/area/misc/survivalpod)
 "K" = (
-/obj/machinery/vending/cola/starkist)
+/obj/machinery/vending/cola/starkist,
+/turf/open/floor/wood,
+/area/misc/survivalpod)
 "N" = (
 /obj/structure/displaycase_chassis,
-/obj/machinery/light/floor)
+/obj/machinery/light/floor,
+/obj/item/stack/sheet/glass{
+	amount = 10
+	},
+/turf/open/floor/wood,
+/area/misc/survivalpod)
+"O" = (
+/turf/closed/wall/mineral/snow,
+/area/misc/survivalpod)
+"P" = (
+/obj/item/kirbyplants/organic/plant22,
+/turf/open/floor/wood,
+/area/misc/survivalpod)
 "Q" = (
 /obj/structure/rack,
-/obj/item/stack/sheet/plasteel/twenty)
+/obj/item/stack/sheet/plasteel/twenty,
+/obj/item/stack/sheet/iron/fifty,
+/turf/open/floor/wood,
+/area/misc/survivalpod)
 "T" = (
 /obj/structure/table/wood/fancy/black,
-/turf/open/floor/carpet/black)
+/turf/open/floor/carpet/black,
+/area/misc/survivalpod)
 "V" = (
-/obj/structure/rack)
+/obj/structure/rack,
+/turf/open/floor/wood,
+/area/misc/survivalpod)
 "X" = (
-/obj/structure/closet/cabinet)
+/obj/structure/closet/cabinet,
+/turf/open/floor/wood,
+/area/misc/survivalpod)
 "Z" = (
-/obj/structure/table/wood/fancy/black)
+/obj/structure/table/wood/fancy/black,
+/turf/open/floor/wood,
+/area/misc/survivalpod)
 
 (1,1,1) = {"
-b
-b
-b
-b
-b
-b
-b
-b
+O
+O
+O
+O
+O
+O
+O
+O
 b
 b
 b
 "}
 (2,1,1) = {"
-b
-b
-b
-b
+O
+H
+F
+F
 j
 Q
 V
-b
+O
 b
 b
 b
 "}
 (3,1,1) = {"
-b
-b
-b
-b
-b
-b
-b
-b
+O
+F
+F
+F
+F
+F
+F
+O
 b
 b
 b
 "}
 (4,1,1) = {"
-b
-b
-b
-b
-b
-b
-b
-b
+O
+O
+O
+v
+O
+O
+O
+O
 b
 b
 b
 "}
 (5,1,1) = {"
-b
+O
 N
-b
-b
-b
-b
+F
+F
+F
+F
 o
-b
+O
 b
 b
 b
 "}
 (6,1,1) = {"
-b
+O
 K
 h
 h
 h
 h
-b
-b
+F
+O
 b
 b
 b
 "}
 (7,1,1) = {"
-b
+O
 D
 h
 T
 h
 h
 h
-b
-b
-b
+O
+O
+O
 b
 "}
 (8,1,1) = {"
-b
-b
+O
+F
 h
 x
 h
@@ -166,12 +239,12 @@ E
 h
 h
 t
-b
-b
+O
+O
 "}
 (9,1,1) = {"
-b
-b
+O
+B
 h
 c
 h
@@ -179,12 +252,12 @@ h
 h
 h
 h
-b
-b
+F
+v
 "}
 (10,1,1) = {"
-b
-b
+O
+F
 h
 J
 h
@@ -192,122 +265,122 @@ E
 h
 h
 t
-b
-b
+O
+O
 "}
 (11,1,1) = {"
-b
+O
 e
 h
 T
 h
 h
 h
-b
-b
-b
+O
+O
+O
 b
 "}
 (12,1,1) = {"
-b
+O
 n
 h
 h
 h
 h
-b
-b
+F
+O
 b
 b
 b
 "}
 (13,1,1) = {"
-b
+O
 N
-b
-b
-b
-b
+p
+F
+F
+F
 o
-b
+O
 b
 b
 b
 "}
 (14,1,1) = {"
-b
-b
-b
-b
-b
-b
-b
-b
+O
+O
+O
+v
+O
+O
+O
+O
 b
 b
 b
 "}
 (15,1,1) = {"
-b
-b
-b
-b
-b
-b
+O
+P
+F
+F
+F
+F
 X
-b
+O
 b
 b
 b
 "}
 (16,1,1) = {"
-b
-b
-b
-b
-b
-b
+O
+F
+F
+F
+F
+F
 Z
-b
+O
 b
 b
 b
 "}
 (17,1,1) = {"
-b
-b
-b
-b
-b
-b
+O
+F
+F
+F
+F
+F
 Z
-b
+O
 b
 b
 b
 "}
 (18,1,1) = {"
-b
+O
 g
 z
 A
-b
-b
+l
+F
 Z
-b
+O
 b
 b
 b
 "}
 (19,1,1) = {"
-b
-b
-b
-b
-b
-b
-b
-b
+O
+O
+O
+O
+O
+O
+O
+O
 b
 b
 b
