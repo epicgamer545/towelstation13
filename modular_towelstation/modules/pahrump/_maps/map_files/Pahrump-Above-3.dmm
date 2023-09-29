@@ -1068,6 +1068,18 @@
 /obj/structure/railing/corner,
 /turf/open/openspace,
 /area/f13/city)
+"fo" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/table,
+/obj/machinery/computer/terminal{
+	pixel_y = 3
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/window{
+	dir = 1
+	},
+/turf/open/floor/iron/smooth,
+/area/f13/brotherhood/surface)
 "fp" = (
 /obj/structure/chair/sofa/corp{
 	dir = 1
@@ -4728,8 +4740,6 @@
 	pixel_x = 10
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/turf_decal/tile/red/real_red/fourcorners,
-/obj/effect/turf_decal/tile/red/real_red/fourcorners,
 /obj/effect/turf_decal/tile/red/real_red/fourcorners,
 /turf/open/floor/iron/smooth,
 /area/f13/brotherhood/surface)
@@ -8943,18 +8953,6 @@
 /obj/item/binoculars,
 /turf/open/floor/wood,
 /area/f13/city)
-"RT" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/table,
-/obj/machinery/computer/terminal{
-	pixel_y = 3
-	},
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/window{
-	dir = 1
-	},
-/turf/open/floor/iron/smooth,
-/area/f13/brotherhood/surface)
 "RU" = (
 /obj/machinery/light/small{
 	dir = 4
@@ -42903,13 +42901,13 @@ BM
 dc
 QL
 QL
-RT
+fo
 wF
 QL
-RT
+fo
 wF
 JF
-RT
+fo
 gs
 BM
 Eq
@@ -43674,10 +43672,10 @@ BM
 iJ
 Ko
 QL
-RT
+fo
 wF
 QL
-RT
+fo
 wF
 NS
 OY
@@ -44451,7 +44449,7 @@ QL
 Yy
 wF
 QL
-RT
+fo
 Lw
 RN
 Eq
@@ -45219,10 +45217,10 @@ mh
 mh
 BX
 QL
-RT
+fo
 wF
 QL
-RT
+fo
 wF
 RN
 Eq
@@ -45993,7 +45991,7 @@ QL
 pO
 wF
 QL
-RT
+fo
 mE
 BM
 BM
