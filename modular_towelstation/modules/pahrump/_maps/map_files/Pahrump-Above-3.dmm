@@ -107,18 +107,6 @@
 	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/f13/raiders)
-"aN" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/table,
-/obj/machinery/computer/terminal{
-	pixel_y = 3;
-	},
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/window{
-	dir = 1
-	},
-/turf/open/floor/iron/smooth,
-/area/f13/brotherhood/surface)
 "aP" = (
 /obj/machinery/light/small{
 	dir = 1;
@@ -907,7 +895,7 @@
 /obj/structure/table,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/paper/crumpled/bloody/ruins/thederelict/unfinished{
-	info = "Why's the (ILLEGIBLE) here?? They're screaming something about (ILLEGIBLE)... No.. This can't be.."
+	default_raw_text = "Why's the (ILLEGIBLE) here?? They're screaming something about (ILLEGIBLE)... No.. This can't be.."
 	},
 /obj/structure/window{
 	dir = 1
@@ -1080,18 +1068,6 @@
 /obj/structure/railing/corner,
 /turf/open/openspace,
 /area/f13/city)
-"fo" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/table,
-/obj/machinery/computer/terminal{
-	pixel_y = 3;
-	},
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/window{
-	dir = 1
-	},
-/turf/open/floor/iron/smooth,
-/area/f13/brotherhood/surface)
 "fp" = (
 /obj/structure/chair/sofa/corp{
 	dir = 1
@@ -2156,18 +2132,6 @@
 /obj/structure/closet/crate/bin,
 /turf/open/floor/iron/dark/smooth_large,
 /area/f13/raiders)
-"kc" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/table,
-/obj/machinery/computer/terminal{
-	pixel_y = 3;
-	},
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/window{
-	dir = 1
-	},
-/turf/open/floor/iron/smooth,
-/area/f13/brotherhood/surface)
 "kd" = (
 /obj/effect/decal/cleanable/dirt{
 	color = "000000"
@@ -3320,7 +3284,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table,
 /obj/machinery/computer/terminal{
-	pixel_y = 3;
+	pixel_y = 3
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/window{
@@ -3991,18 +3955,6 @@
 "tc" = (
 /turf/open/floor/plating/cobblestone/dungeon,
 /area/f13/legion)
-"te" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/table,
-/obj/machinery/computer/terminal{
-	pixel_y = 3
-	},
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/window{
-	dir = 1
-	},
-/turf/open/floor/iron/smooth,
-/area/f13/brotherhood/surface)
 "tg" = (
 /obj/structure/chair/sofa/corp/right,
 /obj/machinery/light{
@@ -4491,7 +4443,7 @@
 	desc = "A RobCo Industries terminal, this one looks well cared for, even as the ravages of time set into plastic and metal.";
 	dir = 8;
 	name = "premium terminal";
-	pixel_y = 3;
+	pixel_y = 3
 	},
 /obj/effect/turf_decal/tile/dark_blue/opposingcorners{
 	dir = 1
@@ -4897,18 +4849,6 @@
 "wF" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/chair/office{
-	dir = 1
-	},
-/turf/open/floor/iron/smooth,
-/area/f13/brotherhood/surface)
-"wH" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/table,
-/obj/machinery/computer/terminal{
-	pixel_y = 3
-	},
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/window{
 	dir = 1
 	},
 /turf/open/floor/iron/smooth,
@@ -8234,18 +8174,6 @@
 	color = "#363636"
 	},
 /turf/open/floor/holofloor/carpet)
-"Nj" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/table,
-/obj/machinery/computer/terminal{
-	pixel_y = 3
-	},
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/window{
-	dir = 1
-	},
-/turf/open/floor/iron/smooth,
-/area/f13/brotherhood/surface)
 "Nk" = (
 /obj/effect/decal/cleanable/dirt{
 	color = "#363636"
@@ -8930,18 +8858,6 @@
 	pixel_y = -7
 	},
 /obj/effect/turf_decal/tile/red/real_red/fourcorners,
-/turf/open/floor/iron/smooth,
-/area/f13/brotherhood/surface)
-"Ru" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/table,
-/obj/machinery/computer/terminal{
-	pixel_y = 3
-	},
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/window{
-	dir = 1
-	},
 /turf/open/floor/iron/smooth,
 /area/f13/brotherhood/surface)
 "Rv" = (
@@ -10385,18 +10301,6 @@
 /obj/structure/closet/cabinet,
 /turf/open/floor/wood,
 /area/f13/city)
-"Zk" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/table,
-/obj/machinery/computer/terminal{
-	pixel_y = 3
-	},
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/window{
-	dir = 1
-	},
-/turf/open/floor/iron/smooth,
-/area/f13/brotherhood/surface)
 "Zl" = (
 /obj/effect/turf_decal/tile/dark_blue/anticorner{
 	dir = 1
@@ -42999,10 +42903,10 @@ BM
 dc
 QL
 QL
-Zk
+RT
 wF
 QL
-Nj
+RT
 wF
 JF
 RT
@@ -43770,10 +43674,10 @@ BM
 iJ
 Ko
 QL
-Ru
+RT
 wF
 QL
-fo
+RT
 wF
 NS
 OY
@@ -44547,7 +44451,7 @@ QL
 Yy
 wF
 QL
-wH
+RT
 Lw
 RN
 Eq
@@ -45315,10 +45219,10 @@ mh
 mh
 BX
 QL
-te
+RT
 wF
 QL
-aN
+RT
 wF
 RN
 Eq
@@ -46089,7 +45993,7 @@ QL
 pO
 wF
 QL
-kc
+RT
 mE
 BM
 BM
