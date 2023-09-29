@@ -646,8 +646,7 @@
 /area/f13/wasteland)
 "bbV" = (
 /obj/machinery/door/airlock/security/glass{
-	name = "Barracks";
-	req_access_txt = "121"
+	name = "Barracks"
 	},
 /turf/open/floor/iron/smooth_large,
 /area/f13/wasteland)
@@ -1558,8 +1557,7 @@
 /area/f13/followers)
 "cEc" = (
 /obj/machinery/computer/terminal{
-	dir = 1;
-	termtag = "Private"
+	dir = 1
 	},
 /obj/structure/table/wood/fancy/black,
 /turf/open/space/basic,
@@ -1970,8 +1968,7 @@
 /obj/machinery/door/airlock/hatch{
 	desc = "An airtight door, built to withstand a nuclear blast.";
 	max_integrity = 10000;
-	name = "Brotherhood of Steel";
-	req_access_txt = "120"
+	name = "Brotherhood of Steel"
 	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/f13/brotherhood/surface)
@@ -2466,8 +2463,7 @@
 /area/f13/wasteland)
 "dZT" = (
 /obj/machinery/computer/terminal{
-	dir = 8;
-	termtag = "Secret"
+	dir = 8
 	},
 /obj/structure/table,
 /turf/open/space/basic,
@@ -2524,8 +2520,7 @@
 /area/f13/wasteland)
 "edx" = (
 /obj/machinery/door/airlock/security/glass{
-	name = "Holding Facility";
-	req_access_txt = "121"
+	name = "Holding Facility"
 	},
 /turf/open/floor/plating,
 /area/f13/wasteland)
@@ -2601,8 +2596,8 @@
 /area/f13/legion)
 "ekf" = (
 /obj/item/paper/fluff{
-	info = "By order of Legatus Saturn Atticus, all able-bodied men are obligated to maintain routine clearings of Yuma encampment possessions. Under no means, shall chem-enamored wastrels of the Yuma Valley infiltrate or establish hives of degenerancy under the nose of the Son of Mars. Maintain the virtue of vigilance and diligence.";
-	name = "instruction"
+	name = "instruction";
+	default_raw_text = "By order of Legatus Saturn Atticus, all able-bodied men are obligated to maintain routine clearings of Yuma encampment possessions. Under no means, shall chem-enamored wastrels of the Yuma Valley infiltrate or establish hives of degenerancy under the nose of the Son of Mars. Maintain the virtue of vigilance and diligence."
 	},
 /turf/closed/wall/rock,
 /area/f13/legion)
@@ -3096,8 +3091,7 @@
 /area/f13/wasteland)
 "ePz" = (
 /obj/machinery/door/airlock/medical{
-	name = "Medical Officer";
-	req_access_txt = "121"
+	name = "Medical Officer"
 	},
 /turf/open/space/basic,
 /area/f13/wasteland)
@@ -4024,9 +4018,7 @@
 /area/f13/followers)
 "ghR" = (
 /obj/structure/table/reinforced,
-/obj/machinery/computer/terminal{
-	termtag = "Secret"
-	},
+/obj/machinery/computer/terminal,
 /turf/open/space/basic,
 /area/f13/city/museum)
 "gie" = (
@@ -4456,14 +4448,7 @@
 /area/f13/wasteland)
 "gOC" = (
 /obj/structure/barricade/wooden,
-/turf/closed/indestructible/rock{
-	desc = "A pre-War supermart wall made of reinforced concrete.";
-	icon = 'icons/turf/walls/f13superstore.dmi';
-	icon_state = "supermart";
-	icon_type_smooth = "supermart";
-	name = "supermart wall";
-	smooth = 1
-	},
+/turf/closed/wall/mineral/titanium/nosmooth,
 /area/f13/wasteland)
 "gOD" = (
 /obj/item/storage/fancy/egg_box,
@@ -4810,8 +4795,7 @@
 "hkc" = (
 /obj/structure/table/wood,
 /obj/machinery/computer/terminal{
-	dir = 4;
-	termtag = "Enclave Outpost, Armory"
+	dir = 4
 	},
 /turf/open/space/basic,
 /area/f13/wasteland)
@@ -5010,9 +4994,7 @@
 /area/f13/followers)
 "hAm" = (
 /obj/machinery/door/airlock/security/glass{
-	name = "Gatehouse";
-	req_access = null;
-	req_access_txt = "121"
+	name = "Gatehouse"
 	},
 /turf/open/space/basic,
 /area/f13/wasteland)
@@ -5353,8 +5335,7 @@
 /area/f13/wasteland)
 "iau" = (
 /obj/machinery/door/airlock/security/glass{
-	name = "Medbay";
-	req_access_txt = "121"
+	name = "Medbay"
 	},
 /turf/open/space/basic,
 /area/f13/wasteland)
@@ -6568,16 +6549,7 @@
 /obj/structure/table,
 /obj/machinery/computer/terminal{
 	desc = "A RobCo Industries terminal, this one looks well worn with a few keys missing or loose.";
-	doc_content_1 = "My therapist told me to start keeping a journal, so here I am. My name's Greg, and I steal from people. Not proud of it, but I've got to make ends meet. Alimony to pay and my son to look after. Last robbery went alright, lots of antique silverware and medals to melt down. I know a guy in town.";
-	doc_content_2 = "Tom's birthday is coming up, and I'm struggling to figure out how to connect with him. He's getting in those teenage years, and all distant. I'm worried I don't make good memories now, he'll just resent me. Maybe I can take him to the range, show him how to fire his old man's battle rifle.";
-	doc_content_3 = "Me and the crew are having harder times hitting houses, with all the police and national guard around. Almost got caught last night, I'll be damned if that didn't put my balls in my throat. Might be time to get out of town, but the only problem is Sharon. She won't let go of Tom so easily.";
-	doc_content_4 = "those bastards did it, they finally did it. i'm grabbing tom and getting out of here. she won't stop me.";
-	doc_title_1 = "Journal 1";
-	doc_title_2 = "Journal 2";
-	doc_title_3 = "Journal 3";
-	doc_title_4 = "jesus christ";
-	name = "battered terminal";
-	termtag = "Greg Blunderson"
+	name = "battered terminal"
 	},
 /turf/open/space/basic,
 /area/f13/wasteland)
@@ -6972,8 +6944,7 @@
 /area/f13/city/museum)
 "klR" = (
 /obj/machinery/door/airlock/security/glass{
-	name = "Holding Facility";
-	req_access_txt = "121"
+	name = "Holding Facility"
 	},
 /turf/open/floor/iron/smooth_large,
 /area/f13/wasteland)
@@ -10543,8 +10514,7 @@
 /area/f13/wasteland)
 "pOL" = (
 /obj/machinery/door/airlock/medical{
-	name = "\improper Followers Clinic";
-	req_access_txt = "124"
+	name = "\improper Followers Clinic"
 	},
 /obj/machinery/door/poddoor/shutters{
 	id = "followers_door"
@@ -11126,8 +11096,7 @@
 /area/f13/wasteland)
 "qCn" = (
 /obj/machinery/door/airlock/security/glass{
-	name = "NCR Camp Miller Entrance";
-	req_access_txt = "121"
+	name = "NCR Camp Miller Entrance"
 	},
 /turf/open/space/basic,
 /area/f13/wasteland)
@@ -11188,9 +11157,7 @@
 /area/f13/wasteland)
 "qHQ" = (
 /obj/effect/decal/cleanable/cobweb,
-/obj/machinery/computer/terminal{
-	termtag = "Secret"
-	},
+/obj/machinery/computer/terminal,
 /obj/structure/table,
 /turf/open/floor/iron/dark/smooth_large,
 /area/f13/building)
@@ -12344,14 +12311,7 @@
 /turf/open/space/basic,
 /area/f13/wasteland)
 "sGp" = (
-/turf/closed/indestructible/rock{
-	desc = "A pre-War wall made of solid concrete.";
-	icon = 'icons/turf/walls/f13store.dmi';
-	icon_state = "store";
-	icon_type_smooth = "store";
-	name = "Concrete wall";
-	smooth = 1
-	},
+/turf/closed/wall/mineral/titanium/nosmooth,
 /area/f13/followers)
 "sGH" = (
 /obj/item/bedsheet/hos{
@@ -13032,16 +12992,6 @@
 "tFR" = (
 /obj/structure/barricade/wooden,
 /turf/open/misc/asteroid,
-/area/f13/wasteland)
-"tFU" = (
-/turf/closed/indestructible/rock{
-	desc = "A pre-War supermart wall made of reinforced concrete.";
-	icon = 'icons/turf/walls/f13superstore.dmi';
-	icon_state = "supermart";
-	icon_type_smooth = "supermart";
-	name = "supermart wall";
-	smooth = 1
-	},
 /area/f13/wasteland)
 "tFY" = (
 /obj/structure/rack,
@@ -14264,14 +14214,7 @@
 /area/f13/wasteland)
 "vry" = (
 /obj/structure/fireaxecabinet,
-/turf/closed/indestructible/rock{
-	desc = "A pre-War supermart wall made of reinforced concrete.";
-	icon = 'icons/turf/walls/f13superstore.dmi';
-	icon_state = "supermart";
-	icon_type_smooth = "supermart";
-	name = "supermart wall";
-	smooth = 1
-	},
+/turf/closed/wall/mineral/titanium/nosmooth,
 /area/f13/wasteland)
 "vrI" = (
 /obj/structure/table,
@@ -14500,8 +14443,7 @@
 /area/f13/wasteland)
 "vMN" = (
 /obj/machinery/door/airlock/hatch{
-	name = "NCR War Room";
-	req_access_txt = "121"
+	name = "NCR War Room"
 	},
 /turf/open/floor/iron/smooth_large,
 /area/f13/wasteland)
@@ -15809,8 +15751,7 @@
 /area/f13/wasteland)
 "xMZ" = (
 /obj/machinery/door/airlock/medical{
-	name = "\improper Followers Clinic";
-	req_access_txt = "124"
+	name = "\improper Followers Clinic"
 	},
 /turf/open/space/basic,
 /area/f13/followers)
@@ -22941,7 +22882,7 @@ avl
 avl
 jLK
 imW
-rxn
+wnL
 wnL
 wnL
 kIl
@@ -23198,7 +23139,7 @@ wnL
 wnL
 wnL
 imW
-bAe
+wnL
 wnL
 wnL
 wnL
@@ -24226,7 +24167,7 @@ wnL
 wnL
 rNa
 imW
-rxn
+wnL
 wnL
 wnL
 bhL
@@ -24483,7 +24424,7 @@ ajI
 wnL
 rNa
 imW
-bAe
+wnL
 wnL
 wnL
 vka
@@ -61957,11 +61898,11 @@ wnL
 wnL
 wnL
 wnL
-tFU
-tFU
-tFU
-tFU
-tFU
+kcZ
+kcZ
+kcZ
+kcZ
+kcZ
 wnL
 wnL
 wnL
@@ -62209,16 +62150,16 @@ bCP
 hEP
 sGp
 ppV
-tFU
-tFU
-tFU
-tFU
-tFU
-tFU
+kcZ
+kcZ
+kcZ
+kcZ
+kcZ
+kcZ
 wnL
 wnL
 wnL
-tFU
+kcZ
 wnL
 wnL
 wnL
@@ -62466,7 +62407,7 @@ bCP
 bCP
 sGp
 ppV
-tFU
+kcZ
 mGz
 wnL
 wnL
@@ -62475,7 +62416,7 @@ wnL
 wnL
 lSt
 wnL
-tFU
+kcZ
 wnL
 wnL
 wnL
@@ -62723,16 +62664,16 @@ bCP
 bCP
 sGp
 ppV
-tFU
+kcZ
 wnL
 wnL
 wnL
 wnL
-tFU
-tFU
-tFU
-tFU
-tFU
+kcZ
+kcZ
+kcZ
+kcZ
+kcZ
 wnL
 wnL
 wnL
@@ -62980,7 +62921,7 @@ bCP
 bCP
 sGp
 ppV
-tFU
+kcZ
 tZI
 mGz
 mGz
@@ -62989,7 +62930,7 @@ wnL
 hnq
 wnL
 puw
-tFU
+kcZ
 wnL
 wnL
 wnL
@@ -63237,7 +63178,7 @@ rkl
 bCP
 sGp
 ppV
-tFU
+kcZ
 wnL
 wnL
 wnL
@@ -63246,7 +63187,7 @@ wnL
 wnL
 wnL
 wnL
-tFU
+kcZ
 wnL
 wnL
 wnL
@@ -63494,16 +63435,16 @@ bCP
 bCP
 sGp
 ppV
-tFU
+kcZ
 fwk
 fwk
-tFU
-tFU
-tFU
-tFU
-tFU
-tFU
-tFU
+kcZ
+kcZ
+kcZ
+kcZ
+kcZ
+kcZ
+kcZ
 wnL
 wnL
 wnL
@@ -63751,7 +63692,7 @@ bCP
 bCP
 sGp
 ppV
-tFU
+kcZ
 wnL
 wnL
 wnL
@@ -63760,7 +63701,7 @@ wnL
 wnL
 wnL
 wnL
-tFU
+kcZ
 kOz
 kOz
 wnL
@@ -64008,7 +63949,7 @@ hEP
 bCP
 sGp
 ppV
-tFU
+kcZ
 wnL
 wnL
 wnL
@@ -64779,7 +64720,7 @@ bCP
 bCP
 sGp
 ppV
-tFU
+kcZ
 tZI
 wnL
 wnL
@@ -64788,7 +64729,7 @@ wnL
 wnL
 wnL
 iOs
-tFU
+kcZ
 wnL
 wnL
 wnL
@@ -65550,7 +65491,7 @@ bCP
 bCP
 sGp
 ppV
-tFU
+kcZ
 wnL
 wnL
 gCC
@@ -65807,16 +65748,16 @@ bCP
 hEP
 sGp
 ppV
-tFU
+kcZ
 wnL
 wnL
-tFU
-tFU
-tFU
-tFU
-tFU
-tFU
-tFU
+kcZ
+kcZ
+kcZ
+kcZ
+kcZ
+kcZ
+kcZ
 wnL
 wnL
 wnL
@@ -66064,7 +66005,7 @@ sGp
 sGp
 sGp
 ppV
-tFU
+kcZ
 wnL
 wnL
 wnL
@@ -66073,7 +66014,7 @@ wnL
 wnL
 wnL
 wnL
-tFU
+kcZ
 wnL
 wnL
 wnL
@@ -66321,7 +66262,7 @@ ppV
 ppV
 ppV
 ppV
-tFU
+kcZ
 kSQ
 sAL
 wnL
@@ -66544,43 +66485,43 @@ wnL
 wnL
 wnL
 wnL
-tFU
-tFU
-tFU
-tFU
-tFU
-tFU
-tFU
-tFU
-tFU
-tFU
-tFU
-tFU
-tFU
-tFU
-tFU
-tFU
-tFU
-tFU
-tFU
-tFU
-tFU
-tFU
-tFU
-tFU
-tFU
-tFU
-tFU
-tFU
-tFU
-tFU
-tFU
-tFU
-tFU
-tFU
-tFU
-tFU
-tFU
+kcZ
+kcZ
+kcZ
+kcZ
+kcZ
+kcZ
+kcZ
+kcZ
+kcZ
+kcZ
+kcZ
+kcZ
+kcZ
+kcZ
+kcZ
+kcZ
+kcZ
+kcZ
+kcZ
+kcZ
+kcZ
+kcZ
+kcZ
+kcZ
+kcZ
+kcZ
+kcZ
+kcZ
+kcZ
+kcZ
+kcZ
+kcZ
+kcZ
+kcZ
+kcZ
+kcZ
+kcZ
 wnL
 lbZ
 wnL
@@ -66801,7 +66742,7 @@ wnL
 wnL
 wnL
 wnL
-tFU
+kcZ
 bRd
 cFq
 wnL
@@ -66837,14 +66778,14 @@ wnL
 jii
 oOa
 cUG
-tFU
-tFU
-tFU
-tFU
+kcZ
+kcZ
+kcZ
+kcZ
 wnL
 wnL
-tFU
-tFU
+kcZ
+kcZ
 wnL
 wnL
 wnL
@@ -67058,7 +66999,7 @@ wnL
 wnL
 wnL
 wnL
-tFU
+kcZ
 lqQ
 wnL
 wnL
@@ -67315,7 +67256,7 @@ wnL
 wnL
 wnL
 wnL
-tFU
+kcZ
 lAD
 wnL
 wnL
@@ -67328,30 +67269,30 @@ wnL
 wnL
 wnL
 wnL
-tFU
-tFU
-tFU
-tFU
-tFU
-tFU
-tFU
-tFU
-tFU
-tFU
-tFU
+kcZ
+kcZ
+kcZ
+kcZ
+kcZ
+kcZ
+kcZ
+kcZ
+kcZ
+kcZ
+kcZ
 wnL
-tFU
-tFU
-tFU
-wnL
-wnL
+kcZ
+kcZ
+kcZ
 wnL
 wnL
 wnL
 wnL
 wnL
 wnL
-tFU
+wnL
+wnL
+kcZ
 wnL
 wnL
 wnL
@@ -67572,7 +67513,7 @@ wnL
 wnL
 wnL
 wnL
-tFU
+kcZ
 cUG
 wnL
 wnL
@@ -67585,7 +67526,7 @@ ihF
 gLS
 gLS
 nnf
-tFU
+kcZ
 hpb
 gqI
 jsZ
@@ -67593,13 +67534,13 @@ ddo
 feK
 ezx
 ezx
-tFU
+kcZ
 wnL
 wnL
 wnL
 mWE
 qyS
-tFU
+kcZ
 gtM
 xKq
 vdu
@@ -67608,7 +67549,7 @@ wnL
 jii
 jOz
 bRd
-tFU
+kcZ
 wnL
 wnL
 wnL
@@ -67829,7 +67770,7 @@ wnL
 wnL
 wnL
 wnL
-tFU
+kcZ
 peG
 wnL
 wnL
@@ -67842,7 +67783,7 @@ wnL
 vic
 gLS
 dBP
-tFU
+kcZ
 pIM
 wnL
 wnL
@@ -67850,13 +67791,13 @@ wnL
 wnL
 wnL
 bBZ
-tFU
+kcZ
 mdJ
 wmx
 wnL
 wnL
 kIf
-tFU
+kcZ
 eSZ
 wnL
 dSn
@@ -68086,7 +68027,7 @@ wnL
 wnL
 dJF
 wnL
-tFU
+kcZ
 wnL
 wnL
 wnL
@@ -68099,7 +68040,7 @@ ihF
 gLS
 gLS
 vVa
-tFU
+kcZ
 quv
 wnL
 wnL
@@ -68107,13 +68048,13 @@ wnL
 aOg
 wnL
 wnL
-tFU
+kcZ
 wnL
 ehY
 wnL
 tUo
 bRd
-tFU
+kcZ
 wnL
 wnL
 wnL
@@ -68343,7 +68284,7 @@ wnL
 wnL
 wnL
 wnL
-tFU
+kcZ
 wnL
 wnL
 wnL
@@ -68356,7 +68297,7 @@ wnL
 gLS
 gLS
 naI
-tFU
+kcZ
 eof
 wnL
 wnL
@@ -68364,13 +68305,13 @@ wnL
 aOg
 wnL
 wnL
-tFU
-tFU
+kcZ
+kcZ
 wnL
-tFU
-tFU
-tFU
-tFU
+kcZ
+kcZ
+kcZ
+kcZ
 wnL
 bRd
 apm
@@ -68600,7 +68541,7 @@ wnL
 kOz
 kOz
 kOz
-tFU
+kcZ
 wnL
 wnL
 wnL
@@ -68613,7 +68554,7 @@ gLS
 gLS
 gLS
 jgF
-tFU
+kcZ
 jto
 wnL
 wnL
@@ -68625,7 +68566,7 @@ pXC
 nxU
 wnL
 wnL
-tFU
+kcZ
 avl
 avl
 wnL
@@ -68636,7 +68577,7 @@ tZI
 uPH
 tZC
 wnL
-tFU
+kcZ
 wnL
 wnL
 wnL
@@ -68857,7 +68798,7 @@ wnL
 wnL
 wnL
 wnL
-tFU
+kcZ
 flw
 wnL
 wnL
@@ -68870,7 +68811,7 @@ gLS
 iKc
 gLS
 yet
-tFU
+kcZ
 ubW
 bRd
 wnL
@@ -68882,7 +68823,7 @@ bRd
 enF
 bRd
 pUR
-tFU
+kcZ
 kbD
 wnL
 wnL
@@ -69114,7 +69055,7 @@ wnL
 wnL
 wnL
 wnL
-tFU
+kcZ
 wnL
 wnL
 wnL
@@ -69127,7 +69068,7 @@ gLS
 iKc
 gLS
 iUX
-tFU
+kcZ
 wnL
 khu
 wnL
@@ -69139,7 +69080,7 @@ wnL
 wnL
 wnL
 wnL
-tFU
+kcZ
 wnL
 bRd
 wnL
@@ -69371,7 +69312,7 @@ wnL
 wnL
 wnL
 wnL
-tFU
+kcZ
 wnL
 wnL
 wnL
@@ -69384,7 +69325,7 @@ gLS
 iKc
 gLS
 iWn
-tFU
+kcZ
 wnL
 wnL
 wnL
@@ -69396,7 +69337,7 @@ ezx
 jAb
 mle
 ezx
-tFU
+kcZ
 qQx
 bRd
 wnL
@@ -69628,7 +69569,7 @@ wnL
 wnL
 wnL
 wnL
-tFU
+kcZ
 gyH
 gyH
 wnL
@@ -69641,8 +69582,8 @@ omq
 omq
 jHO
 omq
-tFU
-tFU
+kcZ
+kcZ
 swk
 swk
 swk
@@ -69652,19 +69593,19 @@ swk
 swk
 swk
 swk
-tFU
-tFU
+kcZ
+kcZ
 kYl
 kYl
 xFI
-tFU
-tFU
-tFU
-tFU
-tFU
-tFU
-tFU
-tFU
+kcZ
+kcZ
+kcZ
+kcZ
+kcZ
+kcZ
+kcZ
+kcZ
 igc
 igc
 igc
@@ -71434,8 +71375,8 @@ wnL
 wnL
 wnL
 wnL
-tFU
-tFU
+kcZ
+kcZ
 fHE
 fHE
 fHE
@@ -71458,7 +71399,7 @@ wnL
 gBa
 cHL
 cHL
-tFU
+kcZ
 wnL
 wnL
 wnL
@@ -71691,7 +71632,7 @@ wnL
 wnL
 wnL
 wnL
-tFU
+kcZ
 hmo
 dlR
 aWj
@@ -71703,7 +71644,7 @@ pal
 hmo
 hmo
 cBq
-tFU
+kcZ
 pGH
 kaf
 jMB
@@ -71715,7 +71656,7 @@ dhQ
 gLS
 xzr
 dqr
-tFU
+kcZ
 wnL
 wnL
 wnL
@@ -71948,7 +71889,7 @@ wnL
 wnL
 wnL
 wnL
-tFU
+kcZ
 oOi
 dlR
 lsq
@@ -71960,7 +71901,7 @@ dlR
 dlR
 dlR
 dlR
-tFU
+kcZ
 cTl
 pmW
 pmW
@@ -71972,7 +71913,7 @@ gLS
 gLS
 gLS
 gLS
-tFU
+kcZ
 wnL
 wnL
 wnL
@@ -72198,14 +72139,14 @@ wnL
 wnL
 wnL
 wnL
-tFU
+kcZ
 gyH
 wnL
 wnL
 rIu
 wnL
 iRx
-tFU
+kcZ
 lsq
 dlR
 lsq
@@ -72217,7 +72158,7 @@ lsq
 lsq
 hcw
 nbS
-tFU
+kcZ
 sWg
 pmW
 nJq
@@ -72229,7 +72170,7 @@ cAg
 gLS
 vkY
 qjl
-tFU
+kcZ
 wnL
 wnL
 wnL
@@ -72455,14 +72396,14 @@ wnL
 wnL
 wnL
 wnL
-tFU
+kcZ
 gyH
 peG
 wnL
 wnL
 wnL
 wnL
-tFU
+kcZ
 dlR
 dlR
 dlR
@@ -72474,7 +72415,7 @@ mKk
 dlR
 dlR
 dlR
-tFU
+kcZ
 sdK
 pmW
 sEf
@@ -72486,7 +72427,7 @@ gLS
 gLS
 gLS
 gLS
-tFU
+kcZ
 wnL
 wnL
 wnL
@@ -72712,14 +72653,14 @@ wnL
 wnL
 wnL
 wnL
-tFU
+kcZ
 wnL
 wnL
 wnL
 wnL
 wnL
 wnL
-tFU
+kcZ
 wcw
 dlR
 dlR
@@ -72731,7 +72672,7 @@ hmo
 hiq
 hmo
 emC
-tFU
+kcZ
 jod
 pmW
 pmW
@@ -72743,7 +72684,7 @@ qDr
 bDt
 eai
 gLS
-tFU
+kcZ
 wnL
 wnL
 wnL
@@ -72969,14 +72910,14 @@ wnL
 wnL
 wnL
 wnL
-tFU
+kcZ
 wnL
 wnL
 wnL
 oRE
 wnL
 wnL
-tFU
+kcZ
 etU
 dlR
 dlR
@@ -72988,7 +72929,7 @@ wnL
 wnL
 wnL
 qEZ
-tFU
+kcZ
 pmW
 pmW
 aJd
@@ -73000,7 +72941,7 @@ wnL
 wnL
 wnL
 qEZ
-tFU
+kcZ
 wnL
 wnL
 wnL
@@ -73226,14 +73167,14 @@ wnL
 wnL
 wnL
 wnL
-tFU
+kcZ
 wnL
 wnL
 wnL
 wnL
 wnL
 iRx
-tFU
+kcZ
 hmo
 dlR
 dlR
@@ -73245,7 +73186,7 @@ qEZ
 qEZ
 qEZ
 qEZ
-tFU
+kcZ
 dXp
 pmW
 pmW
@@ -73257,7 +73198,7 @@ yfi
 ikg
 mof
 qEZ
-tFU
+kcZ
 wnL
 wnL
 wnL
@@ -73483,14 +73424,14 @@ wnL
 wnL
 wnL
 wnL
-tFU
+kcZ
 wnL
 wnL
 wnL
 oRE
 wnL
 wnL
-tFU
+kcZ
 hiq
 dlR
 dlR
@@ -73502,7 +73443,7 @@ qEZ
 uAL
 xsh
 fKD
-tFU
+kcZ
 jsz
 nvq
 aeq
@@ -73514,7 +73455,7 @@ qEZ
 qEZ
 qEZ
 bbq
-tFU
+kcZ
 wnL
 wnL
 wnL
@@ -73740,28 +73681,26 @@ wnL
 wnL
 wnL
 wnL
-tFU
+kcZ
 msf
 wmx
 wnL
 wnL
 wnL
 wnL
-tFU
-tFU
-tFU
-tFU
-tFU
-tFU
-tFU
-tFU
-tFU
-tFU
-tFU
+kcZ
+kcZ
+kcZ
+kcZ
+kcZ
+kcZ
+kcZ
+kcZ
+kcZ
+kcZ
+kcZ
 wnL
-tFU
-wnL
-wnL
+kcZ
 wnL
 wnL
 wnL
@@ -73771,7 +73710,9 @@ wnL
 wnL
 wnL
 wnL
-tFU
+wnL
+wnL
+kcZ
 wnL
 wnL
 wnL
@@ -73997,7 +73938,7 @@ wnL
 wnL
 wnL
 wnL
-tFU
+kcZ
 wnL
 wnL
 wnL
@@ -74028,7 +73969,7 @@ wnL
 wnL
 wnL
 wnL
-tFU
+kcZ
 wnL
 wnL
 wnL
@@ -74254,7 +74195,7 @@ wnL
 wnL
 wnL
 wnL
-tFU
+kcZ
 gwp
 wnL
 wnL
@@ -74285,7 +74226,7 @@ xUO
 ezx
 qOx
 peG
-tFU
+kcZ
 wnL
 wnL
 wnL
@@ -74511,38 +74452,38 @@ wnL
 wnL
 wnL
 wnL
-tFU
-tFU
+kcZ
+kcZ
 gOC
 gOC
 gOC
 gOC
-tFU
-tFU
-tFU
-tFU
-tFU
-tFU
-tFU
-tFU
-tFU
-tFU
-tFU
-tFU
-tFU
-tFU
-tFU
-tFU
-tFU
-tFU
-tFU
-tFU
-tFU
-tFU
-tFU
-tFU
-tFU
-tFU
+kcZ
+kcZ
+kcZ
+kcZ
+kcZ
+kcZ
+kcZ
+kcZ
+kcZ
+kcZ
+kcZ
+kcZ
+kcZ
+kcZ
+kcZ
+kcZ
+kcZ
+kcZ
+kcZ
+kcZ
+kcZ
+kcZ
+kcZ
+kcZ
+kcZ
+kcZ
 wnL
 wnL
 wnL
