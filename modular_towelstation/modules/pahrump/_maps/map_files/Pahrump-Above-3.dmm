@@ -111,10 +111,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table,
 /obj/machinery/computer/terminal{
-	doc_content_1 = "Sarah, I asked for todays newspaper and you bring me yesterdays, come on, wake up! Now bring me todays newspaper chop chop!";
-	doc_title_1 = "Sarah, wake UP!";
 	pixel_y = 3;
-	termtag = "Business"
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/window{
@@ -1087,10 +1084,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table,
 /obj/machinery/computer/terminal{
-	doc_content_1 = "I've decided to retire, finally, this Banker job is boring god damn it, I want to live life to the fullest! The papers should be ready tomorrow, I said to the Manager that I'll work one more day before retiring.";
-	doc_title_1 = "October 22, 2077";
 	pixel_y = 3;
-	termtag = "Business"
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/window{
@@ -2166,10 +2160,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table,
 /obj/machinery/computer/terminal{
-	doc_content_1 = "Hey Doctor Lewis, I still have the headaches even after the medicine you prescribed about it, do you think I can come for a check-up today?";
-	doc_title_1 = "Hey, Doc";
 	pixel_y = 3;
-	termtag = "Business"
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/window{
@@ -3119,9 +3110,7 @@
 	color = "#363636"
 	})
 "oP" = (
-/obj/machinery/computer/terminal{
-	termtag = "Business"
-	},
+/obj/machinery/computer/terminal,
 /obj/structure/table/wood,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/wood,
@@ -3331,10 +3320,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table,
 /obj/machinery/computer/terminal{
-	doc_content_1 = "What the hell? Why did the power go down? The building opposite of us also is blacked out.. must be some region wide shut-down or something, the back-up generator should hit soon.";
-	doc_title_1 = "October 23, 2077";
 	pixel_y = 3;
-	termtag = "Business"
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/window{
@@ -3519,17 +3505,8 @@
 /obj/machinery/computer/terminal{
 	desc = "A RobCo Industries terminal, this one looks well cared for, even as the ravages of time set into plastic and metal.";
 	dir = 1;
-	doc_content_1 = "Gregory Blunderson, a shortsighted fool with an easy weakness, his brat of a child. While his proximity is a concern, the threat of his son's safety should keep him safely under my employ. I believe I'll have him ransack that old bastard Cooke's residence, remind him I'm still alive.";
-	doc_content_2 = "The Mexican Mafia, a gang come south of the state seeking easy gain in the quiet suburbia of our county. The law does not seem to understand these young men are intelligent, and already apply pressure to several small businesses in town. I can pay them off from touching my properties for now, but this may grow to be an issue. It may be time to reach a working agreement with these entrepreneurial boys.";
-	doc_content_3 = "The Children of the Light, what is there to say? Another new age nonsense cult, peddling half hearted self-help to the desperate and broken in exchange for everything they can take. I do not care for a criminal element that lacks either showmanship or professional conduct in my town, no I do not. But attempting to use the Mexican Mafia against them led to, significant discoveries. They have powerful backers in Washington. I must proceed cautiously.";
-	doc_content_4 = "The Post-Modern Artist, as the newspapers have taken to calling him. Fashioning his public displays of viscera, animal at times, man at others. He has become a most useful tool against the cult, for he holds no qualms in his work, and I cannot be tied back to him. I know of course, he must have plots to make me the next ironic piece of art in his show, but I have safety measures against this. Mister Ostin is still good with a gun.";
-	doc_title_1 = "Log 1 - Gregory Blunderson";
-	doc_title_2 = "Log 2 - Mexican Mafia";
-	doc_title_3 = "Log 3 - Children of the Light";
-	doc_title_4 = "Log 4 - The Post-Modern Artist";
 	name = "premium terminal";
-	pixel_y = 3;
-	termtag = "Rivers Pinkerton"
+	pixel_y = 3
 	},
 /obj/structure/sign/clock/directional/south,
 /turf/open/floor/carpet/purple,
@@ -4018,10 +3995,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table,
 /obj/machinery/computer/terminal{
-	doc_content_1 = "I hear a lot of shouting downstairs and footsteps... everyone up here's tense.. Miller went down to check and came running back up and told us to 'Pack our things' now a bunch of State Troopers cam-";
-	doc_title_1 = "October 23, 2077";
-	pixel_y = 3;
-	termtag = "Business"
+	pixel_y = 3
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/window{
@@ -4516,17 +4490,8 @@
 /obj/machinery/computer/terminal{
 	desc = "A RobCo Industries terminal, this one looks well cared for, even as the ravages of time set into plastic and metal.";
 	dir = 8;
-	doc_content_1 = "We didn't know what had happened at first, the attack knocked out most communication and infrastructure. But the municipal government acted quickly, rallying in the community shelter in downtown. They had plenty of food and water stored up, and Mayor Albertson sent the police to inform everyone. Soon, the town square turned into a large refugee camp like those other countries have, or had. Now I'm running this commissary.";
-	doc_content_2 = "The camp's turned into a proper town, far less drafty tents and shacks, but I doubt we'll get air conditioners anytime soon. We've established a farm, and rationing until we're sure what's safe to eat or not. Nowhere in the valley was directly hit or we'd all be dead, but we can't be sure if the fallout spread on the wind or what. But a lot of us are asking, where's the military? This is an old army town, but its been months and no soldiers.";
-	doc_content_3 = "Its been awhile since I updated this, but things have been good, even if a bit dull. This is a proper store now, the Oasis General Store. Albertson's still in charge, made a whole ceremony of planting a little sapling near the well, renaming the YPD and all that ritual ceremony. Had a giant metal wall erected to separate us from the rest of Oldtown, not that we really need it. I'm sleeping easy now, we aren't exactly comfortable but we're not hurting either, and we just had a Christmas party. In July, but still, was nice.";
-	doc_content_4 = "We just had some odd looking cops show up outside town, rough-looking strangers that demanded supplies and ammunition. It turned out, these weren't cops anymore.  The California Highwaymen Patrol, or CHIMPS, used to be officers that maintained roads out west to facilitate trade and aid efforts. But then conditions grew worse, and they've resorted to raiding their own trade routes, even roaming out here for new towns to pillage. OPD held them off for now, turns out all those walls were a good idea. But who knows when they'll be back.";
-	doc_title_1 = "Entry 1 - Local Government";
-	doc_title_2 = "Entry 2 - Military Response?";
-	doc_title_3 = "Entry 3 - The Good Life?";
-	doc_title_4 = "Entry 4 - CHIMPS Attack!";
 	name = "premium terminal";
 	pixel_y = 3;
-	termtag = "Seng Sun"
 	},
 /obj/effect/turf_decal/tile/dark_blue/opposingcorners{
 	dir = 1
@@ -4940,10 +4905,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table,
 /obj/machinery/computer/terminal{
-	doc_content_1 = "Hey Honey, I'm at work, but I overheard from Johnson that there's a new romantic comedy movie that just came out, do you wanna go grab a ticket while the kids are still at school?";
-	doc_title_1 = "New Movie coming out today!";
-	pixel_y = 3;
-	termtag = "Business"
+	pixel_y = 3
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/window{
@@ -5124,10 +5086,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/reinforced,
 /obj/machinery/computer/terminal{
-	dir = 1;
-	doc_content_1 = "This is as always Manager Stevenson, today was a good day. More than usual folk came in here looking to open an account! Sounds like we might have an up soon!";
-	doc_title_1 = "October 23, 2077";
-	termtag = "Business"
+	dir = 1
 	},
 /turf/open/floor/iron/smooth,
 /area/f13/brotherhood/surface)
@@ -8279,10 +8238,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table,
 /obj/machinery/computer/terminal{
-	doc_content_1 = "Once again, the boss is ignoring my complaints about the janitor.. I'm SURE He's a Chinese spy.. but the boss is ignoring me.. saying that 'He's worked here longer than you' BULLSHIT, He's CHINESE AND I'LL PROVE IT!!";
-	doc_title_1 = "Janitor Problem";
-	pixel_y = 3;
-	termtag = "Business"
+	pixel_y = 3
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/window{
@@ -8567,10 +8523,7 @@
 /obj/structure/table,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/computer/terminal{
-	doc_content_1 = "I decided today to go over the clients that have an account with our bank and I noticed something off... there's a name 'John Doe' that's been coming here everyday to transfer funds into one of his other accounts.. that isn't on US Soil.. I think I just found a Chinese Spy!";
-	doc_title_1 = "Client Transactions are Off..";
-	pixel_y = 3;
-	termtag = "Business"
+	pixel_y = 3
 	},
 /obj/structure/window{
 	dir = 1
@@ -8983,10 +8936,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table,
 /obj/machinery/computer/terminal{
-	doc_content_1 = "I asked the boss if I could get the day off today, but since the boss somehow thinks this day is going to 'Turn this Bank in the right direction' he told me to stay! What an absolute asshole.";
-	doc_title_1 = "Off-Day";
-	pixel_y = 3;
-	termtag = "Business"
+	pixel_y = 3
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/window{
@@ -9081,10 +9031,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table,
 /obj/machinery/computer/terminal{
-	doc_content_1 = "I think the boss isn't fit to manage the bank anymore.. he keeps making sloppy decisions and ignoring facts! I think I'll report him to HR Tomorrow.";
-	doc_title_1 = "October 23, 2077";
-	pixel_y = 3;
-	termtag = "Business"
+	pixel_y = 3
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/window{
@@ -10318,10 +10265,7 @@
 "Yy" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/computer/terminal{
-	doc_content_1 = "I think the archivist is pervert! He's always coming up to me during break hours and saying stuff like: 'Can you scoot over' WHILE I'M SITTING DOWN IN AN EMPTY SOFA!";
-	doc_title_1 = "October 22, 2077";
-	pixel_y = 3;
-	termtag = "Business"
+	pixel_y = 3
 	},
 /obj/structure/table,
 /obj/structure/window{
@@ -10334,16 +10278,7 @@
 /obj/machinery/computer/terminal{
 	desc = "A RobCo Industries terminal, this one looks well worn with a few keys missing or loose.";
 	dir = 8;
-	doc_content_1 = "Supplies are running low again, Mister Pinkerton says he can't afford to keep the clinic stocked up when the workers keep needing leave. They wouldn't be taking leave if they weren't getting seriously injured working overtime, and with them working overtime he should be able to at least afford new medical supplies. I'm doing what I can of course, but there's only so much a man can do with painkillers and clean bandages. - Ronald Gibson, Pinkerton Mining Co. Medical Division";
-	doc_content_2 = "Power went out for a moment before the backup generators kicked in, but that's not the worst of it. There was a major collapse in the mine, we can't try digging those boys out without collapsing the entire structure. Can't even be sure they're still alive. Mister Pinkerton hasn't shown up for weeks now and I'd say he's given up on his workers. The gates are keeping us safe for now, but food and medicine are slim. - Ronald Gibson";
-	doc_content_3 = "Me and the boys have packed up what we can. Those highwaymen from California just tried hitting the camp, and while we held them off, we don't have the means to produce ammunition or many weapons to begin with. And the food's just about run out on us, so it looks like its time to join that Oasis project. - Ronald";
-	doc_content_4 = "it looks like this place was stripped bare of supplies. it'd be expired by now anyways. its a damn secure location though, if anyone's got the stones to set up here. haha, stones. whoever reads this, jimmy was here.";
-	doc_title_1 = "Supply Report";
-	doc_title_2 = "Mining Accident";
-	doc_title_3 = "Goodbye Pinkerton";
-	doc_title_4 = "sweet den";
-	name = "battered terminal";
-	termtag = "Pinkerton Mining Co."
+	name = "battered terminal"
 	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/f13/legion)
@@ -10454,10 +10389,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table,
 /obj/machinery/computer/terminal{
-	doc_content_1 = "Boss told me to bring out the Earnings folder and make sure it's right, I've told him it's right but he asked me to re-do them all again... there goes my weekend.";
-	doc_title_1 = "Finance Day..";
-	pixel_y = 3;
-	termtag = "Business"
+	pixel_y = 3
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/window{
