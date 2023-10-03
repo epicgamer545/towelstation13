@@ -979,7 +979,6 @@
 	area_type = /area/f13;
 	dwidth = 1;
 	height = 4;
-	id = "bos_surface";
 	name = "Surface";
 	width = 5
 	},
@@ -3589,8 +3588,7 @@
 /area/f13/wasteland)
 "frX" = (
 /obj/structure/fence{
-	climbable = 1;
-	cuttable = 0;
+	cuttable = 1;
 	dir = 1;
 	resistance_flags = 64
 	},
@@ -4170,8 +4168,7 @@
 /area/f13/wasteland)
 "gey" = (
 /obj/structure/fence{
-	climbable = 1;
-	cuttable = 0;
+	cuttable = 1;
 	dir = 1;
 	resistance_flags = 64
 	},
@@ -4212,7 +4209,6 @@
 	id = "raiderhubarmory"
 	},
 /obj/structure/fence{
-	climbable = 1;
 	dir = 1;
 	resistance_flags = 64
 	},
@@ -5028,9 +5024,7 @@
 "hmc" = (
 /obj/structure/table,
 /obj/machinery/computer/terminal{
-	dir = 4;
-	doc_content_1 = "I'd like to report a crime happening at your house, Officer Mack. Your house is about to burn for the crimes you committed against the People's Republic of China! I hope your sleeping family wakes up in time.. GLORY TO CHINA.";
-	doc_title_1 = "Crime Report."
+	dir = 4
 	},
 /turf/open/space/basic,
 /area/f13/wasteland)
@@ -5990,7 +5984,6 @@
 	area_type = /area/f13;
 	dwidth = 1;
 	height = 3;
-	id = "Enclave_Surface";
 	name = "Enclave Surface";
 	width = 3
 	},
@@ -10509,7 +10502,6 @@
 	id = "mus1"
 	},
 /obj/structure/fence{
-	climbable = 1;
 	dir = 1;
 	resistance_flags = 64
 	},
@@ -10833,7 +10825,6 @@
 /area/f13/wasteland)
 "pFv" = (
 /obj/structure/fence{
-	climbable = 1;
 	dir = 1;
 	resistance_flags = 64
 	},
@@ -15058,7 +15049,6 @@
 /area/f13/city/museum)
 "vGU" = (
 /obj/structure/fence{
-	climbable = 1;
 	dir = 1;
 	resistance_flags = 64
 	},
