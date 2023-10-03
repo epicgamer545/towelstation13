@@ -546,6 +546,7 @@
 	name = "prewar comic book"
 	},
 /obj/effect/turf_decal/tile/blue/full,
+/obj/effect/landmark/start/security_officer,
 /turf/open/floor/iron,
 /area/space)
 "cJ" = (
@@ -674,6 +675,7 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/blue/full,
+/obj/effect/landmark/start/security_officer,
 /turf/open/floor/iron,
 /area/space)
 "dn" = (
@@ -1482,7 +1484,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/item/clothing/accessory/pocketprotector/full,
 /obj/item/paper/crumpled/bloody/fluff/stations/lavaland/library/warning{
-	info = "<b>If someone finds this... then the Police didn't bring us to the Vault in-time.. thank god our jobs prioritise us in-case of a nuclear att-....</b>"
+	default_raw_text = "<b>If someone finds this... then the Police didn't bring us to the Vault in-time.. thank god our jobs prioritise us in-case of a nuclear att-....</b>"
 	},
 /obj/structure/window{
 	dir = 1
@@ -1871,8 +1873,8 @@
 "iS" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/paper/crumpled/ruins{
-	info = "Glory to the People's Republic of China, Comrade Jiang!  Your task is to meet-up with the Listening Outpost we have installed in the Yuma Region, at October 23, 2077, the two comrades will be ready for you! Glory to China!";
-	name = "Paper Scrap"
+	name = "Paper Scrap";
+	default_raw_text = "Glory to the People's Republic of China, Comrade Jiang!  Your task is to meet-up with the Listening Outpost we have installed in the Yuma Region, at October 23, 2077, the two comrades will be ready for you! Glory to China!"
 	},
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron/smooth,
@@ -4343,6 +4345,7 @@
 /obj/structure/chair,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/tile/blue/full,
+/obj/effect/landmark/start/security_officer,
 /turf/open/floor/iron,
 /area/space)
 "ut" = (
@@ -6328,8 +6331,8 @@
 "DW" = (
 /obj/structure/table,
 /obj/item/paper/pamphlet{
-	info = "Some religious talk about the Church of Christ, you don't want to read this.";
-	name = "Church pamphlet "
+	name = "Church pamphlet ";
+	default_raw_text = "Some religious talk about the Church of Christ, you don't want to read this."
 	},
 /obj/effect/turf_decal/tile/blue/full,
 /turf/open/floor/iron,
@@ -6758,6 +6761,10 @@
 /obj/machinery/telecomms/relay/preset/telecomms,
 /turf/open/indestructible,
 /area/station/tcommsat)
+"Gp" = (
+/obj/effect/landmark/start/head_of_security,
+/turf/open/floor/iron,
+/area/space)
 "Gr" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/glass,
@@ -7384,7 +7391,6 @@
 /obj/item/clipboard,
 /obj/item/paper/crumpled/muddy/fluff/elephant_graveyard/rnd_notes{
 	desc = "This page details a raid warrant of some location, though the place's name is illegible.";
-	info = "";
 	name = "Raid Warrant on..";
 	pixel_x = -9;
 	pixel_y = -3
@@ -9037,6 +9043,7 @@
 /obj/structure/chair,
 /obj/effect/decal/remains/human,
 /obj/effect/turf_decal/tile/blue/full,
+/obj/effect/landmark/start/security_officer,
 /turf/open/floor/iron,
 /area/space)
 "Sw" = (
@@ -9205,6 +9212,7 @@
 "Ts" = (
 /obj/structure/chair,
 /obj/effect/turf_decal/tile/blue/full,
+/obj/effect/landmark/start/security_officer,
 /turf/open/floor/iron,
 /area/space)
 "Tu" = (
@@ -9506,9 +9514,7 @@
 /area/space)
 "UT" = (
 /obj/structure/table,
-/obj/item/paper/fluff/stations/lavaland/orm_notice{
-	info = "A hastily written note has been scribbled here... <br><br> Please stop stealing my FUCKING donuts, get your OWN MOR-ONS! <br><br>--Kevin Redding"
-	},
+/obj/item/paper/fluff/stations/lavaland/orm_notice,
 /obj/effect/turf_decal/tile/blue/full,
 /turf/open/floor/iron,
 /area/space)
@@ -9619,8 +9625,8 @@
 "Vx" = (
 /obj/structure/table,
 /obj/item/paper/fluff/ruins/listeningstation/reports/may{
-	info = "Got something of real interest to report. I have intercepted faint transmissions from what appears to be some sort of chinese radio station. We should send someone to find it PRONTO.";
-	name = "Chinese Radio Station Report"
+	name = "Chinese Radio Station Report";
+	default_raw_text = "Got something of real interest to report. I have intercepted faint transmissions from what appears to be some sort of chinese radio station. We should send someone to find it PRONTO."
 	},
 /obj/effect/turf_decal/tile/blue/full,
 /turf/open/floor/iron,
@@ -61299,7 +61305,7 @@ Eq
 Eq
 la
 bP
-bP
+Gp
 Ju
 PO
 Ws
