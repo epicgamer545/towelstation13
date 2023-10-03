@@ -1379,8 +1379,7 @@
 /area/f13/followers)
 "gJ" = (
 /obj/machinery/door/airlock/medical{
-	name = "\improper Followers Clinic";
-	req_access_txt = "124"
+	name = "\improper Followers Clinic"
 	},
 /obj/effect/turf_decal/tile/blue/full,
 /turf/open/floor/iron,
