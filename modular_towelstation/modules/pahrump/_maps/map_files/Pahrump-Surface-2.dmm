@@ -13406,7 +13406,7 @@
 "tEd" = (
 /mob/living/simple_animal/hostile/looter/crusher{
 	name = "Raider";
-	desc = ssssss;
+	desc = "Another murderer churned out by the wastes.";
 	icon_state = "banditaxe"
 	},
 /turf/open/floor/carpet,
