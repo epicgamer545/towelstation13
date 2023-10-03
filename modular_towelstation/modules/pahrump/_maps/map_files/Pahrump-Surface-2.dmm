@@ -355,14 +355,7 @@
 /turf/open/space/basic,
 /area/f13/wasteland)
 "aDP" = (
-/turf/closed/indestructible/rock{
-	desc = "A pre-War wall made of solid concrete.";
-	icon = 'icons/turf/walls/f13store.dmi';
-	icon_state = "store";
-	icon_type_smooth = "store";
-	name = "Concrete wall";
-	smooth = 1
-	},
+/turf/closed/wall/mineral/titanium/nosmooth,
 /area/f13/city/museum)
 "aDX" = (
 /obj/structure/railing{
@@ -2652,6 +2645,7 @@
 	desc = "A comfortable, secure seat. It has a futuristic vouge feel.";
 	name = "prewar lounge chair"
 	},
+/obj/effect/landmark/start/head_of_personnel,
 /turf/open/floor/carpet/black,
 /area/f13/building)
 "eiA" = (
@@ -4038,6 +4032,7 @@
 	pixel_x = -23;
 	name = "Store Shutters Button"
 	},
+/obj/effect/landmark/start/quartermaster,
 /turf/open/floor/iron/dark/smooth_large,
 /area/f13/wasteland)
 "fWN" = (
@@ -5354,7 +5349,7 @@
 /area/f13/wasteland)
 "hQg" = (
 /obj/structure/sign/departments/medbay,
-/turf/open/space/basic,
+/turf/closed/wall/mineral/titanium/nosmooth,
 /area/f13/city/museum)
 "hQl" = (
 /obj/machinery/ammo_workbench/unlocked,
@@ -7019,6 +7014,10 @@
 /obj/item/paper_bin,
 /obj/item/pen/fountain,
 /turf/open/space/basic,
+/area/f13/wasteland)
+"kfD" = (
+/obj/effect/landmark/start/cargo_technician,
+/turf/open/floor/iron/dark/smooth_large,
 /area/f13/wasteland)
 "kfN" = (
 /obj/effect/turf_decal/stripes/white/line{
@@ -9022,14 +9021,7 @@
 /area/f13/wasteland)
 "mUe" = (
 /obj/structure/sign/poster/official/random,
-/turf/closed/indestructible/rock{
-	desc = "A pre-War wall made of solid concrete.";
-	icon = 'icons/turf/walls/f13store.dmi';
-	icon_state = "store";
-	icon_type_smooth = "store";
-	name = "Concrete wall";
-	smooth = 1
-	},
+/turf/closed/wall/mineral/titanium/nosmooth,
 /area/f13/city/museum)
 "mUi" = (
 /obj/structure/closet/crate/large,
@@ -11532,6 +11524,11 @@
 "qEZ" = (
 /turf/open/floor/iron/smooth_large,
 /area/f13/wasteland)
+"qFE" = (
+/obj/structure/chair/comfy/black,
+/obj/effect/landmark/start/captain,
+/turf/open/floor/carpet/black,
+/area/f13/building)
 "qFQ" = (
 /obj/item/kirbyplants{
 	icon_state = "plant-06"
@@ -13403,6 +13400,10 @@
 /obj/item/food/canned/beans,
 /turf/open/space/basic,
 /area/f13/building)
+"tEd" = (
+/obj/effect/landmark/start/warden,
+/turf/open/floor/wood,
+/area/f13/building)
 "tEj" = (
 /obj/structure/table,
 /obj/structure/table,
@@ -15227,6 +15228,7 @@
 /area/f13/ncr)
 "wkB" = (
 /obj/structure/chair/office,
+/obj/effect/landmark/start/head_of_security,
 /turf/open/floor/wood,
 /area/f13/building)
 "wkJ" = (
@@ -34928,11 +34930,11 @@ uqa
 uqa
 wnL
 wnL
-mdB
-mdB
-mdB
-mdB
-mdB
+kcZ
+kcZ
+kcZ
+kcZ
+kcZ
 wnL
 wnL
 wnL
@@ -35185,15 +35187,15 @@ lmY
 uqa
 wnL
 wnL
-mdB
+kcZ
 wnL
 wnL
 wnL
-mdB
-mdB
-mdB
-mdB
-mdB
+kcZ
+kcZ
+kcZ
+kcZ
+kcZ
 ezx
 saA
 ezx
@@ -35442,15 +35444,15 @@ qPi
 uqa
 wnL
 wnL
-mdB
+kcZ
 mdJ
 uXA
 puw
-mdB
+kcZ
 wAt
 fjj
 sGd
-mdB
+kcZ
 aPN
 saA
 wnL
@@ -35699,15 +35701,15 @@ uqa
 uqa
 wnL
 wnL
-mdB
+kcZ
 wnL
 wnL
 inC
-mdB
+kcZ
 wnL
 wnL
 sGd
-mdB
+kcZ
 ezx
 saA
 wnL
@@ -35956,15 +35958,15 @@ isP
 mXw
 wnL
 wnL
-mdB
-mdB
+kcZ
+kcZ
 wnL
-mdB
-mdB
-mdB
+kcZ
+kcZ
+kcZ
 wnL
-mdB
-mdB
+kcZ
+kcZ
 wnL
 wnL
 wnL
@@ -43699,7 +43701,7 @@ wnL
 qtO
 qtO
 dww
-ffu
+qFE
 fxS
 dpY
 dww
@@ -49607,7 +49609,7 @@ wnL
 etI
 etI
 hQl
-wxE
+kfD
 eMF
 wxE
 wxE
@@ -50149,7 +50151,7 @@ iKl
 iKl
 qxf
 iKl
-oBl
+tEd
 rrt
 oBl
 gJP
@@ -56148,7 +56150,7 @@ aDP
 cYz
 cYz
 cYz
-mdB
+kcZ
 wnL
 wnL
 wnL
@@ -56405,7 +56407,7 @@ aDP
 gDM
 cYz
 gDM
-mdB
+kcZ
 wnL
 wnL
 wnL
@@ -56662,7 +56664,7 @@ aDP
 aDP
 aDP
 aDP
-mdB
+kcZ
 wnL
 wnL
 wnL

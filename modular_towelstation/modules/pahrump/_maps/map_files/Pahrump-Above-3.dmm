@@ -1602,8 +1602,7 @@
 /area/f13/city)
 "hC" = (
 /obj/machinery/door/airlock/security/glass{
-	name = "Logistical Officer's Office";
-	req_access_txt = "121"
+	name = "Logistical Officer's Office"
 	},
 /turf/open/space/basic,
 /area/f13/ncr)
@@ -2009,8 +2008,7 @@
 /area/space)
 "jB" = (
 /obj/machinery/door/airlock/hatch{
-	name = "NCR Captain's Office";
-	req_access_txt = "121"
+	name = "NCR Captain's Office"
 	},
 /turf/open/floor/carpet/black,
 /area/f13/ncr)
@@ -2189,8 +2187,7 @@
 /area/f13/ncr)
 "ko" = (
 /obj/machinery/door/airlock/security/glass{
-	name = "Armory";
-	req_access_txt = "121"
+	name = "Armory"
 	},
 /turf/open/space/basic,
 /area/f13/ncr)
@@ -3859,9 +3856,7 @@
 /area/f13/caves)
 "sC" = (
 /obj/structure/table/reinforced,
-/obj/machinery/computer/terminal{
-	termtag = "Camp Miller Armory"
-	},
+/obj/machinery/computer/terminal,
 /turf/open/space/basic,
 /area/f13/ncr)
 "sD" = (
@@ -4935,8 +4930,7 @@
 /area/f13/ncr)
 "xa" = (
 /obj/machinery/door/airlock/medical{
-	name = "\improper Followers Admin";
-	req_access_txt = "124"
+	name = "\improper Followers Admin"
 	},
 /obj/effect/mapping_helpers/airlock/access/any/medical/cmo,
 /turf/open/floor/wood/large,
@@ -5293,8 +5287,7 @@
 /area/f13/raiders)
 "yG" = (
 /obj/machinery/door/airlock/medical{
-	name = "\improper Followers Clinic";
-	req_access_txt = "124"
+	name = "\improper Followers Clinic"
 	},
 /turf/open/floor/iron,
 /area/f13/followers)
@@ -5523,8 +5516,7 @@
 /area/space)
 "zU" = (
 /obj/machinery/door/airlock/hatch{
-	name = "NCR Lieutenant's Office";
-	req_access_txt = "121"
+	name = "NCR Lieutenant's Office"
 	},
 /turf/open/floor/carpet/black,
 /area/f13/ncr)
@@ -6761,7 +6753,7 @@
 /obj/machinery/telecomms/relay/preset/telecomms,
 /turf/open/indestructible,
 /area/station/tcommsat)
-"Gp" = (
+"Gq" = (
 /obj/effect/landmark/start/head_of_security,
 /turf/open/floor/iron,
 /area/space)
@@ -7414,8 +7406,7 @@
 /area/f13/followers)
 "JA" = (
 /obj/machinery/door/airlock/medical{
-	name = "\improper Followers Clinic";
-	req_access_txt = "124"
+	name = "\improper Followers Clinic"
 	},
 /obj/effect/mapping_helpers/airlock/access/any/medical/psychology,
 /turf/open/floor/wood/large,
@@ -8314,8 +8305,7 @@
 /area/space)
 "Od" = (
 /obj/machinery/door/airlock/security/glass{
-	name = "Medbay";
-	req_access_txt = "121"
+	name = "Medbay"
 	},
 /turf/open/space/basic,
 /area/f13/ncr)
@@ -8562,8 +8552,7 @@
 	color = "#363636"
 	},
 /obj/machinery/computer/terminal{
-	dir = 8;
-	termtag = "Business"
+	dir = 8
 	})
 "PE" = (
 /obj/effect/decal/cleanable/dirt{
@@ -8654,8 +8643,7 @@
 /obj/structure/table/reinforced,
 /obj/effect/decal/cleanable/cobweb,
 /obj/machinery/computer/terminal{
-	dir = 4;
-	termtag = "Camp Miller LO Quarters"
+	dir = 4
 	},
 /turf/open/space/basic,
 /area/f13/ncr)
@@ -9009,8 +8997,7 @@
 /area/f13/city)
 "Sh" = (
 /obj/machinery/door/airlock/medical{
-	name = "\improper Followers Clinic";
-	req_access_txt = "124"
+	name = "\improper Followers Clinic"
 	},
 /obj/effect/mapping_helpers/airlock/access/any/medical/morgue,
 /turf/open/floor/iron,
@@ -9072,8 +9059,7 @@
 /area/space)
 "SE" = (
 /obj/machinery/door/airlock/hatch{
-	name = "NCR Represenative's Office";
-	req_access_txt = "121"
+	name = "NCR Represenative's Office"
 	},
 /obj/machinery/door/poddoor/shutters{
 	id = "repoffice";
@@ -9783,8 +9769,7 @@
 /area/f13/ncr)
 "Wm" = (
 /obj/machinery/door/airlock/security/glass{
-	name = "NCR door";
-	req_access_txt = "121"
+	name = "NCR door"
 	},
 /turf/open/space/basic,
 /area/f13/ncr)
@@ -61305,7 +61290,7 @@ Eq
 Eq
 la
 bP
-Gp
+Gq
 Ju
 PO
 Ws
