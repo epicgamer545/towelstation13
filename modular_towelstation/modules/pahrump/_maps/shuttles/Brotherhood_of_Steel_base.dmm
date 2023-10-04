@@ -1,34 +1,25 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
-/turf/closed/wall/f13/vault,
-/area/shuttle/bos_foyer)
+/turf/closed/indestructible/opshuttle,
+/area/space)
 "c" = (
-/turf/open/floor/plasteel/dark,
-/area/shuttle/bos_foyer)
-"e" = (
-/obj/machinery/computer/shuttle/bos,
-/turf/open/floor/plasteel/dark,
-/area/shuttle/bos_foyer)
+/turf/open/floor/iron/dark,
+/area/space)
 "f" = (
 /obj/machinery/light{
 	dir = 8;
 	light_color = "#e8eaff"
 	},
-/turf/open/floor/plasteel/dark,
-/area/shuttle/bos_foyer)
+/turf/open/floor/iron/dark,
+/area/space)
 "h" = (
 /turf/template_noop,
 /area/template_noop)
-"i" = (
-/obj/item/flag/bos,
-/turf/open/floor/plasteel/dark,
-/area/shuttle/bos_foyer)
 "j" = (
 /obj/machinery/door/airlock/hatch{
 	req_access_txt = "120"
 	},
-/obj/docking_port/mobile/elevator/bos,
-/turf/open/floor/plasteel/dark,
+/turf/open/floor/iron/dark,
 /area/space)
 
 (1,1,1) = {"
@@ -89,10 +80,10 @@ a
 "}
 (8,1,1) = {"
 a
-i
 c
 c
-e
+c
+c
 a
 "}
 (9,1,1) = {"

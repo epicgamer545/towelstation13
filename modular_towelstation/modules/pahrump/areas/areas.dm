@@ -10,7 +10,7 @@
 
 /area/f13
 	name = "error"
-	icon = 'modular_towelstation/master_files/icons/area/areas.dmi'
+	icon = 'modular_towelstation/modules/pahrump/icons/area/areas.dmi'
 	icon_state = "error"
 	has_gravity = 1
 	requires_power = 0
@@ -21,7 +21,7 @@
 
 /area/f13/wasteland
 	name = "Wasteland"
-	icon = 'modular_towelstation/master_files/icons/area/areas.dmi'
+	icon = 'modular_towelstation/modules/pahrump/icons/area/areas.dmi'
 	icon_state = "wasteland"
 	ambience_area =  list('modular_towelstation/modules/pahrump/sound/f13ambience/wasteland.ogg')
 //	ambientmusic = WASTELAND_AMBIENCE
@@ -37,7 +37,7 @@
 
 /area/f13/forest
 	name = "Forest"
-	icon = 'modular_towelstation/master_files/icons/area/areas.dmi'
+	icon = 'modular_towelstation/modules/pahrump/icons/area/areas.dmi'
 	icon_state = "forest"
 	ambience_area =  list('modular_towelstation/modules/pahrump/sound/f13ambience/wasteland.ogg')
 //	ambientmusic = list('modular_towelstation/modules/pahrump/sound/f13music/fo2_wasteland.ogg','modular_towelstation/modules/pahrump/sound/f13music/fo2_chapel.ogg','modular_towelstation/modules/pahrump/sound/f13music/fo2_world.ogg','sound/misc/null.ogg')
@@ -50,7 +50,7 @@
 
 /area/f13/ruins
 	name = "Ruins"
-	icon = 'modular_towelstation/master_files/icons/area/areas.dmi'
+	icon = 'modular_towelstation/modules/pahrump/icons/area/areas.dmi'
 	icon_state = "ruins"
 	ambience_area =  list('modular_towelstation/modules/pahrump/sound/f13ambience/wasteland.ogg')
 //	ambientmusic = list('modular_towelstation/modules/pahrump/sound/f13music/fo2_ruins.ogg','modular_towelstation/modules/pahrump/sound/f13music/fo2_necropolis.ogg','modular_towelstation/modules/pahrump/sound/f13music/fo2_raider.ogg','sound/misc/null.ogg')
@@ -63,7 +63,7 @@
 
 /area/f13/shack
 	name = "Shack"
-	icon = 'modular_towelstation/master_files/icons/area/areas.dmi'
+	icon = 'modular_towelstation/modules/pahrump/icons/area/areas.dmi'
 	icon_state = "shack"
 	ambience_area =  list('modular_towelstation/modules/pahrump/sound/f13ambience/shack.ogg')
 //	ambientmusic = list('modular_towelstation/modules/pahrump/sound/f13music/fo2_ruins.ogg','modular_towelstation/modules/pahrump/sound/f13music/fo2_city.ogg','sound/misc/null.ogg')
@@ -74,7 +74,7 @@
 
 /area/f13/building
 	name = "Building"
-	icon = 'modular_towelstation/master_files/icons/area/areas.dmi'
+	icon = 'modular_towelstation/modules/pahrump/icons/area/areas.dmi'
 	icon_state = "building"
 	ambience_area =  list('modular_towelstation/modules/pahrump/sound/f13ambience/building.ogg')
 //	ambientmusic = list('modular_towelstation/modules/pahrump/sound/f13music/fo2_tunnels.ogg','modular_towelstation/modules/pahrump/sound/f13music/fo2_ruins.ogg','sound/misc/null.ogg')
@@ -85,7 +85,7 @@
 
 /area/f13/farm
 	name = "Farm"
-	icon = 'modular_towelstation/master_files/icons/area/areas.dmi'
+	icon = 'modular_towelstation/modules/pahrump/icons/area/areas.dmi'
 	icon_state = "farm"
 	ambience_area =  list('modular_towelstation/modules/pahrump/sound/f13ambience/wasteland.ogg')
 //	ambientmusic = list('modular_towelstation/modules/pahrump/sound/f13music/fo2_village.ogg','modular_towelstation/modules/pahrump/sound/f13music/fo2_wasteland.ogg','modular_towelstation/modules/pahrump/sound/f13music/fo2_chapel.ogg','sound/misc/null.ogg')
@@ -98,7 +98,7 @@
 
 /area/f13/tribe
 	name = "Tribe"
-	icon = 'modular_towelstation/master_files/icons/area/areas.dmi'
+	icon = 'modular_towelstation/modules/pahrump/icons/area/areas.dmi'
 	icon_state = "tribe"
 	ambience_area =  list('modular_towelstation/modules/pahrump/sound/f13ambience/wasteland.ogg')
 //	ambientmusic = list('modular_towelstation/modules/pahrump/sound/f13music/fo2_village.ogg','modular_towelstation/modules/pahrump/sound/f13music/fo2_wasteland.ogg','sound/misc/null.ogg')
@@ -111,7 +111,7 @@
 
 /area/f13/village
 	name = "Village"
-	icon = 'modular_towelstation/master_files/icons/area/areas.dmi'
+	icon = 'modular_towelstation/modules/pahrump/icons/area/areas.dmi'
 	icon_state = "village"
 	ambience_area =  list('modular_towelstation/modules/pahrump/sound/f13ambience/wasteland.ogg')
 //	ambientmusic = list('modular_towelstation/modules/pahrump/sound/f13music/fo2_village.ogg','modular_towelstation/modules/pahrump/sound/f13music/fo2_wasteland.ogg','sound/misc/null.ogg')
@@ -122,7 +122,7 @@
 
 /area/f13/outpost
 	name = "Outpost"
-	icon = 'modular_towelstation/master_files/icons/area/areas.dmi'
+	icon = 'modular_towelstation/modules/pahrump/icons/area/areas.dmi'
 	icon_state = "outpost"
 	ambience_area =  list('modular_towelstation/modules/pahrump/sound/f13ambience/wasteland.ogg')
 //	ambientmusic = list('modular_towelstation/modules/pahrump/sound/f13music/fo2_outpost.ogg','modular_towelstation/modules/pahrump/sound/f13music/fo2_brotherhood.ogg','sound/misc/null.ogg')
@@ -133,7 +133,7 @@
 
 /area/f13/hub
 	name = "Hub"
-	icon = 'modular_towelstation/master_files/icons/area/areas.dmi'
+	icon = 'modular_towelstation/modules/pahrump/icons/area/areas.dmi'
 	icon_state = "hub"
 	ambience_area =  list('modular_towelstation/modules/pahrump/sound/f13ambience/wasteland.ogg')
 //	ambientmusic = list('modular_towelstation/modules/pahrump/sound/f13music/fo2_hub.ogg','modular_towelstation/modules/pahrump/sound/f13music/fo2_village.ogg','sound/misc/null.ogg')
@@ -146,7 +146,7 @@
 
 /area/f13/city
 	name = "City"
-	icon = 'modular_towelstation/master_files/icons/area/areas.dmi'
+	icon = 'modular_towelstation/modules/pahrump/icons/area/areas.dmi'
 	icon_state = "city"
 	ambience_area =  list('modular_towelstation/modules/pahrump/sound/f13ambience/wasteland.ogg')
 //	ambientmusic = list('modular_towelstation/modules/pahrump/sound/f13music/fo2_city.ogg','modular_towelstation/modules/pahrump/sound/f13music/fo2_hub.ogg','sound/misc/null.ogg')
@@ -159,12 +159,12 @@
 
 /area/f13/city/museum
 	name = "Museum"
-	icon = 'modular_towelstation/master_files/icons/area/areas.dmi'
+	icon = 'modular_towelstation/modules/pahrump/icons/area/areas.dmi'
 	outdoors = FALSE
 
 /area/f13/citycaves
 	name = "City Caves"
-	icon = 'modular_towelstation/master_files/icons/area/areas.dmi'
+	icon = 'modular_towelstation/modules/pahrump/icons/area/areas.dmi'
 	icon_state = "citycaves"
 	ambience_area =  list('modular_towelstation/modules/pahrump/sound/f13ambience/cave.ogg')
 //	ambientmusic = list('modular_towelstation/modules/pahrump/sound/f13music/fo2_city.ogg','modular_towelstation/modules/pahrump/sound/f13music/fo2_hub.ogg','sound/misc/null.ogg')
@@ -174,7 +174,7 @@
 
 /area/f13/chapel
 	name = "Chapel"
-	icon = 'modular_towelstation/master_files/icons/area/areas.dmi'
+	icon = 'modular_towelstation/modules/pahrump/icons/area/areas.dmi'
 	icon_state = "chapel"
 	ambience_area =  list('modular_towelstation/modules/pahrump/sound/f13ambience/building.ogg')
 //	ambientmusic = list('modular_towelstation/modules/pahrump/sound/f13music/fo2_chapel.ogg','sound/misc/null.ogg')
@@ -184,7 +184,7 @@
 
 /area/f13/bar
 	name = "Bar"
-	icon = 'modular_towelstation/master_files/icons/area/areas.dmi'
+	icon = 'modular_towelstation/modules/pahrump/icons/area/areas.dmi'
 	icon_state = "bar"
 	ambience_area =  list('modular_towelstation/modules/pahrump/sound/f13ambience/building.ogg')
 //	ambientmusic = list('modular_towelstation/modules/pahrump/sound/f13music/fo2_bar.ogg','modular_towelstation/modules/pahrump/sound/f13music/fo2_outpost.ogg','sound/misc/null.ogg')
@@ -193,7 +193,7 @@
 
 /area/f13/casino
 	name = "Casino"
-	icon = 'modular_towelstation/master_files/icons/area/areas.dmi'
+	icon = 'modular_towelstation/modules/pahrump/icons/area/areas.dmi'
 	icon_state = "casino"
 	ambience_area =  list('modular_towelstation/modules/pahrump/sound/f13ambience/warehouse.ogg')
 //	ambientmusic = list('modular_towelstation/modules/pahrump/sound/f13music/fo2_bar.ogg','modular_towelstation/modules/pahrump/sound/f13music/fo2_raiders.ogg','sound/misc/null.ogg')
@@ -204,7 +204,7 @@
 
 /area/f13/clinic
 	name = "Clinic"
-	icon = 'modular_towelstation/master_files/icons/area/areas.dmi'
+	icon = 'modular_towelstation/modules/pahrump/icons/area/areas.dmi'
 	icon_state = "clinic"
 	ambience_area =  list('modular_towelstation/modules/pahrump/sound/f13ambience/warehouse.ogg')
 //	ambientmusic = list('modular_towelstation/modules/pahrump/sound/f13music/fo2_necropolis.ogg','modular_towelstation/modules/pahrump/sound/f13music/fo2_ruins.ogg','modular_towelstation/modules/pahrump/sound/f13music/fo2_tunnels.ogg','modular_towelstation/modules/pahrump/sound/f13music/fo2_caves.ogg','modular_towelstation/modules/pahrump/sound/f13music/fo2_desert.ogg','sound/misc/null.ogg')
@@ -215,7 +215,7 @@
 
 /area/f13/office
 	name = "Office"
-	icon = 'modular_towelstation/master_files/icons/area/areas.dmi'
+	icon = 'modular_towelstation/modules/pahrump/icons/area/areas.dmi'
 	icon_state = "office"
 //	ambience_area =  list('modular_towelstation/modules/pahrump/sound/f13ambience/warehouse.ogg')
 //	ambientmusic = list('modular_towelstation/modules/pahrump/sound/f13music/fo2_city.ogg','modular_towelstation/modules/pahrump/sound/f13music/fo2_ruins.ogg','sound/misc/null.ogg')
@@ -226,7 +226,7 @@
 
 /area/f13/store
 	name = "Store"
-	icon = 'modular_towelstation/master_files/icons/area/areas.dmi'
+	icon = 'modular_towelstation/modules/pahrump/icons/area/areas.dmi'
 	icon_state = "store"
 //	ambience_area =  list('modular_towelstation/modules/pahrump/sound/f13ambience/building.ogg')
 //	ambientmusic = list('modular_towelstation/modules/pahrump/sound/f13music/fo2_bar.ogg','modular_towelstation/modules/pahrump/sound/f13music/fo2_outpost.ogg','sound/misc/null.ogg')
@@ -237,7 +237,7 @@
 
 /area/f13/bunker
 	name = "Bunker"
-	icon = 'modular_towelstation/master_files/icons/area/areas.dmi'
+	icon = 'modular_towelstation/modules/pahrump/icons/area/areas.dmi'
 	icon_state = "bunker"
 //	ambience_area =  list('modular_towelstation/modules/pahrump/sound/f13ambience/building.ogg')
 //	ambientmusic = list('modular_towelstation/modules/pahrump/sound/f13music/fo2_vats.ogg','modular_towelstation/modules/pahrump/sound/f13music/fo2_outpost.ogg','modular_towelstation/modules/pahrump/sound/f13music/fo2_ruins.ogg','sound/misc/null.ogg')
@@ -254,7 +254,7 @@
 
 /area/f13/tunnel
 	name = "Tunnel"
-	icon = 'modular_towelstation/master_files/icons/area/areas.dmi'
+	icon = 'modular_towelstation/modules/pahrump/icons/area/areas.dmi'
 	icon_state = "tunnel"
 //	ambience_area =  list('modular_towelstation/modules/pahrump/sound/f13ambience/cave.ogg')
 //	ambientmusic = list('modular_towelstation/modules/pahrump/sound/f13music/fo2_tunnels.ogg','modular_towelstation/modules/pahrump/sound/f13music/fo2_caves.ogg','modular_towelstation/modules/pahrump/sound/f13music/fo2_vats.ogg','sound/misc/null.ogg')
@@ -264,7 +264,7 @@
 
 /area/f13/trainstation
 	name = "Tunnel"
-	icon = 'modular_towelstation/master_files/icons/area/areas.dmi'
+	icon = 'modular_towelstation/modules/pahrump/icons/area/areas.dmi'
 	icon_state = "tunnel"
 //	ambience_area =  list('modular_towelstation/modules/pahrump/sound/f13ambience/cave.ogg')
 //	ambientmusic = list('modular_towelstation/modules/pahrump/sound/f13music/fo2_tunnels.ogg','modular_towelstation/modules/pahrump/sound/f13music/fo2_caves.ogg','modular_towelstation/modules/pahrump/sound/f13music/fo2_vats.ogg','sound/misc/null.ogg')
@@ -274,7 +274,7 @@
 
 /area/f13/sewer
 	name = "Sewer"
-	icon = 'modular_towelstation/master_files/icons/area/areas.dmi'
+	icon = 'modular_towelstation/modules/pahrump/icons/area/areas.dmi'
 	icon_state = "sewer"
 //	ambience_area =  list('modular_towelstation/modules/pahrump/sound/f13ambience/sewer.ogg')
 //	ambientmusic = list('modular_towelstation/modules/pahrump/sound/f13music/fo2_tunnels.ogg','modular_towelstation/modules/pahrump/sound/f13music/fo2_caves.ogg','modular_towelstation/modules/pahrump/sound/f13music/fo2_desert.ogg','modular_towelstation/modules/pahrump/sound/f13music/fo2_vats.ogg','sound/misc/null.ogg')
@@ -284,7 +284,7 @@
 
 /area/f13/caves
 	name = "Caves"
-	icon = 'modular_towelstation/master_files/icons/area/areas.dmi'
+	icon = 'modular_towelstation/modules/pahrump/icons/area/areas.dmi'
 	icon_state = "caves"
 //	ambience_area =  list('modular_towelstation/modules/pahrump/sound/f13ambience/cave.ogg')
 //	ambientmusic = list('modular_towelstation/modules/pahrump/sound/f13music/fo2_caves.ogg','modular_towelstation/modules/pahrump/sound/f13music/fo2_desert.ogg','modular_towelstation/modules/pahrump/sound/f13music/fo2_necropolis.ogg','sound/misc/null.ogg')
@@ -294,7 +294,7 @@
 
 /area/f13/subway
 	name = "Subway"
-	icon = 'modular_towelstation/master_files/icons/area/areas.dmi'
+	icon = 'modular_towelstation/modules/pahrump/icons/area/areas.dmi'
 	icon_state = "subway"
 //	ambience_area =  list('modular_towelstation/modules/pahrump/sound/f13ambience/cave.ogg')
 //	ambientmusic = list('modular_towelstation/modules/pahrump/sound/f13music/fo2_tunnels.ogg','modular_towelstation/modules/pahrump/sound/f13music/fo2_caves.ogg','modular_towelstation/modules/pahrump/sound/f13music/fo2_vats.ogg','sound/misc/null.ogg')
@@ -304,7 +304,7 @@
 
 /area/f13/secret
 	name = "Secret"
-	icon = 'modular_towelstation/master_files/icons/area/areas.dmi'
+	icon = 'modular_towelstation/modules/pahrump/icons/area/areas.dmi'
 	icon_state = "secret"
 //	ambience_area =  list('modular_towelstation/modules/pahrump/sound/f13ambience/building.ogg')
 //	ambientmusic = list('modular_towelstation/modules/pahrump/sound/f13music/fo2_chapel.ogg','modular_towelstation/modules/pahrump/sound/f13music/fo2_city.ogg','modular_towelstation/modules/pahrump/sound/f13music/fo2_outpost.ogg','sound/misc/null.ogg')
@@ -315,7 +315,7 @@
 
 /area/f13/radiation
 	name = "Radiation"
-	icon = 'modular_towelstation/master_files/icons/area/areas.dmi'
+	icon = 'modular_towelstation/modules/pahrump/icons/area/areas.dmi'
 	icon_state = "radiation"
 //	ambience_area =  list('modular_towelstation/modules/pahrump/sound/f13ambience/wasteland.ogg')
 //	ambientmusic = list('modular_towelstation/modules/pahrump/sound/f13music/fo2_wasteland.ogg','modular_towelstation/modules/pahrump/sound/f13music/fo2_desert.ogg','modular_towelstation/modules/pahrump/sound/f13music/fo2_world.ogg','sound/misc/null.ogg')
@@ -327,7 +327,7 @@
 
 /area/f13/raiders
 	name = "Raiders"
-	icon = 'modular_towelstation/master_files/icons/area/areas.dmi'
+	icon = 'modular_towelstation/modules/pahrump/icons/area/areas.dmi'
 	icon_state = "raiders"
 //	ambience_area =  list('modular_towelstation/modules/pahrump/sound/f13ambience/wasteland.ogg')
 //	ambientmusic = list('modular_towelstation/modules/pahrump/sound/f13music/fo2_raider.ogg','modular_towelstation/modules/pahrump/sound/f13music/fo2_raiders.ogg','sound/misc/null.ogg')
@@ -340,7 +340,7 @@
 
 /area/f13/vault
 	name = "Vault"
-	icon = 'modular_towelstation/master_files/icons/area/areas.dmi'
+	icon = 'modular_towelstation/modules/pahrump/icons/area/areas.dmi'
 	icon_state = "vaulttec"
 //	ambience_area =  list('modular_towelstation/modules/pahrump/sound/f13ambience/vaulttec_vault.ogg')
 //	ambientmusic = list('modular_towelstation/modules/pahrump/sound/f13music/fo2_vats.ogg','sound/misc/null.ogg')
@@ -351,127 +351,127 @@
 
 /area/f13/vault/reactor
 	name = "Reactor"
-	icon = 'modular_towelstation/master_files/icons/area/areas.dmi'
+	icon = 'modular_towelstation/modules/pahrump/icons/area/areas.dmi'
 	icon_state = "engine"
 
 /area/f13/vault/storage
 	name = "Storage"
-	icon = 'modular_towelstation/master_files/icons/area/areas.dmi'
+	icon = 'modular_towelstation/modules/pahrump/icons/area/areas.dmi'
 	icon_state = "storage"
 
 /area/f13/vault/storageoffice
 	name = "Storage Office"
-	icon = 'modular_towelstation/master_files/icons/area/areas.dmi'
+	icon = 'modular_towelstation/modules/pahrump/icons/area/areas.dmi'
 	icon_state = "storage_wing"
 
 /area/f13/vault/overseer
 	name = "Overseer"
-	icon = 'modular_towelstation/master_files/icons/area/areas.dmi'
+	icon = 'modular_towelstation/modules/pahrump/icons/area/areas.dmi'
 	icon_state = "overseer_office"
 
 /area/f13/vault/chiefoffice
 	name = "Chief Office"
-	icon = 'modular_towelstation/master_files/icons/area/areas.dmi'
+	icon = 'modular_towelstation/modules/pahrump/icons/area/areas.dmi'
 	icon_state = "sec_hos"
 
 /area/f13/vault/idcontrol
 	name = "ID Control Office"
-	icon = 'modular_towelstation/master_files/icons/area/areas.dmi'
+	icon = 'modular_towelstation/modules/pahrump/icons/area/areas.dmi'
 	icon_state = "hop_office"
 
 /area/f13/vault/vents
 	name = "Vents"
-	icon = 'modular_towelstation/master_files/icons/area/areas.dmi'
+	icon = 'modular_towelstation/modules/pahrump/icons/area/areas.dmi'
 	icon_state = "red"
 
 /area/f13/vault/botcontrol
 	name = "Bot Control"
-	icon = 'modular_towelstation/master_files/icons/area/areas.dmi'
+	icon = 'modular_towelstation/modules/pahrump/icons/area/areas.dmi'
 	icon_state = "mechbay"
 
 /area/f13/vault/atrium
 	name = "Vault Atrium"
-	icon = 'modular_towelstation/master_files/icons/area/areas.dmi'
+	icon = 'modular_towelstation/modules/pahrump/icons/area/areas.dmi'
 	icon_state = "vault_atrium_upper"
 
 /area/f13/vault/security
 	name = "Brig"
-	icon = 'modular_towelstation/master_files/icons/area/areas.dmi'
+	icon = 'modular_towelstation/modules/pahrump/icons/area/areas.dmi'
 	icon_state = "brig"
 
 /area/f13/vault/security/checkpoint
 	name = "Security Checkpoint"
-	icon = 'modular_towelstation/master_files/icons/area/areas.dmi'
+	icon = 'modular_towelstation/modules/pahrump/icons/area/areas.dmi'
 	icon_state = "checkpoint1"
 
 /area/f13/vault/security/armory
 	name = "Armory"
-	icon = 'modular_towelstation/master_files/icons/area/areas.dmi'
+	icon = 'modular_towelstation/modules/pahrump/icons/area/areas.dmi'
 	icon_state = "armory"
 
 /area/f13/vault/medical
 	name = "Medical Center"
-	icon = 'modular_towelstation/master_files/icons/area/areas.dmi'
+	icon = 'modular_towelstation/modules/pahrump/icons/area/areas.dmi'
 	icon_state = "medbay"
 
 /area/f13/vault/medical/surgery
 	name = "Surgery"
-	icon = 'modular_towelstation/master_files/icons/area/areas.dmi'
+	icon = 'modular_towelstation/modules/pahrump/icons/area/areas.dmi'
 	icon_state = "surgery"
 
 /area/f13/vault/medical/breakroom
 	name = "Break Room"
-	icon = 'modular_towelstation/master_files/icons/area/areas.dmi'
+	icon = 'modular_towelstation/modules/pahrump/icons/area/areas.dmi'
 	icon_state = "medbay2"
 
 /area/f13/vault/medical/morgue
 	name = "Morgue"
-	icon = 'modular_towelstation/master_files/icons/area/areas.dmi'
+	icon = 'modular_towelstation/modules/pahrump/icons/area/areas.dmi'
 	icon_state = "morgue"
 
 /area/f13/vault/medical/chemistry
 	name = "Chemistry"
-	icon = 'modular_towelstation/master_files/icons/area/areas.dmi'
+	icon = 'modular_towelstation/modules/pahrump/icons/area/areas.dmi'
 	icon_state = "chem"
 
 /area/f13/vault/science
 	name = "Science"
-	icon = 'modular_towelstation/master_files/icons/area/areas.dmi'
+	icon = 'modular_towelstation/modules/pahrump/icons/area/areas.dmi'
 	icon_state = "purple"
 
 /area/f13/vault/science/biology
 	name = "Biology"
-	icon = 'modular_towelstation/master_files/icons/area/areas.dmi'
+	icon = 'modular_towelstation/modules/pahrump/icons/area/areas.dmi'
 	icon_state = "purple"
 
 /area/f13/vault/garden
 	name = "Garden"
-	icon = 'modular_towelstation/master_files/icons/area/areas.dmi'
+	icon = 'modular_towelstation/modules/pahrump/icons/area/areas.dmi'
 	icon_state = "garden"
 
 /area/f13/vault/diner
 	name = "Dining Hall"
-	icon = 'modular_towelstation/master_files/icons/area/areas.dmi'
+	icon = 'modular_towelstation/modules/pahrump/icons/area/areas.dmi'
 	icon_state = "cafeteria"
 
 /area/f13/vault/custodial
 	name = "Custodial Closet"
-	icon = 'modular_towelstation/master_files/icons/area/areas.dmi'
+	icon = 'modular_towelstation/modules/pahrump/icons/area/areas.dmi'
 	icon_state = "auxstorage"
 
 /area/f13/vault/dormitory
 	name = "Dormitory"
-	icon = 'modular_towelstation/master_files/icons/area/areas.dmi'
+	icon = 'modular_towelstation/modules/pahrump/icons/area/areas.dmi'
 	icon_state = "crew_quarters"
 
 /area/f13/vault/lavatory
 	name = "Lavatory"
-	icon = 'modular_towelstation/master_files/icons/area/areas.dmi'
+	icon = 'modular_towelstation/modules/pahrump/icons/area/areas.dmi'
 	icon_state = "restrooms"
 
 /area/f13/brotherhood
 	name = "Brotherhood of Steel"//Brother Hood
-	icon = 'modular_towelstation/master_files/icons/area/areas.dmi'
+	icon = 'modular_towelstation/modules/pahrump/icons/area/areas.dmi'
 	icon_state = "brotherhood"
 //	ambience_area =  list('modular_towelstation/modules/pahrump/sound/f13ambience/enclave_vault.ogg')
 //	ambientmusic = list('modular_towelstation/modules/pahrump/sound/f13music/fo2_brotherhood.ogg','modular_towelstation/modules/pahrump/sound/f13music/fo2_outpost.ogg','sound/misc/null.ogg')
@@ -482,77 +482,77 @@
 
 /area/f13/brotherhood/rnd
 	name = "Brotherhood of Steel RnD Department"//Brother Hood
-	icon = 'modular_towelstation/master_files/icons/area/areas.dmi'
+	icon = 'modular_towelstation/modules/pahrump/icons/area/areas.dmi'
 	icon_state = "brotherhoodrnddepartment"
 
 /area/f13/brotherhood/offices1st
 	name = "Brotherhood of Steel 1st Floor Offices"//Brother Hood
-	icon = 'modular_towelstation/master_files/icons/area/areas.dmi'
+	icon = 'modular_towelstation/modules/pahrump/icons/area/areas.dmi'
 	icon_state = "brotherhoodoffices1st"
 
 /area/f13/brotherhood/offices2nd
 	name = "Brotherhood of Steel 1st Floor Offices"//Brother Hood
-	icon = 'modular_towelstation/master_files/icons/area/areas.dmi'
+	icon = 'modular_towelstation/modules/pahrump/icons/area/areas.dmi'
 	icon_state = "brotherhoodoffices2nd"
 
 /area/f13/brotherhood/surface
 	name = "Brotherhood of Steel Surface Outpost"//Brother Hood
-	icon = 'modular_towelstation/master_files/icons/area/areas.dmi'
+	icon = 'modular_towelstation/modules/pahrump/icons/area/areas.dmi'
 	icon_state = "brotherhood"
 
 /area/f13/brotherhood/medical
 	name = "Brotherhood of Steel Medbay"//Brother Hood
-	icon = 'modular_towelstation/master_files/icons/area/areas.dmi'
+	icon = 'modular_towelstation/modules/pahrump/icons/area/areas.dmi'
 	icon_state = "brotherhoodmedbay"
 
 /area/f13/brotherhood/operating
 	name = "Brotherhood of Steel Operating Room"//Brother Hood
-	icon = 'modular_towelstation/master_files/icons/area/areas.dmi'
+	icon = 'modular_towelstation/modules/pahrump/icons/area/areas.dmi'
 	icon_state = "brotherhoodoperating"
 
 /area/f13/brotherhood/chemistry
 	name = "Brotherhood of Steel Chemistry Lab"//Brother Hood
-	icon = 'modular_towelstation/master_files/icons/area/areas.dmi'
+	icon = 'modular_towelstation/modules/pahrump/icons/area/areas.dmi'
 	icon_state = "brotherhoodchemistry"
 
 /area/f13/brotherhood/dorms
 	name = "Brotherhood of Steel Dormitories"//Brother Hood
-	icon = 'modular_towelstation/master_files/icons/area/areas.dmi'
+	icon = 'modular_towelstation/modules/pahrump/icons/area/areas.dmi'
 	icon_state = "brotherhooddorms"
 
 /area/f13/brotherhood/armory
 	name = "Brotherhood of Steel Armory"//Brother Hood
-	icon = 'modular_towelstation/master_files/icons/area/areas.dmi'
+	icon = 'modular_towelstation/modules/pahrump/icons/area/areas.dmi'
 	icon_state = "brotherhoodarmory"
 
 /area/f13/brotherhood/archives
 	name = "Brotherhood of Steel Archives"//Brother Hood
-	icon = 'modular_towelstation/master_files/icons/area/areas.dmi'
+	icon = 'modular_towelstation/modules/pahrump/icons/area/areas.dmi'
 	icon_state = "brotherhoodarchives"
 
 /area/f13/brotherhood/operations
 	name = "Brotherhood of Steel Operations Department"//Brother Hood
-	icon = 'modular_towelstation/master_files/icons/area/areas.dmi'
+	icon = 'modular_towelstation/modules/pahrump/icons/area/areas.dmi'
 	icon_state = "brotherhoodoperationsdepartment"
 
 /area/f13/brotherhood/leisure
 	name = "Brotherhood of Steel Leisure Areas"//Brother Hood
-	icon = 'modular_towelstation/master_files/icons/area/areas.dmi'
+	icon = 'modular_towelstation/modules/pahrump/icons/area/areas.dmi'
 	icon_state = "brotherhoodleisure"
 
 /area/f13/brotherhood/reactor
 	name = "Brotherhood of Steel Reactor"//Brother Hood
-	icon = 'modular_towelstation/master_files/icons/area/areas.dmi'
+	icon = 'modular_towelstation/modules/pahrump/icons/area/areas.dmi'
 	icon_state = "brotherhoodreactor"
 
 /area/f13/brotherhood/mining
 	name = "Brotherhood of Steel Mining"//Brother Hood
-	icon = 'modular_towelstation/master_files/icons/area/areas.dmi'
+	icon = 'modular_towelstation/modules/pahrump/icons/area/areas.dmi'
 	icon_state = "brotherhoodmining"
 
 /area/f13/enclave
 	name = "Enclave"
-	icon = 'modular_towelstation/master_files/icons/area/areas.dmi'
+	icon = 'modular_towelstation/modules/pahrump/icons/area/areas.dmi'
 	icon_state = "enclave"
 //	ambience_area =  list('modular_towelstation/modules/pahrump/sound/f13ambience/enclave_vault.ogg')
 //	ambientmusic = list('modular_towelstation/modules/pahrump/sound/f13music/fo2_vats.ogg','modular_towelstation/modules/pahrump/sound/f13music/fo2_outpost.ogg','sound/misc/null.ogg')
@@ -563,7 +563,7 @@
 
 /area/f13/ahs
 	name = "Adepts of Hubology Studies"
-	icon = 'modular_towelstation/master_files/icons/area/areas.dmi'
+	icon = 'modular_towelstation/modules/pahrump/icons/area/areas.dmi'
 	icon_state = "ahs"
 //	ambience_area =  list('modular_towelstation/modules/pahrump/sound/f13ambience/enclave_vault.ogg')
 //	ambientmusic = list('modular_towelstation/modules/pahrump/sound/f13music/fo2_vats.ogg','modular_towelstation/modules/pahrump/sound/f13music/fo2_outpost.ogg','sound/misc/null.ogg')
@@ -574,7 +574,7 @@
 
 /area/f13/ncr
 	name = "NCR"
-	icon = 'modular_towelstation/master_files/icons/area/areas.dmi'
+	icon = 'modular_towelstation/modules/pahrump/icons/area/areas.dmi'
 	icon_state = "ncr"
 //	ambience_area =  list('modular_towelstation/modules/pahrump/sound/f13ambience/warehouse.ogg')
 //	ambientmusic = list('modular_towelstation/modules/pahrump/sound/f13music/fo2_city.ogg','modular_towelstation/modules/pahrump/sound/f13music/fo2_outpost.ogg','sound/misc/null.ogg')
@@ -586,7 +586,7 @@
 
 /area/f13/legion
 	name = "Legion"
-	icon = 'modular_towelstation/master_files/icons/area/areas.dmi'
+	icon = 'modular_towelstation/modules/pahrump/icons/area/areas.dmi'
 	icon_state = "legion"
 //	ambience_area =  list('modular_towelstation/modules/pahrump/sound/f13ambience/building.ogg')
 //	ambientmusic = list('modular_towelstation/modules/pahrump/sound/f13music/fo2_hub.ogg','modular_towelstation/modules/pahrump/sound/f13music/fo2_outpost.ogg','sound/misc/null.ogg')
@@ -597,7 +597,7 @@
 
 /area/f13/followers
 	name = "Followers of the Apocalypse"
-	icon = 'modular_towelstation/master_files/icons/area/areas.dmi'
+	icon = 'modular_towelstation/modules/pahrump/icons/area/areas.dmi'
 	icon_state = "followers"
 //	ambience_area =  list('modular_towelstation/modules/pahrump/sound/f13ambience/warehouse.ogg')
 //	ambientmusic = list('modular_towelstation/modules/pahrump/sound/f13music/fo2_vats.ogg','modular_towelstation/modules/pahrump/sound/f13music/fo2_outpost.ogg','sound/misc/null.ogg')
