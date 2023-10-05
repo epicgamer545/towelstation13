@@ -7381,7 +7381,6 @@
 #include "modular_skyrat\modules\xenos_skyrat_redo\code\xeno_types\warrior.dm"
 #include "modular_towelstation\modules\compression_kit\compressionkit.dm"
 #include "modular_towelstation\modules\modular_foods\code\smores.dm"
-#include "modular_towelstation\modules\pahrump\areas.dm"
 #include "modular_towelstation\modules\pahrump\_maps\pahrump.dm"
 #include "modular_towelstation\modules\pahrump\_maps\map_files\Dungeons.dmm"
 #include "modular_towelstation\modules\pahrump\_maps\map_files\Pahrump-Above-3.dmm"
@@ -7400,4 +7399,5 @@
 #include "modular_towelstation\modules\pahrump\_maps\shuttles\pahrump_train.dmm"
 #include "modular_towelstation\modules\pahrump\_maps\shuttles\vault113_elevator.dmm"
 #include "modular_towelstation\modules\pahrump\_maps\shuttles\vault_elevator.dmm"
+#include "modular_towelstation\modules\pahrump\areas\areas.dm"
 // END_INCLUDE
