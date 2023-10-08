@@ -1,4 +1,0 @@
-author: "SapphoQueer"
-delete-after: True
-changes:
-  - rscdel: "Removed words we dont want in the station title"

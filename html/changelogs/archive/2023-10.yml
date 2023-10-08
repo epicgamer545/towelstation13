@@ -8,3 +8,6 @@
 2023-10-07:
   SapphoQueer:
   - balance: non-common speakers can now actually play jobs.
+2023-10-08:
+  SapphoQueer:
+  - rscdel: Removed words we dont want in the station title
