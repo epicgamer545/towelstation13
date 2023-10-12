@@ -1,6 +1,76 @@
-/** AI defines */
+// AI defines
 
 #define DEFAULT_AI_LAWID "default"
+#define LAW_ZEROTH "zeroth"
+#define LAW_INHERENT "inherent"
+#define LAW_SUPPLIED "supplied"
+#define LAW_ION "ion"
+#define LAW_HACKED "hacked"
+
+//AI notification defines
+///Alert when a new Cyborg is created.
+#define AI_NOTIFICATION_NEW_BORG 1
+///Alert when a Cyborg selects a model.
+#define AI_NOTIFICATION_NEW_MODEL 2
+///Alert when a Cyborg changes their name.
+#define AI_NOTIFICATION_CYBORG_RENAMED 3
+///Alert when an AI disconnects themselves from their shell.
+#define AI_NOTIFICATION_AI_SHELL 4
+///Alert when a Cyborg gets disconnected from their AI.
+#define AI_NOTIFICATION_CYBORG_DISCONNECTED 5
+
+//transfer_ai() defines. Main proc in ai_core.dm
+///Downloading AI to InteliCard
+#define AI_TRANS_TO_CARD 1
+///Uploading AI from InteliCard
+#define AI_TRANS_FROM_CARD 2
+///Malfunctioning AI hijacking mecha
+#define AI_MECH_HACK 3
+
+// Cyborg defines
+
+/// If an item does this or more throwing damage it will slow a borg down on hit
+#define CYBORG_THROW_SLOWDOWN_THRESHOLD 10
+
+/// Special value to reset cyborg's lamp_cooldown
+#define BORG_LAMP_CD_RESET -1
+
+//Module slot define
+///The third module slots is disabed.
+#define BORG_MODULE_THREE_DISABLED (1<<0)
+///The second module slots is disabed.
+#define BORG_MODULE_TWO_DISABLED (1<<1)
+///All modules slots are disabled.
+#define BORG_MODULE_ALL_DISABLED (1<<2)
+
+//Cyborg module selection
+///First Borg module slot.
+#define BORG_CHOOSE_MODULE_ONE 1
+///Second Borg module slot.
+#define BORG_CHOOSE_MODULE_TWO 2
+///Third Borg module slot.
+#define BORG_CHOOSE_MODULE_THREE 3
+
+#define SKIN_ICON "skin_icon"
+#define SKIN_ICON_STATE "skin_icon_state"
+#define SKIN_PIXEL_X "skin_pixel_x"
+#define SKIN_PIXEL_Y "skin_pixel_y"
+#define SKIN_LIGHT_KEY "skin_light_key"
+#define SKIN_HAT_OFFSET "skin_hat_offset"
+#define SKIN_TRAITS "skin_traits"
+
+/** Simple Animal BOT defines */
+
+//Assembly defines
+#define ASSEMBLY_FIRST_STEP 1
+#define ASSEMBLY_SECOND_STEP 2
+#define ASSEMBLY_THIRD_STEP 3
+#define ASSEMBLY_FOURTH_STEP 4
+#define ASSEMBLY_FIFTH_STEP 5
+#define ASSEMBLY_SIXTH_STEP 6
+#define ASSEMBLY_SEVENTH_STEP 7
+#define ASSEMBLY_EIGHTH_STEP 8
+#define ASSEMBLY_NINTH_STEP 9
 #define LAW_ZEROTH "zeroth"
 #define LAW_INHERENT "inherent"
 #define LAW_SUPPLIED "supplied"

@@ -13,6 +13,7 @@
 	suicide_cry = "FOR THE HIVE!!"
 	can_assign_self_objectives = TRUE
 	default_custom_objective = "Consume the station's most valuable genomes."
+	hardcore_random_bonus = TRUE
 	/// Whether to give this changeling objectives or not
 	var/give_objectives = TRUE
 	/// Weather we assign objectives which compete with other lings
@@ -138,6 +139,7 @@
 /datum/antagonist/changeling/Destroy()
 	QDEL_NULL(emporium_action)
 	QDEL_NULL(cellular_emporium)
+	current_profile = null
 	return ..()
 
 /datum/antagonist/changeling/on_gain()
@@ -177,11 +179,16 @@
 	else
 		RegisterSignal(living_mob, COMSIG_MOB_HUD_CREATED, PROC_REF(on_hud_created))
 
+	make_brain_decoy(living_mob)
+
+/datum/antagonist/changeling/proc/make_brain_decoy(mob/living/ling)
+	var/obj/item/organ/internal/brain/our_ling_brain = ling.get_organ_slot(ORGAN_SLOT_BRAIN)
+	if(isnull(our_ling_brain) || our_ling_brain.decoy_override)
+		return
+
 	// Brains are optional for lings.
-	var/obj/item/organ/internal/brain/our_ling_brain = living_mob.get_organ_slot(ORGAN_SLOT_BRAIN)
-	if(our_ling_brain)
-		our_ling_brain.organ_flags &= ~ORGAN_VITAL
-		our_ling_brain.decoy_override = TRUE
+	// This is automatically cleared if the ling is.
+	our_ling_brain.AddComponent(/datum/component/ling_decoy_brain, src)
 
 /datum/antagonist/changeling/proc/generate_name()
 	var/honorific
@@ -225,15 +232,10 @@
 		QDEL_NULL(lingchemdisplay)
 		QDEL_NULL(lingstingdisplay)
 
+	// The old body's brain still remains a decoy, I guess?
+
 /datum/antagonist/changeling/on_removal()
 	remove_changeling_powers(include_innate = TRUE)
-	if(!iscarbon(owner.current))
-		return
-	var/mob/living/carbon/carbon_owner = owner.current
-	var/obj/item/organ/internal/brain/not_ling_brain = carbon_owner.get_organ_slot(ORGAN_SLOT_BRAIN)
-	if(not_ling_brain && (not_ling_brain.decoy_override != initial(not_ling_brain.decoy_override)))
-		not_ling_brain.organ_flags |= ORGAN_VITAL
-		not_ling_brain.decoy_override = FALSE
 	return ..()
 
 /datum/antagonist/changeling/farewell()
@@ -268,48 +270,6 @@
 	SIGNAL_HANDLER
 
 	if(!isliving(source))
-		return
-	var/mob/living/living_source = source
-	if(!living_source.mind)
-		return
-
-	regain_powers()
-
-/**
- * Signal proc for [COMSIG_LIVING_LIFE].
- * Handles regenerating chemicals on life ticks.
- */
-/datum/antagonist/changeling/proc/on_life(datum/source, seconds_per_tick, times_fired)
-	SIGNAL_HANDLER
-
-	var/delta_time = DELTA_WORLD_TIME(SSmobs)
-
-	// If dead, we only regenerate up to half chem storage.
-	if(owner.current.stat == DEAD)
-		adjust_chemicals((chem_recharge_rate - chem_recharge_slowdown) * delta_time, total_chem_storage * 0.5)
-
-	// If we're not dead - we go up to the full chem cap.
-	else
-		adjust_chemicals((chem_recharge_rate - chem_recharge_slowdown) * delta_time)
-
-/**
- * Signal proc for [COMSIG_LIVING_POST_FULLY_HEAL], getting admin-healed restores our chemicals.
- */
-/datum/antagonist/changeling/proc/on_fullhealed(datum/source, heal_flags)
-	SIGNAL_HANDLER
-
-	if(heal_flags & HEAL_ADMIN)
-		adjust_chemicals(INFINITY)
-
-/**
- * Signal proc for [COMSIG_MOB_MIDDLECLICKON] and [COMSIG_MOB_ALTCLICKON].
- * Allows the changeling to sting people with a click.
- */
-/datum/antagonist/changeling/proc/on_click_sting(mob/living/ling, atom/clicked)
-	SIGNAL_HANDLER
-
-	// nothing to handle
-	if(!chosen_sting)
 		return
 	if(!isliving(ling) || clicked == ling || ling.stat != CONSCIOUS)
 		return
@@ -541,27 +501,22 @@
 	new_profile.name = target.real_name
 	new_profile.protected = protect
 
+	new_profile.age = target.age
+	new_profile.physique = target.physique
+
+	// Grab the target's quirks.
+	for(var/datum/quirk/target_quirk as anything in target.quirks)
+		LAZYADD(new_profile.quirks, new target_quirk.type)
+
 	// Clothes, of course
 	new_profile.underwear = target.underwear
+	new_profile.underwear_color = target.underwear_color
 	new_profile.undershirt = target.undershirt
 	new_profile.socks = target.socks
 
-	// SKYRAT EDIT START
-	new_profile.underwear_color = target.underwear_color
-	new_profile.undershirt_color = target.undershirt_color
-	new_profile.socks_color = target.socks_color
-	new_profile.eye_color_left = target.eye_color_left
-	new_profile.eye_color_right = target.eye_color_right
-	new_profile.emissive_eyes = target.emissive_eyes
+	// Hair and facial hair gradients, alongside their colours.
 	new_profile.grad_style = LAZYLISTDUPLICATE(target.grad_style)
 	new_profile.grad_color = LAZYLISTDUPLICATE(target.grad_color)
-	new_profile.physique = target.physique
-	new_profile.scream_type = target.selected_scream?.type || /datum/scream_type/none
-	new_profile.laugh_type = target.selected_laugh?.type || /datum/laugh_type/none
-	new_profile.age = target.age
-	for(var/datum/quirk/target_quirk in target.quirks)
-		LAZYADD(new_profile.quirks, new target_quirk.type)
-	//SKYRAT EDIT END
 
 	// Grab skillchips they have
 	new_profile.skillchips = target.clone_skillchip_list(TRUE)
@@ -581,7 +536,7 @@
 	// Grab the target's sechut icon.
 	new_profile.id_icon = target.wear_id?.get_sechud_job_icon_state()
 
-	var/list/slots = list("head", "wear_mask", "wear_neck", "back", "wear_suit", "w_uniform", "shoes", "belt", "gloves", "glasses", "ears", "wear_id", "s_store") // SKYRAT EDIT
+	var/list/slots = list("head", "wear_mask", "wear_neck", "back", "wear_suit", "w_uniform", "shoes", "belt", "gloves", "glasses", "ears", "wear_id", "s_store")
 	for(var/slot in slots)
 		if(!(slot in target.vars))
 			continue
@@ -623,7 +578,7 @@
 
 	if(!first_profile)
 		first_profile = new_profile
-		current_profile = first_profile  // SKYRAT EDIT
+		current_profile = first_profile
 
 	stored_profiles += new_profile
 	absorbed_count++
@@ -960,6 +915,8 @@
 	var/list/worn_icon_state_list = list()
 	/// The underwear worn by the profile source
 	var/underwear
+	/// The colour of the underwear worn by the profile source
+	var/underwear_color
 	/// The undershirt worn by the profile source
 	var/undershirt
 	/// The socks worn by the profile source

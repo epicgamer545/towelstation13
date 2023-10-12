@@ -75,6 +75,7 @@ the same goes for Remove(). if you override Remove(), call parent or else your p
 	return FALSE
 
 /datum/action/changeling/proc/sting_action(mob/living/user, mob/living/target)
+	SHOULD_CALL_PARENT(TRUE)
 	SSblackbox.record_feedback("nested tally", "changeling_powers", 1, list("[name]"))
 	return FALSE
 
@@ -98,7 +99,7 @@ the same goes for Remove(). if you override Remove(), call parent or else your p
 	if(req_stat < user.stat)
 		user.balloon_alert(user, "incapacitated!")
 		return FALSE
-	if((HAS_TRAIT(user, TRAIT_DEATHCOMA)) && (!ignores_fakedeath))
+	if(HAS_TRAIT(user, TRAIT_DEATHCOMA) && !ignores_fakedeath)
 		user.balloon_alert(user, "playing dead!")
 		return FALSE
 	return TRUE

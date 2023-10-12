@@ -61,16 +61,60 @@ GLOBAL_LIST_INIT(blacklisted_cargo_types, typecacheof(list(
 /obj/docking_port/mobile/supply/proc/check_blacklist(areaInstances)
 	for(var/place in areaInstances)
 		var/area/shuttle/shuttle_area = place
-		for(var/turf/shuttle_turf in shuttle_area)
+		for(var/turf/shuttle_turf in shuttle_area.get_contained_turfs())
 			for(var/atom/passenger in shuttle_turf.get_all_contents())
 				if((is_type_in_typecache(passenger, GLOB.blacklisted_cargo_types) || HAS_TRAIT(passenger, TRAIT_BANNED_FROM_CARGO_SHUTTLE)) && !istype(passenger, /obj/docking_port))
 					return FALSE
 	return TRUE
 
+/// Returns anything on the cargo blacklist found within areas_to_check back to the turf of the home docking port via Centcom branded supply pod.
+/obj/docking_port/mobile/supply/proc/return_blacklisted_things_home(list/area/areas_to_check, obj/docking_port/stationary/home)
+	var/list/stuff_to_send_home = list()
+	for(var/area/shuttle_area as anything in areas_to_check)
+		for(var/turf/shuttle_turf in shuttle_area.get_contained_turfs())
+			for(var/atom/passenger in shuttle_turf.get_all_contents())
+				if((is_type_in_typecache(passenger, GLOB.blacklisted_cargo_types) || HAS_TRAIT(passenger, TRAIT_BANNED_FROM_CARGO_SHUTTLE)) && !istype(passenger, /obj/docking_port))
+					stuff_to_send_home += passenger
+
+	if(!length(stuff_to_send_home))
+		return FALSE
+
+	var/obj/structure/closet/supplypod/centcompod/et_go_home = new()
+
+	for(var/atom/movable/et as anything in stuff_to_send_home)
+		et.forceMove(et_go_home)
+
+	new /obj/effect/pod_landingzone(get_turf(home), et_go_home)
+
+	return stuff_to_send_home
+
 /obj/docking_port/mobile/supply/request(obj/docking_port/stationary/S)
 	if(mode != SHUTTLE_IDLE)
 		return 2
 	return ..()
+
+/obj/docking_port/mobile/supply/check_dock(obj/docking_port/stationary/S, silent)
+	. = ..()
+
+	if(!.)
+		return
+
+	// If we're not trying to dock at Centcom, we don't care.
+	if(S.shuttle_id != "cargo_away")
+		return
+
+	// Else we are docking at Centcom, check the blacklist to make sure no contraband was put onto the shuttle mid-transit.
+	// If there's anything contrabandy, send these items back to the origin docking port.
+	// This is a sort of catch-all Centcom exploit check.
+	var/list/stuff_sent_home = return_blacklisted_things_home(shuttle_areas, previous)
+	if(!length(stuff_sent_home))
+		return
+
+	for(var/atom/thing_sent_home as anything in stuff_sent_home)
+		investigate_log("Blacklisted item found on in-transit Cargo Shuttle: [thing_sent_home] ([thing_sent_home.type])", INVESTIGATE_CARGO)
+
+	message_admins("Blacklisted item found on in-transit Cargo Shuttle. See cargo logs for more details.")
+	SSshuttle.centcom_message = "Contraband found on Cargo Shuttle. This has been returned via drop pod."
 
 /obj/docking_port/mobile/supply/initiate_docking()
 	if(getDockedId() == "cargo_away") // Buy when we leave home.
@@ -126,9 +170,7 @@ GLOBAL_LIST_INIT(blacklisted_cargo_types, typecacheof(list(
 		var/datum/bank_account/paying_for_this
 
 		//department orders EARN money for cargo, not the other way around
-		//Skyrat Edit Add
 		if(!spawning_order.department_destination && spawning_order.charge_on_purchase)
-		//Skyrat Edit End
 			if(spawning_order.paying_account) //Someone paid out of pocket
 				paying_for_this = spawning_order.paying_account
 				var/list/current_buyer_orders = goodies_by_buyer[spawning_order.paying_account] // so we can access the length a few lines down
@@ -146,9 +188,8 @@ GLOBAL_LIST_INIT(blacklisted_cargo_types, typecacheof(list(
 					if(spawning_order.paying_account)
 						paying_for_this.bank_card_talk("Cargo order #[spawning_order.id] rejected due to lack of funds. Credits required: [price]")
 					continue
-		//Skyrat Edit Add
-		if(spawning_order.paying_account && spawning_order.charge_on_purchase)
-		//Skyrat Edit End
+
+		if(spawning_order.paying_account)
 			paying_for_this = spawning_order.paying_account
 			if(spawning_order.pack.goody)
 				LAZYADD(goodies_by_buyer[spawning_order.paying_account], spawning_order)
@@ -164,7 +205,7 @@ GLOBAL_LIST_INIT(blacklisted_cargo_types, typecacheof(list(
 		SSshuttle.order_history += spawning_order
 		QDEL_NULL(spawning_order.applied_coupon)
 
-		if(!spawning_order.pack.goody && !(spawning_order?.paying_account in forced_briefcases)) //we handle goody crates below //SKYRAT EDIT
+		if(!spawning_order.pack.goody) //we handle goody crates below
 			var/obj/structure/closet/crate = spawning_order.generate(pick_n_take(empty_turfs))
 			crate.name += " - #[spawning_order.id]"
 
@@ -277,6 +318,18 @@ GLOBAL_LIST_INIT(blacklisted_cargo_types, typecacheof(list(
 			empty_turfs += shuttle_floor
 
 	new /obj/structure/closet/crate/mail/economy(pick(empty_turfs))
+
+/// Takes a supply pack, returns the amount we currently have on order (or OVER_ORDER_LIMIT if we are over the hardcap on orders of this type)
+/obj/docking_port/mobile/supply/proc/get_order_count(datum/supply_pack/ordering)
+	var/similar_count = 0
+	for(var/datum/supply_order/order as anything in (SSshuttle.shopping_list | SSshuttle.request_list))
+		if(order.pack == ordering)
+			similar_count += 1
+
+	if(similar_count >= CARGO_MAX_ORDER)
+		return OVER_ORDER_LIMIT
+
+	return similar_count
 
 #undef GOODY_FREE_SHIPPING_MAX
 #undef CRATE_TAX

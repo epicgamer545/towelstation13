@@ -11,8 +11,8 @@
 		post_tipped_callback = CALLBACK(src, PROC_REF(after_tip_over)), \
 		post_untipped_callback = CALLBACK(src, PROC_REF(after_righted)), \
 		roleplay_friendly = TRUE, \
-		roleplay_emotes = list(/datum/emote/living/human/buzz, /datum/emote/living/human/buzz2, /datum/emote/living/human/beep, /datum/emote/living/human/beep2), \
-		roleplay_callback = CALLBACK(src, PROC_REF(untip_roleplay))) // SKYRAT EDIT CHANGE
+		roleplay_emotes = list(/datum/emote/silicon/buzz, /datum/emote/silicon/buzz2, /datum/emote/living/beep), \
+		roleplay_callback = CALLBACK(src, PROC_REF(untip_roleplay)))
 
 	set_wires(new /datum/wires/robot(src))
 	AddElement(/datum/element/empprotection, EMP_PROTECT_WIRES)
@@ -189,7 +189,7 @@
 	if(!input_model || model.type != /obj/item/robot_model)
 		return
 
-	model.transform_to(GLOB.cyborg_model_list[input_model])
+	model.transform_to(model_list[input_model])
 
 
 /// Used to setup the a basic and (somewhat) unique name for the robot.
@@ -477,7 +477,7 @@
 	if(lamp_enabled)
 		toggle_headlamp(TRUE)
 		to_chat(src, span_warning("Your headlamp was forcibly turned off. Restarting it should fix it, though."))
-	return TRUE
+	return COMSIG_SABOTEUR_SUCCESS
 
 /**
  * Handles headlamp smashing
@@ -517,8 +517,8 @@
 		lampButton?.update_appearance()
 		update_icons()
 		return
-	set_light_range(lamp_intensity)
-	set_light_color(lamp_doom? COLOR_RED : lamp_color) //Red for doomsday killborgs, borg's choice otherwise
+	set_light_range(max(MINIMUM_USEFUL_LIGHT_RANGE, lamp_intensity))
+	set_light_color(lamp_doom ? COLOR_RED : lamp_color) //Red for doomsday killborgs, borg's choice otherwise
 	set_light_on(TRUE)
 	lamp_enabled = TRUE
 	lampButton?.update_appearance()
@@ -1019,7 +1019,6 @@
 
 /mob/living/silicon/robot/proc/untip_roleplay()
 	to_chat(src, span_notice("Your frustration has empowered you! You can now right yourself faster!"))
-
 
 /mob/living/silicon/robot/update_fire_overlay(stacks, on_fire, last_icon_state, suffix = "")
 	var/fire_icon = "generic_fire[suffix]"

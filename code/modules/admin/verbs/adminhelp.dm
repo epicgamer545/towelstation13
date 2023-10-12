@@ -664,6 +664,19 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 		if(webhook_sent == WEBHOOK_NON_URGENT || CONFIG_GET(string/regular_adminhelp_webhook_url) != CONFIG_GET(string/urgent_adminhelp_webhook_url))
 			send2adminchat_webhook(embed, urgent = FALSE)
 		webhook_sent = WEBHOOK_NONE
+	if(webhook_sent != WEBHOOK_NONE)
+		var/datum/discord_embed/embed = new()
+		embed.title = "Ticket #[id]"
+		if(CONFIG_GET(string/adminhelp_ahelp_link))
+			var/ahelp_link = replacetext(CONFIG_GET(string/adminhelp_ahelp_link), "$RID", GLOB.round_id)
+			ahelp_link = replacetext(ahelp_link, "$TID", id)
+			embed.url = ahelp_link
+		embed.description = "[key_name(usr)] has sent an action to this ticket. Action ID: [action]"
+		if(webhook_sent == WEBHOOK_URGENT)
+			send2adminchat_webhook(embed, urgent = TRUE)
+		if(webhook_sent == WEBHOOK_NON_URGENT || CONFIG_GET(string/regular_adminhelp_webhook_url) != CONFIG_GET(string/urgent_adminhelp_webhook_url))
+			send2adminchat_webhook(embed, urgent = FALSE)
+		webhook_sent = WEBHOOK_NONE
 	switch(action)
 		if("ticket")
 			TicketPanel()
@@ -684,44 +697,6 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 			Resolve()
 		if("reopen")
 			Reopen()
-		// SKYRAT EDIT ADDITION
-		if("handle_issue")
-			handle_issue()
-		if("pingmute")
-			ticket_ping_stop = !ticket_ping_stop
-			SSblackbox.record_feedback("tally", "ahelp_stats", 1, "pingmute")
-			var/msg = "Ticket [TicketHref("#[id]")] has been [ticket_ping_stop ? "" : "un"]muted from the Ticket Ping Subsystem by [key_name_admin(usr)]."
-			message_admins(msg)
-			log_admin_private(msg)
-		if("convert")
-			convert_to_mentorhelp()
-		// SKYRAT EDIT ADDITION END
-
-/datum/admin_help/proc/player_ticket_panel()
-	var/list/dat = list("<html><head><meta http-equiv='Content-Type' content='text/html; charset=UTF-8'><title>Player Ticket</title></head>")
-	dat += "<b>State: "
-	switch(state)
-		if(AHELP_ACTIVE)
-			dat += "<font color='red'>OPEN</font></b>"
-		if(AHELP_RESOLVED)
-			dat += "<font color='green'>RESOLVED</font></b>"
-		if(AHELP_CLOSED)
-			dat += "CLOSED</b>"
-		else
-			dat += "UNKNOWN</b>"
-	dat += "\n[FOURSPACES]<A href='?_src_=holder;[HrefToken(forceGlobal = TRUE)];player_ticket_panel=1'>Refresh</A>"
-	dat += "<br><br>Opened at: [gameTimestamp("hh:mm:ss", opened_at)] (Approx [DisplayTimeText(world.time - opened_at)] ago)"
-	if(closed_at)
-		dat += "<br>Closed at: [gameTimestamp("hh:mm:ss", closed_at)] (Approx [DisplayTimeText(world.time - closed_at)] ago)"
-	dat += "<br><br>"
-	dat += "<br><b>Log:</b><br><br>"
-	for (var/interaction in player_interactions)
-		dat += "[interaction]<br>"
-
-	var/datum/browser/player_panel = new(usr, "ahelp[id]", 0, 620, 480)
-	player_panel.set_content(dat.Join())
-	player_panel.open()
-
 
 //
 // TICKET STATCLICK

@@ -16,8 +16,5 @@
 #define DISABLE_PARALLAX 7
 /// Disables footsteps, TRAIT_BYPASS_MEASURES exempted
 #define DISABLE_FOOTSTEPS 8
-// SKYRAT EDIT ADDITION
-/// Stops people from changing things in the character creator. Entirely.
-#define DISABLE_CREATOR 9
-// SKYRAT EDIT END
-#define MEASURES_AMOUNT 9 // The total number of switches defined above // SKYRAT EDIT ADDITION
+
+#define MEASURES_AMOUNT 8 // The total number of switches defined above
