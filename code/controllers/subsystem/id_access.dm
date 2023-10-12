@@ -915,18 +915,6 @@ SUBSYSTEM_DEF(id_access)
 	return TRUE
 
 /**
- * Removes a trim from an ID card. Also removes all accesses from it too.
- *
- * Arguments:
- * * id_card - The ID card to remove the trim from.
- */
-/datum/controller/subsystem/id_access/proc/remove_trim_from_card(obj/item/card/id/id_card)
-	id_card.trim = null
-	id_card.clear_access()
-	id_card.update_label()
-	id_card.update_icon()
-
-/**
  * Applies a trim to a chameleon card. This is purely visual, utilising the card's override vars.
  *
  * Arguments:

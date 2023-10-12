@@ -447,16 +447,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/barsign, 32)
 	set_sign(new /datum/barsign/hiddensigns/signoff)
 	find_and_hang_on_wall()
 
-/obj/machinery/barsign/proc/set_sign(datum/barsign/sign)
-	if(!istype(sign))
-		return
-
-	if(sign.rename_area)
-		rename_area(src, sign.name)
-
-	chosen_sign = sign
-	update_appearance()
-
 /obj/machinery/barsign/update_icon_state()
 	if(!(machine_stat & (NOPOWER|BROKEN)) && chosen_sign && chosen_sign.icon)
 		icon_state = chosen_sign.icon
@@ -494,12 +484,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/barsign, 32)
 		return
 	if(chosen_sign && chosen_sign.neon_color)
 		set_light(MINIMUM_USEFUL_LIGHT_RANGE, 0.7, chosen_sign.neon_color)
-
-/obj/machinery/barsign/proc/set_sign_by_name(sign_name)
-	for(var/datum/barsign/sign as anything in subtypesof(/datum/barsign))
-		if(initial(sign.name) == sign_name)
-			var/new_sign = new sign
-			set_sign(new_sign)
 
 /obj/machinery/barsign/atom_break(damage_flag)
 	. = ..()
@@ -583,14 +567,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/barsign, 32)
 	addtimer(CALLBACK(src, PROC_REF(fix_emp), chosen_sign), 60 SECONDS)
 	set_sign(new /datum/barsign/hiddensigns/empbarsign)
 
-/// Callback to un-emp the sign some time.
-/obj/machinery/barsign/proc/fix_emp(datum/barsign/sign)
-	set_machine_stat(machine_stat & ~EMPED)
-	if(!istype(sign))
-		return
-
-	set_sign(sign)
-
 /obj/machinery/barsign/emag_act(mob/user, obj/item/card/emag/emag_card)
 	if(machine_stat & (NOPOWER|BROKEN|EMPED))
 		balloon_alert(user, "controls are unresponsive!")
@@ -599,25 +575,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/barsign, 32)
 	balloon_alert(user, "illegal barsign loaded")
 	addtimer(CALLBACK(src, PROC_REF(finish_emag_act)), 10 SECONDS)
 	return TRUE
-
-/// Timer proc, called after ~10 seconds after [emag_act], since [emag_act] returns a value and cannot sleep
-/obj/machinery/barsign/proc/finish_emag_act()
-	set_sign(new /datum/barsign/hiddensigns/syndibarsign)
-
-/obj/machinery/barsign/proc/pick_sign(mob/user)
-	var/picked_name = tgui_input_list(user, "Available Signage", "Bar Sign", sort_list(get_bar_names()))
-	if(isnull(picked_name))
-		return
-	set_sign_by_name(picked_name)
-	SSblackbox.record_feedback("tally", "barsign_picked", 1, chosen_sign.type)
-
-/proc/get_bar_names()
-	var/list/names = list()
-	for(var/d in subtypesof(/datum/barsign))
-		var/datum/barsign/D = d
-		if(!initial(D.hidden))
-			names += initial(D.name)
-	. = names
 
 /datum/barsign
 	/// User-visible name of the sign.
