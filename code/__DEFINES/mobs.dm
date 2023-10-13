@@ -100,9 +100,7 @@
 // SKYRAT EDIT ADDITION
 ///The limb fits a modular custom shape
 #define BODYTYPE_CUSTOM (1<<9)
-///The limb fits a taur body
-#define BODYTYPE_TAUR (1<<10)
-///The limb causes shoes to no longer be displayed, useful for taurs.
+///The limb causes shoes to no longer be displayed.
 #define BODYTYPE_HIDE_SHOES (1<<11)
 ///The limb causes glasses and hats to be drawn on layers 5 and 4 respectively. Currently used for snouts with the (Top) suffix, which are drawn on layer 6 and would normally cover facewear
 #define BODYTYPE_ALT_FACEWEAR_LAYER (1<<12)
@@ -725,10 +723,6 @@ GLOBAL_LIST_INIT(human_heights_to_offsets, list(
 /// Jumpsuit clothing layer
 #define UNIFORM_LAYER 31 // SKYRAT EDIT CHANGE - ORIGINAL: 26
 // SKYRAT EDIT ADDITION BEGIN - cursed layers under clothing
-#define ANUS_LAYER 30
-#define VAGINA_LAYER 29
-#define PENIS_LAYER 28
-#define NIPPLES_LAYER 27
 #define BANDAGE_LAYER 26
 //SKYRAT EDIT ADDITION END
 /// ID card layer

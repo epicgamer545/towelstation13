@@ -3,7 +3,6 @@
 		"tail" = "None",
 		"snout" = "None",
 		"ears" = "None",
-		"taur" = "None",
 		"wings" = "None",
 		"legs" = "Normal Legs",
 		"horns" = "None",
@@ -48,14 +47,14 @@
 		SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,
 		SPECIES_PERK_ICON = "biohazard",
 		SPECIES_PERK_NAME = "Squishy Form",
-		SPECIES_PERK_DESC = "Being made of slime, you have the ability to alter your physical form to be whatever you choose! You may grow ears, change your hair, and even become a taur-like if you so choose, at the press of a button and the snap of a finger!"
+		SPECIES_PERK_DESC = "Being made of slime, you have the ability to alter your physical form to be whatever you choose! You may grow ears, and change your hair, at the press of a button and the snap of a finger!"
 	))
 
 	return perk_descriptions
 
 /**
  * Alter Form is the ability of slimes to edit many of their character attributes at will
- * This covers most thing about their character, from body size or colour, to adding new wings, tails, ears, etc, to changing the presence of their genitalia
+ * This covers most thing about their character, from body size or colour, to adding new wings, tails, ears, etc.
  * There are some balance concerns with some of these (looking at you, body size), but nobody has abused it Yet:tm:, and it would be exceedingly obvious if they did
  */
 /datum/action/innate/alter_form

@@ -340,3 +340,34 @@
   xPokee:
   - spellcheck: Gave lore to podpeople
   - rscdel: Removed all of the ERP features from the code.
+2023-09-17:
+  xPokee:
+  - rscadd: Added the bluespace compression kit, which you can use to shrink items.
+      Purchasable through uplinks for 13 tc.
+2023-09-19:
+  xPokee:
+  - bugfix: fixes a runtime I accidentally caused
+  - rscdel: Removes sex
+  - qol: Everyone can use the headshot feature now.
+2023-09-20:
+  xPokee:
+  - rscdel: Removes taurs
+2023-09-23:
+  xPokee:
+  - balance: Bluespace compression kits now require telecrystals to be recharged and
+      have three max charges instead of five.
+  - rscdel: Removes the server swap button
+2023-09-24:
+  xPokee:
+  - bugfix: fixes the body size slider
+2023-09-25:
+  xPokee:
+  - balance: rebalanced F13 mobs to be stronger.
+  - image: modified F13 mob icons to match the new ones.
+  - spellcheck: Changed F13 mob descriptions to match those from F13.
+2023-09-26:
+  xPokee:
+  - spellcheck: Wrote up lore for more species that lacked it.
+  - bugfix: fixed the s'more icons
+  xPokee, CoiledLamb:
+  - rscadd: Added s'mores and graham crackers
