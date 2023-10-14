@@ -23,5 +23,3 @@
 #define AUGGED_CHEST_EMP_SHAKE_TIME 5 SECONDS
 /// When hit by an EMP, the time an augged head will make vision fucky for.
 #define AUGGED_HEAD_EMP_GLITCH_DURATION 6 SECONDS
-///The standard amount of bodyparts a carbon has. Currently 6, HEAD/L_ARM/R_ARM/CHEST/L_LEG/R_LEG
-#define BODYPARTS_DEFAULT_MAXIMUM 6
