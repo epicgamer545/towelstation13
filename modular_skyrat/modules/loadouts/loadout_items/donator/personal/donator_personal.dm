@@ -376,7 +376,6 @@
 /datum/loadout_item/glasses/roseglasses
 	name = "Rose-Colored Glasses"
 	item_path = /obj/item/clothing/glasses/rosecolored
-	ckeywhitelist = list("1ceres", "irrigoimport", "zeskorion", "wizardlywoz", "duckymomo", "samarai1000", "funkyfetusstrikesback", "m97screwsyourparents", "lynxqueen", "kaynite", "mahalia", "sapphoqueer", "emmakisst", "ceasethebridge", "valorthix" )
 
 /datum/loadout_item/pocket_items/fuzzy_huglicense
 	name = "License To Hug"
@@ -386,12 +385,10 @@
 /datum/loadout_item/suit/gorlex_harness
 	name = "Engine Technician Harness"
 	item_path = /obj/item/clothing/suit/jacket/gorlex_harness
-	ckeywhitelist = list("1ceres")
 
 /datum/loadout_item/pocket_items/korpstech_poster
 	name = "Korpstech Poster"
 	item_path = /obj/item/poster/korpstech
-	ckeywhitelist = list("1ceres")
 
 /datum/loadout_item/glasses/roseeyepatch
 	name = "Rose-Colored Eyepatch"
