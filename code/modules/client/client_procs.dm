@@ -675,7 +675,6 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 				qdel(query_client_in_db)
 				qdel(src)
 				return
-<<<<<<< HEAD
 */
 	var/client_is_in_db = query_client_in_db.NextRow()
 
@@ -696,10 +695,6 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 			qdel(src)
 			return
 		//SKYRAT EDIT END
-=======
-
-	if(!client_is_in_db)
->>>>>>> a293b0a48638c98577992730c91ac65770b87130
 		new_player = 1
 		account_join_date = findJoinDate()
 		var/datum/db_query/query_add_player = SSdbcore.NewQuery({"
