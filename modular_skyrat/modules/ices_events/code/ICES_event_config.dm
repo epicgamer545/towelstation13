@@ -512,7 +512,8 @@
 	weight = LOW_EVENT_FREQ
 
 /datum/round_event_control/shuttle_insurance
-	max_occurrences = 0
+	max_occurrences = 1
+	weight = VERY_LOW_EVENT_FREQ
 
 /datum/round_event_control/shuttle_loan
 	max_occurrences = 2
@@ -589,10 +590,11 @@
 	weight = VERY_HIGH_EVENT_FREQ
 
 /**
- * Wall Fungus
+ * Wall Fungus - Disabled
  */
 /datum/round_event_control/wall_fungus
-	weight = MED_EVENT_FREQ
+	max_occurrences = 0
+	weight = VERY_LOW_EVENT_FREQ
 
 /**
  * Wisdom Cow
