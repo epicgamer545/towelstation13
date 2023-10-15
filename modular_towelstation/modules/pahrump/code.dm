@@ -5,6 +5,11 @@
 	shuttleId = "enclave_elevator"
 	possible_destinations = "Enclave_Bunker;Enclave_Surface"
 
+/obj/item/circuitboard/computer/enclave_control
+	name = "Enclave Elevator Console"
+	greyscale_colors = CIRCUIT_COLOR_GENERIC
+	build_path = /obj/machinery/computer/shuttle/elevator/enclaveelevator
+
 /obj/machinery/computer/shuttle/caravan/blackmarket_chevvy
 	name = "Chevvy Shuttle Console"
 	desc = "Used to control the affectionately named 'Chevvy'."
