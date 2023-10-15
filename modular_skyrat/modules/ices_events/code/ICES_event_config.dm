@@ -566,12 +566,12 @@
  * Combined weight: 24
  */
 /datum/round_event_control/stray_cargo
-	max_occurrences = 1
-	weight = LOW_EVENT_FREQ
+	max_occurrences = 3
+	weight = MED_EVENT_FREQ
 
 /datum/round_event_control/stray_cargo/syndicate
-	max_occurrences = 2
-	weight = MED_EVENT_FREQ
+	max_occurrences = 1
+	weight = VERY_LOW_EVENT_FREQ
 
 /**
  * Supermatter Surge
