@@ -1,0 +1,5 @@
+author: "xPokee"
+delete-after: True
+changes:
+  - bugfix: "fixed a few stray pixels on mutant lizard sprites"
+  - bugfix: "fixed combat lizards being invisible"
