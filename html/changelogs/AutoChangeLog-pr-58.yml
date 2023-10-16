@@ -1,4 +1,0 @@
-author: "SapphoQueer"
-delete-after: True
-changes:
-  - rscadd: "some items aren't tied to a ckey whitelist anymore with permission from the item's creator."

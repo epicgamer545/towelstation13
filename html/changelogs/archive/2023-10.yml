@@ -17,3 +17,12 @@
   xPokee:
   - bugfix: fixed the ghost cafe having ERP stuff.
   - rscdel: removed ERP underwear that I missed while removing other ERP things.
+2023-10-16:
+  NikoTheGuyDude:
+  - qol: Table flipping feedback is now in the form of balloon alerts
+  SapphoQueer:
+  - rscadd: some items aren't tied to a ckey whitelist anymore with permission from
+      the item's creator.
+  jjpark-kb:
+  - bugfix: the ashwalker tendril will allow you to respawn again (the tendril blessing)
+  - bugfix: the round end report will accurately report ashwalker sacrifices
