@@ -1,4 +1,0 @@
-author: "xPokee"
-delete-after: True
-changes:
-  - bugfix: "fixes Miss M medical borgs still being selectable"

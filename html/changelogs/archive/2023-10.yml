@@ -26,3 +26,8 @@
   jjpark-kb:
   - bugfix: the ashwalker tendril will allow you to respawn again (the tendril blessing)
   - bugfix: the round end report will accurately report ashwalker sacrifices
+2023-10-17:
+  xPokee:
+  - bugfix: fixes Miss M medical borgs still being selectable
+  - bugfix: fixed a few stray pixels on mutant lizard sprites
+  - bugfix: fixed combat lizards being invisible
