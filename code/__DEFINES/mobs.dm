@@ -897,8 +897,10 @@ GLOBAL_LIST_INIT(layers_to_offset, list(
 #define MOB_VOMIT_HARM (1<<2)
 /// Flag which makes the mob vomit blood
 #define MOB_VOMIT_BLOOD (1<<3)
+/// Flag which will cause the mob to fall over when vomiting.
+#define MOB_VOMIT_KNOCKDOWN (1<<4)
 /// Flag which will make the proc skip certain checks when it comes to forcing a vomit.
-#define MOB_VOMIT_FORCE (1<<4)
+#define MOB_VOMIT_FORCE (1<<5)
 
 /// The default "vomit" color green, which will ultinately give you might typically expect to happen when you vomit.
 #define VOMIT_CATEGORY_DEFAULT (MOB_VOMIT_MESSAGE | MOB_VOMIT_STUN | MOB_VOMIT_HARM)

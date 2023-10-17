@@ -29,7 +29,7 @@
 	/// The original profile of this changeling.
 	var/datum/changeling_profile/first_profile = null
 	/// How many DNA strands the changeling can store for transformation.
-	var/dna_max = 8 // SKYRAT EDIT - ORIGINAL: 6
+	var/dna_max = 6
 	/// The amount of DNA gained. Includes DNA sting.
 	var/absorbed_count = 0
 	/// The amount of DMA gained using absorb, not DNA sting. Start with one (your original DNA)
@@ -47,9 +47,9 @@
 	/// Changeling name, what other lings see over the hivemind when talking.
 	var/changelingID = "Changeling"
 	/// The number of genetics points (to buy powers) this ling currently has.
-	var/genetic_points = 15 // SKYRAT EDIT - ORIGINAL: 10
+	var/genetic_points = 10
 	/// The max number of genetics points (to buy powers) this ling can have..
-	var/total_genetic_points = 15 // SKYRAT EDIT - ORIGINAL: 10
+	var/total_genetic_points = 10
 	/// List of all powers we start with.
 	var/list/innate_powers = list()
 	/// Associated list of all powers we have evolved / bought from the emporium. [path] = [instance of path]
@@ -85,7 +85,7 @@
 	var/static/list/slot2type = list(
 		"head" = /obj/item/clothing/head/changeling,
 		"wear_mask" = /obj/item/clothing/mask/changeling,
-		"wear_neck" = /obj/item/changeling, // SKYRAT EDIT
+		"wear_neck" = /obj/item/changeling,
 		"back" = /obj/item/changeling,
 		"wear_suit" = /obj/item/clothing/suit/changeling,
 		"w_uniform" = /obj/item/clothing/under/changeling,
@@ -101,31 +101,8 @@
 	/// A list of all memories we've stolen through absorbs.
 	var/list/stolen_memories = list()
 
-	var/true_form_death //SKYRAT EDIT ADDITION: The time that the horror form died.
-
-	// SKYRAT EDIT START
-	var/datum/changeling_profile/current_profile = null
-	var/list/mimicable_quirks_list = list(
-		"Bad Touch",
-		"Sensitive Snout",
-		"Ash aspect (Emotes)",
-		"Canidae Traits",
-		"Excitable!",
-		"Feline Traits",
-		"Floral aspect (Emotes)",
-		"Heterochromatic",
-		"Hydra Heads",
-		"Oversized",
-		"Personal Space",
-		"Pseudobulbar Affect",
-		"Shifty Eyes",
-		"Smooth-Headed",
-		"Sparkle aspect (Emotes)",
-		"Water aspect (Emotes)",
-		"Webbing aspect (Emotes)",
-		"Friendly",
-	)
-	// SKYRAT EDIT END
+	///	Keeps track of the currently selected profile.
+	var/datum/changeling_profile/current_profile
 
 /datum/antagonist/changeling/New()
 	. = ..()
@@ -270,6 +247,52 @@
 	SIGNAL_HANDLER
 
 	if(!isliving(source))
+		return
+	var/mob/living/living_source = source
+	if(!living_source.mind)
+		return
+
+	regain_powers()
+
+/**
+ * Signal proc for [COMSIG_LIVING_LIFE].
+ * Handles regenerating chemicals on life ticks.
+ */
+/datum/antagonist/changeling/proc/on_life(datum/source, seconds_per_tick, times_fired)
+	SIGNAL_HANDLER
+
+	var/delta_time = DELTA_WORLD_TIME(SSmobs)
+
+	// If dead, we only regenerate up to half chem storage.
+	if(owner.current.stat == DEAD)
+		adjust_chemicals((chem_recharge_rate - chem_recharge_slowdown) * delta_time, total_chem_storage * 0.5)
+
+	// If we're not dead - we go up to the full chem cap.
+	else
+		adjust_chemicals((chem_recharge_rate - chem_recharge_slowdown) * delta_time)
+
+/**
+ * Signal proc for [COMSIG_LIVING_POST_FULLY_HEAL]
+ */
+/datum/antagonist/changeling/proc/on_fullhealed(mob/living/source, heal_flags)
+	SIGNAL_HANDLER
+
+	// Aheal restores all chemicals
+	if(heal_flags & HEAL_ADMIN)
+		adjust_chemicals(INFINITY)
+
+	// Makes sure the brain, if recreated, is a decoy as expected
+	make_brain_decoy(source)
+
+/**
+ * Signal proc for [COMSIG_MOB_MIDDLECLICKON] and [COMSIG_MOB_ALTCLICKON].
+ * Allows the changeling to sting people with a click.
+ */
+/datum/antagonist/changeling/proc/on_click_sting(mob/living/ling, atom/clicked)
+	SIGNAL_HANDLER
+
+	// nothing to handle
+	if(!chosen_sting)
 		return
 	if(!isliving(ling) || clicked == ling || ling.stat != CONSCIOUS)
 		return
@@ -553,7 +576,7 @@
 		new_profile.worn_icon_state_list[slot] = clothing_item.worn_icon_state
 		new_profile.exists_list[slot] = 1
 
-		// SKYRAT EDIT START
+// SKYRAT EDIT START
 		new_profile.worn_icon_digi_list[slot] = clothing_item.worn_icon_digi
 		new_profile.worn_icon_monkey_list[slot] = clothing_item.worn_icon_monkey
 		new_profile.worn_icon_teshari_list[slot] = clothing_item.worn_icon_teshari
@@ -724,7 +747,7 @@
 	var/static/list/slot2slot = list(
 		"head" = ITEM_SLOT_HEAD,
 		"wear_mask" = ITEM_SLOT_MASK,
-		"wear_neck" = ITEM_SLOT_NECK, // SKYRAT EDIT
+		"wear_neck" = ITEM_SLOT_NECK,
 		"back" = ITEM_SLOT_BACK,
 		"wear_suit" = ITEM_SLOT_OCLOTHING,
 		"w_uniform" = ITEM_SLOT_ICLOTHING,
@@ -740,16 +763,11 @@
 	var/datum/dna/chosen_dna = chosen_profile.dna
 	user.real_name = chosen_profile.name
 	user.underwear = chosen_profile.underwear
+	user.underwear_color = chosen_profile.underwear_color
 	user.undershirt = chosen_profile.undershirt
 	user.socks = chosen_profile.socks
-
-	// SKYRAT EDIT START
-	user.underwear_color = chosen_profile.underwear_color
-	user.undershirt_color = chosen_profile.undershirt_color
-	user.socks_color = chosen_profile.socks_color
-	user.emissive_eyes = chosen_profile.emissive_eyes
-	user.dna.mutant_bodyparts = chosen_dna.mutant_bodyparts.Copy()
-	user.dna.body_markings = chosen_dna.body_markings.Copy()
+	user.age = chosen_profile.age
+	user.physique = chosen_profile.physique
 	user.grad_style = LAZYLISTDUPLICATE(chosen_profile.grad_style)
 	user.grad_color = LAZYLISTDUPLICATE(chosen_profile.grad_color)
 
@@ -783,7 +801,7 @@
 	for(var/obj/item/bodypart/limb as anything in user.bodyparts)
 		limb.update_limb(is_creating = TRUE)
 
-	user.updateappearance(mutcolor_update = TRUE, eyeorgancolor_update = TRUE) // SKYRAT EDIT
+	user.updateappearance(mutcolor_update = TRUE)
 	user.domutcheck()
 
 	// Get rid of any scars from previous Changeling-ing
@@ -879,13 +897,8 @@
 			attempted_fake_scar.fake = TRUE
 
 	user.regenerate_icons()
-
-	// SKYRAT EDIT START
-	chosen_dna.transfer_identity(user, TRUE)
-	user.updateappearance(mutcolor_update = TRUE, eyeorgancolor_update = TRUE)
-	user.regenerate_icons()
+	user.name = user.get_visible_name()
 	current_profile = chosen_profile
-	// SKYRAT EDIT END
 
 // Changeling profile themselves. Store a data to store what every DNA instance looked like.
 /datum/changeling_profile
@@ -929,38 +942,25 @@
 	var/datum/icon_snapshot/profile_snapshot
 	/// ID HUD icon associated with the profile
 	var/id_icon
-
-	/// SKYRAT EDIT START
-	var/underwear_color
-	var/undershirt_color
-	var/socks_color
-	var/eye_color_left
-	var/eye_color_right
-	var/emissive_eyes
-	var/list/grad_style = list("None", "None")
-	var/list/grad_color = list(null, null)
-
-	var/physique
-	var/list/worn_icon_digi_list = list()
-	var/list/worn_icon_monkey_list = list()
-	var/list/worn_icon_teshari_list = list()
-	var/list/worn_icon_vox_list = list()
-	var/list/supports_variations_flags_list = list()
-	var/scream_type
-	var/laugh_type
+	/// The age of the profile source.
 	var/age
+	/// The body type of the profile source.
+	var/physique
+	/// The quirks of the profile source.
 	var/list/quirks = list()
-	/// SKYRAT EDIT END
-
+	/// The hair and facial hair gradient styles of the profile source.
+	var/list/grad_style = list("None", "None")
+	/// The hair and facial hair gradient colours of the profile source.
+	var/list/grad_color = list(null, null)
 	/// The TTS voice of the profile source
 	var/voice
 	/// The TTS filter of the profile filter
 	var/voice_filter = ""
 
-
 /datum/changeling_profile/Destroy()
 	qdel(dna)
 	LAZYCLEARLIST(stored_scars)
+	QDEL_LAZYLIST(quirks)
 	return ..()
 
 /*
@@ -980,6 +980,7 @@
 	new_profile.righthand_file_list = righthand_file_list.Copy()
 	new_profile.inhand_icon_state_list = inhand_icon_state_list.Copy()
 	new_profile.underwear = underwear
+	new_profile.underwear_color = underwear_color
 	new_profile.undershirt = undershirt
 	new_profile.socks = socks
 	new_profile.worn_icon_list = worn_icon_list.Copy()
@@ -1009,8 +1010,8 @@
 	new_profile.laugh_type = laugh_type
 	new_profile.age = age
 	new_profile.quirks = quirks.Copy()
-	// SKYRAT EDIT END
-
+	new_profile.grad_style = LAZYLISTDUPLICATE(grad_style)
+	new_profile.grad_color = LAZYLISTDUPLICATE(grad_color)
 	new_profile.voice = voice
 	new_profile.voice_filter = voice_filter
 
@@ -1022,8 +1023,6 @@
 	var/changeling_win = TRUE
 	if(!owner.current)
 		changeling_win = FALSE
-	*/
-	// SKYRAT EDIT REMOVAL END
 
 	parts += printplayer(owner)
 	parts += "<b>Genomes Extracted:</b> [absorbed_count]<br>"
@@ -1051,7 +1050,7 @@
 	// SKYRAT EDIT REMOVAL END - No greentext
 
 	return parts.Join("<br>")
-
+	*/
 /datum/antagonist/changeling/get_preview_icon()
 	var/icon/final_icon = render_preview_outfit(/datum/outfit/changeling)
 	var/icon/split_icon = render_preview_outfit(/datum/outfit/job/engineer)
