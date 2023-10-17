@@ -576,13 +576,6 @@
 		new_profile.worn_icon_state_list[slot] = clothing_item.worn_icon_state
 		new_profile.exists_list[slot] = 1
 
-// SKYRAT EDIT START
-		new_profile.worn_icon_digi_list[slot] = clothing_item.worn_icon_digi
-		new_profile.worn_icon_monkey_list[slot] = clothing_item.worn_icon_monkey
-		new_profile.worn_icon_teshari_list[slot] = clothing_item.worn_icon_teshari
-		new_profile.worn_icon_vox_list[slot] = clothing_item.worn_icon_vox
-		new_profile.supports_variations_flags_list[slot] = clothing_item.supports_variations_flags
-		// SKYRAT EDIT END
 	new_profile.voice = target.voice
 	new_profile.voice_filter = target.voice_filter
 
@@ -770,29 +763,6 @@
 	user.physique = chosen_profile.physique
 	user.grad_style = LAZYLISTDUPLICATE(chosen_profile.grad_style)
 	user.grad_color = LAZYLISTDUPLICATE(chosen_profile.grad_color)
-
-	user.physique = chosen_profile.physique
-	qdel(user.selected_scream)
-	qdel(user.selected_laugh)
-	user.selected_scream = new chosen_profile.scream_type
-	user.selected_laugh = new chosen_profile.laugh_type
-	user.age = chosen_profile.age
-
-	// Only certain quirks will be copied, to avoid making the changeling blind or wheelchair-bound when they can simply pretend to have these quirks.
-
-	for(var/datum/quirk/target_quirk in user.quirks)
-		for(var/mimicable_quirk in mimicable_quirks_list)
-			if(target_quirk.name == mimicable_quirk)
-				user.remove_quirk(target_quirk.type)
-				break
-
-	for(var/datum/quirk/target_quirk in chosen_profile.quirks)
-		for(var/mimicable_quirk in mimicable_quirks_list)
-			if(target_quirk.name == mimicable_quirk)
-				user.add_quirk(target_quirk.type)
-				break
-
-	// SKYRAT EDIT END
 	user.voice = chosen_profile.voice
 	user.voice_filter = chosen_profile.voice_filter
 
@@ -873,14 +843,6 @@
 		new_flesh_item.inhand_icon_state = chosen_profile.inhand_icon_state_list[slot]
 		new_flesh_item.worn_icon = chosen_profile.worn_icon_list[slot]
 		new_flesh_item.worn_icon_state = chosen_profile.worn_icon_state_list[slot]
-
-		// SKYRAT EDIT START
-		new_flesh_item.worn_icon_digi = chosen_profile.worn_icon_digi_list[slot]
-		new_flesh_item.worn_icon_monkey = chosen_profile.worn_icon_monkey_list[slot]
-		new_flesh_item.worn_icon_teshari = chosen_profile.worn_icon_teshari_list[slot]
-		new_flesh_item.worn_icon_vox = chosen_profile.worn_icon_vox_list[slot]
-		new_flesh_item.supports_variations_flags = chosen_profile.supports_variations_flags_list[slot]
-		// SKYRAT EDIT END
 
 		if(istype(new_flesh_item, /obj/item/changeling/id) && chosen_profile.id_icon)
 			var/obj/item/changeling/id/flesh_id = new_flesh_item
@@ -989,26 +951,8 @@
 	new_profile.stored_scars = stored_scars.Copy()
 	new_profile.profile_snapshot = profile_snapshot
 	new_profile.id_icon = id_icon
-
-	// SKYRAT EDIT START
-	new_profile.underwear_color = underwear_color
-	new_profile.undershirt_color = undershirt_color
-	new_profile.socks_color = socks_color
-	new_profile.eye_color_left = eye_color_left
-	new_profile.eye_color_right = eye_color_right
-	new_profile.emissive_eyes = emissive_eyes
-	new_profile.grad_style = LAZYLISTDUPLICATE(grad_style)
-	new_profile.grad_color = LAZYLISTDUPLICATE(grad_color)
-
-	new_profile.physique = physique
-	new_profile.worn_icon_digi_list = worn_icon_digi_list.Copy()
-	new_profile.worn_icon_monkey_list = worn_icon_monkey_list.Copy()
-	new_profile.worn_icon_teshari_list = worn_icon_teshari_list.Copy()
-	new_profile.worn_icon_vox_list = worn_icon_vox_list.Copy()
-	new_profile.supports_variations_flags_list = supports_variations_flags_list.Copy()
-	new_profile.scream_type = scream_type
-	new_profile.laugh_type = laugh_type
 	new_profile.age = age
+	new_profile.physique = physique
 	new_profile.quirks = quirks.Copy()
 	new_profile.grad_style = LAZYLISTDUPLICATE(grad_style)
 	new_profile.grad_color = LAZYLISTDUPLICATE(grad_color)
@@ -1018,8 +962,6 @@
 /datum/antagonist/changeling/roundend_report()
 	var/list/parts = list()
 
-	// SKYRAT EDIT REMOVAL START
-	/*
 	var/changeling_win = TRUE
 	if(!owner.current)
 		changeling_win = FALSE
@@ -1030,27 +972,18 @@
 	if(objectives.len)
 		var/count = 1
 		for(var/datum/objective/objective in objectives)
-			// SKYRAT EDIT START - No greentext
-			/*
 			if(!objective.check_completion())
 				changeling_win = FALSE
 			parts += "<b>Objective #[count]</b>: [objective.explanation_text] [objective.get_roundend_success_suffix()]"
-			*/
-			parts += "<b>Objective #[count]</b>: [objective.explanation_text]"
-			// SKYRAT EDIT END - No greentext
 			count++
 
-	// SKYRAT EDIT REMOVAL START - No greentext
-	/*
 	if(changeling_win)
 		parts += span_greentext("The changeling was successful!")
 	else
 		parts += span_redtext("The changeling has failed.")
-	*/
-	// SKYRAT EDIT REMOVAL END - No greentext
 
 	return parts.Join("<br>")
-	*/
+
 /datum/antagonist/changeling/get_preview_icon()
 	var/icon/final_icon = render_preview_outfit(/datum/outfit/changeling)
 	var/icon/split_icon = render_preview_outfit(/datum/outfit/job/engineer)

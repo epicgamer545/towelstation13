@@ -99,7 +99,6 @@
 	var/obj/item/radio/radio
 	var/radio_key = /obj/item/encryptionkey/headset_med
 	var/radio_channel = RADIO_CHANNEL_MEDICAL
-	vent_movement = NONE
 
 	/// Visual content - Occupant
 	var/atom/movable/visual/cryo_occupant/occupant_vis
@@ -112,6 +111,16 @@
 	fair_market_price = 10
 	payment_department = ACCOUNT_MED
 
+	/// Reference to the datum connector we're using to interface with the pipe network
+	var/datum/gas_machine_connector/internal_connector
+	/// Check if the machine has been turned on
+	var/on = FALSE
+
+
+/datum/armor/unary_cryo_cell
+	energy = 100
+	fire = 30
+	acid = 30
 
 /obj/machinery/cryo_cell/Initialize(mapload)
 	. = ..()
