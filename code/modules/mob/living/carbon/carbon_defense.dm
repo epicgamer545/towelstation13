@@ -145,41 +145,6 @@
 	//SKYRAT EDIT ADDITION END
 
 	var/extra_wound_details = ""
-	if(I.damtype == BRUTE && hit_bodypart.can_dismember())
-		var/mangled_state = hit_bodypart.get_mangled_state()
-		var/bio_state = hit_bodypart.biological_state
-		if((mangled_state & BODYPART_MANGLED_EXTERIOR) && (mangled_state & BODYPART_MANGLED_INTERIOR))
-			extra_wound_details = ", threatening to sever it entirely"
-		else if((mangled_state & BODYPART_MANGLED_EXTERIOR && I.get_sharpness()) || ((mangled_state & BODYPART_MANGLED_INTERIOR) && (bio_state & BIO_BONE) && !(bio_state & BIO_FLESH)))
-			extra_wound_details = ", [I.get_sharpness() == SHARP_EDGED ? "slicing" : "piercing"] through to the bone"
-		else if((mangled_state & BODYPART_MANGLED_INTERIOR && I.get_sharpness()) || ((mangled_state & BODYPART_MANGLED_EXTERIOR) && (bio_state & BIO_FLESH) && !(bio_state & BIO_BONE)))
-			extra_wound_details = ", [I.get_sharpness() == SHARP_EDGED ? "slicing" : "piercing"] at the remaining tissue"
-
-	var/message_hit_area = ""
-	if(hit_area)
-		message_hit_area = " in the [hit_area]"
-	var/attack_message_spectator = "[src] [message_verb_continuous][message_hit_area] with [I][extra_wound_details]!"
-	var/attack_message_victim = "You're [message_verb_continuous][message_hit_area] with [I][extra_wound_details]!"
-	var/attack_message_attacker = "You [message_verb_simple] [src][message_hit_area] with [I]!"
-	if(user in viewers(src, null))
-		attack_message_spectator = "[user] [message_verb_continuous] [src][message_hit_area] with [I][extra_wound_details]!"
-		attack_message_victim = "[user] [message_verb_continuous] you[message_hit_area] with [I][extra_wound_details]!"
-	if(user == src)
-		attack_message_victim = "You [message_verb_simple] yourself[message_hit_area] with [I][extra_wound_details]!"
-	visible_message(span_danger("[attack_message_spectator]"),\
-		span_userdanger("[attack_message_victim]"), null, COMBAT_MESSAGE_RANGE, user)
-	if(user != src)
-		to_chat(user, span_danger("[attack_message_attacker]"))
-	return TRUE
-
-
-/mob/living/carbon/send_item_attack_message(obj/item/I, mob/living/user, hit_area, obj/item/bodypart/hit_bodypart)
-	if(!I.force && !length(I.attack_verb_simple) && !length(I.attack_verb_continuous))
-		return
-	var/message_verb_continuous = length(I.attack_verb_continuous) ? "[pick(I.attack_verb_continuous)]" : "attacks"
-	var/message_verb_simple = length(I.attack_verb_simple) ? "[pick(I.attack_verb_simple)]" : "attack"
-
-	var/extra_wound_details = ""
 
 	if(I.damtype == BRUTE && hit_bodypart.can_dismember())
 
@@ -479,21 +444,27 @@
 			C.electrocute_act(shock_damage*0.75, src, 1, flags, jitter_time, stutter_time, stun_duration)
 	//Stun
 	var/should_stun = (!(flags & SHOCK_TESLA) || siemens_coeff > 0.5) && !(flags & SHOCK_NOSTUN)
-	if(should_stun)
-		StaminaKnockdown(10, TRUE)
-		//Paralyze(40) - SKYRAT EDIT REMOVAL
+	var/paralyze = !(flags & SHOCK_KNOCKDOWN)
+	var/immediately_stun = should_stun && !(flags & SHOCK_DELAY_STUN)
+	if (immediately_stun)
+		if (paralyze)
+			StaminaKnockdown(stun_duration / 4) // SKYRAT EDIT CHANGE - ORIGINAL: Paralyze(40)
+		else
+			Knockdown(stun_duration)
 	//Jitter and other fluff.
 	do_jitter_animation(300)
-	adjust_jitter(20 SECONDS)
-	adjust_stutter(4 SECONDS)
-	addtimer(CALLBACK(src, PROC_REF(secondary_shock), should_stun), 2 SECONDS)
+	adjust_jitter(jitter_time)
+	adjust_stutter(stutter_time)
+	if (should_stun)
+		addtimer(CALLBACK(src, PROC_REF(secondary_shock), paralyze, stun_duration * 1.5), 2 SECONDS)
 	return shock_damage
 
 ///Called slightly after electrocute act to apply a secondary stun.
-/mob/living/carbon/proc/secondary_shock(should_stun)
-	if(should_stun)
-		//Paralyze(60) - SKYRAT EDIT REMOVAL
-		StaminaKnockdown(10, TRUE) //SKYRAT EDIT ADDITION
+/mob/living/carbon/proc/secondary_shock(paralyze, stun_duration)
+	if (paralyze)
+		StaminaKnockdown(stun_duration / 6) // SKYRAT EDIT CHANGE - ORIGINAL: Paralyze(60)
+	else
+		Knockdown(stun_duration)
 
 /mob/living/carbon/proc/help_shake_act(mob/living/carbon/helper)
 	var/nosound = FALSE //SKYRAT EDIT ADDITION - EMOTES
@@ -628,13 +599,6 @@
 
 	if(!nosound) //SKYRAT EDIT ADDITION - EMOTES
 		playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, TRUE, -1)
-
-	// Shake animation
-	if (incapacitated())
-		var/direction = prob(50) ? -1 : 1
-		animate(src, pixel_x = pixel_x + SHAKE_ANIMATION_OFFSET * direction, time = 1, easing = QUAD_EASING | EASE_OUT, flags = ANIMATION_PARALLEL)
-		animate(pixel_x = pixel_x - (SHAKE_ANIMATION_OFFSET * 2 * direction), time = 1)
-		animate(pixel_x = pixel_x + SHAKE_ANIMATION_OFFSET * direction, time = 1, easing = QUAD_EASING | EASE_IN)
 
 	// Shake animation
 	if (incapacitated())
@@ -807,130 +771,6 @@
 
 	var/obj/item/bodypart/grasped_part = get_bodypart(zone_selected)
 	/*
-	if(!grasped_part?.get_modified_bleed_rate())
-		return
-	var/starting_hand_index = active_hand_index
-	if(starting_hand_index == grasped_part.held_index)
-		to_chat(src, span_danger("You can't grasp your [grasped_part.name] with itself!"))
-		return
-
-	to_chat(src, span_warning("You try grasping at your [grasped_part.name], trying to stop the bleeding..."))
-	if(!do_after(src, 0.75 SECONDS))
-		to_chat(src, span_danger("You fail to grasp your [grasped_part.name]."))
-		return
-
-	var/obj/item/hand_item/self_grasp/grasp = new
-	if(starting_hand_index != active_hand_index || !put_in_active_hand(grasp))
-		to_chat(src, span_danger("You fail to grasp your [grasped_part.name]."))
-		QDEL_NULL(grasp)
-		return
-	grasp.grasp_limb(grasped_part)
-	*/ // SKYRAT EDIT REMOVAL - MODULARIZED INTO grasp.dm's self_grasp_bleeding_limb !! IF THIS PROC IS UPDATED, PUT IT IN THERE !!
-	self_grasp_bleeding_limb(grasped_part, supress_message)
-
-/// an abstract item representing you holding your own limb to staunch the bleeding, see [/mob/living/carbon/proc/grabbedby] will probably need to find somewhere else to put this.
-/obj/item/hand_item/self_grasp
-	name = "self-grasp"
-	desc = "Sometimes all you can do is slow the bleeding."
-	icon_state = "latexballoon"
-	inhand_icon_state = "nothing"
-	slowdown = 0.5
-	item_flags = DROPDEL | ABSTRACT | NOBLUDGEON | SLOWS_WHILE_IN_HAND | HAND_ITEM
-	/// The bodypart we're staunching bleeding on, which also has a reference to us in [/obj/item/bodypart/var/grasped_by]
-	var/obj/item/bodypart/grasped_part
-	/// The carbon who owns all of this mess
-	var/mob/living/carbon/user
-
-/obj/item/hand_item/self_grasp/Destroy()
-	if(user)
-		to_chat(user, span_warning("You stop holding onto your[grasped_part ? " [grasped_part.name]" : "self"]."))
-		UnregisterSignal(user, COMSIG_QDELETING)
-	if(grasped_part)
-		UnregisterSignal(grasped_part, list(COMSIG_CARBON_REMOVE_LIMB, COMSIG_QDELETING))
-		grasped_part.grasped_by = null
-		grasped_part.refresh_bleed_rate()
-	grasped_part = null
-	user = null
-	return ..()
-
-/// The limb or the whole damn person we were grasping got deleted or dismembered, so we don't care anymore
-/obj/item/hand_item/self_grasp/proc/qdel_void()
-	SIGNAL_HANDLER
-	qdel(src)
-
-/// We've already cleared that the bodypart in question is bleeding in [the place we create this][/mob/living/carbon/proc/grabbedby], so set up the connections
-/obj/item/hand_item/self_grasp/proc/grasp_limb(obj/item/bodypart/grasping_part)
-	user = grasping_part.owner
-	if(!istype(user))
-		stack_trace("[src] attempted to try_grasp() with [isdatum(user) ? user.type : isnull(user) ? "null" : user] user")
-		qdel(src)
-		return
-
-	grasped_part = grasping_part
-	grasped_part.grasped_by = src
-	grasped_part.refresh_bleed_rate()
-	RegisterSignal(user, COMSIG_QDELETING, PROC_REF(qdel_void))
-	RegisterSignals(grasped_part, list(COMSIG_CARBON_REMOVE_LIMB, COMSIG_QDELETING), PROC_REF(qdel_void))
-
-	user.visible_message(span_danger("[user] grasps at [user.p_their()] [grasped_part.name], trying to stop the bleeding."), span_notice("You grab hold of your [grasped_part.name] tightly."), vision_distance=COMBAT_MESSAGE_RANGE)
-	playsound(get_turf(src), 'sound/weapons/thudswoosh.ogg', 50, TRUE, -1)
-	return TRUE
-
-/// Randomise a body part and organ of this mob
-/mob/living/carbon/proc/bioscramble(scramble_source)
-	if (run_armor_check(attack_flag = BIO, absorb_text = "Your armor protects you from [scramble_source]!") >= 100)
-		return FALSE
-
-	if (!length(GLOB.bioscrambler_valid_organs) || !length(GLOB.bioscrambler_valid_parts))
-		init_bioscrambler_lists()
-
-	var/changed_something = FALSE
-	var/obj/item/organ/new_organ = pick(GLOB.bioscrambler_valid_organs)
-	var/obj/item/organ/replaced = get_organ_slot(initial(new_organ.slot))
-	if (!replaced || !IS_ROBOTIC_ORGAN(replaced))
-		changed_something = TRUE
-		new_organ = new new_organ()
-		new_organ.replace_into(src)
-
-	var/obj/item/bodypart/new_part = pick(GLOB.bioscrambler_valid_parts)
-	var/obj/item/bodypart/picked_user_part = get_bodypart(initial(new_part.body_zone))
-	if (picked_user_part && BODYTYPE_CAN_BE_BIOSCRAMBLED(picked_user_part.bodytype))
-		changed_something = TRUE
-		new_part = new new_part()
-		new_part.replace_limb(src, special = TRUE)
-		if (picked_user_part)
-			qdel(picked_user_part)
-
-	if (!changed_something)
-		to_chat(src, span_notice("Your augmented body protects you from [scramble_source]!"))
-		return FALSE
-	update_body(TRUE)
-	balloon_alert(src, "something has changed about you")
-	return TRUE
-
-/// Fill in the lists of things we can bioscramble into people
-/mob/living/carbon/proc/init_bioscrambler_lists()
-	var/list/body_parts = typesof(/obj/item/bodypart/chest) + typesof(/obj/item/bodypart/head) + subtypesof(/obj/item/bodypart/arm) + subtypesof(/obj/item/bodypart/leg)
-	for(var/obj/item/bodypart/part as anything in body_parts)
-		if(!is_type_in_typecache(part, GLOB.bioscrambler_parts_blacklist) && BODYTYPE_CAN_BE_BIOSCRAMBLED(initial(part.bodytype)))
-			continue
-		body_parts -= part
-	GLOB.bioscrambler_valid_parts = body_parts
-
-	var/list/organs = subtypesof(/obj/item/organ/internal) + subtypesof(/obj/item/organ/external)
-	for(var/obj/item/organ/organ_type as anything in organs)
-		if(!is_type_in_typecache(organ_type, GLOB.bioscrambler_organs_blacklist) && !(initial(organ_type.organ_flags) & ORGAN_ROBOTIC))
-			continue
-		organs -= organ_type
-	GLOB.bioscrambler_valid_organs = organs
-
-#undef SHAKE_ANIMATION_OFFSET
-
-/mob/living/carbon/grabbedby(mob/living/carbon/user, supress_message = FALSE)
-	if(user != src)
-		return ..()
-
-	var/obj/item/bodypart/grasped_part = get_bodypart(zone_selected)
 	if(!grasped_part?.can_be_grasped())
 		return
 	var/starting_hand_index = active_hand_index
@@ -951,6 +791,8 @@
 		QDEL_NULL(grasp)
 		return
 	grasp.grasp_limb(grasped_part)
+	*/ // SKYRAT EDIT REMOVAL - MODULARIZED INTO grasp.dm's self_grasp_bleeding_limb !! IF THIS PROC IS UPDATED, PUT IT IN THERE !!
+	self_grasp_bleeding_limb(grasped_part, supress_message)
 
 /// If TRUE, the owner of this bodypart can try grabbing it to slow bleeding, as well as various other effects.
 /obj/item/bodypart/proc/can_be_grasped()
@@ -1060,3 +902,5 @@
 			continue
 		organs -= organ_type
 	GLOB.bioscrambler_valid_organs = organs
+
+#undef SHAKE_ANIMATION_OFFSET
