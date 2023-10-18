@@ -438,7 +438,7 @@ GLOBAL_VAR_INIT(hhMysteryRoomNumber, rand(1, 999999))
 				storeRoom()
 
 /area/misc/hilbertshotel/proc/storeRoom()
-	var/roomSize = (reservation.top_right_coords[1]-reservation.bottom_left_turfs[1]+1)*(reservation.top_right_coords[2]-reservation.bottom_left_turfs[2]+1)
+	var/roomSize = (reservation.top_right_turfs[1]-reservation.bottom_left_turfs[1]+1)*(reservation.top_right_turfs[2]-reservation.bottom_left_turfs[2]+1)
 	var/storage[roomSize]
 	var/turfNumber = 1
 	var/obj/item/abstracthotelstorage/storageObj = new(storageTurf)
