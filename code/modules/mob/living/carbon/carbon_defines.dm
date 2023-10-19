@@ -104,7 +104,7 @@
 	/// All of the scars a carbon has afflicted throughout their limbs
 	var/list/all_scars
 
-	/// Assoc list of BODY_ZONE -> WOUND_TYPE. Set when a limb is dismembered, unset when one is attached. Used for determining what scar to add when it comes time to generate them.
+	/// Assoc list of BODY_ZONE -> wounding_type. Set when a limb is dismembered, unset when one is attached. Used for determining what scar to add when it comes time to generate them.
 	var/list/body_zone_dismembered_by
 
 	/// Simple modifier for whether this mob can handle greater or lesser skillchip complexity. See /datum/mutation/human/biotechcompat/ for example.
@@ -128,25 +128,3 @@
 
 
 	var/next_smell = 0 //SKYRAT EDIT ADDITION /// Cooldown for the next smell
-
-	/// Assoc list of BODY_ZONE -> wounding_type. Set when a limb is dismembered, unset when one is attached. Used for determining what scar to add when it comes time to generate them.
-	var/list/body_zone_dismembered_by
-
-	/// Simple modifier for whether this mob can handle greater or lesser skillchip complexity. See /datum/mutation/human/biotechcompat/ for example.
-	var/skillchip_complexity_modifier = 0
-
-	/// Can other carbons be shoved into this one to make it fall?
-	var/can_be_shoved_into = FALSE
-
-	/// Only load in visual organs
-	var/visual_only_organs = FALSE
-
-	/// Stores the result of our last known top_offset generation for optimisation purposes when drawing limb icons.
-	var/last_top_offset
-
-	/// A bitfield of "bodytypes", updated by /obj/item/bodypart/proc/synchronize_bodytypes()
-	var/bodytype = BODYTYPE_HUMANOID | BODYTYPE_ORGANIC
-
-	var/is_leaning = FALSE
-
-	COOLDOWN_DECLARE(bleeding_message_cd)
