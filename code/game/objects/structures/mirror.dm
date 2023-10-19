@@ -305,11 +305,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/mirror/broken, 28)
 	name = "magic mirror"
 	desc = "Turn and face the strange... face."
 	icon_state = "magic_mirror"
-
-	///Flags this race must have to be selectable with this type of mirror.
-	var/race_flags = MIRROR_MAGIC
-	///List of all Races that can be chosen, decided by its Initialize.
-	var/list/selectable_races = list()
+	mirror_options = MAGIC_MIRROR_OPTIONS
+	magical_mirror = TRUE
 
 /obj/structure/mirror/magic/Initialize(mapload)
 	. = ..()
@@ -321,133 +318,23 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/mirror/broken, 28)
 			selectable_races[initial(species_type.name)] = species_type
 	selectable_races = sort_list(selectable_races)
 
-/obj/structure/mirror/magic/attack_hand(mob/user, list/modifiers)
-	. = ..()
-	if(.)
-		return TRUE
-	if(!ishuman(user))
-		return TRUE
+//Magic mirrors can change hair color as well
+/obj/structure/mirror/magic/mirror/change_hair(mob/living/carbon/human/user)
+	var/hairchoice = tgui_alert(user, "Hairstyle or hair color?", "Change Hair", list("Style", "Color"))
+	if(hairchoice == "Style") //So you just want to use a mirror then?
+		return ..()
 
-	var/mob/living/carbon/human/amazed_human = user
-// SKYRAT EDIT BEGIN - Magic Mirror Character Application
-	var/choice
-	var/ask = tgui_alert(user, "Would you like to apply your loaded character?","Confirm", list("Yes!", "No, I want to manually edit my character here."))
+	var/new_hair_color = input(user, "Choose your hair color", "Hair Color", user.hair_color) as color|null
 
-	if(ask == "Yes!")
-		user?.client?.prefs?.safe_transfer_prefs_to(amazed_human)
-	else
-		choice = tgui_input_list(user, "Something to change?", "Magical Grooming", list("name", "race", "gender", "hair", "eyes"))
-// SKYRAT EDIT END
-	if(isnull(choice))
-		return TRUE
-
-	if(!user.can_perform_action(src, FORBID_TELEKINESIS_REACH))
-		return TRUE
-
-	switch(choice)
-		if("name")
-			var/newname = sanitize_name(tgui_input_text(amazed_human, "Who are we again?", "Name change", amazed_human.name, MAX_NAME_LEN), allow_numbers = TRUE) //It's magic so whatever.
-			if(!newname)
-				return TRUE
-			if(!user.can_perform_action(src, FORBID_TELEKINESIS_REACH))
-				return TRUE
-			amazed_human.real_name = newname
-			amazed_human.name = newname
-			if(amazed_human.dna)
-				amazed_human.dna.real_name = newname
-			if(amazed_human.mind)
-				amazed_human.mind.name = newname
-
-		if("race")
-			var/racechoice = tgui_input_list(amazed_human, "What are we again?", "Race change", selectable_races)
-			if(isnull(racechoice))
-				return TRUE
-			if(!selectable_races[racechoice])
-				return TRUE
-			if(!user.can_perform_action(src, FORBID_TELEKINESIS_REACH))
-				return TRUE
-
-			var/datum/species/newrace = selectable_races[racechoice]
-			amazed_human.set_species(newrace, icon_update = FALSE)
-			if(HAS_TRAIT(amazed_human, TRAIT_USES_SKINTONES))
-				var/new_s_tone = tgui_input_list(user, "Choose your skin tone", "Race change", GLOB.skin_tones)
-				if(new_s_tone)
-					amazed_human.skin_tone = new_s_tone
-					amazed_human.dna.update_ui_block(DNA_SKIN_TONE_BLOCK)
-			else if(HAS_TRAIT(amazed_human, TRAIT_MUTANT_COLORS) && !HAS_TRAIT(amazed_human, TRAIT_FIXED_MUTANT_COLORS))
-				var/new_mutantcolor = input(user, "Choose your skin color:", "Race change", amazed_human.dna.features["mcolor"]) as color|null
-				if(!user.can_perform_action(src, FORBID_TELEKINESIS_REACH))
-					return TRUE
-				if(new_mutantcolor)
-					var/temp_hsv = RGBtoHSV(new_mutantcolor)
-
-					if(ReadHSV(temp_hsv)[3] >= ReadHSV("#7F7F7F")[3]) // mutantcolors must be bright
-						amazed_human.dna.features["mcolor"] = sanitize_hexcolor(new_mutantcolor)
-						amazed_human.dna.update_uf_block(DNA_MUTANT_COLOR_BLOCK)
-
-					else
-						to_chat(amazed_human, span_notice("Invalid color. Your color is not bright enough."))
-						return TRUE
-
-			amazed_human.update_body(is_creating = TRUE)
-			amazed_human.update_mutations_overlay() // no hulk lizard
-
-		if("gender")
-			if(!(amazed_human.gender in list(MALE, FEMALE))) //blame the patriarchy
-				return TRUE
-			if(amazed_human.gender == MALE)
-				if(tgui_alert(amazed_human, "Become a Witch?", "Confirmation", list("Yes", "No")) == "Yes")
-					if(!user.can_perform_action(src, FORBID_TELEKINESIS_REACH))
-						return TRUE
-					amazed_human.gender = FEMALE
-					amazed_human.physique = FEMALE
-					to_chat(amazed_human, span_notice("Man, you feel like a woman!"))
-				else
-					return TRUE
-			else
-				if(tgui_alert(amazed_human, "Become a Warlock?", "Confirmation", list("Yes", "No")) == "Yes")
-					if(!user.can_perform_action(src, FORBID_TELEKINESIS_REACH))
-						return TRUE
-					amazed_human.gender = MALE
-					amazed_human.physique = MALE
-					to_chat(amazed_human, span_notice("Whoa man, you feel like a man!"))
-				else
-					return TRUE
-			amazed_human.dna.update_ui_block(DNA_GENDER_BLOCK)
-			amazed_human.update_body()
-			amazed_human.update_mutations_overlay() //(hulk male/female)
-
-		if("hair")
-			var/hairchoice = tgui_alert(amazed_human, "Hairstyle or hair color?", "Change Hair", list("Style", "Color"))
-			if(!user.can_perform_action(src, FORBID_TELEKINESIS_REACH))
-				return TRUE
-			if(hairchoice == "Style") //So you just want to use a mirror then?
-				return ..()
-			else
-				var/new_hair_color = input(amazed_human, "Choose your hair color", "Hair Color",amazed_human.hair_color) as color|null
-				if(!user.can_perform_action(src, FORBID_TELEKINESIS_REACH))
-					return TRUE
-				if(new_hair_color)
-					amazed_human.set_haircolor(sanitize_hexcolor(new_hair_color), update = FALSE)
-					amazed_human.dna.update_ui_block(DNA_HAIR_COLOR_BLOCK)
-				if(amazed_human.gender == MALE)
-					var/new_face_color = input(amazed_human, "Choose your facial hair color", "Hair Color", amazed_human.facial_hair_color) as color|null
-					if(new_face_color)
-						amazed_human.set_facial_haircolor(sanitize_hexcolor(new_face_color), update = FALSE)
-						amazed_human.dna.update_ui_block(DNA_FACIAL_HAIR_COLOR_BLOCK)
-				amazed_human.update_body_parts()
-				amazed_human.update_mutant_bodyparts(force_update = TRUE) /// SKYRAT EDIT - Mirrors are no longer scared of colored ears
-
-		if(BODY_ZONE_PRECISE_EYES)
-			var/new_eye_color = input(amazed_human, "Choose your eye color", "Eye Color", amazed_human.eye_color_left) as color|null
-			if(!user.can_perform_action(src, FORBID_TELEKINESIS_REACH))
-				return TRUE
-			if(new_eye_color)
-				amazed_human.eye_color_left = sanitize_hexcolor(new_eye_color)
-				amazed_human.eye_color_right = sanitize_hexcolor(new_eye_color)
-				amazed_human.dna.update_ui_block(DNA_EYE_COLOR_LEFT_BLOCK)
-				amazed_human.dna.update_ui_block(DNA_EYE_COLOR_RIGHT_BLOCK)
-				amazed_human.update_body()
+	if(new_hair_color)
+		user.set_haircolor(sanitize_hexcolor(new_hair_color), update = FALSE)
+		user.dna.update_ui_block(DNA_HAIR_COLOR_BLOCK)
+	if(user.physique == MALE)
+		var/new_face_color = input(user, "Choose your facial hair color", "Hair Color", user.facial_hair_color) as color|null
+		if(new_face_color)
+			user.set_facial_haircolor(sanitize_hexcolor(new_face_color), update = FALSE)
+			user.dna.update_ui_block(DNA_FACIAL_HAIR_COLOR_BLOCK)
+	user.update_body_parts()
 
 /obj/structure/mirror/magic/lesser/Initialize(mapload)
 	// Roundstart species don't have a flag, so it has to be set on Initialize.
@@ -461,10 +348,11 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/mirror/broken, 28)
 	name = "pride's mirror"
 	desc = "Pride cometh before the..."
 	race_flags = MIRROR_PRIDE
+	mirror_options = PRIDE_MIRROR_OPTIONS
 
-/obj/structure/mirror/magic/pride/attack_hand(mob/user, list/modifiers)
+/obj/structure/mirror/magic/pride/attack_hand(mob/living/carbon/human/user)
 	. = ..()
-	if(.)
+	if(!.)
 		return TRUE
 
 	user.visible_message(span_danger("<B>The ground splits beneath [user] as [user.p_their()] hand leaves the mirror!</B>"), \
@@ -480,3 +368,15 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/mirror/broken, 28)
 	var/turf/open/chasm/new_chasm = user_turf
 	new_chasm.set_target(dest)
 	new_chasm.drop(user)
+
+#undef CHANGE_HAIR
+#undef CHANGE_BEARD
+
+#undef CHANGE_RACE
+#undef CHANGE_SEX
+#undef CHANGE_NAME
+#undef CHANGE_EYES
+
+#undef INERT_MIRROR_OPTIONS
+#undef PRIDE_MIRROR_OPTIONS
+#undef MAGIC_MIRROR_OPTIONS

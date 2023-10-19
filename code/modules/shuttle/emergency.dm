@@ -337,7 +337,7 @@
 
 	. = ..()
 
-/obj/docking_port/mobile/emergency/request(obj/docking_port/stationary/S, area/signal_origin, reason, red_alert, set_coefficient=null)
+/obj/docking_port/mobile/emergency/request(obj/docking_port/stationary/S, area/signal_origin, reason, red_alert, set_coefficient=null, silent=FALSE) //SKYRAT EDIT CHANGE - AUTOTRANSFER
 	if(!isnum(set_coefficient))
 		set_coefficient = SSsecurity_level.current_security_level.shuttle_call_time_mod
 	alert_coeff = set_coefficient

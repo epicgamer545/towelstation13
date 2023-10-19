@@ -118,7 +118,7 @@ GLOBAL_LIST_INIT(admin_verbs_fun, list(
 	/datum/admins/proc/station_traits_panel,
 // Client procs
 	/client/proc/admin_away,
-	/client/proc/add_marked_mob_ability,
+	/client/proc/add_mob_ability,
 	/client/proc/admin_change_sec_level,
 	/client/proc/cinematic,
 	/client/proc/cmd_admin_add_freeform_ai_law,
@@ -133,7 +133,7 @@ GLOBAL_LIST_INIT(admin_verbs_fun, list(
 	/client/proc/mass_zombie_infection,
 	/client/proc/object_say,
 	/client/proc/polymorph_all,
-	/client/proc/remove_marked_mob_ability,
+	/client/proc/remove_mob_ability,
 	/client/proc/reset_ooc,
 	/client/proc/run_weather,
 	/client/proc/set_dynex_scale,

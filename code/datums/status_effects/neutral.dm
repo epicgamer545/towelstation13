@@ -109,14 +109,11 @@
 		for(var/datum/action/cooldown/spell/spell in rewarded.actions)
 			spell.reset_spell_cooldown()
 
-		var/need_mob_update = FALSE
-		need_mob_update += rewarded.adjustBruteLoss(-25, updating_health = FALSE)
-		need_mob_update += rewarded.adjustFireLoss(-25, updating_health = FALSE)
-		need_mob_update += rewarded.adjustToxLoss(-25, updating_health = FALSE)
-		need_mob_update += rewarded.adjustOxyLoss(-25, updating_health = FALSE)
-		need_mob_update += rewarded.adjustCloneLoss(-25, updating_health = FALSE)
-		if(need_mob_update)
-			rewarded.updatehealth()
+		rewarded.adjustBruteLoss(-25)
+		rewarded.adjustFireLoss(-25)
+		rewarded.adjustToxLoss(-25)
+		rewarded.adjustOxyLoss(-25)
+		rewarded.adjustCloneLoss(-25)
 
 // heldup is for the person being aimed at
 /datum/status_effect/grouped/heldup
@@ -503,7 +500,7 @@
 				monkey_tail.Insert(human_mob, drop_if_replaced = FALSE)
 			var/datum/species/human_species = human_mob.dna?.species
 			if(human_species)
-				human_species.randomize_active_features(human_mob)
+				human_species.randomize_features(human_mob)
 				human_species.randomize_active_underwear(human_mob)
 
 			owner.remove_status_effect(/datum/status_effect/eigenstasium)
