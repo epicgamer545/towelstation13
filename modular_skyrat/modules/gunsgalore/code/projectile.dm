@@ -13,9 +13,6 @@
 	// i know that this is probably more with wands and gun mods in mind, but it's a bit silly that the projectile on_hit signal doesn't ping the projectile itself.
 	// maybe we care what the projectile thinks! See about combining these via args some time when it's not 5AM
 	var/obj/item/bodypart/hit_limb
-	if(isliving(target))
-		var/mob/living/L = target
-		hit_limb = L.check_limb_hit(def_zone)
 	SEND_SIGNAL(src, COMSIG_PROJECTILE_SELF_ON_HIT, firer, target, Angle, hit_limb)
 
 	if(QDELETED(src)) // in case one of the above signals deleted the projectile for whatever reason
