@@ -1,6 +1,0 @@
-author: "xPokee"
-delete-after: True
-changes:
-  - balance: "rebalanced random events"
-  - config: "enabled shuttle insurance"
-  - config: "disabled wall fungus"
