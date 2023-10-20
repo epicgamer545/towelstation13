@@ -17,7 +17,7 @@
 		gib_animation()
 
 	ghostize()
-	spill_organs(no_brain, no_organs, no_bodyparts, TRUE) //SKYRAT EDIT CHANGE - ORIGINAL: spill_organs(drop_bitflags)
+	spill_organs(drop_bitflags)
 
 	if(drop_bitflags & DROP_BODYPARTS)
 		spread_bodyparts(drop_bitflags)
