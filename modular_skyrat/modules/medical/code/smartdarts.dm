@@ -92,7 +92,7 @@
 		/datum/reagent/medicine/morphine,
 	)
 
-/obj/projectile/bullet/dart/syringe/dart/on_hit(atom/target, blocked = FALSE)
+/obj/projectile/bullet/dart/syringe/dart/on_hit(atom/target, blocked = FALSE, pierce_hit)
 	if(!iscarbon(target))
 		..(target, blocked)
 		reagents.flags &= ~(NO_REACT)

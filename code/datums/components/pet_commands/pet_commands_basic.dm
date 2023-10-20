@@ -41,15 +41,13 @@
 	radial_icon = 'icons/testing/turf_analysis.dmi'
 	radial_icon_state = "red_arrow"
 	speech_commands = list("heel", "follow")
-	///the behavior we use to follow
-	var/follow_behavior = /datum/ai_behavior/pet_follow_friend
 
 /datum/pet_command/follow/set_command_active(mob/living/parent, mob/living/commander)
 	. = ..()
 	set_command_target(parent, commander)
 
 /datum/pet_command/follow/execute_action(datum/ai_controller/controller)
-	controller.queue_behavior(follow_behavior, BB_CURRENT_PET_TARGET)
+	controller.queue_behavior(/datum/ai_behavior/pet_follow_friend, BB_CURRENT_PET_TARGET)
 	return SUBTREE_RETURN_FINISH_PLANNING
 
 /**
@@ -185,10 +183,11 @@
 	UnregisterSignal(unfriended, COMSIG_ATOM_WAS_ATTACKED)
 
 /datum/pet_command/protect_owner/execute_action(datum/ai_controller/controller)
+	var/datum/targetting_datum/basic/targetting = controller.blackboard[BB_TARGETTING_DATUM]
 	var/mob/living/victim = controller.blackboard[BB_CURRENT_PET_TARGET]
 	if(QDELETED(victim))
 		return
-	if(victim.stat > controller.blackboard[BB_TARGET_MINIMUM_STAT])
+	if(victim.stat > targetting.stat_attack)
 		controller.clear_blackboard_key(BB_ACTIVE_PET_COMMAND)
 		return
 	controller.queue_behavior(protect_behavior, BB_CURRENT_PET_TARGET, BB_PET_TARGETTING_DATUM)

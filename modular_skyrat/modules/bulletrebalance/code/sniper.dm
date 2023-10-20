@@ -14,7 +14,7 @@
 	catastropic_dismemberment = FALSE
 	object_damage = 0
 
-/obj/projectile/bullet/p50/soporific/on_hit(atom/target, blocked = FALSE)
+/obj/projectile/bullet/p50/soporific/on_hit(atom/target, blocked = FALSE, pierce_hit)
 	. = ..()
 	if((blocked != 100) && isliving(target))
 		var/mob/living/living_guy = target
