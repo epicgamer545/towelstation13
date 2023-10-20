@@ -174,11 +174,119 @@
 		))
 	return data
 
+/**
+ * adds an supply pack to the checkout cart
+ * * user - the mobe doing this order
+ * * id - the type of pack to order
+ * * amount - the amount to order. You may not order more then 10 things at once
+ */
+/obj/machinery/computer/cargo/proc/add_item(mob/user, id, amount = 1)
+	if(is_express)
+		return
+	id = text2path(id) || id
+	var/datum/supply_pack/pack = SSshuttle.supply_packs[id]
+	if(!istype(pack))
+		CRASH("Unknown supply pack id given by order console ui. ID: [id]")
+	if(amount > 50 || amount < 1) // Holy shit fuck off
+		CRASH("Invalid amount passed into add_item")
+	if((pack.hidden && !(obj_flags & EMAGGED)) || (pack.contraband && !contraband) || pack.drop_pod_only || (pack.special && !pack.special_enabled))
+		return
 
+	var/name = "*None Provided*"
+	var/rank = "*None Provided*"
+	var/ckey = user.ckey
+	if(ishuman(user))
+		var/mob/living/carbon/human/human = user
+		name = human.get_authentification_name()
+		rank = human.get_assignment(hand_first = TRUE)
+	else if(issilicon(user))
+		name = user.real_name
+		rank = "Silicon"
+
+	var/datum/bank_account/account
+	if(self_paid && isliving(user))
+		var/mob/living/living_user = user
+		var/obj/item/card/id/id_card = living_user.get_idcard(TRUE)
+		if(!istype(id_card))
+			say("No ID card detected.")
+			return
+		if(IS_DEPARTMENTAL_CARD(id_card))
+			say("The [src] rejects [id_card].")
+			return
+		account = id_card.registered_account
+		if(!istype(account))
+			say("Invalid bank account.")
+			return
+		var/list/access = id_card.GetAccess()
+		if(pack.access_view && !(pack.access_view in access))
+			say("[id_card] lacks the requisite access for this purchase.")
+			return
+
+	var/reason = ""
+	if(requestonly && !self_paid)
+		reason = tgui_input_text(user, "Reason", name)
+		if(isnull(reason))
+			return
+
+	if(pack.goody && !self_paid)
+		playsound(src, 'sound/machines/buzz-sigh.ogg', 50, FALSE)
+		say("ERROR: Small crates may only be purchased by private accounts.")
+		return
+
+	for(var/count in 1 to amount)
+		var/obj/item/coupon/applied_coupon
+		for(var/obj/item/coupon/coupon_check in loaded_coupons)
+			if(pack.type == coupon_check.discounted_pack)
+				say("Coupon found! [round(coupon_check.discount_pct_off * 100)]% off applied!")
+				coupon_check.moveToNullspace()
+				applied_coupon = coupon_check
+				break
+
+		//Skyrat Edit Add
+		var/datum/supply_order/SO = new(pack = pack ,orderer = name, orderer_rank = rank, orderer_ckey = ckey, reason = reason, paying_account = account, coupon = applied_coupon, charge_on_purchase = TRUE)
+		//Skyrat Edit End
+		//SKYRAT EDIT - ORIGINAL: var/datum/supply_order/SO = new(pack = pack ,orderer = name, orderer_rank = rank, orderer_ckey = ckey, reason = reason, paying_account = account, coupon = applied_coupon)
+
+		if(requestonly && !self_paid)
+			SSshuttle.request_list += SO
+		else
+			SSshuttle.shopping_list += SO
+
+	if(self_paid)
+		say("Order processed. The price will be charged to [account.account_holder]'s bank account on delivery.")
+	if(requestonly && message_cooldown < world.time)
+		var/message = amount == 1 ? "A new order has been requested." : "[amount] order has been requested."
+		radio.talk_into(src, message, RADIO_CHANNEL_SUPPLY)
+		message_cooldown = world.time + 30 SECONDS
+	. = TRUE
+
+/**
+ * removes an item from the checkout cart
+ * * id - the id of the cart item to remove
+ */
+/obj/machinery/computer/cargo/proc/remove_item(id)
+	for(var/datum/supply_order/order in SSshuttle.shopping_list)
+		if(order.id != id)
+			continue
+		if(order.department_destination)
+			say("Only the department that ordered this item may cancel it.")
+			return
+		if(order.applied_coupon)
+			say("Coupon refunded.")
+			order.applied_coupon.forceMove(get_turf(src))
+		SSshuttle.shopping_list -= order
+		. = TRUE
+		break
 /**
  * maps the ordename displayed on the ui to its supply pack id
  * * order_name - the name of the order
  */
+/obj/machinery/computer/cargo/proc/name_to_id(order_name)
+	for(var/pack in SSshuttle.supply_packs)
+		var/datum/supply_pack/supply = SSshuttle.supply_packs[pack]
+		if(order_name == supply.name)
+			return pack
+	return null
 
 /obj/machinery/computer/cargo/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
@@ -315,3 +423,13 @@
 			. = TRUE
 	if(.)
 		post_signal(cargo_shuttle)
+
+/obj/machinery/computer/cargo/proc/post_signal(command)
+
+	var/datum/radio_frequency/frequency = SSradio.return_frequency(FREQ_STATUS_DISPLAYS)
+
+	if(!frequency)
+		return
+
+	var/datum/signal/status_signal = new(list("command" = command))
+	frequency.post_signal(src, status_signal)
