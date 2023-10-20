@@ -14464,9 +14464,9 @@
 	},
 /area/station/cargo/lobby)
 "ejt" = (
-/obj/machinery/atmospherics/components/unary/cryo_cell,
 /obj/effect/turf_decal/bot,
 /obj/effect/turf_decal/tile/dark_blue/fourcorners,
+/obj/machinery/cryo_cell,
 /turf/open/floor/iron/dark,
 /area/station/medical/medbay/central)
 "eju" = (
@@ -20374,10 +20374,10 @@
 /turf/closed/wall/r_wall,
 /area/station/engineering/atmos/storage/gas)
 "fXS" = (
-/obj/machinery/atmospherics/components/unary/cryo_cell,
 /obj/effect/turf_decal/bot,
 /obj/structure/disposalpipe/segment,
 /obj/effect/turf_decal/tile/dark_blue/fourcorners,
+/obj/machinery/cryo_cell,
 /turf/open/floor/iron/dark,
 /area/station/medical/medbay/central)
 "fXZ" = (
@@ -27988,7 +27988,6 @@
 /obj/effect/turf_decal/trimline/brown/filled/line{
 	dir = 9
 	},
-/obj/machinery/rnd/bepis,
 /turf/open/floor/iron/smooth,
 /area/station/cargo/warehouse)
 "ihy" = (
