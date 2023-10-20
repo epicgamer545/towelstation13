@@ -32,12 +32,25 @@
 /mob/living/basic/faithless/Initialize(mapload)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_SPACEWALK, INNATE_TRAIT)
+	AddElement(/datum/element/door_pryer)
 	AddElement(/datum/element/footstep, FOOTSTEP_MOB_SHOE)
-	AddComponent(/datum/component/pry_open_door)
+	AddElement(/datum/element/mob_grabber, steal_from_others = FALSE)
+
+/mob/living/basic/faithless/melee_attack(atom/target, list/modifiers, ignore_cooldown)
+	. = ..()
+	if (!. || !isliving(target))
+		return
+
+	var/mob/living/living_target = target
+	if (prob(paralyze_chance))
+		living_target.Paralyze(paralyze_duration)
+		living_target.visible_message(span_danger("\The [src] knocks \the [target] down!"), \
+			span_userdanger("\The [src] knocks you down!"))
 
 /datum/ai_controller/basic_controller/faithless
 	blackboard = list(
-		BB_TARGETTING_DATUM = new /datum/targetting_datum/basic/faithless(),
+		BB_TARGETTING_DATUM = new /datum/targetting_datum/basic,
+		BB_TARGET_MINIMUM_STAT = UNCONSCIOUS,
 		BB_LOW_PRIORITY_HUNTING_TARGET = null, // lights
 	)
 
@@ -51,33 +64,3 @@
 		/datum/ai_planning_subtree/find_and_hunt_target/look_for_light_fixtures,
 		/datum/ai_planning_subtree/random_speech/faithless,
 	)
-
-/datum/targetting_datum/basic/faithless
-	stat_attack = UNCONSCIOUS
-
-/datum/ai_planning_subtree/basic_melee_attack_subtree/faithless
-	melee_attack_behavior = /datum/ai_behavior/basic_melee_attack/faithless
-
-/datum/ai_behavior/basic_melee_attack/faithless
-	action_cooldown = 1 SECONDS
-	/// What are the odds we paralyze a target
-	var/paralyze_chance = 12
-	/// How long do we paralyze a target for if we attack them
-	var/paralyze_duration = 2 SECONDS
-
-/datum/ai_behavior/basic_melee_attack/faithless/perform(seconds_per_tick, datum/ai_controller/controller, target_key, targetting_datum_key, hiding_location_key)
-	. = ..()
-	var/atom/target = controller.blackboard[target_key]
-	var/mob/living/living_pawn = controller.pawn
-
-	if(!isliving(target))
-		return
-	var/mob/living/living_target = target
-	if(living_target.pulledby != living_pawn && !HAS_AI_CONTROLLER_TYPE(living_target.pulledby, /datum/ai_controller/basic_controller/faithless)) //Dont steal from my fellow faithless.
-		if(living_pawn.Adjacent(living_target) && isturf(living_target.loc) && living_target.stat == SOFT_CRIT)
-			living_target.grabbedby(living_pawn) //Drag their bodies around as a menace.
-	if(prob(paralyze_chance) && iscarbon(target))
-		var/mob/living/carbon/carbon_target = target
-		carbon_target.Paralyze(paralyze_duration)
-		carbon_target.visible_message(span_danger("\The [living_pawn] knocks down \the [carbon_target]!"), \
-				span_userdanger("\The [living_pawn] knocks you down!"))

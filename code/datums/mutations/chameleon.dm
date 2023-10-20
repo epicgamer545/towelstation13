@@ -19,7 +19,7 @@
 	/// SKYRAT EDIT END
 	owner.alpha = CHAMELEON_MUTATION_DEFAULT_TRANSPARENCY
 	RegisterSignal(owner, COMSIG_MOVABLE_MOVED, PROC_REF(on_move))
-	RegisterSignal(owner, COMSIG_HUMAN_EARLY_UNARMED_ATTACK, PROC_REF(on_attack_hand))
+	RegisterSignal(owner, COMSIG_LIVING_UNARMED_ATTACK, PROC_REF(on_attack_hand))
 
 /datum/mutation/human/chameleon/on_life(seconds_per_tick, times_fired)
 	/// SKYRAT EDIT BEGIN

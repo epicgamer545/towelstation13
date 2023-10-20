@@ -485,8 +485,11 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	else if(old_species.exotic_bloodtype && !exotic_bloodtype)
 		C.dna.blood_type = random_blood_type()
 
-	if(ishuman(C))
-		var/mob/living/carbon/human/human = C
+	//Resets blood if it is excessively high so they don't gib
+	normalize_blood(human_who_gained_species)
+
+	if(ishuman(human_who_gained_species))
+		var/mob/living/carbon/human/human = human_who_gained_species
 		for(var/obj/item/organ/external/organ_path as anything in external_organs)
 			if(!should_external_organ_apply_to(organ_path, human))
 				continue
@@ -872,9 +875,6 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	if(HAS_TRAIT(H, TRAIT_NOBREATH) && (H.health < H.crit_threshold) && !HAS_TRAIT(H, TRAIT_NOCRITDAMAGE))
 		H.adjustBruteLoss(0.5 * seconds_per_tick)
 
-/datum/species/proc/spec_death(gibbed, mob/living/carbon/human/H)
-	return
-
 /datum/species/proc/can_equip(obj/item/I, slot, disable_warning, mob/living/carbon/human/H, bypass_equip_delay_self = FALSE, ignore_equipped = FALSE, indirect_action = FALSE)
 	if(no_equip_flags & slot)
 		if(!I.species_exception || !is_type_in_list(src, I.species_exception))
@@ -1118,9 +1118,6 @@ GLOBAL_LIST_EMPTY(features_by_species)
 // ATTACK PROCS //
 //////////////////
 
-/datum/species/proc/spec_updatehealth(mob/living/carbon/human/H)
-	return
-
 /datum/species/proc/help(mob/living/carbon/human/user, mob/living/carbon/human/target, datum/martial_art/attacker_style)
 	if(SEND_SIGNAL(target, COMSIG_CARBON_PRE_HELP, user, attacker_style) & COMPONENT_BLOCK_HELP_ACT)
 		return TRUE
@@ -1205,7 +1202,6 @@ GLOBAL_LIST_EMPTY(features_by_species)
 
 		target.lastattacker = user.real_name
 		target.lastattackerckey = user.ckey
-		user.dna.species.spec_unarmedattacked(user, target)
 
 		if(user.limb_destroyer)
 			target.dismembering_strike(user, affecting.body_zone)
@@ -1237,9 +1233,6 @@ GLOBAL_LIST_EMPTY(features_by_species)
 			target.StaminaKnockdown(20) //SKYRAT EDIT ADDITION
 			log_combat(user, target, "got a stun punch with their previous punch")
 
-/datum/species/proc/spec_unarmedattacked(mob/living/carbon/human/user, mob/living/carbon/human/target)
-	return
-
 /datum/species/proc/disarm(mob/living/carbon/human/user, mob/living/carbon/human/target, datum/martial_art/attacker_style)
 	if(target.check_block())
 		target.visible_message(span_warning("[user]'s shove is blocked by [target]!"), \
@@ -1255,10 +1248,6 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	if(user.loc == target.loc)
 		return FALSE
 	user.disarm(target)
-
-
-/datum/species/proc/spec_hitby(atom/movable/AM, mob/living/carbon/human/H)
-	return
 
 /datum/species/proc/spec_attack_hand(mob/living/carbon/human/owner, mob/living/carbon/human/target, datum/martial_art/attacker_style, modifiers)
 	if(!istype(owner))
@@ -1441,7 +1430,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 			var/damage_amount = forced ? damage : damage * hit_percent * H.physiology.brain_mod
 			H.adjustOrganLoss(ORGAN_SLOT_BRAIN, damage_amount)
 	SEND_SIGNAL(H, COMSIG_MOB_AFTER_APPLY_DAMAGE, damage, damagetype, def_zone, blocked, wound_bonus, bare_wound_bonus, sharpness, attack_direction, attacking_item)
-	return 1
+	return TRUE
 
 /datum/species/proc/on_hit(obj/projectile/P, mob/living/carbon/human/H)
 	// called when hit by a projectile
@@ -1884,11 +1873,20 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	return
 
 /**
+ * Gets a description of the species' *physical* attributes. What makes playing as one different. Used in magic mirrors.
+ *
+ * Returns a string.
+ */
+
+/datum/species/proc/get_physical_attributes()
+	return "An unremarkable species."
+/**
  * Gets a short description for the specices. Should be relatively succinct.
  * Used in the preference menu.
  *
  * Returns a string.
  */
+
 /datum/species/proc/get_species_description()
 	SHOULD_CALL_PARENT(FALSE)
 
@@ -2392,3 +2390,9 @@ GLOBAL_LIST_EMPTY(features_by_species)
 /datum/species/proc/check_head_flags(check_flags = NONE)
 	var/obj/item/bodypart/head/fake_head = bodypart_overrides[BODY_ZONE_HEAD]
 	return (initial(fake_head.head_flags) & check_flags)
+
+/datum/species/dump_harddel_info()
+	if(harddel_deets_dumped)
+		return
+	harddel_deets_dumped = TRUE
+	return "Gained / Owned: [properly_gained ? "Yes" : "No"]"

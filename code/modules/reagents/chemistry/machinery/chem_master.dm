@@ -69,7 +69,7 @@ GLOBAL_LIST_INIT(chem_master_containers, list(
 	/// Icons for different percentages of buffer reagents
 	var/fill_icon = 'icons/obj/medical/reagent_fillings.dmi'
 	var/fill_icon_state = "chemmaster"
-	var/list/fill_icon_thresholds = list(10,20,30,40,50,60,70,80,90,100)
+	var/static/list/fill_icon_thresholds = list(10, 20, 30, 40, 50, 60, 70, 80, 90, 100)
 	/// Inserted reagent container
 	var/obj/item/reagent_containers/beaker
 	/// Whether separated reagents should be moved back to container or destroyed.
@@ -501,7 +501,7 @@ GLOBAL_LIST_INIT(chem_master_containers, list(
 
 /obj/machinery/chem_master/condimaster/load_printable_containers()
 	printable_containers = list(
-		CAT_CONDIMENTS = GLOB.chem_master_containers[CAT_CONDIMENTS],
+		CAT_CONDIMENTS = GLOB.reagent_containers[CAT_CONDIMENTS],
 	)
 
 #undef TRANSFER_MODE_DESTROY

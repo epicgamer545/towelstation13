@@ -39,8 +39,8 @@
 	AddElement(/datum/element/basic_eating, food_types = target_foods)
 	AddElement(\
 		/datum/element/amputating_limbs,\
-		surgery_verb = "snipping",\
-		target_zones = target_limbs,\
+		surgery_verb = "begins snipping",\
+		target_zones = GLOB.arm_zones,\
 	)
 	charge = new(src)
 	charge.Grant(src)
@@ -73,8 +73,8 @@
 		return
 	var/mob/living/basic/basic_source = source
 	var/mob/living/living_target = target
-	basic_source.melee_attack(living_target)
-	basic_source.ai_controller?.set_blackboard_key(BB_BASIC_MOB_FLEEING, FALSE)
+	basic_source.melee_attack(living_target, ignore_cooldown = TRUE)
+	basic_source.ai_controller?.set_blackboard_key(BB_BASIC_MOB_STOP_FLEEING, TRUE)
 	basic_source.start_pulling(living_target)
 
 /datum/action/cooldown/mob_cooldown/charge/basic_charge/lobster/do_charge(atom/movable/charger, atom/target_atom, delay, past)
