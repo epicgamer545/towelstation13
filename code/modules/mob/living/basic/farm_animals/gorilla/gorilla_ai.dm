@@ -12,7 +12,6 @@
 	idle_behavior = /datum/idle_behavior/idle_random_walk
 
 	planning_subtrees = list(
-		/datum/ai_planning_subtree/run_emote,
 		/datum/ai_planning_subtree/find_food,
 		/datum/ai_planning_subtree/simple_find_target,
 		/datum/ai_planning_subtree/attack_obstacle_in_path/gorilla,

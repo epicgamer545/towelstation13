@@ -15,7 +15,6 @@
 	var/static/list/actions_to_add = list(
 		/datum/action/cooldown/spell/emp/eldritch = BB_GENERIC_ACTION,
 		/datum/action/cooldown/spell/jaunt/ethereal_jaunt/ash = null,
-		/datum/action/cooldown/spell/shapeshift/eldritch = BB_SHAPESHIFT_ACTION,
 	)
 
 /mob/living/basic/heretic_summon/stalker/Initialize(mapload)
@@ -39,7 +38,6 @@
 	idle_behavior = /datum/idle_behavior/idle_random_walk
 	planning_subtrees = list(
 		/datum/ai_planning_subtree/simple_find_target,
-		/datum/ai_planning_subtree/shapechange_ambush,
 		/datum/ai_planning_subtree/use_mob_ability,
 		/datum/ai_planning_subtree/attack_obstacle_in_path,
 		/datum/ai_planning_subtree/basic_melee_attack_subtree,

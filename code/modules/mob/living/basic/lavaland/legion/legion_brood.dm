@@ -28,7 +28,7 @@
 	speak_emote = list("echoes") // who the fuck speaking as this mob it dies 10 seconds after it spawns
 	attack_sound = 'sound/weapons/pierce.ogg'
 	density = FALSE
-	ai_controller = /datum/ai_controller/basic_controller/legion_brood
+	ai_controller = /datum/ai_controller/basic_controller/hivelord
 	/// Reference to a guy who made us
 	var/mob/living/created_by
 

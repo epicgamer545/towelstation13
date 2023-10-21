@@ -19,9 +19,6 @@
 	/// What type of pollutant we spread around as we are grilleed, can be none  // SKYRAT EDIT ADDITION
 	var/pollutant_type // SKYRAT EDIT ADDITION
 
-	/// What type of pollutant we spread around as we are grilleed, can be none  // SKYRAT EDIT ADDITION
-	var/pollutant_type // SKYRAT EDIT ADDITION
-
 /datum/component/grillable/Initialize(cook_result, required_cook_time, positive_result, use_large_steam_sprite, pollutant_type) //SKYRAT EDIT CHANGE
 	. = ..()
 	if(!isitem(parent)) //Only items support grilling at the moment

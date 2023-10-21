@@ -25,7 +25,7 @@
 	throw_blocked_message = "bounces harmlessly off of"
 	crusher_loot = /obj/item/crusher_trophy/legion_skull
 	death_message = "wails in chorus and dissolves into quivering flesh."
-	ai_controller = /datum/ai_controller/basic_controller/legion
+	ai_controller = /datum/ai_controller/basic_controller/hivelord
 	/// What kind of mob do we spawn?
 	var/brood_type = /mob/living/basic/legion_brood
 	/// What kind of corpse spawner do we leave behind on death?
