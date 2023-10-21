@@ -11,7 +11,7 @@
 	light_power = 0.5
 	light_color = "#53fafa"
 	/// Our faction
-	var/faction = FACTION_XEN
+	faction = FACTION_XEN
 	/// Our range to shock folks in.
 	var/shock_range = 6
 	/// Our cooldown on the shocking.

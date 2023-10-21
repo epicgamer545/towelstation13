@@ -2,31 +2,6 @@
 #define MINIMUM_TEMP_DIFFERENCE 25
 #define TEMP_PER_SHOT 30
 
-/obj/item/ammo_casing/energy/medical
-	projectile_type = /obj/projectile/energy/medical/oxygen
-	select_name = "oxygen"
-	fire_sound = 'sound/effects/stealthoff.ogg'
-	e_cost = 120
-	delay = 8
-	harmful = FALSE
-	select_color = "#00d9ffff"
-
-/obj/projectile/energy/medical
-	name = "medical heal shot"
-	icon_state = "blue_laser"
-	damage = 0
-
-/obj/projectile/energy/medical/oxygen
-	name = "oxygen heal shot"
-	var/amount_healed = 10
-
-/obj/projectile/energy/medical/oxygen/on_hit(atom/target, blocked = FALSE, pierce_hit)
-	. = ..()
-	if(!IsLivingHuman(target))
-		return FALSE
-
-	target.adjustOxyLoss(-amount_healed)
-
 /*
 *	PROCS
 */
@@ -52,7 +27,7 @@
 	if(!istype(target, /mob/living/carbon/human))
 		return FALSE
 
-	if(target.stat == DEAD)
+	if(target == DEAD)
 		return FALSE
 	else
 		return TRUE
@@ -238,17 +213,6 @@
 	max_clone = 1/3
 	base_disgust = 2
 
-//Tier II Oxy Projectile
-/obj/item/ammo_casing/energy/medical/oxy2
-	projectile_type = /obj/projectile/energy/medical/oxygen/better
-	select_name = "oxygen II"
-	select_color = "#00d9ffff"
-
-/obj/projectile/energy/medical/oxygen/better
-	name = "strong oxygen heal shot"
-	pass_flags =  UPGRADED_MEDICELL_PASSFLAGS
-	amount_healed = 20
-
 //Tier II Toxin Projectile
 /obj/item/ammo_casing/energy/medical/toxin2
 	projectile_type = /obj/projectile/energy/medical/toxin/better
@@ -307,16 +271,6 @@
 	amount_healed = 15
 	max_clone = 1/9
 	base_disgust = 1
-
-//Tier III Oxy Projectile
-/obj/item/ammo_casing/energy/medical/oxy3
-	projectile_type = /obj/projectile/energy/medical/oxygen/better/best
-	select_name = "oxygen III"
-	select_color = "#00d9ffff"
-
-/obj/projectile/energy/medical/oxygen/better/best
-	name = "powerful oxygen heal shot"
-	amount_healed = 30
 
 //Tier III Toxin Projectile
 /obj/item/ammo_casing/energy/medical/toxin3
@@ -377,28 +331,6 @@
 	else
 		return
 
-//Temprature Adjustment
-/obj/item/ammo_casing/energy/medical/utility/temperature
-	projectile_type = /obj/projectile/energy/medical/utility/temperature
-	select_name = "temperature"
-	select_color = "#fbff00ff"
-
-/obj/projectile/energy/medical/utility/temperature
-	name = "temperature adjustment shot"
-
-/obj/projectile/energy/medical/utility/temperature/on_hit(atom/target, blocked = FALSE, pierce_hit)
-	if(!IsLivingHuman(target))
-		return FALSE
-
-	var/ideal_temp = target.get_body_temp_normal(apply_change=FALSE) //Gets the temperature we should be aiming for.
-	var/current_temp = target.bodytemperature //Retrieves the targets body temperature
-	var/difference = ideal_temp - current_temp
-
-	if(abs(difference) <= MINIMUM_TEMP_DIFFERENCE) //It won't adjust temperature if the difference is too low
-		return FALSE
-
-	target.adjust_bodytemperature(difference < 0 ? -TEMP_PER_SHOT : TEMP_PER_SHOT)
-
 //Surgical Gown Medicell.
 /obj/item/ammo_casing/energy/medical/utility/gown
 	projectile_type = /obj/projectile/energy/medical/utility/gown
@@ -458,10 +390,10 @@
 	for(var/obj/structure/bed/medical/medigun in target.loc) //Prevents multiple beds from being spawned on the same turf
 		return FALSE
 
-	if(HAS_TRAIT(target, TRAIT_FLOORED) || target.resting) //Is the person already on the floor to begin with? Mostly a measure to prevent spamming.
+	if(HAS_TRAIT(target, TRAIT_FLOORED)) //Is the person already on the floor to begin with? Mostly a measure to prevent spamming.
 		var /obj/structure/bed/medical/medigun/created_bed = new /obj/structure/bed/medical/medigun(target.loc)
 
-		if(!target.stat == CONSCIOUS)
+		if(!target == CONSCIOUS)
 			created_bed.buckle_mob(target)
 		return TRUE
 	else
@@ -479,7 +411,7 @@
 /obj/projectile/energy/medical/utility/body_teleporter/on_hit(atom/target, blocked = FALSE, pierce_hit)
 	. = ..()
 
-	if(!ishuman(target) || (target.stat != DEAD && !HAS_TRAIT(target, TRAIT_DEATHCOMA)))
+	if(!ishuman(target) || (target != DEAD && !HAS_TRAIT(target, TRAIT_DEATHCOMA)))
 		return FALSE
 
 	var/mob/living/carbon/body = target
@@ -628,9 +560,6 @@
 			return FALSE
 
 	if(teleportee.GetComponent(/datum/component/medigun_relocation))
-		return FALSE
-
-	if(target.buckled)
 		return FALSE
 
 	if(grace_period)

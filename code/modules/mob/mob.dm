@@ -493,7 +493,7 @@
  *
  * returns 0 if it cannot, 1 if successful
  */
-/mob/proc/equip_to_appropriate_slot(obj/item/W, qdel_on_fail = FALSE, indirect_action = FALSE)
+/mob/proc/equip_to_appropriate_slot(obj/item/W, qdel_on_fail = FALSE, indirect_action = FALSE, blacklist, initial) //SKYRAT EDIT CHANGE
 	if(!istype(W))
 		return FALSE
 	var/slot_priority = W.slot_equipment_priority
@@ -614,10 +614,12 @@
 	else
 		result = examinify.examine(src) // if a tree is examined but no client is there to see it, did the tree ever really exist?
 
+	//SKYRAT EDIT CHANGE
 	if(result.len)
-		for(var/i in 1 to (length(result) - 1))
-			result[i] += "\n"
-	else
+		for(var/i = 1; i <= length(result); i++)
+			if(result[i] != EXAMINE_SECTION_BREAK)
+				result[i] += "\n"
+			else
 				// remove repeated <hr's> and ones on the ends.
 				if((i == 1) || (i == length(result)) || (result[i - 1] == EXAMINE_SECTION_BREAK))
 					result.Cut(i, i + 1)

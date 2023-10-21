@@ -155,9 +155,6 @@ GLOBAL_LIST_INIT(turfs_pass_meteor, typecacheof(list(
 
 #define ismining(A) (istype(A, /mob/living/simple_animal/hostile/asteroid) || istype(A, /mob/living/basic/mining))
 
-/// constructs, which are both simple and basic for now
-#define isconstruct(A) (istype(A, /mob/living/simple_animal/hostile/construct) || istype(A, /mob/living/basic/construct))
-
 //Simple animals
 #define isanimal(A) (istype(A, /mob/living/simple_animal))
 
@@ -185,11 +182,13 @@ GLOBAL_LIST_INIT(turfs_pass_meteor, typecacheof(list(
 
 #define isguardian(A) (istype(A, /mob/living/simple_animal/hostile/guardian))
 
+#define isconstruct(A) (istype(A, /mob/living/simple_animal/hostile/construct))
+
 #define ismegafauna(A) (istype(A, /mob/living/simple_animal/hostile/megafauna))
 
 #define isclown(A) (istype(A, /mob/living/basic/clown))
 
-#define isspider(A) (istype(A, /mob/living/basic/spider))
+#define isspider(A) (istype(A, /mob/living/basic/spider/giant))
 
 
 //Misc mobs
@@ -288,6 +287,8 @@ GLOBAL_LIST_INIT(glass_sheet_types, typecacheof(list(
 #define iseffect(O) (istype(O, /obj/effect))
 
 #define isholoeffect(O) (istype(O, /obj/effect/holodeck_effect))
+
+#define isblobmonster(O) (istype(O, /mob/living/simple_animal/hostile/blob))
 
 #define isshuttleturf(T) (!isnull(T.depth_to_find_baseturf(/turf/baseturf_skipover/shuttle)))
 

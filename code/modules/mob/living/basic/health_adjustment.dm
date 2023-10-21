@@ -33,14 +33,6 @@
 	else if(damage_coeff[BURN])
 		. = adjust_health(amount * damage_coeff[BURN] * CONFIG_GET(number/damage_multiplier), updating_health, forced)
 
-/mob/living/basic/adjustOxyLoss(amount, updating_health = TRUE, forced = FALSE, required_biotype, required_respiration_type)
-	if(!can_adjust_oxy_loss(amount, forced, required_biotype, required_respiration_type))
-		return 0
-	if(forced)
-		. = adjust_health(amount * CONFIG_GET(number/damage_multiplier), updating_health, forced)
-	else if(damage_coeff[OXY])
-		. = adjust_health(amount * damage_coeff[OXY] * CONFIG_GET(number/damage_multiplier), updating_health, forced)
-
 /mob/living/basic/adjustToxLoss(amount, updating_health = TRUE, forced = FALSE, required_biotype)
 	if(!can_adjust_tox_loss(amount, forced, required_biotype))
 		return 0

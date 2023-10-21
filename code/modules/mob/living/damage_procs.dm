@@ -196,50 +196,42 @@
 /mob/living/proc/getOxyLoss()
 	return oxyloss
 
-/mob/living/proc/can_adjust_oxy_loss(amount, forced, required_biotype, required_respiration_type)
+/mob/living/proc/adjustOxyLoss(amount, updating_health = TRUE, forced = FALSE, required_biotype, required_respiration_type = ALL)
+
+	SEND_SIGNAL(src, COMSIG_MOB_LOSS_OXY, amount) //SKYRAT EDIT ADDITION
 	if(!forced)
 		if(status_flags & GODMODE)
-			return FALSE
-		if (required_respiration_type)
-			var/obj/item/organ/internal/lungs/affected_lungs = get_organ_slot(ORGAN_SLOT_LUNGS)
-			if(isnull(affected_lungs))
-				if(!(mob_respiration_type & required_respiration_type))  // if the mob has no lungs, use mob_respiration_type
-					return FALSE
-			else
-				if(!(affected_lungs.respiration_type & required_respiration_type)) // otherwise use the lungs' respiration_type
-					return FALSE
-	if(SEND_SIGNAL(src, COMSIG_LIVING_ADJUST_OXY_DAMAGE, OXY, amount, forced) & COMPONENT_IGNORE_CHANGE)
-		return FALSE
-	return TRUE
+			return
 
-/mob/living/proc/adjustOxyLoss(amount, updating_health = TRUE, forced = FALSE, required_biotype = ALL, required_respiration_type = ALL)
-	if(!can_adjust_oxy_loss(amount, forced, required_biotype, required_respiration_type))
-		return 0
+		var/obj/item/organ/internal/lungs/affected_lungs = get_organ_slot(ORGAN_SLOT_LUNGS)
+		if(isnull(affected_lungs))
+			if(!(mob_respiration_type & required_respiration_type))  // if the mob has no lungs, use mob_respiration_type
+				return
+		else
+			if(!(affected_lungs.respiration_type & required_respiration_type)) // otherwise use the lungs' respiration_type
+				return
+
 	. = oxyloss
 	oxyloss = clamp((oxyloss + (amount * CONFIG_GET(number/damage_multiplier))), 0, maxHealth * 2)
-	. -= oxyloss
-	if(!.) // no change, no need to update
-		return FALSE
 	if(updating_health)
 		updatehealth()
 
-/mob/living/proc/setOxyLoss(amount, updating_health = TRUE, forced = FALSE, required_biotype = ALL, required_respiration_type = ALL)
+
+/mob/living/proc/setOxyLoss(amount, updating_health = TRUE, forced = FALSE, required_biotype, required_respiration_type = ALL)
 	if(!forced)
 		if(status_flags & GODMODE)
-			return FALSE
+			return
 
 		var/obj/item/organ/internal/lungs/affected_lungs = get_organ_slot(ORGAN_SLOT_LUNGS)
 		if(isnull(affected_lungs))
 			if(!(mob_respiration_type & required_respiration_type))
-				return FALSE
+				return
 		else
 			if(!(affected_lungs.respiration_type & required_respiration_type))
-				return FALSE
+				return
+
 	. = oxyloss
 	oxyloss = amount
-	. -= oxyloss
-	if(!.) // no change, no need to update
-		return FALSE
 	if(updating_health)
 		updatehealth()
 
