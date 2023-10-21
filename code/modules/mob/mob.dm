@@ -266,7 +266,7 @@
  * * vision_distance (optional) define how many tiles away the message can be seen.
  * * ignored_mob (optional) doesn't show any message to a given mob if TRUE.
  */
-/atom/proc/visible_message(message, self_message, blind_message, vision_distance = DEFAULT_MESSAGE_RANGE, list/ignored_mobs, visible_message_flags = NONE, separation = " ") // SKYRAT EDIT ADDITION - SEPERATION
+/atom/proc/visible_message(message, self_message, blind_message, vision_distance = DEFAULT_MESSAGE_RANGE, list/ignored_mobs, visible_message_flags = NONE)
 	var/turf/T = get_turf(src)
 	if(!T)
 		return
@@ -292,7 +292,7 @@
 
 	var/raw_msg = message
 	if(visible_message_flags & EMOTE_MESSAGE)
-		message = "<span class='emote'><b>[src]</b>[separation][message]</span>" // SKYRAT EDIT - Better emotes
+		message = "<span class='emote'><b>[src]</b> [message]</span>"
 
 	for(var/mob/M in hearers)
 		if(!M.client)
@@ -337,7 +337,7 @@
  * * deaf_message (optional) is what deaf people will see.
  * * hearing_distance (optional) is the range, how many tiles away the message can be heard.
  */
-/atom/proc/audible_message(message, deaf_message, hearing_distance = DEFAULT_MESSAGE_RANGE, self_message, audible_message_flags = NONE, separation = " ") // SKYRAT EDIT ADDITION - Better emotes
+/atom/proc/audible_message(message, deaf_message, hearing_distance = DEFAULT_MESSAGE_RANGE, self_message, audible_message_flags = NONE)
 	var/list/hearers = get_hearers_in_view(hearing_distance, src)
 
 	//SKYRAT EDIT ADDITION BEGIN - AI QoL
@@ -355,7 +355,7 @@
 		hearers -= src
 	var/raw_msg = message
 	if(audible_message_flags & EMOTE_MESSAGE)
-		message = "<span class='emote'><b>[src]</b>[separation][message]</span>" //SKYRAT EDIT CHANGE
+		message = "<span class='emote'><b>[src]</b> [message]</span>"
 	for(var/mob/M in hearers)
 		if(audible_message_flags & EMOTE_MESSAGE && runechat_prefs_check(M, audible_message_flags) && M.can_hear())
 			M.create_chat_message(src, raw_message = raw_msg, runechat_flags = audible_message_flags)
@@ -493,8 +493,7 @@
  *
  * returns 0 if it cannot, 1 if successful
  */
-/mob/proc/equip_to_appropriate_slot(obj/item/W, qdel_on_fail = FALSE, indirect_action = FALSE, blacklist, initial) //SKYRAT EDIT CHANGE
-
+/mob/proc/equip_to_appropriate_slot(obj/item/W, qdel_on_fail = FALSE, indirect_action = FALSE)
 	if(!istype(W))
 		return FALSE
 	var/slot_priority = W.slot_equipment_priority
@@ -511,7 +510,7 @@
 			ITEM_SLOT_DEX_STORAGE\
 		)
 
-	//SKYRAT EDIT CHANGE BEGIN - CUSTOMIZATION
+//SKYRAT EDIT CHANGE BEGIN - CUSTOMIZATION
 	/*
 	for(var/slot in slot_priority)
 		if(equip_to_slot_if_possible(W, slot, FALSE, TRUE, TRUE, FALSE, FALSE)) //qdel_on_fail = FALSE; disable_warning = TRUE; redraw_mob = TRUE;
@@ -615,12 +614,10 @@
 	else
 		result = examinify.examine(src) // if a tree is examined but no client is there to see it, did the tree ever really exist?
 
-	//SKYRAT EDIT CHANGE
 	if(result.len)
-		for(var/i = 1; i <= length(result); i++)
-			if(result[i] != EXAMINE_SECTION_BREAK)
-				result[i] += "\n"
-			else
+		for(var/i in 1 to (length(result) - 1))
+			result[i] += "\n"
+	else
 				// remove repeated <hr's> and ones on the ends.
 				if((i == 1) || (i == length(result)) || (result[i - 1] == EXAMINE_SECTION_BREAK))
 					result.Cut(i, i + 1)
@@ -828,7 +825,7 @@
 	if(!check_respawn_delay())
 		return
 
-	//SKYRAT EDIT ADDITION
+//SKYRAT EDIT ADDITION
 	if(ckey)
 		if(is_banned_from(ckey, BAN_RESPAWN))
 			to_chat(usr, "<span class='boldnotice'>You are respawn banned, you can't respawn!</span>")
@@ -977,45 +974,10 @@
 /// Performs the actual ritual of swapping hands, such as setting the held index variables
 /mob/proc/perform_hand_swap(held_index)
 	PROTECTED_PROC(TRUE)
-	if (!HAS_TRAIT(src, TRAIT_CAN_HOLD_ITEMS))
-		return FALSE
-
-	if(!held_index)
-		held_index = (active_hand_index % held_items.len) + 1
-
-	if(!isnum(held_index))
-		CRASH("You passed [held_index] into swap_hand instead of a number. WTF man")
-
-	var/previous_index = active_hand_index
-	active_hand_index = held_index
-	if(hud_used)
-		var/atom/movable/screen/inventory/hand/held_location
-		held_location = hud_used.hand_slots["[previous_index]"]
-		if(!isnull(held_location))
-			held_location.update_appearance()
-		held_location = hud_used.hand_slots["[held_index]"]
-		if(!isnull(held_location))
-			held_location.update_appearance()
 	return TRUE
 
-/mob/proc/activate_hand(selected_hand)
-	if (!HAS_TRAIT(src, TRAIT_CAN_HOLD_ITEMS))
-		return
-
-	if(!selected_hand)
-		selected_hand = (active_hand_index % held_items.len)+1
-
-	if(istext(selected_hand))
-		selected_hand = lowertext(selected_hand)
-		if(selected_hand == "right" || selected_hand == "r")
-			selected_hand = 2
-		if(selected_hand == "left" || selected_hand == "l")
-			selected_hand = 1
-
-	if(selected_hand != active_hand_index)
-		swap_hand(selected_hand)
-	else
-		mode()
+/mob/proc/activate_hand(selhand)
+	return
 
 /mob/proc/assess_threat(judgement_criteria, lasercolor = "", datum/callback/weaponcheck=null) //For sec bot threat assessment
 	return 0
@@ -1195,7 +1157,21 @@
 ///Can this mob use storage
 /mob/proc/canUseStorage()
 	return FALSE
-
+/**
+ * Check if the other mob has any factions the same as us
+ *
+ * If exact match is set, then all our factions must match exactly
+ */
+/mob/proc/faction_check_mob(mob/target, exact_match)
+	if(exact_match) //if we need an exact match, we need to do some bullfuckery.
+		var/list/faction_src = faction.Copy()
+		var/list/faction_target = target.faction.Copy()
+		if(!("[REF(src)]" in faction_target)) //if they don't have our ref faction, remove it from our factions list.
+			faction_src -= "[REF(src)]" //if we don't do this, we'll never have an exact match.
+		if(!("[REF(target)]" in faction_src))
+			faction_target -= "[REF(target)]" //same thing here.
+		return faction_check(faction_src, faction_target, TRUE)
+	return faction_check(faction, target.faction, FALSE)
 /*
  * Compare two lists of factions, returning true if any match
  *
@@ -1439,7 +1415,6 @@
 	VV_DROPDOWN_OPTION(VV_HK_OFFER_GHOSTS, "Offer Control to Ghosts")
 	VV_DROPDOWN_OPTION(VV_HK_VIEW_PLANES, "View/Edit Planes")
 
-
 /mob/vv_do_topic(list/href_list)
 	. = ..()
 	if(href_list[VV_HK_REGEN_ICONS])
@@ -1494,7 +1469,6 @@
 		if(!check_rights(R_DEBUG))
 			return
 		usr.client.edit_plane_masters(src)
-
 /**
  * extra var handling for the logging var
  */

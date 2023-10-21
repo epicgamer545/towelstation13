@@ -226,7 +226,6 @@
 	RegisterSignal(owner, COMSIG_CLICK_SHIFT, PROC_REF(examinate_check))
 	RegisterSignal(owner, COMSIG_CARBON_REGENERATE_LIMBS, PROC_REF(unlist_head))
 	RegisterSignal(owner, COMSIG_LIVING_REVIVE, PROC_REF(retrieve_head))
-	RegisterSignal(owner, COMSIG_HUMAN_PREFS_APPLIED, PROC_REF(update_prefs_name))
 	become_hearing_sensitive(ROUNDSTART_TRAIT)
 
 /obj/item/dullahan_relay/Destroy()
