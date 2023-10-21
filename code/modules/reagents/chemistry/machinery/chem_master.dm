@@ -2,6 +2,10 @@
 #define TRANSFER_MODE_MOVE 1
 #define TARGET_BEAKER "beaker"
 #define TARGET_BUFFER "buffer"
+#define CAT_CONDIMENTS "condiments"
+#define CAT_TUBES "tubes"
+#define CAT_PILLS "pills"
+#define CAT_PATCHES "patches"
 #define CAT_HYPOS "hypos" // SKYRAT EDIT ADDITION
 #define CAT_DARTS "darts" // SKYRAT EDIT ADDITION
 

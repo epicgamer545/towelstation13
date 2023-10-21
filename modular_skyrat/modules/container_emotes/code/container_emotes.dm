@@ -102,9 +102,9 @@
 		return FALSE
 
 	if(emote_type == EMOTE_AUDIBLE)
-		picked_loc.audible_message(message = container_message, self_message = container_message, audible_message_flags = EMOTE_MESSAGE, separation = space)
+		picked_loc.audible_message(message = container_message, self_message = container_message, audible_message_flags = EMOTE_MESSAGE)
 
 	else if (emote_type == EMOTE_VISIBLE)
-		picked_loc.visible_message(message = container_message, self_message = container_message, visible_message_flags = EMOTE_MESSAGE, separation = space)
+		picked_loc.visible_message(message = container_message, self_message = container_message, visible_message_flags = EMOTE_MESSAGE)
 
 #undef EXME_MAX_LOC_RECURSION

@@ -112,7 +112,7 @@
 	damage_type = STAMINA
 	armor_flag = BIO
 
-/obj/projectile/neurotoxin/on_hit(atom/target, blocked = FALSE)
+/obj/projectile/neurotoxin/on_hit(atom/target, blocked = FALSE, pierce_hit)
 	if(isalien(target))
 		damage = 0
 	return ..()
