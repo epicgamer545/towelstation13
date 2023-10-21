@@ -45,14 +45,6 @@
 	reagents_list = list(/datum/reagent/medicine/c2/multiver = 10)
 	build_path = /obj/item/weaponcell/medical/toxin/tier_2
 
-/datum/design/medicell/oxy2
-	name = "Oxygen II Medicell"
-	desc = "Gives cell-loaded mediguns improved oxygen deprivation healing functionality."
-	id = "oxy2medicell"
-	materials = list(/datum/material/plastic = SHEET_MATERIAL_AMOUNT, /datum/material/glass = SHEET_MATERIAL_AMOUNT, /datum/material/plasma = HALF_SHEET_MATERIAL_AMOUNT)
-	reagents_list = list(/datum/reagent/medicine/c2/convermol = 10)
-	build_path = /obj/item/weaponcell/medical/oxygen/tier_2
-
 //Tier 3 Medicells//
 
 /datum/design/medicell/brute3
@@ -79,13 +71,6 @@
 	reagents_list = list(/datum/reagent/medicine/pen_acid = 10)
 	build_path = /obj/item/weaponcell/medical/toxin/tier_3
 
-/datum/design/medicell/oxy3
-	name = "Oxygen III Medicell"
-	desc = "Gives cell-loaded mediguns advanced oxygen deprivation healing functionality."
-	id = "oxy3medicell"
-	materials = list(/datum/material/plastic = SHEET_MATERIAL_AMOUNT, /datum/material/glass = SHEET_MATERIAL_AMOUNT, /datum/material/plasma = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/diamond = SMALL_MATERIAL_AMOUNT * 5)
-	build_path = /obj/item/weaponcell/medical/oxygen/tier_3
-	reagents_list = list(/datum/reagent/medicine/salbutamol = 10)
 
 //Utility Medicells
 
@@ -100,14 +85,6 @@
 	materials = list(/datum/material/plastic = SHEET_MATERIAL_AMOUNT, /datum/material/glass = SHEET_MATERIAL_AMOUNT, /datum/material/plasma = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/diamond = SMALL_MATERIAL_AMOUNT * 5)
 	build_path = /obj/item/weaponcell/medical/utility/clotting
 	reagents_list = list(/datum/reagent/medicine/salglu_solution = 5, /datum/reagent/blood = 5)
-
-/datum/design/medicell/utility/temp
-	name = "Temperature Adjustment Medicell"
-	desc = "Gives cell loaded-mediguns projectile-based body temperature regulation functionality."
-	id = "tempmedicell"
-	materials = list(/datum/material/plastic = SHEET_MATERIAL_AMOUNT, /datum/material/glass = SHEET_MATERIAL_AMOUNT, /datum/material/plasma = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/diamond = SMALL_MATERIAL_AMOUNT * 5)
-	build_path = /obj/item/weaponcell/medical/utility/temperature
-	reagents_list = list(/datum/reagent/medicine/leporazine = 10)
 
 /datum/design/medicell/utility/gown
 	name = "Hardlight Gown Medicell"

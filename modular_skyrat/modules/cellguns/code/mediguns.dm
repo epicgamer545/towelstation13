@@ -196,13 +196,6 @@
 	icon_state = "Toxin2"
 	ammo_type = /obj/item/ammo_casing/energy/medical/toxin2
 
-// Oxygen II
-/obj/item/weaponcell/medical/oxygen/tier_2
-	name = "oxygen II medicell"
-	desc = "A small cell with a notable blue glow. Can be used on mediguns to enable improved oxygen deprivation healing functionality."
-	icon_state = "Oxy2"
-	ammo_type = /obj/item/ammo_casing/energy/medical/oxy2
-
 /*
 * Tier III Cells
 */
@@ -232,13 +225,6 @@
 	icon_state = "Toxin3"
 	ammo_type = /obj/item/ammo_casing/energy/medical/toxin3
 
-// Oxygen III
-/obj/item/weaponcell/medical/oxygen/tier_3
-	name = "oxygen III medicell"
-	desc = "A small cell with an intense blue glow and a reinforced casing. Can be used on mediguns to enable advanced oxygen deprivation healing functionality."
-	icon_state = "Oxy3"
-	ammo_type = /obj/item/ammo_casing/energy/medical/oxy3
-
 /*
 * Utility Cells
 */
@@ -252,12 +238,6 @@
 	desc = "A medicell designed to help deal with bleeding patients."
 	icon_state = "clotting"
 	ammo_type = /obj/item/ammo_casing/energy/medical/utility/clotting
-
-/obj/item/weaponcell/medical/utility/temperature
-	name = "temperature readjustment medicell"
-	desc = "A medicell that adjusts a patient's temperature to the sweet spot between \"blood frozen in veins\" and \"blood flash-boiling in veins\"."
-	icon_state = "temperature"
-	ammo_type = /obj/item/ammo_casing/energy/medical/utility/temperature
 
 /obj/item/weaponcell/medical/utility/hardlight_gown
 	name = "hardlight gown medicell"
