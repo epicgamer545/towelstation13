@@ -411,6 +411,7 @@ Used by the AI doomsday and the self-destruct nuke.
 	// load the maps
 	for (var/P in parsed_maps)
 		var/datum/parsed_map/pm = P
+		pm.turf_blacklist = turf_blacklist // SKYRAT EDIT ADDITION - apply blacklist
 		var/bounds = pm.bounds
 		var/x_offset = bounds ? round(world.maxx / 2 - bounds[MAP_MAXX] / 2) + 1 : 1
 		var/y_offset = bounds ? round(world.maxy / 2 - bounds[MAP_MAXY] / 2) + 1 : 1
@@ -929,8 +930,6 @@ GLOBAL_LIST_EMPTY(the_station_areas)
 
 /datum/controller/subsystem/mapping/proc/lazy_load_template(template_key, force = FALSE)
 	RETURN_TYPE(/datum/turf_reservation)
-
-	UNTIL(initialized)
 	var/static/lazy_loading = FALSE
 	UNTIL(!lazy_loading)
 
