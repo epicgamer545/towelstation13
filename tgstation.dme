@@ -6671,6 +6671,7 @@
 #include "modular_skyrat\modules\customization\modules\clothing\masks\breath.dm"
 #include "modular_skyrat\modules\customization\modules\clothing\masks\gas_filter.dm"
 #include "modular_skyrat\modules\customization\modules\clothing\masks\gasmask.dm"
+#include "modular_skyrat\modules\customization\modules\clothing\masks\paper.dm"
 #include "modular_skyrat\modules\customization\modules\clothing\neck\_neck.dm"
 #include "modular_skyrat\modules\customization\modules\clothing\neck\cloaks.dm"
 #include "modular_skyrat\modules\customization\modules\clothing\neck\collars.dm"
@@ -7592,4 +7593,5 @@
 #include "modular_towelstation\modules\colormate\code\colormate.dm"
 #include "modular_towelstation\modules\compression_kit\compressionkit.dm"
 #include "modular_towelstation\modules\modular_foods\code\smores.dm"
+#include "modular_towelstation\modules\modular_plants\peppercorn\peppercorn.dm"
 // END_INCLUDE
