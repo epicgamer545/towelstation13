@@ -303,7 +303,7 @@
 		if("toggleprivate")
 			self_paid = !self_paid
 			. = TRUE
-		//SKYRAT EDIT START
+//SKYRAT EDIT START
 		if("company_import_window")
 			var/datum/component/armament/company_imports/gun_comp = computer.GetComponent(/datum/component/armament/company_imports)
 			if(!gun_comp)

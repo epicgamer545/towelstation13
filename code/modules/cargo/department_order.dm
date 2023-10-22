@@ -233,7 +233,7 @@ GLOBAL_LIST_INIT(department_order_cooldowns, list(
 	department_delivery_areas = list(/area/station/science/research)
 	override_access = ACCESS_RD
 	req_one_access = REGION_ACCESS_RESEARCH
-	dep_groups = list("Science", "Livestock", "Canisters & Materials")
+	dep_groups = list("Science", "Livestock")
 	radio_key_typepath = /obj/item/encryptionkey/headset_sci
 	radio_channel = RADIO_CHANNEL_SCIENCE
 
