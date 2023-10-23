@@ -46,7 +46,6 @@ GLOBAL_LIST_INIT(wound_severities_chronological, list(
 /// Mainly a define used for wound_pregen_data, if a pregen data instance expects this, it will accept any and all wound types, even none at all
 #define WOUND_ALL "wound_all"
 
-
 // ~determination second wind defines
 // How much determination reagent to add each time someone gains a new wound in [/datum/wound/proc/second_wind]
 #define WOUND_DETERMINATION_MODERATE 1
@@ -114,7 +113,6 @@ GLOBAL_LIST_INIT(bio_state_anatomy, list(
 // Wound series
 // A "wound series" is just a family of wounds that logically follow eachother
 // Multiple wounds in a single series cannot be on a limb - the highest severity will always be prioritized, and lower ones will be skipped
-
 /// T1-T3 Bleeding slash wounds. Requires flesh. Can cause bleeding, but doesn't require it. From: slash.dm
 #define WOUND_SERIES_FLESH_SLASH_BLEED "wound_series_flesh_slash_bled"
 /// T1-T3 Basic blunt wounds. T1 requires jointed, but 2-3 require bone. From: bone.dm
@@ -125,6 +123,12 @@ GLOBAL_LIST_INIT(bio_state_anatomy, list(
 #define WOUND_SERIES_FLESH_PUNCTURE_BLEED "wound_series_flesh_puncture_bleed"
 /// Generic loss wounds. See loss.dm
 #define WOUND_SERIES_LOSS_BASIC "wound_series_loss_basic"
+
+// SKYRAT EDIT ADDITION BEGIN - MUSCLE WOUNDS
+// Have to put it here so I can use it in the global list of wound series
+/// See muscle.dm
+#define WOUND_SERIES_MUSCLE_DAMAGE "skyrat_wound_series_muscle_damage" // We use a super high number as realistically speaking TG will never increment to this amount of wound series
+// SKYRAT EDIT ADDITION END
 
 /// A assoc list of (wound typepath -> wound_pregen_data instance). Every wound should have a pregen data.
 GLOBAL_LIST_INIT_TYPED(all_wound_pregen_data, /datum/wound_pregen_data, generate_wound_static_data())
@@ -197,16 +201,19 @@ GLOBAL_LIST_INIT(wound_series_collections, generate_wound_series_collection())
 /// Allows for determining of which wound series are caused by what.
 GLOBAL_LIST_INIT(wounding_types_to_series, list(
 	WOUND_BLUNT = list(
-		WOUND_SERIES_BONE_BLUNT_BASIC
+		WOUND_SERIES_BONE_BLUNT_BASIC,
+		WOUND_SERIES_MUSCLE_DAMAGE, // SKYRAT EDIT -- MUSCLE WOUNDS
 	),
 	WOUND_SLASH = list(
 		WOUND_SERIES_FLESH_SLASH_BLEED,
+		WOUND_SERIES_MUSCLE_DAMAGE, // SKYRAT EDIT -- MUSCLE WOUNDS
 	),
 	WOUND_BURN = list(
 		WOUND_SERIES_FLESH_BURN_BASIC,
 	),
 	WOUND_PUNCTURE = list(
-		WOUND_SERIES_FLESH_PUNCTURE_BLEED
+		WOUND_SERIES_FLESH_PUNCTURE_BLEED,
+		WOUND_SERIES_MUSCLE_DAMAGE, // SKYRAT EDIT -- MUSCLE WOUNDS
 	),
 ))
 

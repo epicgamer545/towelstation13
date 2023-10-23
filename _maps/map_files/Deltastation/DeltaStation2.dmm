@@ -38294,7 +38294,6 @@
 /obj/effect/turf_decal/siding/dark_blue{
 	dir = 8
 	},
-/obj/structure/closet/wardrobe/white,
 /obj/machinery/power/apc/auto_name/directional/east,
 /obj/structure/cable,
 /obj/machinery/camera/directional/east{
@@ -38303,6 +38302,7 @@
 	name = "dormitories camera"
 	},
 /obj/effect/turf_decal/tile/dark_blue/fourcorners,
+/obj/machinery/gear_painter,
 /turf/open/floor/iron,
 /area/station/commons/dorms/laundry)
 "jyS" = (
