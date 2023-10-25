@@ -599,13 +599,6 @@
 	icon_state = "surgicalcapblack"
 	desc = "A black medical surgery cap to prevent the surgeon's hair from entering the insides of the patient!"
 
-/obj/item/clothing/head/utility/head_mirror
-	name = "head mirror"
-	desc = "Used by doctors to look into a patient's eyes, ears, and mouth. \
-		A little useless now, given the technology available, but it certainly completes the look."
-	icon_state = "headmirror"
-	body_parts_covered = NONE
-
 /obj/item/clothing/head/utility/head_mirror/examine(mob/user)
 	. = ..()
 	. += span_notice("In a properly lit room, you can use this to examine people's eyes, ears, and mouth <i>closer</i>.")
