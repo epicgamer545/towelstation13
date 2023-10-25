@@ -1,0 +1,4 @@
+author: "bruhlookatthisdood"
+delete-after: True
+changes:
+  - bugfix: "Weapon recharger boards now appear in sec lathes"
