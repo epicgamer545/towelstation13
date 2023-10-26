@@ -67,12 +67,11 @@
 	desc = null
 	icon = 'icons/blanks/blank_title.png'
 	icon_state = ""
-	pixel_x = -64
+	pixel_x = 0 // SKYRAT EDIT - Re-centering the title screen - ORIGINAL: pixel_x = -64
 	plane = SPLASHSCREEN_PLANE
 	bullet_bounce_sound = null
 
 INITIALIZE_IMMEDIATE(/turf/closed/indestructible/splashscreen)
-
 /* SKYRAT EDIT REMOVAL
 /turf/closed/indestructible/splashscreen/Initialize(mapload)
 	. = ..()
@@ -313,6 +312,9 @@ SKYRAT EDIT REMOVAL END */
 	canSmoothWith = SMOOTH_GROUP_BOSS_WALLS
 	explosive_resistance = 50
 	baseturfs = /turf/closed/indestructible/riveted/boss
+
+/turf/closed/indestructible/riveted/boss/wasteland
+	baseturfs = /turf/open/misc/asteroid/basalt/wasteland
 
 /turf/closed/indestructible/riveted/boss/see_through
 	opacity = FALSE

@@ -62,4 +62,3 @@
 			alter_hair(alterer)
 		if("Markings")
 			alter_markings(alterer)
-

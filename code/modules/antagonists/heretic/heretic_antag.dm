@@ -33,7 +33,7 @@
 	/// The path our heretic has chosen. Mostly used for flavor.
 	var/heretic_path = PATH_START
 	/// A sum of how many knowledge points this heretic CURRENTLY has. Used to research.
-	var/knowledge_points = 1
+	var/knowledge_points = 2 //SKYRAT EDIT - ORIGINAL 1
 	/// How many side path points the heretic has. He gains one of these per main path that splits into two sidepaths. These can be used in place of knowledge points for side paths only.
 	var/side_path_points = 0
 	/// The time between gaining influence passively. The heretic gain +1 knowledge points every this duration of time.

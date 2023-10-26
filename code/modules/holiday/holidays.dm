@@ -357,6 +357,7 @@
 	name = "Summer Solstice"
 	begin_day = 21
 	begin_month = JUNE
+	holiday_hat = /obj/item/clothing/head/costume/garland
 
 /datum/holiday/pride_week
 	name = PRIDE_WEEK
@@ -552,6 +553,7 @@
 	begin_month = OCTOBER
 	end_day = 2
 	end_month = NOVEMBER
+	holiday_colors = list(COLOR_MOSTLY_PURE_ORANGE, COLOR_PRISONER_BLACK)
 
 /datum/holiday/halloween/greet()
 	return "Have a spooky Halloween!"

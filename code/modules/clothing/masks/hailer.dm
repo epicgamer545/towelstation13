@@ -74,9 +74,6 @@ GLOBAL_LIST_INIT(hailer_phrases, list(
 /obj/item/clothing/mask/gas/sechailer/plasmaman
 	starting_filter_type = /obj/item/gas_filter/plasmaman
 
-/obj/item/clothing/mask/gas/sechailer/plasmaman
-	starting_filter_type = /obj/item/gas_filter/plasmaman
-
 /obj/item/clothing/mask/gas/sechailer/swat
 	name = "\improper SWAT mask"
 	desc = "A close-fitting tactical mask with an especially aggressive Compli-o-nator 3000."

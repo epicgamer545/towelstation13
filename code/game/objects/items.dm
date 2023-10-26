@@ -211,8 +211,6 @@
 	///A reagent the nutriments are converted into when the item is juiced.
 	var/datum/reagent/consumable/juice_typepath
 
-	var/canMouseDown = FALSE
-
 	/// Used in obj/item/examine to give additional notes on what the weapon does, separate from the predetermined output variables
 	var/offensive_notes
 	/// Used in obj/item/examine to determines whether or not to detail an item's statistics even if it does not meet the force requirements
@@ -516,7 +514,6 @@
 			return
 		var/datum/fantasy_affix/affix = affixes[picked_affix_name]
 		affixes.Remove(affix)
-		QDEL_LIST_ASSOC(affixes) //remove the rest, we didn't use them
 		var/fantasy_quality = 0
 		if(affix.alignment & AFFIX_GOOD)
 			fantasy_quality++
