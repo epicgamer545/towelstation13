@@ -720,7 +720,6 @@
 	user.bubble_icon = "robot"
 	active = TRUE
 	user.update_icons()
-	user.model.update_dogborg()
 	user.model.update_tallborg()
 
 	if(listeningTo == user)
@@ -745,7 +744,6 @@
 	user.bubble_icon = saved_bubble_icon
 	active = FALSE
 	user.update_icons()
-	user.model.update_dogborg()
 	user.model.update_tallborg()
 
 /obj/item/borg_shapeshifter/proc/disrupt(mob/living/silicon/robot/user)

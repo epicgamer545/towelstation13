@@ -117,13 +117,6 @@ There are several things that need to be remembered:
 		//Female sprites have lower priority than digitigrade sprites
 		if(dna.species.sexes && (bodytype & BODYTYPE_HUMANOID) && physique == FEMALE && !(female_sprite_flags & NO_FEMALE_UNIFORM)) //Agggggggghhhhh // SKYRAT EDIT CHANGE - ORIGINAL: else if(dna.species.sexes && (bodytype & BODYTYPE_HUMANOID) && physique == FEMALE && !(uniform.female_sprite_flags & NO_FEMALE_UNIFORM))
 			woman = TRUE
-			// SKYRAT EDIT ADDITION START - Digi female gender shaping
-			if(digi)
-				mutant_styles |= STYLE_DIGI // for passing to wear_female_version
-				if(!(female_sprite_flags & FEMALE_UNIFORM_DIGI_FULL))
-					female_sprite_flags &= ~FEMALE_UNIFORM_FULL // clear the FEMALE_UNIFORM_DIGI_FULL bit if it was set, we don't want that.
-					female_sprite_flags |= FEMALE_UNIFORM_TOP_ONLY // And set the FEMALE_UNIFORM_TOP bit if it is unset.
-			// SKYRAT EDIT ADDITION END
 
 		if(!icon_exists(icon_file, RESOLVE_ICON_STATE(uniform)))
 			icon_file = DEFAULT_UNIFORM_FILE
@@ -678,7 +671,7 @@ There are several things that need to be remembered:
 	return hands
 
 /proc/wear_female_version(t_color, icon, layer, type, greyscale_colors, mutant_styles) // SKYRAT EDIT CHANGE - Digi female gender shaping - ORIGINAL: /proc/wear_female_version(t_color, icon, layer, type, greyscale_colors)
-	var/index = "[t_color]-[greyscale_colors][(mutant_styles & STYLE_DIGI) ? "-d" : ""]" // SKYRAT EDIT CHANGE - Digi female gender shaping - Original: var/index = "[t_color]-[greyscale_colors]]"
+	var/index = "[t_color]-[greyscale_colors][(mutant_styles) ? "-d" : ""]" // SKYRAT EDIT CHANGE - Digi female gender shaping - Original: var/index = "[t_color]-[greyscale_colors]]"
 	var/icon/female_clothing_icon = GLOB.female_clothing_icons[index]
 	if(!female_clothing_icon) 	//Create standing/laying icons if they don't exist
 		generate_female_clothing(index, t_color, icon, type)

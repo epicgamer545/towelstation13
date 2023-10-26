@@ -83,7 +83,6 @@
 #define JOB_SHAFT_MINER "Shaft Miner"
 #define JOB_BITRUNNER "Bitrunner"
 #define JOB_CUSTOMS_AGENT "Customs Agent" // SKYRAT EDIT ADDITION
-#define JOB_BITRUNNER "Bitrunner"
 //Service
 #define JOB_BARTENDER "Bartender"
 #define JOB_BOTANIST "Botanist"

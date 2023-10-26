@@ -87,12 +87,6 @@
 	borg_skins = list(
 		"Default" = list(SKIN_ICON_STATE = "clown"),
 		"K4T" = list(SKIN_ICON_STATE = "k4tclown", SKIN_ICON = CYBORG_ICON_CLOWN_TALL, SKIN_FEATURES = list(R_TRAIT_UNIQUEWRECK, R_TRAIT_UNIQUETIP, R_TRAIT_TALL), SKIN_HAT_OFFSET = 15),
-		"ARACHNE" = list(SKIN_ICON_STATE = "arachne_clown", SKIN_ICON = 'modular_skyrat/modules/altborgs/icons/robots_clown.dmi'),
-		"Slipper" = list(SKIN_ICON_STATE = "slipper_clown", SKIN_ICON = 'modular_skyrat/modules/altborgs/icons/robots_clown.dmi'),
-		"Marina" = list(SKIN_ICON_STATE = "marina_mommy", SKIN_ICON = 'modular_skyrat/modules/altborgs/icons/robots_clown.dmi', SKIN_FEATURES = list(R_TRAIT_UNIQUEWRECK)),
-		"Garish" = list(SKIN_ICON_STATE = "garish", SKIN_ICON = 'modular_skyrat/modules/altborgs/icons/robots_clown.dmi'),
-		"Robot" = list(SKIN_ICON_STATE = "clownbot", SKIN_ICON = 'modular_skyrat/modules/altborgs/icons/robots_clown.dmi'),
-		"Sleek" = list(SKIN_ICON_STATE = "clownman", SKIN_ICON = 'modular_skyrat/modules/altborgs/icons/robots_clown.dmi', SKIN_FEATURES = list(R_TRAIT_UNIQUEWRECK))
 	)
 
 //ENGINEERING
@@ -115,7 +109,6 @@
 		"Wide" = list(SKIN_ICON_STATE = "wide-engi", SKIN_ICON = CYBORG_ICON_ENG),
 		"ARACHNE" = list(SKIN_ICON_STATE = "arachne_engi", SKIN_ICON = CYBORG_ICON_ENG),
 		"Slipper" = list(SKIN_ICON_STATE = "slipper_engi", SKIN_ICON = CYBORG_ICON_ENG),
-		"Alina" = list(SKIN_ICON_STATE = "alina-eng", SKIN_LIGHT_KEY = "alina", SKIN_ICON = CYBORG_ICON_ENG_WIDE, SKIN_FEATURES = list(R_TRAIT_UNIQUEWRECK, R_TRAIT_WIDE)),
 		"Eyebot" = list(SKIN_ICON_STATE = "eyeboteng", SKIN_ICON = CYBORG_ICON_ENG, SKIN_FEATURES = list(R_TRAIT_UNIQUEWRECK, R_TRAIT_SMALL)),
 	)
 
@@ -224,15 +217,8 @@
 	borg_skins = list(
 		/// 32x32 Skins
 		"Technician" = list(SKIN_ICON_STATE = "cargoborg", SKIN_ICON = CYBORG_ICON_CARGO),
-		"Miss M" = list(SKIN_ICON_STATE = "missm_cargo", SKIN_ICON = CYBORG_ICON_CARGO),
 		"Zoomba" = list(SKIN_ICON_STATE = "zoomba_cargo", SKIN_ICON = CYBORG_ICON_CARGO, SKIN_FEATURES = list(R_TRAIT_UNIQUEWRECK, R_TRAIT_SMALL), SKIN_HAT_OFFSET = -13),
 		"Birdborg" = list(SKIN_ICON_STATE =  "bird_cargo", SKIN_ICON = CYBORG_ICON_CARGO),
-		/// 64x32 Skins
-		"Borgi" = list(SKIN_ICON_STATE =  "borgi-cargo", SKIN_ICON = CYBORG_ICON_CARGO_WIDE, SKIN_FEATURES = list(R_TRAIT_UNIQUEWRECK, R_TRAIT_WIDE, R_TRAIT_SMALL)),
-		"Drake" = list(SKIN_ICON_STATE =  "drakecargo", SKIN_ICON = CYBORG_ICON_CARGO_WIDE, SKIN_FEATURES = list(R_TRAIT_UNIQUEWRECK, R_TRAIT_WIDE)),
-		"Hound" = list(SKIN_ICON_STATE =  "cargohound", SKIN_ICON = CYBORG_ICON_CARGO_WIDE, SKIN_FEATURES = list(R_TRAIT_UNIQUEWRECK, R_TRAIT_WIDE)),
-		"Darkhound" = list(SKIN_ICON_STATE =  "cargohounddark", SKIN_ICON = CYBORG_ICON_CARGO_WIDE, SKIN_FEATURES = list(R_TRAIT_UNIQUEWRECK, R_TRAIT_WIDE)),
-		"Vale" = list(SKIN_ICON_STATE =  "valecargo", SKIN_ICON = CYBORG_ICON_CARGO_WIDE, SKIN_FEATURES = list(R_TRAIT_UNIQUEWRECK, R_TRAIT_WIDE)),
 		/// 32x64 Skins
 		"Meka" = list(SKIN_ICON_STATE = "mekacargo", SKIN_ICON = CYBORG_ICON_CARGO_TALL, SKIN_FEATURES = list(R_TRAIT_UNIQUEWRECK, R_TRAIT_UNIQUETIP, R_TRAIT_TALL), SKIN_HAT_OFFSET = 15),
 		"K4T (Loader)" = list(SKIN_ICON_STATE = "k4tcargo", SKIN_ICON = CYBORG_ICON_CARGO_TALL, SKIN_FEATURES = list(R_TRAIT_UNIQUEWRECK, R_TRAIT_UNIQUETIP, R_TRAIT_TALL), SKIN_HAT_OFFSET = 15),
