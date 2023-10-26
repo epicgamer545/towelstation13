@@ -8,3 +8,10 @@
       I REALLY hated what I did with them before
   - image: Several new sprites for things like wooden shelves, barrels, and so on,
       all made by yours truly
+2023-10-26:
+  Iamgoofball:
+  - qol: You can now rename and describe any loadout item, not just plushies.
+  bruhlookatthisdood:
+  - bugfix: Void raptor detective only has one closet now
+  - bugfix: Void raptor surgery trays now have tools
+  - bugfix: Weapon recharger boards now appear in sec lathes
