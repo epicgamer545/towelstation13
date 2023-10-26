@@ -38,7 +38,7 @@
 				to_chat(user, "You pull the balaclava up to cover your whole head.")
 				open = 0
 		user.update_body_parts()
-		user.update_inv_ears(0)
+		user.update_inv_ears()
 		user.update_worn_mask() //Updates mob icons
 
 /obj/item/clothing/mask/balaclavaadjust/attack_self(mob/user)
@@ -68,20 +68,6 @@
 	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/mask.dmi'
 	icon_state = "swatclavam"
 	inhand_icon_state = "balaclava"
-
-/obj/item/clothing/mask/muzzle/ball
-	name = "ballgag"
-	desc = "I'm pretty fuckin far from okay."
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/masks.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/mask.dmi'
-	icon_state = "ballgag"
-
-/obj/item/clothing/mask/muzzle/ring
-	name = "ring gag"
-	desc = "A mouth wrap seemingly designed to hold the mouth open."
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/masks.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/mask.dmi'
-	icon_state = "ringgag"
 
 /obj/item/clothing/mask/surgical/greyscale
 	icon = 'modular_skyrat/modules/GAGS/icons/masks.dmi'

@@ -1,19 +1,17 @@
-2023-10-05:
-  xPokee, TripleShades:
-  - rscadd: Adds the colormate
-2023-10-06:
-  xPokee:
-  - qol: Gave more people gateway access
-  - image: adds a frog holoform for pAIs
-2023-10-07:
-  SapphoQueer:
-  - balance: non-common speakers can now actually play jobs.
-2023-10-08:
-  SapphoQueer:
-  - rscdel: Removed words we dont want in the station title
-2023-10-14:
+2023-10-25:
   Paxilmaniac:
-  - image: The sprites for forge structures have been vastly improved
-  xPokee:
-  - bugfix: fixed the ghost cafe having ERP stuff.
-  - rscdel: removed ERP underwear that I missed while removing other ERP things.
+  - rscadd: The icewalker camp has been completely remade to be less of a single house
+      in the middle of hell, to a location befitting our viking felines. As a side
+      effect, the spawn of the camp is now static and in the corner of the map, because
+      the ruin loader really did not enjoy the size of the templates.
+  - image: Sprites for all of the forging related structures have been redone because
+      I REALLY hated what I did with them before
+  - image: Several new sprites for things like wooden shelves, barrels, and so on,
+      all made by yours truly
+2023-10-26:
+  Iamgoofball:
+  - qol: You can now rename and describe any loadout item, not just plushies.
+  bruhlookatthisdood:
+  - bugfix: Void raptor detective only has one closet now
+  - bugfix: Void raptor surgery trays now have tools
+  - bugfix: Weapon recharger boards now appear in sec lathes
