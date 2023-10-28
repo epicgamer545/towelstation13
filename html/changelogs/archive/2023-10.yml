@@ -1359,3 +1359,6 @@
   - bugfix: you are now made a ghost faster if you get gibbed
   xPokee:
   - rscadd: TG prs
+2023-10-28:
+  xPokee:
+  - bugfix: fixed bras having no sprites
