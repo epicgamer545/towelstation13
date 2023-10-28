@@ -885,6 +885,13 @@
 	},
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
+"Eg" = (
+/obj/structure/geyser{
+	reagent_id = /datum/reagent/consumable/salt;
+	name = "Salts-The-Earth"
+	},
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/ruin/unpowered/ash_walkers)
 "Eh" = (
 /turf/closed/indestructible/riveted/boss,
 /area/lavaland/surface/outdoors)
@@ -1695,7 +1702,7 @@ jh
 vg
 vg
 wu
-tu
+Eg
 lS
 UD
 DN
