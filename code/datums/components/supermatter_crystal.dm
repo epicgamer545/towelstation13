@@ -161,8 +161,6 @@
 		return
 	if(is_type_in_typecache(item, sm_item_whitelist))
 		return FALSE
-	if(istype(item, /obj/item/toy/crayon/spraycan))
-		return FALSE
 	if(istype(item, /obj/item/clothing/mask/cigarette))
 		var/obj/item/clothing/mask/cigarette/cig = item
 		var/clumsy = HAS_TRAIT(user, TRAIT_CLUMSY)

@@ -1,7 +1,7 @@
 GLOBAL_LIST_INIT(purchasable_nifsofts, list(
 	/datum/nifsoft/hivemind,
 	/datum/nifsoft/summoner,
-	/datum/nifsoft/shapeshifter,
+	/datum/nifsoft/action_granter/shapeshifter,
 	/datum/nifsoft/soul_poem,
 	/datum/nifsoft/soulcatcher,
 	/datum/nifsoft/scryer,
