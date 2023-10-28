@@ -1662,13 +1662,6 @@
 	},
 /turf/open/floor/iron/sepia,
 /area/centcom/central_command_areas/holding)
-"My" = (
-/obj/item/kirbyplants/organic/plant10,
-/obj/structure/sign/painting/library{
-	pixel_y = 32
-	},
-/turf/open/floor/iron/sepia,
-/area/centcom/central_command_areas/holding)
 "ML" = (
 /obj/structure/window/paperframe{
 	can_atmos_pass = 0

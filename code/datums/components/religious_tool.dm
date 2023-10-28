@@ -30,6 +30,13 @@
 	RegisterSignal(SSdcs, COMSIG_RELIGIOUS_SECT_CHANGED, PROC_REF(SetGlobalToLocal))
 	RegisterSignal(SSdcs, COMSIG_RELIGIOUS_SECT_RESET, PROC_REF(on_sect_reset))
 
+/datum/component/religious_tool/Destroy(force, silent)
+	easy_access_sect = null
+	performing_rite = null
+	catalyst_type = null
+	after_sect_select_cb = null
+	return ..()
+
 /datum/component/religious_tool/RegisterWithParent()
 	RegisterSignal(parent, COMSIG_ATOM_ATTACKBY, PROC_REF(AttemptActions))
 	RegisterSignal(parent, COMSIG_ATOM_EXAMINE, PROC_REF(on_examine))
