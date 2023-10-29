@@ -1,6 +1,0 @@
-author: "xPokee"
-delete-after: True
-changes:
-  - bugfix: "fixed VoidRaptor having two bitrunning areas"
-  - bugfix: "fixed the evac sign on VoidRaptor pointing the wrong way"
-  - bugfix: "fixed beach biodome being funky"
