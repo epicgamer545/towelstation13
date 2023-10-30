@@ -1395,3 +1395,7 @@
   - bugfix: fixed VoidRaptor having two bitrunning areas
   - bugfix: fixed the evac sign on VoidRaptor pointing the wrong way
   - bugfix: fixed beach biodome being funky
+2023-10-30:
+  xPokee:
+  - bugfix: fixed swapping between hands
+  - bugfix: fixed respawning, you can once again respawn
