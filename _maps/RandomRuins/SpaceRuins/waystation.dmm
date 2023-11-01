@@ -29,9 +29,9 @@
 "bg" = (
 /obj/structure/table/wood,
 /obj/item/flashlight/lamp{
-	on = 0;
 	pixel_x = -5;
-	pixel_y = 2
+	pixel_y = 2;
+	start_on = 0
 	},
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/waystation/dorms)
@@ -43,6 +43,10 @@
 /obj/structure/closet/firecloset,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/waystation)
+"bA" = (
+/mob/living/basic/trooper/syndicate/melee/sword/space/stormtrooper,
+/turf/open/floor/iron/dark,
+/area/ruin/space/has_grav/waystation/securestorage)
 "bG" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/cafeteria,
@@ -60,6 +64,22 @@
 /obj/structure/closet/secure_closet/freezer/meat/open,
 /turf/open/floor/iron/freezer,
 /area/ruin/space/has_grav/waystation/kitchen)
+"bR" = (
+/mob/living/basic/trooper/syndicate/ranged/shotgun/space,
+/obj/item/ammo_casing/shotgun/buckshot/spent{
+	pixel_x = 3;
+	pixel_y = 10
+	},
+/obj/item/ammo_casing/shotgun/buckshot/spent{
+	pixel_x = 6;
+	pixel_y = 1
+	},
+/obj/item/ammo_casing/shotgun/buckshot/spent{
+	pixel_x = -3;
+	pixel_y = 1
+	},
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/waystation/dorms)
 "bU" = (
 /obj/effect/turf_decal/tile/brown/half/contrasted{
 	dir = 8
@@ -164,9 +184,9 @@
 /obj/structure/table/reinforced,
 /obj/structure/window/reinforced/spawner/directional/south,
 /obj/item/flashlight/lamp{
-	on = 0;
 	pixel_x = -5;
-	pixel_y = 2
+	pixel_y = 2;
+	start_on = 0
 	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/waystation/securestorage)
@@ -1372,17 +1392,6 @@
 /obj/structure/broken_flooring/pile/directional/east,
 /turf/template_noop,
 /area/template_noop)
-"xk" = (
-/obj/machinery/porta_turret/syndicate/pod{
-	dir = 1;
-	max_integrity = 80
-	},
-/obj/machinery/porta_turret/syndicate/pod{
-	dir = 1;
-	max_integrity = 80
-	},
-/turf/closed/wall/mineral/plastitanium,
-/area/ruin/space/has_grav/powered/waystation/assaultpod)
 "xq" = (
 /obj/machinery/conveyor{
 	dir = 1;
@@ -1906,9 +1915,9 @@
 	pixel_y = 2
 	},
 /obj/item/flashlight/lamp{
-	on = 0;
 	pixel_x = -5;
-	pixel_y = 2
+	pixel_y = 2;
+	start_on = 0
 	},
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/waystation/cargooffice)
@@ -1960,6 +1969,10 @@
 	id = "Supply_Ruin_In"
 	},
 /turf/open/floor/plating,
+/area/ruin/space/has_grav/waystation/cargobay)
+"JM" = (
+/mob/living/basic/trooper/syndicate/ranged/shotgun/space,
+/turf/open/floor/iron,
 /area/ruin/space/has_grav/waystation/cargobay)
 "Kc" = (
 /obj/effect/turf_decal/tile/brown/half/contrasted{
@@ -2102,9 +2115,9 @@
 /obj/structure/table/wood,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/flashlight/lamp{
-	on = 0;
 	pixel_x = -5;
-	pixel_y = 2
+	pixel_y = 2;
+	start_on = 0
 	},
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/waystation/dorms)
@@ -2115,6 +2128,13 @@
 	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/waystation/securestorage)
+"LW" = (
+/obj/effect/turf_decal/loading_area/red,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/mob/living/basic/trooper/syndicate/ranged/smg/space,
+/obj/structure/cable,
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/waystation/cargobay)
 "Mi" = (
 /obj/machinery/vending/dinnerware,
 /obj/effect/decal/cleanable/dirt,
@@ -2589,20 +2609,10 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/waystation/dorms)
-"UF" = (
-/mob/living/basic/trooper/syndicate/ranged/shotgun/space,
-/obj/item/ammo_casing/shotgun/buckshot/spent{
-	pixel_x = 3;
-	pixel_y = 10
-	},
-/obj/item/ammo_casing/shotgun/buckshot/spent{
-	pixel_x = 6;
-	pixel_y = 1
-	},
-/obj/item/ammo_casing/shotgun/buckshot/spent{
-	pixel_x = -3;
-	pixel_y = 1
-	},
+"UC" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/mob/living/basic/trooper/syndicate/ranged/smg/space,
+/obj/structure/cable,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/waystation/dorms)
 "UG" = (
@@ -4714,7 +4724,7 @@ Qx
 SL
 jG
 my
-xk
+lM
 tb
 FM
 TW
