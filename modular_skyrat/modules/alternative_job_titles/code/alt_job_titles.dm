@@ -321,7 +321,6 @@
 /datum/job/quartermaster
 	alt_titles = list(
 		"Quartermaster",
-		"Union Requisitions Officer",
 		"Deck Chief",
 		"Head of Supply",
 		"Logistics Coordinator",

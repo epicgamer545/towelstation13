@@ -264,8 +264,9 @@
 
 /datum/config_entry/flag/norespawn
 
+/// Determines how long (in deciseconds) before a player is allowed to respawn.
 /datum/config_entry/number/respawn_delay
-	default = 0
+	default = 0 SECONDS
 
 /datum/config_entry/flag/usewhitelist
 
