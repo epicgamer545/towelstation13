@@ -112,3 +112,24 @@
   - bugfix: Removes the dixel from the new medium and long skirts
   sqnztb:
   - bugfix: ships can now properly dock at Meta's whiteship dock again.
+2023-11-04:
+  SkyratBot:
+  - qol: The RPD now accepts upgrade disks inserted by hand, as well as their original
+      method of hitting the disk with the RPD
+  - rscdel: Remove duplicate HoP shutter from birdshot
+  - bugfix: Non-human mobs can hallucinate their mothers without causing a runtime
+      error
+  - rscdel: Removed duplicate northstar message monitor computer
+  - bugfix: plumbing reaction chamber will attempt to balance the ph of the solution
+      a maximum of 5 times before giving up and thus preventing infinite loops, high
+      tick usage
+  - rscdel: Remove duplicate syndi turret on waystation ruin
+  - rscdel: Remove duplicate machinery from russian derelict
+  - rscdel: Remove duplicate atmos fire alarm, cargo air alarm, and chemistry shutter
+      from icebox.
+  - bugfix: plumbing bottler now only deals with bottles, beakers similar stuff but
+      not pills, patches, syringes or anything than can hold reagents. That & slime
+      extracts, slime industrial extract & shotgun shell
+  - qol: Steam vents in maintenance now have tooltips.
+  deathrobotpunch1:
+  - rscdel: Removed the biometric scanning toggle from the PENLITE holobarrier
