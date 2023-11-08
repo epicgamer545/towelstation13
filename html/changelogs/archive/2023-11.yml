@@ -136,3 +136,6 @@
 2023-11-05:
   xPokee:
   - bugfix: The interact menu no longer bluescreens
+2023-11-08:
+  xPokee:
+  - bugfix: fixed shoes looking wonky with digi legs
