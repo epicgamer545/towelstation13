@@ -14892,10 +14892,6 @@
 /obj/machinery/coffeemaker{
 	pixel_y = 12
 	},
-/obj/item/reagent_containers/cup/coffeepot{
-	pixel_x = 3;
-	pixel_y = -5
-	},
 /turf/open/floor/iron/kitchen/small,
 /area/station/security/breakroom)
 "fyr" = (
@@ -89116,10 +89112,6 @@ xAR
 keq
 xAR
 vMF
-xAR
-vMF
-xAR
-fbX
 xAR
 xAR
 xAR
