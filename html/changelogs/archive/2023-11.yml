@@ -326,3 +326,7 @@
   - balance: Sleeping carp users find it very hard to wake up once they fall asleep....
   - bugfix: Material market buy buttons greys out correctly and thus prevent you from
       placing orders that exceeds the available budget.
+2023-11-11:
+  xPokee:
+  - rscadd: we have rediscovered the once lost asteroid housing the kilo class station
+  - config: re-added kilostation

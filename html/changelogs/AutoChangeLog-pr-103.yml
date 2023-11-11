@@ -1,5 +1,0 @@
-author: "xPokee"
-delete-after: True
-changes:
-  - rscadd: "we have rediscovered the once lost asteroid housing the kilo class station"
-  - config: "re-added kilostation"
