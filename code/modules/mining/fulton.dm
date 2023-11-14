@@ -217,15 +217,6 @@ GLOBAL_LIST_EMPTY(total_extraction_beacons)
 	playsound(src, 'sound/items/deconstruct.ogg', vol = 50, vary = TRUE, extrarange = MEDIUM_RANGE_SOUND_EXTRARANGE)
 	qdel(src)
 
-/obj/structure/extraction_point/attack_hand(mob/living/user, list/modifiers)
-	. = ..()
-	balloon_alert_to_viewers("undeploying...")
-	if(!do_after(user, 1.5 SECONDS, src))
-		return
-	new /obj/item/fulton_core(drop_location())
-	playsound(src, 'sound/items/deconstruct.ogg', vol = 50, vary = TRUE, extrarange = MEDIUM_RANGE_SOUND_EXTRARANGE)
-	qdel(src)
-
 /obj/structure/extraction_point/update_overlays()
 	. = ..()
 	. += emissive_appearance(icon, "[icon_state]_light", src, alpha = src.alpha)

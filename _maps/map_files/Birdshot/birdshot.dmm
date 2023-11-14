@@ -5906,8 +5906,12 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
+/obj/effect/mapping_helpers/airalarm/link{
+	chamber_id = "engine"
+	},
+/obj/effect/mapping_helpers/airalarm/tlv_no_checks,
 /turf/open/floor/iron/smooth,
-/area/station/engineering/supermatter)
+/area/station/engineering/supermatter/room)
 "coJ" = (
 /obj/structure/chair/stool/directional/east,
 /obj/effect/decal/cleanable/dirt,
@@ -7851,8 +7855,8 @@
 /obj/structure/sink/kitchen/directional/east,
 /obj/machinery/airalarm/directional/south,
 /obj/machinery/button/door/directional/west{
-	pixel_y = 8;
-	id = "custodialshutters"
+	id = "custodialshutters";
+	pixel_y = 8
 	},
 /turf/open/floor/iron/white/small,
 /area/station/service/janitor)
@@ -10221,6 +10225,14 @@
 /obj/machinery/meter,
 /turf/open/floor/plating,
 /area/station/engineering/atmos)
+"dSV" = (
+/obj/effect/turf_decal/stripes/white/line{
+	dir = 5
+	},
+/obj/structure/transport/linear/tram,
+/obj/structure/tram,
+/turf/open/floor/tram,
+/area/station/maintenance/port/aft)
 "dTa" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -10717,8 +10729,8 @@
 /area/station/security/prison/shower)
 "dZT" = (
 /obj/machinery/button/transport/tram/directional/south{
-	specific_transport_id = "bird_2";
-	id = 2
+	id = 2;
+	specific_transport_id = "bird_2"
 	},
 /turf/open/floor/iron,
 /area/station/maintenance/department/medical/central)
@@ -16770,8 +16782,12 @@
 /obj/machinery/atmospherics/pipe/smart/simple/purple/visible,
 /obj/machinery/airalarm/directional/east,
 /obj/effect/mapping_helpers/airalarm/mixingchamber_access,
+/obj/effect/mapping_helpers/airalarm/link{
+	chamber_id = "ordnancefreezer"
+	},
+/obj/effect/mapping_helpers/airalarm/tlv_no_checks,
 /turf/open/floor/iron/dark,
-/area/station/science/ordnance/freezerchamber)
+/area/station/science/ordnance)
 "gfE" = (
 /obj/effect/turf_decal/siding/red{
 	dir = 8
@@ -20009,8 +20025,8 @@
 	pixel_y = 11
 	},
 /obj/item/mod/module/signlang_radio{
-	pixel_y = 2;
-	pixel_x = -2
+	pixel_x = -2;
+	pixel_y = 2
 	},
 /turf/open/floor/iron/small,
 /area/station/security/office)
@@ -25230,6 +25246,12 @@
 	},
 /turf/open/floor/wood/parquet,
 /area/station/command/heads_quarters/cmo)
+"jbt" = (
+/obj/effect/turf_decal/stripes/white/line{
+	dir = 8
+	},
+/turf/open/floor/tram,
+/area/station/maintenance/department/medical/central)
 "jbV" = (
 /obj/machinery/photocopier,
 /turf/open/floor/iron/dark,
@@ -35994,8 +36016,8 @@
 "mNG" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/button/transport/tram/directional/south{
-	specific_transport_id = "bird_2";
-	id = 1
+	id = 1;
+	specific_transport_id = "bird_2"
 	},
 /turf/open/floor/iron,
 /area/station/maintenance/port/aft)
@@ -39323,6 +39345,16 @@
 "nZx" = (
 /turf/closed/mineral/random/stationside,
 /area/station/ai_monitored/turret_protected/ai)
+"nZz" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/structure/holosign/barrier/atmos/tram,
+/turf/open/floor/tram,
+/area/station/maintenance/department/medical/central)
 "nZM" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable,
@@ -40911,6 +40943,7 @@
 /obj/effect/turf_decal/stripes/white/line{
 	dir = 4
 	},
+/obj/machinery/air_sensor/engine_chamber,
 /turf/open/floor/engine,
 /area/station/engineering/supermatter)
 "oFf" = (
@@ -46809,8 +46842,8 @@
 "qzp" = (
 /obj/structure/window/reinforced/spawner/directional/west,
 /obj/machinery/button/transport/tram/directional/north{
-	specific_transport_id = "bird_1";
-	id = 1
+	id = 1;
+	specific_transport_id = "bird_1"
 	},
 /obj/machinery/transport/destination_sign/indicator/directional/north,
 /turf/open/floor/noslip,
@@ -49872,8 +49905,8 @@
 /obj/structure/table,
 /obj/machinery/airalarm/directional/south,
 /obj/item/storage/box/bandages{
-	pixel_y = 6;
-	pixel_x = -6
+	pixel_x = -6;
+	pixel_y = 6
 	},
 /obj/item/clipboard{
 	pixel_x = 4;
@@ -56721,8 +56754,8 @@
 "tGv" = (
 /obj/structure/window/reinforced/spawner/directional/west,
 /obj/machinery/button/transport/tram/directional/north{
-	specific_transport_id = "bird_1";
-	id = 2
+	id = 2;
+	specific_transport_id = "bird_1"
 	},
 /obj/machinery/transport/destination_sign/indicator/directional/north,
 /turf/open/floor/noslip,
@@ -61679,6 +61712,7 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /obj/machinery/camera/autoname/directional/north,
 /obj/machinery/light/small/directional/north,
+/obj/vehicle/sealed/mecha/ripley/paddy/preset,
 /turf/open/floor/iron,
 /area/station/security/tram)
 "vmX" = (
@@ -63672,6 +63706,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold/purple/visible{
 	dir = 4
 	},
+/obj/machinery/air_sensor/ordnance_freezer_chamber,
 /turf/open/floor/engine/vacuum,
 /area/station/science/ordnance/freezerchamber)
 "vTm" = (
@@ -66720,18 +66755,9 @@
 /turf/open/floor/iron/dark,
 /area/station/security/interrogation)
 "wPf" = (
-/obj/structure/cable,
-/obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/poddoor/preopen{
-	id = "hop";
-	name = "Privacy Shutters"
-	},
-/obj/machinery/door/poddoor/preopen{
-	id = "hop";
-	name = "Privacy Shutters"
-	},
-/turf/open/floor/plating,
-/area/station/command/heads_quarters/hop)
+/obj/item/clothing/glasses/blindfold,
+/turf/open/space/basic,
+/area/space)
 "wPh" = (
 /obj/structure/disposalpipe/trunk{
 	dir = 8
@@ -66935,8 +66961,8 @@
 /obj/item/radio/intercom/directional/south,
 /obj/structure/extinguisher_cabinet/directional/west,
 /obj/item/storage/box/bandages{
-	pixel_y = 6;
-	pixel_x = 4
+	pixel_x = 4;
+	pixel_y = 6
 	},
 /obj/item/stack/medical/gauze{
 	pixel_x = -2;
@@ -67928,6 +67954,15 @@
 	},
 /turf/open/floor/iron/white,
 /area/station/science/cytology)
+"xfy" = (
+/obj/structure/transport/linear/tram,
+/obj/structure/fluff/tram_rail/floor{
+	dir = 1
+	},
+/obj/structure/thermoplastic,
+/obj/structure/rack,
+/turf/open/floor/tram,
+/area/station/maintenance/port/aft)
 "xfH" = (
 /obj/machinery/portable_atmospherics/canister/air,
 /turf/open/floor/iron,
@@ -68540,8 +68575,12 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/airalarm/directional/east,
 /obj/effect/mapping_helpers/airalarm/mixingchamber_access,
+/obj/effect/mapping_helpers/airalarm/link{
+	chamber_id = "ordnanceburn"
+	},
+/obj/effect/mapping_helpers/airalarm/tlv_no_checks,
 /turf/open/floor/iron/dark,
-/area/station/science/ordnance/burnchamber)
+/area/station/science/ordnance)
 "xoa" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -89213,7 +89252,7 @@ dsU
 aYv
 dmG
 aLv
-rQM
+dSV
 vJH
 xAR
 trp
@@ -89983,7 +90022,7 @@ mxM
 jzg
 sBm
 pdf
-tfY
+xfy
 rDY
 vJH
 xAR
@@ -90240,7 +90279,7 @@ mxM
 kbc
 sBm
 rnZ
-tfY
+xfy
 rDY
 vJH
 xAR
@@ -91781,6 +91820,7 @@ blb
 dDB
 dDB
 dDB
+wte
 dDB
 dDB
 bSo
@@ -92038,6 +92078,7 @@ blb
 dDB
 dDB
 dDB
+wte
 dDB
 dDB
 bSo
@@ -92295,6 +92336,7 @@ blb
 dDB
 dDB
 dDB
+wte
 dDB
 dDB
 bSo
@@ -92552,6 +92594,7 @@ blb
 dDB
 dDB
 dDB
+wte
 dDB
 dDB
 bSo
@@ -92809,6 +92852,7 @@ blb
 dDB
 dDB
 dDB
+wte
 dDB
 dDB
 bSo
@@ -93066,6 +93110,7 @@ blb
 blb
 blb
 blb
+wte
 blb
 blb
 blb
@@ -93323,6 +93368,7 @@ blb
 dDB
 dDB
 dDB
+wte
 dDB
 dDB
 bSo
@@ -93390,7 +93436,6 @@ dDB
 dDB
 dDB
 dDB
-oVE
 "}
 (83,1,1) = {"
 dDB
@@ -93580,6 +93625,7 @@ blb
 dDB
 dDB
 dDB
+wte
 dDB
 dDB
 bSo
@@ -93647,7 +93693,6 @@ dDB
 dDB
 dDB
 dDB
-oVE
 "}
 (84,1,1) = {"
 dDB
@@ -93837,6 +93882,7 @@ blb
 dDB
 dDB
 dDB
+wte
 dDB
 dDB
 bSo
@@ -93904,7 +93950,6 @@ dDB
 dDB
 dDB
 dDB
-oVE
 "}
 (85,1,1) = {"
 dDB
@@ -94094,6 +94139,7 @@ blb
 dDB
 dDB
 dDB
+wte
 dDB
 dDB
 bSo
@@ -94161,7 +94207,6 @@ dDB
 dDB
 dDB
 dDB
-oVE
 "}
 (86,1,1) = {"
 dDB
@@ -94351,6 +94396,7 @@ blb
 dDB
 dDB
 dDB
+wte
 dDB
 dDB
 bSo
@@ -94418,7 +94464,6 @@ dDB
 dDB
 dDB
 dDB
-oVE
 "}
 (87,1,1) = {"
 dDB
@@ -94608,6 +94653,7 @@ blb
 blb
 blb
 blb
+wte
 blb
 blb
 blb
@@ -94675,7 +94721,6 @@ dDB
 dDB
 dDB
 dDB
-oVE
 "}
 (88,1,1) = {"
 dDB
@@ -94865,6 +94910,7 @@ blb
 dDB
 dDB
 dDB
+wte
 dDB
 dDB
 bSo
@@ -94932,7 +94978,6 @@ dDB
 dDB
 dDB
 dDB
-oVE
 "}
 (89,1,1) = {"
 dDB
@@ -95122,6 +95167,7 @@ blb
 dDB
 dDB
 dDB
+wte
 dDB
 dDB
 bSo
@@ -95293,7 +95339,7 @@ njA
 lqt
 cpT
 xQv
-wPf
+xQw
 mvT
 vrn
 ncL
@@ -95379,6 +95425,7 @@ blb
 dDB
 dDB
 dDB
+wte
 dDB
 dDB
 bSo
@@ -95446,7 +95493,6 @@ dDB
 dDB
 dDB
 dDB
-oVE
 "}
 (91,1,1) = {"
 dDB
@@ -95636,6 +95682,7 @@ blb
 dDB
 dDB
 dDB
+wte
 dDB
 dDB
 bSo
@@ -95703,7 +95750,6 @@ dDB
 dDB
 dDB
 dDB
-oVE
 "}
 (92,1,1) = {"
 dDB
@@ -95893,6 +95939,7 @@ blb
 dDB
 dDB
 dDB
+wte
 dDB
 dDB
 bSo
@@ -96150,6 +96197,7 @@ blb
 blb
 blb
 blb
+wte
 blb
 blb
 blb
@@ -96217,7 +96265,6 @@ dDB
 dDB
 dDB
 dDB
-oVE
 "}
 (94,1,1) = {"
 dDB
@@ -96407,6 +96454,7 @@ blb
 dDB
 dDB
 dDB
+wte
 dDB
 dDB
 bSo
@@ -96474,7 +96522,6 @@ dDB
 dDB
 dDB
 dDB
-oVE
 "}
 (95,1,1) = {"
 dDB
@@ -96664,6 +96711,7 @@ blb
 dDB
 dDB
 dDB
+wte
 dDB
 dDB
 bSo
@@ -96731,7 +96779,6 @@ dDB
 dDB
 dDB
 dDB
-oVE
 "}
 (96,1,1) = {"
 dDB
@@ -96921,6 +96968,7 @@ blb
 dDB
 dDB
 dDB
+wte
 dDB
 dDB
 bSo
@@ -96988,7 +97036,6 @@ dDB
 dDB
 dDB
 dDB
-oVE
 "}
 (97,1,1) = {"
 dDB
@@ -97178,6 +97225,7 @@ blb
 dDB
 dDB
 dDB
+wte
 dDB
 dDB
 bSo
@@ -97435,6 +97483,7 @@ blb
 blb
 blb
 blb
+wte
 blb
 blb
 blb
@@ -97502,7 +97551,6 @@ dDB
 dDB
 dDB
 dDB
-oVE
 "}
 (99,1,1) = {"
 dDB
@@ -97692,6 +97740,7 @@ blb
 dDB
 dDB
 dDB
+wte
 dDB
 dDB
 bSo
@@ -97949,6 +97998,7 @@ blb
 dDB
 dDB
 dDB
+wte
 dDB
 dDB
 bSo
@@ -98016,7 +98066,6 @@ dDB
 dDB
 dDB
 dDB
-oVE
 "}
 (101,1,1) = {"
 dDB
@@ -98206,6 +98255,7 @@ blb
 dDB
 dDB
 dDB
+wte
 dDB
 dDB
 bSo
@@ -98273,7 +98323,6 @@ dDB
 dDB
 dDB
 dDB
-oVE
 "}
 (102,1,1) = {"
 dDB
@@ -98463,7 +98512,7 @@ blb
 sSQ
 lMF
 lMF
-pfY
+nZz
 lMF
 lMF
 sSQ
@@ -98976,9 +99025,9 @@ sqV
 nFy
 sSQ
 goB
-fWh
+jbt
 pfd
-fWh
+jbt
 qAq
 sSQ
 rwq
@@ -109930,7 +109979,7 @@ tIE
 aJN
 aJN
 aJN
-uJZ
+aJN
 aJN
 doX
 doX
@@ -132049,7 +132098,7 @@ dDB
 dDB
 dDB
 dDB
-dDB
+wPf
 dDB
 dDB
 dDB
