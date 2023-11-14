@@ -17,9 +17,6 @@
 	var/obj/machinery/plumbing/reaction_chamber/chamber = parent
 	if(chamber.emptying)
 		return
-	var/required_amount = 0
-	var/total_present_amount = 0
-	var/total_required_amount = 0
 
 	//take in reagents
 	var/present_amount
@@ -63,5 +60,4 @@
 
 /datum/component/plumbing/alkaline_input/send_request(dir)
 	process_request(reagent = /datum/reagent/reaction_agent/basic_buffer, dir = dir)
-
 
