@@ -595,3 +595,16 @@
   - bugfix: Now you can refuse the pirates request.
   honkpocket:
   - bugfix: The SC/FISHER side-arm is now available in the OPFOR loadout.
+2023-11-15:
+  Nerev4r:
+  - bugfix: Kicks are no longer supercharged by the dark energies of the Satsui no
+      Hado, making them no longer do a billion damage.
+  Shroopy:
+  - bugfix: Molotovs now light their splashed contents on fire.
+  SkyratBot:
+  - balance: Sapient brimdemons can't hurt themselves with their own beams
+  - bugfix: bileworms will now attack
+  - bugfix: The plaguebearer can no longer depower virology on Tramstation
+  TwistedSilicon:
+  - bugfix: invisimin verb now makes you invisible to all HUDs too! No more floating
+      healthbars or job identifiers giving you away while you sneak around.
