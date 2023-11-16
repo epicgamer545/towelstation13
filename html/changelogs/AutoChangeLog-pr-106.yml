@@ -1,0 +1,5 @@
+author: "xPokee"
+delete-after: True
+changes:
+  - bugfix: "The HoP and Captain once again have ID consoles on Kilo"
+  - bugfix: "Gave the Kilo bitrunning den lights"
