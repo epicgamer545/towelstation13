@@ -608,3 +608,7 @@
   TwistedSilicon:
   - bugfix: invisimin verb now makes you invisible to all HUDs too! No more floating
       healthbars or job identifiers giving you away while you sneak around.
+2023-11-17:
+  xPokee:
+  - bugfix: The HoP and Captain once again have ID consoles on Kilo
+  - bugfix: Gave the Kilo bitrunning den lights
