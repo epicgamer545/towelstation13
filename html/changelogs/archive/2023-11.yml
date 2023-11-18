@@ -612,3 +612,7 @@
   xPokee:
   - bugfix: The HoP and Captain once again have ID consoles on Kilo
   - bugfix: Gave the Kilo bitrunning den lights
+2023-11-18:
+  xPokee:
+  - rscdel: removed the ashwalker salt geyser due to saltcane existing now
+  - bugfix: fixed infinite gutlunches

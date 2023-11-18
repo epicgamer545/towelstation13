@@ -1,5 +1,0 @@
-author: "xPokee"
-delete-after: True
-changes:
-  - rscdel: "removed the ashwalker salt geyser due to saltcane existing now"
-  - bugfix: "fixed infinite gutlunches"
