@@ -16,6 +16,9 @@
 /// This makes trait makes it so that the person cannot be infected by the zombie virus.
 #define TRAIT_MUTANT_IMMUNE "mutant_immune"
 
+/// adds -6 quirk to negative quirks for free points.
+#define TRAIT_GIFTED "gifted"
+
 //AdditionalEmotes *turf traits
 #define TRAIT_WATER_ASPECT "water_aspect"
 #define TRAIT_WEBBING_ASPECT "webbing_aspect"
@@ -47,6 +50,12 @@
 // felinid traits
 #define TRAIT_FELINE "feline_aspect"
 
+// canine traits
+#define TRAIT_CANINE "canine_aspect"
+
+// avian traits
+#define TRAIT_AVIAN "avian_aspect"
+
 // chameleon mutation
 #define TRAIT_CHAMELEON_SKIN "chameleon_skin"
 
@@ -55,9 +64,6 @@
 
 /// The trait that determines if someone has the oversized quirk.
 #define TRAIT_OVERSIZED "trait_oversized"
-
-/// Caninid trait
-#define TRAIT_CANINE "trait_canine"
 
 /// Cargo Loader trait
 #define TRAIT_TRASHMAN "trait_trashman"
