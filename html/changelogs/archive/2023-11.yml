@@ -904,3 +904,29 @@
       once friendly. Being rather large dogs, they also have access to most of the
       pet commands you'd expect, such as fetching things, and violently mauling people
       their owners point at.
+2023-11-22:
+  SkyratBot:
+  - balance: signers no longer suffer from social anxiety's speech changes when they
+      go non-verbal. Other effects are maintained.
+  - rscadd: The battle against Maint Khan's forces rages on in the periphery stations
+      of the Spinward Sector. And with it, a new breed of unarmed warrior has emerged;
+      the cybernetic martial artist. Nanotrasen, rather than quell the minor maintenance
+      civil war brewing in their sector, have chosen to exploit this conflict to push
+      their weapons and cybernetics research to new heights!
+  - rscadd: Advanced cybernetic arms can be printed at the Robotics exofabricator
+      once researched. They are unlocked by researching the Advanced Robotics Research
+      node.
+  - rscadd: Advanced cybernetic arms are more durable than standard limbs, and also
+      have higher unarmed potential.
+  - balance: Strongarm implants now utilize the attacking limb's unarmed potential
+      to determine damage and potential armor penetration. It also does additional
+      stamina damage (1.5x punch damage)
+  - balance: Surplus prosthetic limbs contribute more of their carried damage to overall
+      health (AKA they make you actively more vulnerable to damage), and deal less
+      damage with unarmed attacks. Take Quadruple Amputee at your own risk.
+  - bugfix: When you successfully block a body collision, it does something rather
+      than nothing at all.
+  - image: 'Following now have unique item sprites: syndicate war declaration radio,
+      curator and chief beacon''s, chaplain beacon.'
+  - image: 'Following now have unique inhand sprites: radio, export scanner, walkie-talkie,
+      syndicate war declaration radio, curator and chief beacon''s, chaplain beacon.'
