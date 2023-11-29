@@ -1201,3 +1201,21 @@
   sqnztb:
   - bugfix: bitrunners can now drop off their caches properly on void raptor under
       certain roundstart access conditions.
+2023-11-29:
+  Ghasterino:
+  - bugfix: Made the hypospray actually use the "WAIT_" values for the respective
+      mode it's using.
+  - bugfix: Made the CMO hypospray actually instant, instead of seeming instant in
+      code but not actually instant in game.
+  LT3:
+  - bugfix: 'Disease outbreak: classic spawned from the admin secrets panel no longer
+      fails to start'
+  - bugfix: Disease outbreak provides a message about why it fails to start
+  - bugfix: Getting beheaded by the tram increments the scoreboard
+  SkyratBot:
+  - code_imp: verb callbacks will no longer execute if the original client disconnected
+  - bugfix: fixed chemical closet door not rendering when open
+  - bugfix: During the "Cursed Items" wizard event, you should only have smoke spawn
+      on you if you actually had a cursed item equipped to you.
+  - bugfix: You can now destructively analyze syndicate and abductor items. It works
+      this time, I promise!
