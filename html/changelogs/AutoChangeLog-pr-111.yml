@@ -1,0 +1,4 @@
+author: "xPokee"
+delete-after: True
+changes:
+  - bugfix: "Fixed some things on the Kilo map, including the bitrunning den being depowered and the cryo tubes being turned the wrong way."
