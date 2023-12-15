@@ -30,6 +30,9 @@ export const AntagInfoClock = (props) => {
               <Rules />
             </Stack.Item>
             <Stack.Item>
+              <Rules />
+            </Stack.Item>
+            <Stack.Item>
               <ObjectivePrintout />
             </Stack.Item>
           </Stack>

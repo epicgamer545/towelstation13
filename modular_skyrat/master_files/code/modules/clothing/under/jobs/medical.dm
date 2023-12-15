@@ -80,6 +80,8 @@
 
 /obj/item/clothing/under/rank/medical/chemist/skirt
 
+/obj/item/clothing/under/rank/medical/chemist/skirt
+
 /*
 *	PARAMEDIC
 */
