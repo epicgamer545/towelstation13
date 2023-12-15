@@ -9,10 +9,6 @@ import { Window } from '../layouts';
 import { useBackend } from '../backend';
 import { ReactNode } from 'react';
 
-<<<<<<<< HEAD:tgui/packages/tgui/interfaces/Interview.jsx
-export const Interview = (props) => {
-  const { act, data } = useBackend();
-========
 type Data = {
   connected: boolean;
   is_admin: boolean;
@@ -57,7 +53,6 @@ const linkifyText = (text: string) => {
 
 export const Interview = (props) => {
   const { act, data } = useBackend<Data>();
->>>>>>>> 4871c662679c443bd8200f7b22b13e4c53625eea:tgui/packages/tgui/interfaces/Interview.tsx
   const {
     connected,
     is_admin,

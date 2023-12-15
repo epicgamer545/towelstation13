@@ -1,236 +1,162 @@
-// THIS IS A SKYRAT UI FILE
-<<<<<<<< HEAD:tgui/packages/tgui/interfaces/LoadoutManager.jsx
-import { useBackend, useSharedState } from '../backend';
-========
-import { useState } from 'react';
-import { useBackend } from '../backend';
->>>>>>>> 4871c662679c443bd8200f7b22b13e4c53625eea:tgui/packages/tgui/interfaces/LoadoutManager.tsx
-import { Box, Button, Section, Stack, Dropdown } from '../components';
-import { BooleanLike } from 'common/react';
+import {
+  Button,
+  TextArea,
+  Section,
+  BlockQuote,
+  NoticeBox,
+} from '../components';
 import { Window } from '../layouts';
+import { useBackend } from '../backend';
+import { ReactNode } from 'react';
 
-<<<<<<<< HEAD:tgui/packages/tgui/interfaces/LoadoutManager.jsx
-export const LoadoutManager = (props) => {
-  const { act, data } = useBackend();
-  const { selected_loadout, loadout_tabs, user_is_donator } = data;
-
-  const [selectedTabName, setSelectedTab] = useSharedState(
-    'tabs',
-    loadout_tabs[0]?.name,
-  );
-========
-type LoadoutTabData = {
-  loadout_tabs: LoadoutTab[];
-  selected_loadout: string[];
-  user_is_donator: BooleanLike;
+type Data = {
+  connected: boolean;
+  is_admin: boolean;
+  questions: Question[];
+  queue_pos: number;
+  read_only: boolean;
+  status: string;
+  welcome_message: string;
 };
 
-type LoadoutTab = {
-  name: string;
-  title: string;
-  contents: LoadoutTabItem[];
+type Question = {
+  qidx: number;
+  question: string;
+  response: string;
 };
 
-type LoadoutTabItem = {
-  name: string;
-  path: string;
-  is_greyscale: BooleanLike;
-  is_renameable: BooleanLike;
-  is_job_restricted: BooleanLike;
-  is_job_blacklisted: BooleanLike;
-  is_species_restricted: BooleanLike;
-  is_donator_only: BooleanLike;
-  is_ckey_whitelisted: BooleanLike;
-  tooltip_text: string;
+enum STATUS {
+  Approved = 'interview_approved',
+  Denied = 'interview_denied',
+}
+
+// Matches a complete markdown-style link, capturing the whole [...](...)
+const linkRegex = /(\[[^[]+\]\([^)]+\))/;
+// Decomposes a markdown-style link into the link and display text
+const linkDecomposeRegex = /\[([^[]+)\]\(([^)]+)\)/;
+
+// Renders any markdown-style links within a provided body of text
+const linkifyText = (text: string) => {
+  let parts: ReactNode[] = text.split(linkRegex);
+  for (let i = 1; i < parts.length; i += 2) {
+    const match = linkDecomposeRegex.exec(parts[i] as string);
+    if (!match) continue;
+
+    parts[i] = (
+      <a key={'link' + i} href={match[2]}>
+        {match[1]}
+      </a>
+    );
+  }
+  return parts;
 };
 
-export const LoadoutManager = (props) => {
-  const { act, data } = useBackend<LoadoutTabData>();
-  const { selected_loadout, loadout_tabs, user_is_donator } = data;
-
-  const [selectedTabName, setSelectedTab] = useState(loadout_tabs[0]?.name);
->>>>>>>> 4871c662679c443bd8200f7b22b13e4c53625eea:tgui/packages/tgui/interfaces/LoadoutManager.tsx
-  const selectedTab = loadout_tabs.find((curTab) => {
-    return curTab.name === selectedTabName;
-  });
+export const Interview = (props) => {
+  const { act, data } = useBackend<Data>();
+  const {
+    connected,
+    is_admin,
+    questions = [], // TODO: Remove default
+    queue_pos,
+    read_only,
+    status,
+    welcome_message = '',
+  } = data;
 
   return (
-    <Window title="Loadout Manager" width={500} height={650}>
-      <Window.Content>
-        <Stack fill vertical>
-          <Stack.Item>
-            <Section
-              title="Loadout Categories"
-              align="center"
-              buttons={
-                <Button
-                  icon="info"
-                  align="center"
-                  content="Tutorial"
-                  onClick={() => act('toggle_tutorial')}
-                />
-              }
-            >
+    <Window
+      width={500}
+      height={600}
+      canClose={is_admin || status === 'interview_approved'}
+    >
+      <Window.Content scrollable>
+        {(!read_only && (
+          <Section title="Welcome!">
+            <p>{linkifyText(welcome_message)}</p>
+          </Section>
+        )) || <RenderedStatus status={status} queue_pos={queue_pos} />}
+        <Section
+          title="Questionnaire"
+          buttons={
+            <span>
               <Button
-                icon="check-double"
-                color="good"
-                content="Confirm"
-                tooltip="Confirm loadout and exit UI."
-                onClick={() => act('close_ui', { revert: 0 })}
+                content={read_only ? 'Submitted' : 'Submit'}
+                onClick={() => act('submit')}
+                disabled={read_only}
               />
-              <Dropdown
-                width="100%"
-                selected={selectedTabName}
-                options={loadout_tabs.map((curTab) => curTab.name)}
-                onSelected={(curTab) => setSelectedTab(curTab)}
-              />
+              {!!is_admin && status === 'interview_pending' && (
+                <span>
+                  <Button
+                    content="Admin PM"
+                    enabled={connected}
+                    onClick={() => act('adminpm')}
+                  />
+                  <Button
+                    content="Approve"
+                    color="good"
+                    onClick={() => act('approve')}
+                  />
+                  <Button
+                    content="Deny"
+                    color="bad"
+                    onClick={() => act('deny')}
+                  />
+                </span>
+              )}
+            </span>
+          }
+        >
+          {!read_only && (
+            <p>
+              Please answer the following questions, and press submit when you
+              are satisfied with your answers.
+              <br />
+              <br />
+              <b>You will not be able to edit your answers after submitting.</b>
+            </p>
+          )}
+          {questions.map(({ qidx, question, response }) => (
+            <Section key={qidx} title={`Question ${qidx}`}>
+              <p>{linkifyText(question)}</p>
+              {((read_only || is_admin) && (
+                <BlockQuote>{response || 'No response.'}</BlockQuote>
+              )) || (
+                <TextArea
+                  value={response}
+                  fluid
+                  height={10}
+                  maxLength={500}
+                  placeholder="Write your response here, max of 500 characters. Press enter to submit."
+                  onEnter={(e, input) =>
+                    act('update_answer', {
+                      qidx,
+                      answer: input,
+                    })
+                  }
+                />
+              )}
             </Section>
-          </Stack.Item>
-          <Stack.Item grow>
-            <Stack fill>
-              <Stack.Item grow>
-                {selectedTab && selectedTab.contents ? (
-                  <Section
-                    title={selectedTab.title}
-                    fill
-                    scrollable
-                    buttons={
-                      <Button.Confirm
-                        icon="times"
-                        color="red"
-                        align="center"
-                        content="Clear All Items"
-                        tooltip="Clears ALL selected items from all categories."
-                        width={10}
-                        onClick={() => act('clear_all_items')}
-                      />
-                    }
-                  >
-                    <Stack grow vertical>
-                      {selectedTab.contents.map((item) => (
-                        <Stack.Item key={item.name}>
-                          <Stack fontSize="15px">
-                            <Stack.Item grow align="left">
-                              {item.name}
-                            </Stack.Item>
-                            {!!item.is_greyscale && (
-                              <Stack.Item>
-                                <Button
-                                  icon="palette"
-                                  onClick={() =>
-                                    act('select_color', {
-                                      path: item.path,
-                                    })
-                                  }
-                                />
-                              </Stack.Item>
-                            )}
-                            {!!item.is_renameable && (
-                              <Stack.Item>
-                                <Button
-                                  icon="pen"
-                                  onClick={() =>
-                                    act('set_name', {
-                                      path: item.path,
-                                    })
-                                  }
-                                />
-                              </Stack.Item>
-                            )}
-                            {!!item.is_job_restricted && (
-                              <Stack.Item>
-                                <Button
-                                  icon="briefcase"
-                                  onClick={() =>
-                                    act('display_restrictions', {
-                                      path: item.path,
-                                    })
-                                  }
-                                />
-                              </Stack.Item>
-                            )}
-                            {!!item.is_job_blacklisted && (
-                              <Stack.Item>
-                                <Button
-                                  icon="lock"
-                                  onClick={() =>
-                                    act('display_restrictions', {
-                                      path: item.path,
-                                    })
-                                  }
-                                />
-                              </Stack.Item>
-                            )}
-                            {!!item.is_species_restricted && (
-                              <Stack.Item>
-                                <Button
-                                  icon="spaghetti-monster-flying"
-                                  onClick={() =>
-                                    act('display_restrictions', {
-                                      path: item.path,
-                                    })
-                                  }
-                                />
-                              </Stack.Item>
-                            )}
-                            {!!item.is_donator_only && (
-                              <Stack.Item>
-                                <Button
-                                  icon="heart"
-                                  color="pink"
-                                  onClick={() =>
-                                    act('donator_explain', {
-                                      path: item.path,
-                                    })
-                                  }
-                                />
-                              </Stack.Item>
-                            )}
-                            {!!item.is_ckey_whitelisted && (
-                              <Stack.Item>
-                                <Button
-                                  icon="user-lock"
-                                  onClick={() =>
-                                    act('ckey_explain', {
-                                      path: item.path,
-                                    })
-                                  }
-                                />
-                              </Stack.Item>
-                            )}
-                            <Stack.Item>
-                              <Button.Checkbox
-                                checked={selected_loadout.includes(item.path)}
-                                content="Select"
-                                disabled={
-                                  item.is_donator_only && !user_is_donator
-                                }
-                                fluid
-                                onClick={() =>
-                                  act('select_item', {
-                                    path: item.path,
-                                    deselect: selected_loadout.includes(
-                                      item.path,
-                                    ),
-                                  })
-                                }
-                              />
-                            </Stack.Item>
-                          </Stack>
-                        </Stack.Item>
-                      ))}
-                    </Stack>
-                  </Section>
-                ) : (
-                  <Section fill>
-                    <Box>No contents for selected tab.</Box>
-                  </Section>
-                )}
-              </Stack.Item>
-            </Stack>
-          </Stack.Item>
-        </Stack>
+          ))}
+        </Section>
       </Window.Content>
     </Window>
   );
+};
+
+const RenderedStatus = (props: { status: string; queue_pos: number }) => {
+  const { status, queue_pos } = props;
+
+  switch (status) {
+    case STATUS.Approved:
+      return <NoticeBox success>This interview was approved.</NoticeBox>;
+    case STATUS.Denied:
+      return <NoticeBox danger>This interview was denied.</NoticeBox>;
+    default:
+      return (
+        <NoticeBox info>
+          Your answers have been submitted. You are position {queue_pos} in
+          queue.
+        </NoticeBox>
+      );
+  }
 };
