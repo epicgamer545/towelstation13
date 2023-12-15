@@ -1,5 +1,4 @@
-import { useState } from 'react';
-import { useBackend } from '../backend';
+import { useBackend, useLocalState } from '../backend';
 import {
   Section,
   Stack,
@@ -93,7 +92,7 @@ const MachineScreen = (props) => {
 const MainScreen = (props) => {
   const { act, data } = useBackend<Data>();
   const { machinery = [], network } = data;
-  const [networkId, setNetworkId] = useState(network);
+  const [networkId, setNetworkId] = useLocalState('networkId', network);
 
   return (
     <Stack fill vertical>

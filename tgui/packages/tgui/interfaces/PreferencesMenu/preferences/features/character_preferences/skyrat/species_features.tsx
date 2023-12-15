@@ -600,7 +600,8 @@ export const skrell_hair_color: Feature<string[]> = {
 
 export const skrell_hair_emissive: Feature<boolean[]> = {
   name: 'Skrell Hair Emissives',
-  description: 'Emissive parts glow in the dark.',
+  description:
+    'Want to have a fancy species name? Put it here, or leave it blank.',
   component: FeatureTriBoolInput,
 };
 

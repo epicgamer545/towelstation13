@@ -78,8 +78,10 @@ export const ElevatorPanel = (props) => {
                 {all_floor_data.map((floor, index) => (
                   <Stack.Item key={index}>
                     <Button
-                      fontWeight="bold"
-                      fontSize="14px"
+                      style={{
+                        fontWeight: 'bold',
+                        fontSize: '14px',
+                      }}
                       fluid
                       ellipsis
                       textAlign="left"

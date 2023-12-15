@@ -14,7 +14,6 @@ import { range, sortBy } from 'common/collections';
 import { KeyEvent } from '../../events';
 import { TabbedMenu } from './TabbedMenu';
 import { fetchRetry } from '../../http';
-import { KEY } from 'common/keys';
 
 type Keybinding = {
   name: string;
@@ -38,10 +37,10 @@ type KeybindingsPageState = {
 
 const isStandardKey = (event: KeyboardEvent): boolean => {
   return (
-    event.key !== KEY.Alt &&
-    event.key !== KEY.Control &&
-    event.key !== KEY.Shift &&
-    event.key !== KEY.Escape
+    event.key !== 'Alt' &&
+    event.key !== 'Control' &&
+    event.key !== 'Shift' &&
+    event.key !== 'Esc'
   );
 };
 
@@ -134,10 +133,7 @@ class KeybindingButton extends Component<{
         fluid
         textAlign="center"
         captureKeys={typingHotkey === undefined}
-        onClick={(event) => {
-          event.stopPropagation();
-          onClick?.();
-        }}
+        onClick={onClick}
         selected={typingHotkey !== undefined}
       >
         {typingHotkey || currentHotkey || 'Unbound'}

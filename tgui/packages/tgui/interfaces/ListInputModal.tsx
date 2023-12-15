@@ -204,7 +204,7 @@ const ListDisplay = (props) => {
             id={index}
             key={index}
             onClick={() => onClick(index)}
-            onDoubleClick={(event) => {
+            onDblClick={(event) => {
               event.preventDefault();
               act('submit', { entry: filteredItems[selected] });
             }}

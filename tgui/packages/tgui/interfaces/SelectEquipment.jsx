@@ -140,7 +140,7 @@ const OutfitDisplay = (props) => {
               path: getOutfitKey(entry),
             })
           }
-          onDoubleClick={() =>
+          onDblClick={() =>
             act('applyoutfit', {
               path: getOutfitKey(entry),
             })

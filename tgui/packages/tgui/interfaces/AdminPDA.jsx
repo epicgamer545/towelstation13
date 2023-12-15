@@ -125,7 +125,7 @@ const MessageInput = (props) => {
           placeholder="Type the message you want to send..."
           height="200px"
           mb={1}
-          onChange={(e, value) => {
+          onInput={(e, value) => {
             setMessageText(value);
           }}
         />

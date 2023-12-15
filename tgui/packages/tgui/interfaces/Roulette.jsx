@@ -1,8 +1,7 @@
 import { classes } from 'common/react';
-import { useBackend } from '../backend';
+import { useBackend, useLocalState } from '../backend';
 import { Box, Button, Grid, NumberInput, Table } from '../components';
 import { Window } from '../layouts';
-import { useState } from 'react';
 
 const getNumberColor = (number) => {
   const inRedOddRange =
@@ -154,7 +153,7 @@ export const RouletteBoard = () => {
 export const RouletteBetTable = (props) => {
   const { act, data } = useBackend();
 
-  const [customBet, setCustomBet] = useState(500);
+  const [customBet, setCustomBet] = useLocalState('customBet', 500);
 
   let { BetType } = data;
 

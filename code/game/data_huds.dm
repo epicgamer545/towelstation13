@@ -81,9 +81,6 @@
 	for(var/mob/camera/ai_eye/eye as anything in GLOB.aiEyes)
 		eye.update_ai_detect_hud()
 
-/datum/atom_hud/data/malf_apc
-	hud_icons = list(MALF_APC_HUD)
-
 /* MED/SEC/DIAG HUD HOOKS */
 
 /*
@@ -207,7 +204,7 @@ Medical HUD! Basic mode needs suit sensors on.
 	if(HAS_TRAIT(src, TRAIT_XENO_HOST))
 		holder.icon_state = "hudxeno"
 	else if(stat == DEAD || (HAS_TRAIT(src, TRAIT_FAKEDEATH)))
-		if(can_defib_client())
+		if((key || get_ghost(FALSE, FALSE)) && (can_defib() & DEFIB_REVIVABLE_STATES)) // SKYRAT EDIT : OG : if((key || get_ghost(FALSE, TRUE)) && (can_defib() & DEFIB_REVIVABLE_STATES))
 			holder.icon_state = "huddefib"
 		else
 			holder.icon_state = "huddead"
@@ -326,12 +323,6 @@ Security HUDs! Basic mode shows only the job.
 	var/image/holder = hud_list[WANTED_HUD]
 	var/icon/sec_icon = icon(icon, icon_state, dir)
 	holder.pixel_y = sec_icon.Height() - world.icon_size
-
-	if (HAS_TRAIT(src, TRAIT_ALWAYS_WANTED))
-		holder.icon_state = "hudwanted"
-		set_hud_image_active(WANTED_HUD)
-		return
-
 	var/perp_name = get_face_name(get_id_name(""))
 
 	if(!perp_name || !GLOB.manifest)
@@ -575,10 +566,3 @@ Diagnostic HUDs!
 	var/image/holder = hud_list[DIAG_AIRLOCK_HUD]
 	holder.icon_state = "electrified"
 	set_hud_image_active(DIAG_AIRLOCK_HUD)
-
-/// Applies hacked overlay for malf AIs
-/obj/machinery/power/apc/proc/set_hacked_hud()
-	var/image/holder = hud_list[MALF_APC_HUD]
-	holder.loc = get_turf(src)
-	SET_PLANE(holder,ABOVE_LIGHTING_PLANE,src)
-	set_hud_image_active(MALF_APC_HUD)

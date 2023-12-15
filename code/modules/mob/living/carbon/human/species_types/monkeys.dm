@@ -59,8 +59,7 @@
 	C.RemoveElement(/datum/element/human_biter)
 
 /datum/species/monkey/check_roundstart_eligible()
-	// STOP ADDING MONKEY SUBTYPES YOU HEATHEN
-	if(check_holidays(MONKEYDAY) && id == SPECIES_MONKEY)
+	if(check_holidays(MONKEYDAY))
 		return TRUE
 	return ..()
 

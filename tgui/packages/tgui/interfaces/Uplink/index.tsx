@@ -86,10 +86,8 @@ type ServerData = {
   categories: string[];
 };
 
-type ItemExtraData = Item & {
-  extraData: {
-    ref?: string;
-  };
+type ItemExtraData = {
+  ref?: string | undefined;
 };
 
 // Cache response so it's only sent once
@@ -197,7 +195,7 @@ export class Uplink extends Component<{}, UplinkState> {
     const { allItems, allCategories, currentTab } = this.state as UplinkState;
 
     const itemsToAdd = [...allItems];
-    const items: ItemExtraData[] = [];
+    const items: Item<ItemExtraData>[] = [];
     itemsToAdd.push(...extra_purchasable);
     for (let i = 0; i < extra_purchasable.length; i++) {
       const item = extra_purchasable[i];
@@ -446,11 +444,12 @@ export class Uplink extends Component<{}, UplinkState> {
                       currency=""
                       categories={allCategories}
                       items={items}
-                      handleBuy={(item: ItemExtraData) => {
-                        if (!item.extraData?.ref) {
+                      handleBuy={(item) => {
+                        const extraDataItem = item as Item<ItemExtraData>;
+                        if (!extraDataItem.extraData?.ref) {
                           act('buy', { path: item.id });
                         } else {
-                          act('buy', { ref: item.extraData.ref });
+                          act('buy', { ref: extraDataItem.extraData.ref });
                         }
                       }}
                     />

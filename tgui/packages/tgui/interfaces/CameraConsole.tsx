@@ -2,8 +2,7 @@ import { filter, sortBy } from 'common/collections';
 import { flow } from 'common/fp';
 import { BooleanLike, classes } from 'common/react';
 import { createSearch } from 'common/string';
-import { useState } from 'react';
-import { useBackend } from '../backend';
+import { useBackend, useLocalState } from '../backend';
 import {
   Button,
   ByondUi,
@@ -89,15 +88,13 @@ export const CameraConsole = (props) => {
 };
 
 export const CameraContent = (props) => {
-  const [searchText, setSearchText] = useState('');
-
   return (
     <Stack fill>
       <Stack.Item grow>
-        <CameraSelector searchText={searchText} setSearchText={setSearchText} />
+        <CameraSelector />
       </Stack.Item>
       <Stack.Item grow={3}>
-        <CameraControls searchText={searchText} />
+        <CameraControls />
       </Stack.Item>
     </Stack>
   );
@@ -105,7 +102,7 @@ export const CameraContent = (props) => {
 
 const CameraSelector = (props) => {
   const { act, data } = useBackend<Data>();
-  const { searchText, setSearchText } = props;
+  const [searchText, setSearchText] = useLocalState('searchText', '');
   const { activeCamera } = data;
   const cameras = selectCameras(data.cameras, searchText);
 
@@ -152,10 +149,10 @@ const CameraSelector = (props) => {
   );
 };
 
-const CameraControls = (props: { searchText: string }) => {
+const CameraControls = (props) => {
   const { act, data } = useBackend<Data>();
   const { activeCamera, can_spy, mapRef } = data;
-  const { searchText } = props;
+  const [searchText] = useLocalState('searchText', '');
 
   const cameras = selectCameras(data.cameras, searchText);
 

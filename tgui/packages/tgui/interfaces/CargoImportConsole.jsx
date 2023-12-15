@@ -1,12 +1,11 @@
 // THIS IS A SKYRAT UI FILE
-import { useBackend } from '../backend';
+import { useBackend, useLocalState } from '../backend';
 import { Section, Stack, Box, Divider, Button } from '../components';
 import { Window } from '../layouts';
-import { useState } from 'react';
 
 export const CargoImportConsole = (props) => {
-  const [category, setCategory] = useState('');
-  const [weapon, setArmament] = useState('weapon');
+  const [category, setCategory] = useLocalState('category', '');
+  const [weapon, setArmament] = useLocalState('weapon');
   const { act, data } = useBackend();
   const {
     armaments_list = [],

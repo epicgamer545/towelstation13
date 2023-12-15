@@ -329,7 +329,7 @@ const SendToAllSection = (props) => {
           height={6}
           value={message}
           placeholder="Send message to everyone..."
-          onChange={(event, value: string) => setmessage(value)}
+          onInput={(_: any, v: string) => setmessage(v)}
         />
       </Section>
     </>
