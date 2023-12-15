@@ -91,6 +91,7 @@ export type Quirk = {
   value: number;
   customizable: boolean;
   customization_options?: string[];
+  veteran_only: boolean; // SKYRAT EDIT - Veteran quirks
 };
 
 // SKYRAT EDIT START

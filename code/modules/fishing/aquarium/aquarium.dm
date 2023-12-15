@@ -170,15 +170,6 @@
 		reagents.expose(get_turf(src), TOUCH) //splash on the floor
 		reagents.clear_reagents()
 
-/obj/structure/aquarium/plunger_act(obj/item/plunger/P, mob/living/user, reinforced)
-	if(!panel_open)
-		return
-	to_chat(user, span_notice("You start plunging [name]."))
-	if(do_after(user, 3 SECONDS, target = src))
-		to_chat(user, span_notice("You finish plunging the [name]."))
-		reagents.expose(get_turf(src), TOUCH) //splash on the floor
-		reagents.clear_reagents()
-
 /obj/structure/aquarium/attackby(obj/item/item, mob/living/user, params)
 	if(broken)
 		var/obj/item/stack/sheet/glass/glass = item
