@@ -1,12 +1,11 @@
 import { resolveAsset } from '../assets';
-import { useBackend } from '../backend';
+import { useBackend, useLocalState } from '../backend';
 import { Button, Flex, NoticeBox, Section, Input } from '../components';
 import { Window } from '../layouts';
-import { useState } from 'react';
 
 export const PortraitPicker = (props) => {
   const { act, data } = useBackend();
-  const [listIndex, setListIndex] = useState(0);
+  const [listIndex, setListIndex] = useLocalState('listIndex', 0);
   const { paintings, search_string, search_mode } = data;
   const got_paintings = !!paintings.length;
   const current_portrait_title = got_paintings && paintings[listIndex]['title'];
@@ -14,7 +13,6 @@ export const PortraitPicker = (props) => {
     got_paintings && 'By ' + paintings[listIndex]['creator'];
   const current_portrait_asset_name =
     got_paintings && 'paintings' + '_' + paintings[listIndex]['md5'];
-
   return (
     <Window theme="ntos" title="Portrait Picker" width={400} height={406}>
       <Window.Content>

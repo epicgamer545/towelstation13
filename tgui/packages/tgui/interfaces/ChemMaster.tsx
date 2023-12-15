@@ -1,7 +1,6 @@
 import { BooleanLike, classes } from 'common/react';
 import { capitalize } from 'common/string';
-import { useState } from 'react';
-import { useBackend } from '../backend';
+import { useBackend, useLocalState } from '../backend';
 import {
   AnimatedNumber,
   Box,
@@ -103,7 +102,7 @@ const ChemMasterContent = (props) => {
     suggestedContainer,
   } = data;
 
-  const [itemCount, setItemCount] = useState(1);
+  const [itemCount, setItemCount] = useLocalState('itemCount', 1);
 
   return (
     <Box>

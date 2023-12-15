@@ -382,7 +382,7 @@
 
 /obj/machinery/atmospherics/wrench_act(mob/living/user, obj/item/I)
 	if(!can_unwrench(user))
-		return ITEM_INTERACT_BLOCKING
+		return ..()
 
 	var/datum/gas_mixture/int_air = return_air()
 	var/datum/gas_mixture/env_air = loc.return_air()
@@ -396,11 +396,11 @@
 		var/empty_mixes = 0
 		for(var/gas_mix_number in 1 to device_type)
 			var/datum/gas_mixture/gas_mix = all_gas_mixes[gas_mix_number]
-			if(!gas_mix.total_moles())
+			if(!(gas_mix.total_moles() > 0))
 				empty_mixes++
 		if(empty_mixes == device_type)
 			empty_pipe = TRUE
-	if(!int_air.total_moles())
+	if(!(int_air.total_moles() > 0))
 		empty_pipe = TRUE
 
 	if(!empty_pipe)
@@ -410,7 +410,8 @@
 		to_chat(user, span_warning("As you begin unwrenching \the [src] a gush of air blows in your face... maybe you should reconsider?"))
 		unsafe_wrenching = TRUE //Oh dear oh dear
 
-	if(I.use_tool(src, user, empty_pipe ? 0 : 2 SECONDS, volume = 50))
+	var/time_taken = empty_pipe ? 0 : 20
+	if(I.use_tool(src, user, time_taken, volume = 50))
 		user.visible_message( \
 			"[user] unfastens \the [src].", \
 			span_notice("You unfasten \the [src]."), \
@@ -420,10 +421,9 @@
 		//You unwrenched a pipe full of pressure? Let's splat you into the wall, silly.
 		if(unsafe_wrenching)
 			unsafe_pressure_release(user, internal_pressure)
-		deconstruct(TRUE)
-		return ITEM_INTERACT_SUCCESS
+		return deconstruct(TRUE)
 
-	return ITEM_INTERACT_BLOCKING
+	return ..()
 
 /**
  * Getter for can_unwrench

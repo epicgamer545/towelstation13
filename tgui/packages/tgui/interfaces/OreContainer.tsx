@@ -1,6 +1,5 @@
 import { createSearch, toTitleCase } from 'common/string';
-import { useState } from 'react';
-import { useBackend } from '../backend';
+import { useBackend, useLocalState } from '../backend';
 import { Box, Button, Input, Stack, Flex, Section } from '../components';
 import { Window } from '../layouts';
 
@@ -23,11 +22,10 @@ type Data = {
 export const OreContainer = (props) => {
   const { act, data } = useBackend<Data>();
   const { ores = [] } = data;
-  const [searchItem, setSearchItem] = useState('');
+  const [searchItem, setSearchItem] = useLocalState('searchItem', '');
   const search = createSearch(searchItem, (ore: Ores) => ore.name);
   const ores_filtered =
     searchItem.length > 0 ? ores.filter((ore) => search(ore)) : ores;
-
   return (
     <Window title="Ore Container" width={550} height={400}>
       <Window.Content>

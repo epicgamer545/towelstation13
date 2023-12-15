@@ -1,6 +1,6 @@
 import { createSearch } from 'common/string';
 import { filter, map, reduce, sortBy } from 'common/collections';
-import { useBackend } from '../backend';
+import { useBackend, useLocalState } from '../backend';
 import {
   Box,
   Button,
@@ -13,7 +13,6 @@ import {
 import { Window } from '../layouts';
 import { clamp } from 'common/math';
 import { flow } from 'common/fp';
-import { useState } from 'react';
 
 type Recipe = {
   ref: unknown | null;
@@ -102,7 +101,7 @@ export const StackCrafting = (_props) => {
   const { data } = useBackend<StackCraftingProps>();
   const { amount, recipes = {} } = data;
 
-  const [searchText, setSearchText] = useState('');
+  const [searchText, setSearchText] = useLocalState('searchText', '');
   const testSearch = createSearch(searchText, (item: string) => item);
   const filteredRecipes = filterRecipeList(recipes, testSearch);
 

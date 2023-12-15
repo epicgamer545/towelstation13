@@ -1,5 +1,4 @@
-import { useState } from 'react';
-import { useBackend } from '../backend';
+import { useBackend, useLocalState } from '../backend';
 import { Box, LabeledList, Stack, Tabs, Tooltip } from '../components';
 import { Window } from '../layouts';
 import { getDangerLevel } from './Uplink/calculateDangerLevel';
@@ -168,10 +167,16 @@ export const TraitorObjectiveDebug = (props) => {
     );
   }
   let objectivesToRender: Objective[] = [];
-  const [currentTab, setCurrentTab] = useState('All');
-  const [sortingFunc, setSortingFunc] = useState(sortingOptions[0].name);
+  const [currentTab, setCurrentTab] = useLocalState('currentTab', 'All');
+  const [sortingFunc, setSortingFunc] = useLocalState(
+    'sortingFunc',
+    sortingOptions[0].name,
+  );
   // true = ascending, false = descending
-  const [sortDirection, setSortingDirection] = useState(true);
+  const [sortDirection, setSortingDirection] = useLocalState(
+    'sortDirection',
+    true,
+  );
 
   let actualSortingFunc;
   for (let index = 0; index < sortingOptions.length; index++) {

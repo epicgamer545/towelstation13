@@ -1,5 +1,4 @@
-import { useState } from 'react';
-import { useBackend } from '../backend';
+import { useBackend, useLocalState } from '../backend';
 import { Icon, ProgressBar, Tabs } from '../components';
 import { Window } from '../layouts';
 
@@ -26,33 +25,28 @@ const DIRECTION_TO_ICON = {
   northwest: 315,
 } as const;
 
-enum TAB {
-  Implant,
-  Beacon,
-}
-
 export const BluespaceLocator = (props) => {
-  const [tab, setTab] = useState(TAB.Implant);
+  const [tab, setTab] = useLocalState('tab', 'implant');
 
   return (
     <Window width={300} height={300}>
       <Window.Content scrollable>
         <Tabs>
           <Tabs.Tab
-            selected={tab === TAB.Implant}
-            onClick={() => setTab(TAB.Implant)}
+            selected={tab === 'implant'}
+            onClick={() => setTab('implant')}
           >
             Implants
           </Tabs.Tab>
           <Tabs.Tab
-            selected={tab === TAB.Beacon}
-            onClick={() => setTab(TAB.Beacon)}
+            selected={tab === 'beacon'}
+            onClick={() => setTab('beacon')}
           >
             Teleporter Beacons
           </Tabs.Tab>
         </Tabs>
-        {(TAB.Beacon && <TeleporterBeacons />) ||
-          (TAB.Implant && <TrackingImplants />)}
+        {(tab === 'beacon' && <TeleporterBeacons />) ||
+          (tab === 'implant' && <TrackingImplants />)}
       </Window.Content>
     </Window>
   );

@@ -1,7 +1,6 @@
 import { decodeHtmlEntities } from 'common/string';
-import { useState } from 'react';
 import { resolveAsset } from '../assets';
-import { useBackend } from '../backend';
+import { useBackend, useLocalState } from '../backend';
 import { Box, Button, LabeledList, Section, Table } from '../components';
 import { Window } from '../layouts';
 
@@ -28,12 +27,11 @@ type PaintingData = {
 
 export const PaintingAdminPanel = (props) => {
   const { act, data } = useBackend<PaintingAdminPanelData>();
-  const [chosenPaintingRef, setChosenPaintingRef] = useState<
-    string | undefined
-  >();
+  const [chosenPaintingRef, setChosenPaintingRef] = useLocalState<
+    string | null
+  >('chosenPainting', null);
   const { paintings } = data;
   const chosenPainting = paintings.find((p) => p.ref === chosenPaintingRef);
-
   return (
     <Window title="Painting Admin Panel" width={800} height={600}>
       <Window.Content scrollable>
@@ -41,9 +39,7 @@ export const PaintingAdminPanel = (props) => {
           <Section
             title="Painting Information"
             buttons={
-              <Button onClick={() => setChosenPaintingRef(undefined)}>
-                Close
-              </Button>
+              <Button onClick={() => setChosenPaintingRef(null)}>Close</Button>
             }
           >
             <img
@@ -130,7 +126,7 @@ export const PaintingAdminPanel = (props) => {
             <Section title="Actions">
               <Button.Confirm
                 onClick={() => {
-                  setChosenPaintingRef(undefined);
+                  setChosenPaintingRef(null);
                   act('delete', { ref: chosenPainting.ref });
                 }}
               >

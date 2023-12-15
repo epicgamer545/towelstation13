@@ -7,12 +7,12 @@ import { Button } from './Button';
 import { Icon } from './Icon';
 import { Stack } from './Stack';
 
-type DropdownEntry = {
+export interface DropdownEntry {
   displayText: string | number | ReactNode;
   value: string | number | Enumerator;
-};
+}
 
-type Props = { options: string[] | DropdownEntry[] } & Partial<{
+type DropdownUniqueProps = { options: string[] | DropdownEntry[] } & Partial<{
   buttons: boolean;
   clipSelectedText: boolean;
   color: string;
@@ -30,13 +30,9 @@ type Props = { options: string[] | DropdownEntry[] } & Partial<{
   // you freaks really are just doing anything with this shit
   selected: any;
   width: string;
-}> &
-  BoxProps;
+}>;
 
-type State = {
-  selected?: string;
-  open: boolean;
-};
+export type DropdownProps = BoxProps & DropdownUniqueProps;
 
 const DEFAULT_OPTIONS = {
   placement: 'left-start',
@@ -47,7 +43,6 @@ const DEFAULT_OPTIONS = {
     },
   ],
 };
-
 const NULL_RECT: DOMRect = {
   width: 0,
   height: 0,
@@ -60,10 +55,15 @@ const NULL_RECT: DOMRect = {
   toJSON: () => null,
 } as const;
 
+type DropdownState = {
+  selected?: string;
+  open: boolean;
+};
+
 const DROPDOWN_DEFAULT_CLASSNAMES = 'Layout Dropdown__menu';
 const DROPDOWN_SCROLL_CLASSNAMES = 'Layout Dropdown__menu-scroll';
 
-export class Dropdown extends Component<Props, State> {
+export class Dropdown extends Component<DropdownProps, DropdownState> {
   static renderedMenu: HTMLDivElement | undefined;
   static singletonPopper: ReturnType<typeof createPopper> | undefined;
   static currentOpenMenu: Element | undefined;
@@ -72,7 +72,7 @@ export class Dropdown extends Component<Props, State> {
       Dropdown.currentOpenMenu?.getBoundingClientRect() ?? NULL_RECT,
   };
   menuContents: any;
-  state: State = {
+  state: DropdownState = {
     open: false,
     selected: this.props.selected,
   };
@@ -342,7 +342,7 @@ export class Dropdown extends Component<Props, State> {
                 overflow: clipSelectedText ? 'hidden' : 'visible',
               }}
             >
-              {this.state.selected || displayText}
+              {displayText || this.state.selected}
             </span>
             {nochevron || (
               <span className="Dropdown__arrow-button">

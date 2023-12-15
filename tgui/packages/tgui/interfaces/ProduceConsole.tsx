@@ -1,6 +1,5 @@
 import { BooleanLike } from 'common/react';
 import { capitalize, createSearch } from 'common/string';
-import { useState } from 'react';
 import { useBackend, useLocalState } from '../backend';
 import {
   Box,
@@ -65,9 +64,12 @@ const findAmount = (item_amts, name) => {
 const ShoppingTab = (props) => {
   const { data, act } = useBackend<Data>();
   const { credit_type, order_categories, order_datums, item_amts } = data;
-  const [shopCategory, setShopCategory] = useState(order_categories[0]);
+  const [shopCategory, setShopCategory] = useLocalState(
+    'shopCategory',
+    order_categories[0],
+  );
   const [condensed] = useLocalState('condensed', false);
-  const [searchItem, setSearchItem] = useState('');
+  const [searchItem, setSearchItem] = useLocalState('searchItem', '');
   const search = createSearch<OrderDatum>(
     searchItem,
     (order_datums) => order_datums.name,
@@ -329,10 +331,9 @@ const OrderSent = (props) => {
 export const ProduceConsole = (props) => {
   const { data } = useBackend<Data>();
   const { credit_type, points, off_cooldown, order_categories } = data;
-  const [tabIndex, setTabIndex] = useState(1);
+  const [tabIndex, setTabIndex] = useLocalState('tab-index', 1);
   const [condensed, setCondensed] = useLocalState('condensed', false);
   const TabComponent = TAB2NAME[tabIndex - 1].component();
-
   return (
     <Window width={Math.max(order_categories.length * 125, 500)} height={400}>
       <Window.Content>

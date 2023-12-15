@@ -1,12 +1,11 @@
 import { createSearch } from 'common/string';
-import { useBackend } from '../backend';
+import { useBackend, useLocalState } from '../backend';
 import { Box, Icon, Input, Section } from '../components';
 import { NtosWindow } from '../layouts';
-import { useState } from 'react';
 
 export const NtosRecords = (props) => {
   const { act, data } = useBackend();
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useLocalState('search', '');
   const { mode, records } = data;
 
   const isMatchingSearchTerms = createSearch(searchTerm);
