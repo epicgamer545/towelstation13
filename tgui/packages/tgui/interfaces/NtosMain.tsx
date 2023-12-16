@@ -4,11 +4,7 @@ import { NtosWindow } from '../layouts';
 import { NTOSData } from '../layouts/NtosWindow';
 
 export const NtosMain = (props) => {
-<<<<<<<< HEAD:tgui/packages/tgui/interfaces/NtosMain.jsx
-  const { act, data } = useBackend();
-========
   const { act, data } = useBackend<NTOSData>();
->>>>>>>> 417357a81d89ba97a727a8a79a6f47ba67437315:tgui/packages/tgui/interfaces/NtosMain.tsx
   const {
     PC_device_theme,
     show_imprint,
@@ -33,10 +29,7 @@ export const NtosMain = (props) => {
       }
       width={400}
       height={500}
-<<<<<<<< HEAD:tgui/packages/tgui/interfaces/NtosMain.jsx
-========
       z
->>>>>>>> 417357a81d89ba97a727a8a79a6f47ba67437315:tgui/packages/tgui/interfaces/NtosMain.tsx
     >
       <NtosWindow.Content scrollable>
         {Boolean(
@@ -176,11 +169,7 @@ export const NtosMain = (props) => {
 };
 
 const ProgramsTable = (props) => {
-<<<<<<<< HEAD:tgui/packages/tgui/interfaces/NtosMain.jsx
-  const { act, data } = useBackend();
-========
   const { act, data } = useBackend<NTOSData>();
->>>>>>>> 417357a81d89ba97a727a8a79a6f47ba67437315:tgui/packages/tgui/interfaces/NtosMain.tsx
   const { programs = [] } = data;
   // add the program filename to this list to have it excluded from the main menu program list table
   const filtered_programs = programs.filter(

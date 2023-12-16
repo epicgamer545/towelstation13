@@ -10,11 +10,6 @@ import { useBackend } from '../backend';
 import { Box, Button } from '../components';
 import { Window } from './Window';
 
-<<<<<<<< HEAD:tgui/packages/tgui/layouts/NtosWindow.jsx
-export const NtosWindow = (props) => {
-  const { title, width = 575, height = 700, children } = props;
-  const { act, data } = useBackend();
-========
 export type NTOSData = {
   authenticatedUser: string | null;
   authIDName: string;
@@ -58,7 +53,6 @@ type Login = {
 export const NtosWindow = (props) => {
   const { title, width = 575, height = 700, children } = props;
   const { act, data } = useBackend<NTOSData>();
->>>>>>>> 417357a81d89ba97a727a8a79a6f47ba67437315:tgui/packages/tgui/layouts/NtosWindow.tsx
   const {
     PC_device_theme,
     PC_batteryicon,

@@ -1,24 +1,10 @@
 // THIS IS A SKYRAT UI FILE
-<<<<<<<< HEAD:tgui/packages/tgui/interfaces/LoadoutManager.jsx
-import { useBackend, useSharedState } from '../backend';
-========
 import { useState } from 'react';
 import { useBackend } from '../backend';
->>>>>>>> 417357a81d89ba97a727a8a79a6f47ba67437315:tgui/packages/tgui/interfaces/LoadoutManager.tsx
 import { Box, Button, Section, Stack, Dropdown } from '../components';
 import { BooleanLike } from 'common/react';
 import { Window } from '../layouts';
 
-<<<<<<<< HEAD:tgui/packages/tgui/interfaces/LoadoutManager.jsx
-export const LoadoutManager = (props) => {
-  const { act, data } = useBackend();
-  const { selected_loadout, loadout_tabs, user_is_donator } = data;
-
-  const [selectedTabName, setSelectedTab] = useSharedState(
-    'tabs',
-    loadout_tabs[0]?.name,
-  );
-========
 type LoadoutTabData = {
   loadout_tabs: LoadoutTab[];
   selected_loadout: string[];
@@ -49,7 +35,6 @@ export const LoadoutManager = (props) => {
   const { selected_loadout, loadout_tabs, user_is_donator } = data;
 
   const [selectedTabName, setSelectedTab] = useState(loadout_tabs[0]?.name);
->>>>>>>> 417357a81d89ba97a727a8a79a6f47ba67437315:tgui/packages/tgui/interfaces/LoadoutManager.tsx
   const selectedTab = loadout_tabs.find((curTab) => {
     return curTab.name === selectedTabName;
   });

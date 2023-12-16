@@ -13,8 +13,6 @@ import { NtosWindow } from '../layouts';
 import { NTOSData } from '../layouts/NtosWindow';
 import { AccessList } from './common/AccessList';
 
-<<<<<<<< HEAD:tgui/packages/tgui/interfaces/NtosCard.jsx
-========
 type Data = {
   access_on_card: Array<string | number>;
   accessFlagNames: Record<string, string>;
@@ -46,7 +44,6 @@ type Slot = {
   usage: any[];
 };
 
->>>>>>>> 417357a81d89ba97a727a8a79a6f47ba67437315:tgui/packages/tgui/interfaces/NtosCard.tsx
 export const NtosCard = (props) => {
   return (
     <NtosWindow width={500} height={670}>
@@ -58,11 +55,7 @@ export const NtosCard = (props) => {
 };
 
 export const NtosCardContent = (props) => {
-<<<<<<<< HEAD:tgui/packages/tgui/interfaces/NtosCard.jsx
-  const { act, data } = useBackend();
-========
   const { act, data } = useBackend<Data>();
->>>>>>>> 417357a81d89ba97a727a8a79a6f47ba67437315:tgui/packages/tgui/interfaces/NtosCard.tsx
   const {
     access_on_card = [],
     accessFlagNames,
@@ -139,22 +132,9 @@ export const NtosCardContent = (props) => {
 };
 
 const IdCardPage = (props) => {
-<<<<<<<< HEAD:tgui/packages/tgui/interfaces/NtosCard.jsx
-  const { act, data } = useBackend();
-  const {
-    authenticatedUser,
-    id_rank,
-    id_owner,
-    has_id,
-    id_name,
-    id_age,
-    authIDName,
-  } = data;
-========
   const { act, data } = useBackend<Data>();
   const { authenticatedUser, id_rank, id_owner, has_id, id_age, authIDName } =
     data;
->>>>>>>> 417357a81d89ba97a727a8a79a6f47ba67437315:tgui/packages/tgui/interfaces/NtosCard.tsx
 
   return (
     <Section
@@ -244,11 +224,7 @@ const IdCardPage = (props) => {
 };
 
 const TemplateDropdown = (props) => {
-<<<<<<<< HEAD:tgui/packages/tgui/interfaces/NtosCard.jsx
-  const { act } = useBackend();
-========
   const { act } = useBackend<Data>();
->>>>>>>> 417357a81d89ba97a727a8a79a6f47ba67437315:tgui/packages/tgui/interfaces/NtosCard.tsx
   const { templates } = props;
 
   const templateKeys = Object.keys(templates);
