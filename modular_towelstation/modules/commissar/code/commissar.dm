@@ -41,8 +41,6 @@
 	to_chat(user, span_notice("You toggle [src]'s vox audio functions."))
 
 /obj/item/gun/ballistic/automatic/pistol/commissar/AltClick(mob/user)
-	if(!user.canUseTopic(src, BE_CLOSE, ismonkey(user)))
-		return
 	if((cooldown < world.time - 200) && funnysounds)
 		user.audible_message("<font color='red' size='5'><b>DON'T TURN AROUND!</b></font>")
 		playsound(src, 'modular_towelstation/modules/commissar/sounds/dontturnaround.ogg', 50, 0, 4)
@@ -51,7 +49,7 @@
 /obj/item/gun/ballistic/automatic/pistol/commissar/examine(mob/user)
 	. = ..()
 	if(funnysounds)
-		. += "<span class='info'>Alt-click to use \the [src] vox hailer.</span>"
+		. += span_info("Alt-click to use \the [src] vox hailer.")
 
 /obj/item/ammo_box/magazine/co9mm
 	name = "pistol magazine (9mm)"
