@@ -7907,6 +7907,7 @@
 #include "modular_towelstation\master_files\code\__HELPERS\icons.dm"
 #include "modular_towelstation\master_files\code\__HELPERS\matrices.dm"
 #include "modular_towelstation\modules\colormate\code\colormate.dm"
+#include "modular_towelstation\modules\commissar\code\commissar.dm"
 #include "modular_towelstation\modules\compression_kit\compressionkit.dm"
 #include "modular_towelstation\modules\modular_foods\code\smores.dm"
 // END_INCLUDE
