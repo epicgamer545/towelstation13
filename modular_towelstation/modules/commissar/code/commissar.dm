@@ -4,7 +4,7 @@
 	desc = "A German made pistol with the manufacture date stamped as being 1982."
 	icon_state = "pistol"
 	w_class = WEIGHT_CLASS_NORMAL
-	mag_type = /obj/item/ammo_box/magazine/co9mm
+	accepted_magazine_type = /obj/item/ammo_box/magazine/co9mm
 	can_suppress = FALSE
 	var/funnysounds = TRUE
 	var/cooldown = 0
