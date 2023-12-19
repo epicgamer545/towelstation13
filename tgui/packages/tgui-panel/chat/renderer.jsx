@@ -171,20 +171,20 @@ class ChatRenderer {
       this.scrollToBottom();
     });
     // Flush the queue
-    this.tryFlushQueue();
+    // this.tryFlushQueue();
   }
 
   onStateLoaded() {
     this.loaded = true;
-    this.tryFlushQueue();
+    // this.tryFlushQueue();
   }
 
-  tryFlushQueue() {
+  /*  tryFlushQueue() {
     if (this.isReady() && this.queue.length > 0) {
       this.processBatch(this.queue);
       this.queue = [];
     }
-  }
+  } */
 
   assignStyle(style = {}) {
     for (let key of Object.keys(style)) {
@@ -287,7 +287,7 @@ class ChatRenderer {
   changePage(page) {
     if (!this.isReady()) {
       this.page = page;
-      this.tryFlushQueue();
+      //  this.tryFlushQueue();
       return;
     }
     this.page = page;
