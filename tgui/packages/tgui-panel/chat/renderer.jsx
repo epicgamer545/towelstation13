@@ -6,7 +6,10 @@
 
 import { EventEmitter } from 'common/events';
 import { classes } from 'common/react';
+import { render } from 'react-dom';
+import { Tooltip } from 'tgui/components';
 import { createLogger } from 'tgui/logging';
+
 import {
   COMBINE_MAX_MESSAGES,
   COMBINE_MAX_TIME_WINDOW,
@@ -16,14 +19,12 @@ import {
   MAX_PERSISTED_MESSAGES,
   MAX_VISIBLE_MESSAGES,
   MESSAGE_PRUNE_INTERVAL,
-  MESSAGE_TYPES,
   MESSAGE_TYPE_INTERNAL,
   MESSAGE_TYPE_UNKNOWN,
+  MESSAGE_TYPES,
 } from './constants';
-import { render } from 'react-dom';
 import { canPageAcceptType, createMessage, isSameMessage } from './model';
 import { highlightNode, linkifyNode } from './replaceInTextNode';
-import { Tooltip } from 'tgui/components';
 
 const logger = createLogger('chatRenderer');
 
@@ -171,21 +172,21 @@ class ChatRenderer {
       this.scrollToBottom();
     });
     // Flush the queue
-    //    this.tryFlushQueue();
+    this.tryFlushQueue();
   }
 
   onStateLoaded() {
     this.loaded = true;
-    //    this.tryFlushQueue();
+    this.tryFlushQueue();
   }
-  /*
+
   tryFlushQueue() {
     if (this.isReady() && this.queue.length > 0) {
       this.processBatch(this.queue);
       this.queue = [];
     }
   }
-*/
+
   assignStyle(style = {}) {
     for (let key of Object.keys(style)) {
       this.rootNode.style.setProperty(key, style[key]);
