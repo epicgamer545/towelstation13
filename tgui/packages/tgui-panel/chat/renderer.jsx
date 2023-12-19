@@ -171,21 +171,21 @@ class ChatRenderer {
       this.scrollToBottom();
     });
     // Flush the queue
-    this.tryFlushQueue();
+    //    this.tryFlushQueue();
   }
 
   onStateLoaded() {
     this.loaded = true;
-    this.tryFlushQueue();
+    //    this.tryFlushQueue();
   }
-
+  /*
   tryFlushQueue() {
     if (this.isReady() && this.queue.length > 0) {
       this.processBatch(this.queue);
       this.queue = [];
     }
   }
-
+*/
   assignStyle(style = {}) {
     for (let key of Object.keys(style)) {
       this.rootNode.style.setProperty(key, style[key]);
